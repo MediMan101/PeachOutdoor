@@ -605,12 +605,38 @@
         function chatAboutItem() {
             const itemInfo = `Interested in: ${itemData.Manufacturer} ${itemData.Model} (ID: ${itemData.InventoryID}) - $${itemData.Price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}`;
             
-            // Copy item details to clipboard
-            navigator.clipboard.writeText(itemInfo).then(() => {
-                console.log('Item details copied to clipboard');
-            }).catch(err => {
-                console.error('Failed to copy to clipboard:', err);
-            });
+            // Try to copy to clipboard
+            let clipboardSuccess = false;
+            
+            // Method 1: Modern clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(itemInfo)
+                    .then(() => {
+                        clipboardSuccess = true;
+                        console.log('Copied to clipboard:', itemInfo);
+                    })
+                    .catch(err => {
+                        console.error('Clipboard API failed:', err);
+                    });
+            }
+            
+            // Method 2: Fallback using textarea (works more reliably)
+            if (!clipboardSuccess) {
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = itemInfo;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    clipboardSuccess = true;
+                    console.log('Copied via execCommand:', itemInfo);
+                } catch (err) {
+                    console.error('execCommand failed:', err);
+                }
+            }
             
             // Open Kenect widget
             const kenectWrapper = document.getElementById('iframe-wrapper-YMG00J4LwubAnqrXw9851g');
@@ -618,26 +644,30 @@
             if (kenectWrapper) {
                 kenectWrapper.click();
                 
-                // Show notification after widget opens
+                // Show different message based on clipboard success
                 setTimeout(() => {
-                    alert('📋 Item details copied to clipboard!\n\nPaste (Ctrl+V or Cmd+V) into the message field.');
+                    if (clipboardSuccess) {
+                        alert('📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the message field.');
+                    } else {
+                        alert('💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
+                    }
                 }, 800);
                 
                 return;
             }
             
-            // Fallback - if the ID changes, try to find it dynamically
+            // Fallback
             const wrapper = document.querySelector('[id*="iframe-wrapper"]');
             if (wrapper) {
                 wrapper.click();
                 setTimeout(() => {
-                    alert('📋 Item details copied to clipboard!\n\nPaste (Ctrl+V or Cmd+V) into the message field.');
+                    alert('💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
                 }, 800);
                 return;
             }
             
             // Last resort
-            alert('Please click the "Text us!" button to chat about this item!\n\nItem: ' + itemData.Manufacturer + ' ' + itemData.Model + '\nPrice: $' + itemData.Price.toLocaleString());
+            alert('Please click "Text us!" to chat about:\n\n' + itemInfo);
         }
 
         function showError(message) {
