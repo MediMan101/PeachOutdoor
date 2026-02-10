@@ -1,0 +1,53 @@
+{
+  "LS": [
+    { "name": "MT125", "price": 12500, "loaderPrice": 2850, "backhoePrice": 5200 },
+    { "name": "MT225", "price": 15800, "loaderPrice": 3200, "backhoePrice": 5500 },
+    { "name": "MT325", "price": 18200, "loaderPrice": 3650, "backhoePrice": 5800 },
+    { "name": "MT425", "price": 21500, "loaderPrice": 4100, "backhoePrice": 6100 },
+    { "name": "MT525", "price": 24800, "loaderPrice": 4550, "backhoePrice": 6400 },
+    { "name": "XR3135", "price": 28500, "loaderPrice": 5200, "backhoePrice": 6900 },
+    { "name": "XR3140", "price": 32100, "loaderPrice": 5750, "backhoePrice": 7400 },
+    { "name": "XR4145", "price": 36700, "loaderPrice": 6400, "backhoePrice": 7900 },
+    { "name": "XR4150", "price": 41200, "loaderPrice": 6950, "backhoePrice": 8400 },
+    { "name": "XU6168", "price": 48900, "loaderPrice": 7800, "backhoePrice": 9200 },
+    { "name": "XU6176", "price": 54300, "loaderPrice": 8400, "backhoePrice": 9800 },
+    { "name": "P7030", "price": 62500, "loaderPrice": 9200, "backhoePrice": 10600 },
+    { "name": "P7040", "price": 71800, "loaderPrice": 9850, "backhoePrice": 11200 },
+    { "name": "P7050", "price": 83200, "loaderPrice": 10600, "backhoePrice": 11900 },
+    { "name": "P7060", "price": 96500, "loaderPrice": 11500, "backhoePrice": 12800 }
+  ],
+  "Mahindra": [
+    { "name": "Max 24", "price": 13200, "loaderPrice": 2950, "backhoePrice": 5300 },
+    { "name": "Max 26", "price": 16400, "loaderPrice": 3350, "backhoePrice": 5600 },
+    { "name": "1626", "price": 19800, "loaderPrice": 3800, "backhoePrice": 5900 },
+    { "name": "2638", "price": 23500, "loaderPrice": 4300, "backhoePrice": 6300 },
+    { "name": "2655", "price": 27200, "loaderPrice": 4750, "backhoePrice": 6700 },
+    { "name": "3540", "price": 31800, "loaderPrice": 5400, "backhoePrice": 7200 },
+    { "name": "4540", "price": 36900, "loaderPrice": 6100, "backhoePrice": 7800 },
+    { "name": "5570", "price": 42500, "loaderPrice": 6850, "backhoePrice": 8500 },
+    { "name": "6065", "price": 49300, "loaderPrice": 7500, "backhoePrice": 9100 },
+    { "name": "6075", "price": 56700, "loaderPrice": 8200, "backhoePrice": 9700 },
+    { "name": "7085", "price": 65400, "loaderPrice": 9000, "backhoePrice": 10500 },
+    { "name": "8090", "price": 74800, "loaderPrice": 9700, "backhoePrice": 11100 },
+    { "name": "9110", "price": 86200, "loaderPrice": 10500, "backhoePrice": 11900 },
+    { "name": "10125", "price": 98500, "loaderPrice": 11300, "backhoePrice": 12700 },
+    { "name": "M-Force", "price": 112300, "loaderPrice": 12400, "backhoePrice": 13800 }
+  ],
+  "Bad Boy": [
+    { "name": "Compact 25", "price": 11900, "loaderPrice": 2750, "backhoePrice": 5100 },
+    { "name": "Compact 30", "price": 14700, "loaderPrice": 3100, "backhoePrice": 5400 },
+    { "name": "Utility 35", "price": 17800, "loaderPrice": 3550, "backhoePrice": 5700 },
+    { "name": "Utility 40", "price": 20900, "loaderPrice": 3950, "backhoePrice": 6000 },
+    { "name": "Utility 45", "price": 24300, "loaderPrice": 4400, "backhoePrice": 6400 },
+    { "name": "Pro 50", "price": 28700, "loaderPrice": 5050, "backhoePrice": 6900 },
+    { "name": "Pro 55", "price": 33400, "loaderPrice": 5650, "backhoePrice": 7500 },
+    { "name": "Pro 60", "price": 38900, "loaderPrice": 6300, "backhoePrice": 8100 },
+    { "name": "Heavy 65", "price": 45200, "loaderPrice": 7100, "backhoePrice": 8900 },
+    { "name": "Heavy 70", "price": 52100, "loaderPrice": 7850, "backhoePrice": 9600 },
+    { "name": "Heavy 75", "price": 59800, "loaderPrice": 8600, "backhoePrice": 10300 },
+    { "name": "Elite 80", "price": 68500, "loaderPrice": 9400, "backhoePrice": 11100 },
+    { "name": "Elite 90", "price": 78900, "loaderPrice": 10300, "backhoePrice": 12000 },
+    { "name": "Elite 100", "price": 91200, "loaderPrice": 11200, "backhoePrice": 12900 },
+    { "name": "Extreme 120", "price": 107600, "loaderPrice": 12800, "backhoePrice": 14200 }
+  ]
+}

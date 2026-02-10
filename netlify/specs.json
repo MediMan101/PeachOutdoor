@@ -1,0 +1,94 @@
+[
+  {
+    "Model": "7530",
+    "Manufacturer": "Bad Boy",
+    "Specs": {
+      "Engine": {
+        "Type": "Brushless Electric Motor",
+        "Power": "80V",
+        "Battery": "2.5 Ah Lithium-Ion"
+      },
+      "Performance": {
+        "Runtime": "Up to 45 minutes",
+        "Charge Time": "60 minutes",
+        "Weight": "5.2 lbs"
+      },
+      "Features": {
+        "Variable Speed": "Yes",
+        "LED Indicator": "Battery level display",
+        "Warranty": "3 years"
+      }
+    }
+  },
+  {
+    "Model": "MT125",
+    "Manufacturer": "LS",
+    "Specs": {
+      "Engine": {
+        "Type": "Diesel 3-Cylinder",
+        "Displacement": "1.5L",
+        "Horsepower": "24.5 HP",
+        "Cylinders": "3"
+      },
+      "Transmission": {
+        "Type": "Hydrostatic",
+        "Speeds": "Variable"
+      },
+      "Dimensions": {
+        "Length": "108 inches",
+        "Width": "54 inches",
+        "Height": "78 inches",
+        "Weight": "2,450 lbs"
+      },
+      "Hydraulics": {
+        "3-Point Hitch": "Category 1",
+        "Lift Capacity": "1,250 lbs",
+        "PTO HP": "20.5 HP"
+      },
+      "Features": {
+        "4WD": "Yes",
+        "Power Steering": "Yes",
+        "Cruise Control": "Optional",
+        "Warranty": "5 years powertrain"
+      }
+    }
+  },
+  {
+    "Model": "1526",
+    "Manufacturer": "Mahindra",
+    "Specs": {
+      "Engine": {
+        "Type": "Diesel 3-Cylinder",
+        "Displacement": "1.5L",
+        "Horsepower": "26 HP",
+        "Cylinders": "3",
+        "Fuel Tank": "6.3 gallons"
+      },
+      "Transmission": {
+        "Type": "Synchro Shuttle",
+        "Forward Gears": "8",
+        "Reverse Gears": "8"
+      },
+      "Dimensions": {
+        "Length": "115 inches",
+        "Width": "56 inches",
+        "Height": "82 inches",
+        "Wheelbase": "68 inches",
+        "Weight": "2,756 lbs"
+      },
+      "Hydraulics": {
+        "3-Point Hitch": "Category 1",
+        "Lift Capacity": "1,433 lbs",
+        "PTO HP": "22 HP",
+        "PTO Speed": "540 RPM"
+      },
+      "Features": {
+        "4WD": "Yes",
+        "Power Steering": "Standard",
+        "Differential Lock": "Yes",
+        "ROPS": "Foldable",
+        "Warranty": "6 years powertrain"
+      }
+    }
+  }
+]
