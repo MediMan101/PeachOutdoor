@@ -603,29 +603,40 @@
         }
 
         function chatAboutItem() {
-            // Try to find the Kenect iframe specifically
-            const kenectIframe = document.querySelector('iframe[src*="widget.kenect.com"]');
+            const itemInfo = `Interested in: ${itemData.Manufacturer} ${itemData.Model} (ID: ${itemData.InventoryID}) - $${itemData.Price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}`;
             
-            if (kenectIframe) {
-                // Click the iframe to open the widget
-                kenectIframe.click();
+            // Copy item details to clipboard
+            navigator.clipboard.writeText(itemInfo).then(() => {
+                console.log('Item details copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy to clipboard:', err);
+            });
+            
+            // Open Kenect widget
+            const kenectWrapper = document.getElementById('iframe-wrapper-YMG00J4LwubAnqrXw9851g');
+            
+            if (kenectWrapper) {
+                kenectWrapper.click();
                 
-                // Also try clicking the parent container
-                if (kenectIframe.parentElement) {
-                    kenectIframe.parentElement.click();
-                }
+                // Show notification after widget opens
+                setTimeout(() => {
+                    alert('📋 Item details copied to clipboard!\n\nPaste (Ctrl+V or Cmd+V) into the message field.');
+                }, 800);
                 
                 return;
             }
             
-            // Fallback - look for any element with kenect in the class
-            const kenectElement = document.querySelector('[class*="kenect"], [id*="kenect"]');
-            if (kenectElement) {
-                kenectElement.click();
+            // Fallback - if the ID changes, try to find it dynamically
+            const wrapper = document.querySelector('[id*="iframe-wrapper"]');
+            if (wrapper) {
+                wrapper.click();
+                setTimeout(() => {
+                    alert('📋 Item details copied to clipboard!\n\nPaste (Ctrl+V or Cmd+V) into the message field.');
+                }, 800);
                 return;
             }
             
-            // Last resort - tell user to click Text us button
+            // Last resort
             alert('Please click the "Text us!" button to chat about this item!\n\nItem: ' + itemData.Manufacturer + ' ' + itemData.Model + '\nPrice: $' + itemData.Price.toLocaleString());
         }
 
