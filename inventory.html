@@ -553,13 +553,13 @@
                         ${item.Used ? '<span class="used-badge">USED</span>' : ''}
                     </div>
                     <div class="row-description clickable-area" onclick="window.location.href='${detailsUrl}'" title="${item.Description || 'No description'}">${item.Description || 'No description available'}</div>
-                    <div class="row-price clickable-area" onclick="window.location.href='${detailsUrl}'">$${(item.Price || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    <div class="row-price clickable-area" onclick="window.location.href='${detailsUrl}'">${item.Web_Price != null ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '<span style="color:#e67e22;font-weight:700;font-size:0.9em;">Call for Price</span>'}</div>
                     <div class="row-qty clickable-area" onclick="window.location.href='${detailsUrl}'">${item.QuantityAvailable || 0}</div>
                     <div class="action-buttons">
                         <button class="build-btn-small" onclick="window.location.href='${buildUrl}'">
                             🛠️ Build
                         </button>
-                        <button class="chat-btn-small" onclick="contactAboutItem('${item.Manufacturer}', '${item.Model}', '${item.Price}')">
+                        <button class="chat-btn-small" onclick="contactAboutItem('${item.Manufacturer}', '${item.Model}', ${item.Web_Price != null ? item.Web_Price : 'null'})">
                             💬 Chat
                         </button>
                     </div>
