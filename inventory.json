@@ -3120,21 +3120,6 @@
         "Notes":  ""
     },
     {
-        "InventoryID":  22743,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "MAGNUM",
-        "Model":  "BMZ54FR651",
-        "Description":  "Bad Boy Magnum 54\" 726cc Kawasaki FR",
-        "SerialNumber":  "BMZ54FR65110250383",
-        "Location":  "CLA",
-        "MSRP":  5099.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  ""
-    },
-    {
         "InventoryID":  23349,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
@@ -3150,13 +3135,13 @@
         "Notes":  ""
     },
     {
-        "InventoryID":  22328,
+        "InventoryID":  20876,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "ROGUE",
         "Model":  "BRG5435KA",
         "Description":  "Rogue 54\" Kawasiki 35HP Mower",
-        "SerialNumber":  "BRG5435KA03250004",
+        "SerialNumber":  "BRG5435KA03250003",
         "Location":  "CLA",
         "MSRP":  14620.0000,
         "Web_Price":  null,
@@ -3165,13 +3150,13 @@
         "Notes":  ""
     },
     {
-        "InventoryID":  20876,
+        "InventoryID":  22328,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "ROGUE",
         "Model":  "BRG5435KA",
         "Description":  "Rogue 54\" Kawasiki 35HP Mower",
-        "SerialNumber":  "BRG5435KA03250003",
+        "SerialNumber":  "BRG5435KA03250004",
         "Location":  "CLA",
         "MSRP":  14620.0000,
         "Web_Price":  null,
