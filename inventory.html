@@ -151,7 +151,7 @@
 
         .list-header {
             display: grid;
-            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px 280px;
+            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px;
             gap: 15px;
             padding: 15px 40px;
             background: #f8f9fa;
@@ -163,7 +163,7 @@
 
         .inventory-row {
             display: grid;
-            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px 280px;
+            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px;
             gap: 15px;
             padding: 15px 40px;
             border-bottom: 1px solid #e0e0e0;
@@ -180,30 +180,7 @@
             cursor: pointer;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-            justify-content: flex-start;
-        }
 
-        .build-btn-small {
-            background: #4caf50;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.82em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .build-btn-small:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
-            background: #45a049;
-        }
 
         .row-thumbnail {
             width: 60px;
@@ -528,14 +505,12 @@
                     <div>Description</div>
                     <div>Price</div>
                     <div>Stock</div>
-                    <div>Actions</div>
                 </div>
             `;
 
             // Create data rows
             const rowsHTML = filteredData.map(item => {
                 const detailsUrl = `item-details.html?id=${item.InventoryID}${window.location.search ? '&return=' + encodeURIComponent(window.location.search) : ''}`;
-                const buildUrl = `configurator.html?brand=${encodeURIComponent(item.Manufacturer)}&model=${encodeURIComponent(item.Model)}`;
                 
                 return `
                 <div class="inventory-row">
@@ -553,16 +528,8 @@
                         ${item.Used ? '<span class="used-badge">USED</span>' : ''}
                     </div>
                     <div class="row-description clickable-area" onclick="window.location.href='${detailsUrl}'" title="${item.Description || 'No description'}">${item.Description || 'No description available'}</div>
-                    <div class="row-price clickable-area" onclick="window.location.href='${detailsUrl}'">$${(item.Price || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                    <div class="row-price clickable-area" onclick="window.location.href='${detailsUrl}'">${item.Web_Price != null ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '<span style="color:#e67e22;font-weight:700;font-size:0.9em;">Call for Price</span>'}</div>
                     <div class="row-qty clickable-area" onclick="window.location.href='${detailsUrl}'">${item.QuantityAvailable || 0}</div>
-                    <div class="action-buttons">
-                        <button class="build-btn-small" onclick="window.location.href='${buildUrl}'">
-                            🛠️ Build
-                        </button>
-                        <button class="chat-btn-small" onclick="contactAboutItem('${item.Manufacturer}', '${item.Model}', '${item.Price}', '${item.InventoryID}')">
-                            💬 Chat
-                        </button>
-                    </div>
                 </div>
             `}).join('');
 
@@ -612,75 +579,6 @@
 
             console.log('Filtered to', filteredData.length, 'items');
             displayInventory();
-        }
-
-        // Contact about item - Opens chat widget with pre-filled message
-        function contactAboutItem(mfg, model, price, inventoryId) {
-            const itemInfo = `Interested in: ${mfg} ${model} (ID: ${inventoryId}) - $${parseFloat(price).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}`;
-            
-            // Try to copy to clipboard
-            let clipboardSuccess = false;
-            
-            // Method 1: Modern clipboard API
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(itemInfo)
-                    .then(() => {
-                        clipboardSuccess = true;
-                        console.log('Copied to clipboard:', itemInfo);
-                    })
-                    .catch(err => {
-                        console.error('Clipboard API failed:', err);
-                    });
-            }
-            
-            // Method 2: Fallback using textarea (works more reliably)
-            if (!clipboardSuccess) {
-                try {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = itemInfo;
-                    textarea.style.position = 'fixed';
-                    textarea.style.opacity = '0';
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                    clipboardSuccess = true;
-                    console.log('Copied via execCommand:', itemInfo);
-                } catch (err) {
-                    console.error('execCommand failed:', err);
-                }
-            }
-            
-            // Open Kenect widget
-            const kenectWrapper = document.getElementById('iframe-wrapper-YMG00J4LwubAnqrXw9851g');
-            
-            if (kenectWrapper) {
-                kenectWrapper.click();
-                
-                // Show different message based on clipboard success
-                setTimeout(() => {
-                    if (clipboardSuccess) {
-                        alert('📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the message field.');
-                    } else {
-                        alert('💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
-                    }
-                }, 800);
-                
-                return;
-            }
-            
-            // Fallback
-            const wrapper = document.querySelector('[id*="iframe-wrapper"]');
-            if (wrapper) {
-                wrapper.click();
-                setTimeout(() => {
-                    alert('💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
-                }, 800);
-                return;
-            }
-            
-            // Last resort
-            alert('Please click "Text us!" to chat about:\n\n' + itemInfo);
         }
 
         // Event listeners
