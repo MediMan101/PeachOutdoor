@@ -440,11 +440,14 @@
                 s.Manufacturer === itemData.Manufacturer
             );
 
-            // Get photos array - support both single ImageURL and Photos array
+            // Get photos array - use AllPhotos from inventory JSON
             let photos = [];
-            if (itemData.Photos && Array.isArray(itemData.Photos) && itemData.Photos.length > 0) {
-                photos = itemData.Photos;
+            if (itemData.AllPhotos && Array.isArray(itemData.AllPhotos) && itemData.AllPhotos.length > 0) {
+                photos = itemData.AllPhotos;
+            } else if (itemData.PrimaryPhotoURL) {
+                photos = [itemData.PrimaryPhotoURL];
             } else if (itemData.ImageURL) {
+                // Legacy fallback
                 photos = [itemData.ImageURL];
             }
 
