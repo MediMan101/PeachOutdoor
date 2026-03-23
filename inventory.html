@@ -151,7 +151,7 @@
 
         .list-header {
             display: grid;
-            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px 280px;
+            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px;
             gap: 15px;
             padding: 15px 40px;
             background: #f8f9fa;
@@ -163,7 +163,7 @@
 
         .inventory-row {
             display: grid;
-            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px 280px;
+            grid-template-columns: 80px 150px 100px 150px 120px 1fr 120px 100px;
             gap: 15px;
             padding: 15px 40px;
             border-bottom: 1px solid #e0e0e0;
@@ -180,30 +180,7 @@
             cursor: pointer;
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 8px;
-            justify-content: flex-start;
-        }
 
-        .build-btn-small {
-            background: #4caf50;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.82em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .build-btn-small:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
-            background: #45a049;
-        }
 
         .row-thumbnail {
             width: 60px;
@@ -528,14 +505,12 @@
                     <div>Description</div>
                     <div>Price</div>
                     <div>Stock</div>
-                    <div>Actions</div>
                 </div>
             `;
 
             // Create data rows
             const rowsHTML = filteredData.map(item => {
                 const detailsUrl = `item-details.html?id=${item.InventoryID}${window.location.search ? '&return=' + encodeURIComponent(window.location.search) : ''}`;
-                const buildUrl = `configurator.html?brand=${encodeURIComponent(item.Manufacturer)}&model=${encodeURIComponent(item.Model)}`;
                 
                 return `
                 <div class="inventory-row">
@@ -555,14 +530,6 @@
                     <div class="row-description clickable-area" onclick="window.location.href='${detailsUrl}'" title="${item.Description || 'No description'}">${item.Description || 'No description available'}</div>
                     <div class="row-price clickable-area" onclick="window.location.href='${detailsUrl}'">${item.Web_Price != null ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '<span style="color:#e67e22;font-weight:700;font-size:0.9em;">Call for Price</span>'}</div>
                     <div class="row-qty clickable-area" onclick="window.location.href='${detailsUrl}'">${item.QuantityAvailable || 0}</div>
-                    <div class="action-buttons">
-                        <button class="build-btn-small" onclick="window.location.href='${buildUrl}'">
-                            🛠️ Build
-                        </button>
-                        <button class="chat-btn-small" onclick="contactAboutItem('${item.Manufacturer}', '${item.Model}', ${item.Web_Price != null ? item.Web_Price : 'null'})">
-                            💬 Chat
-                        </button>
-                    </div>
                 </div>
             `}).join('');
 
@@ -612,34 +579,6 @@
 
             console.log('Filtered to', filteredData.length, 'items');
             displayInventory();
-        }
-
-        // Contact about item - Opens chat widget with pre-filled message
-        function contactAboutItem(mfg, model, price) {
-            // Try to find the Kenect iframe specifically
-            const kenectIframe = document.querySelector('iframe[src*="widget.kenect.com"]');
-            
-            if (kenectIframe) {
-                // Click the iframe to open the widget
-                kenectIframe.click();
-                
-                // Also try clicking the parent container
-                if (kenectIframe.parentElement) {
-                    kenectIframe.parentElement.click();
-                }
-                
-                return;
-            }
-            
-            // Fallback - look for any element with kenect in the class
-            const kenectElement = document.querySelector('[class*="kenect"], [id*="kenect"]');
-            if (kenectElement) {
-                kenectElement.click();
-                return;
-            }
-            
-            // Last resort - tell user to click Text us button
-            alert('Please click the "Text us!" button to chat about this item!\n\nItem: ' + mfg + ' ' + model);
         }
 
         // Event listeners
