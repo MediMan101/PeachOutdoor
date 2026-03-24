@@ -459,10 +459,11 @@
                         <h1>${itemData.Model || 'Model N/A'}</h1>
                         <div class="manufacturer">${itemData.Manufacturer || 'Unknown Manufacturer'}</div>
                         ${itemData.Series ? `<div class="series">Series: ${itemData.Series}</div>` : ''}
+                        <div class="series" style="margin-bottom:8px;">Serial #: <span style="font-family:monospace;letter-spacing:0.05em;">${itemData.SerialNumber || 'N/A'}</span></div>
                         <div class="description">${itemData.Description || 'No description available'}</div>
                         
                         <div class="price-section">
-                            <div class="price">$${(itemData.Price || 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+                            <div class="price">${itemData.Web_Price != null ? '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '<span style="color:#ffd700;font-size:0.6em;">Call for Price</span>'}</div>
                             ${itemData.Used ? '<div class="used-badge">USED</div>' : '<div class="stock-badge">NEW</div>'}
                         </div>
                     </div>
@@ -606,7 +607,8 @@
         }
 
         function chatAboutItem() {
-            const itemInfo = `Interested in: ${itemData.Manufacturer} ${itemData.Model} (ID: ${itemData.InventoryID}) - $${itemData.Price.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}`;
+            const priceStr = itemData.Web_Price != null ? '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'Call for Price';
+            const itemInfo = `Interested in: ${itemData.Manufacturer} ${itemData.Model} - Serial #${itemData.SerialNumber || 'N/A'} (ID: ${itemData.InventoryID}) - ${priceStr}`;
             
             // Try to copy to clipboard
             let clipboardSuccess = false;
