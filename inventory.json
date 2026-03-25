@@ -15108,25 +15108,6 @@
                       ]
     },
     {
-        "InventoryID":  22813,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "GRAPPLE",
-        "Model":  "SERG72",
-        "Description":  "TITAN 72\" Economy Single Cylinder Root Grapple",
-        "SerialNumber":  "394114",
-        "Location":  "CLA",
-        "MSRP":  1477.9600,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22868,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
