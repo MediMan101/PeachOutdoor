@@ -2983,25 +2983,6 @@
                       ]
     },
     {
-        "InventoryID":  23139,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC72",
-        "Description":  "BAD BOY Brush Cutter 6ft Slip Clutch Black",
-        "SerialNumber":  "BBRCSC72BK12250004",
-        "Location":  "CLA",
-        "MSRP":  3727.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23143,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
@@ -5528,25 +5509,6 @@
         "Model":  "BB5055CS",
         "Description":  "BAD BOY 50 SERIES SHUTTLE CAB, 55HP TRACTOR WITH BBL500C LOADER",
         "SerialNumber":  "S55CS010211",
-        "Location":  "CLA",
-        "MSRP":  54887.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23453,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "50",
-        "Model":  "BB5055CS",
-        "Description":  "BAD BOY 50 SERIES SHUTTLE CAB, 55HP TRACTOR WITH BBL500C LOADER",
-        "SerialNumber":  "S55CS010215",
         "Location":  "CLA",
         "MSRP":  54887.0000,
         "Web_Price":  null,
