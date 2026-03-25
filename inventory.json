@@ -3857,6 +3857,25 @@
                       ]
     },
     {
+        "InventoryID":  23253,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "MAGNUM",
+        "Model":  "BMZ54FR651",
+        "Description":  "Bad Boy Magnum 54\" 726cc Kawasaki FR",
+        "SerialNumber":  "BMZ54FR65101260239",
+        "Location":  "CLA",
+        "MSRP":  5461.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23506,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
@@ -4775,6 +4794,82 @@
                       ]
     },
     {
+        "InventoryID":  23191,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "40",
+        "Model":  "BB4025HIL",
+        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
+        "SerialNumber":  "SFLN00517",
+        "Location":  "CLA",
+        "MSRP":  32554.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23383,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "40",
+        "Model":  "BB4025HIL",
+        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
+        "SerialNumber":  "SFLN00606",
+        "Location":  "CLA",
+        "MSRP":  32554.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23384,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "40",
+        "Model":  "BB4025HIL",
+        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
+        "SerialNumber":  "SFLN00658",
+        "Location":  "CLA",
+        "MSRP":  32554.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23385,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "40",
+        "Model":  "BB4025HIL",
+        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
+        "SerialNumber":  "SFLN00661",
+        "Location":  "CLA",
+        "MSRP":  32554.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23444,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -4858,82 +4953,6 @@
         "Model":  "BB4025HIL",
         "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
         "SerialNumber":  "SFLN00694",
-        "Location":  "CLA",
-        "MSRP":  32554.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23383,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "40",
-        "Model":  "BB4025HIL",
-        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
-        "SerialNumber":  "SFLN00606",
-        "Location":  "CLA",
-        "MSRP":  32554.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23384,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "40",
-        "Model":  "BB4025HIL",
-        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
-        "SerialNumber":  "SFLN00658",
-        "Location":  "CLA",
-        "MSRP":  32554.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23385,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "40",
-        "Model":  "BB4025HIL",
-        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
-        "SerialNumber":  "SFLN00661",
-        "Location":  "CLA",
-        "MSRP":  32554.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23191,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "40",
-        "Model":  "BB4025HIL",
-        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL400 LOADER",
-        "SerialNumber":  "SFLN00517",
         "Location":  "CLA",
         "MSRP":  32554.0000,
         "Web_Price":  null,
