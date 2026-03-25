@@ -517,7 +517,7 @@
                 <div class="inventory-row">
                     <div class="row-thumbnail clickable-area" onclick="window.location.href='${detailsUrl}'">
                         ${item.PrimaryPhotoURL ? 
-                            `<img src="${item.PrimaryPhotoURL}" alt="${item.Model}">` : 
+                            '<img src="' + item.PrimaryPhotoURL + '" alt="' + (item.Model || '') + '">' : 
                             '🚜'
                         }
                     </div>
