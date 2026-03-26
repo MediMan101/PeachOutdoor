@@ -10700,25 +10700,6 @@
                       ]
     },
     {
-        "InventoryID":  22524,
-        "Manufacturer":  "Mahindra USA",
-        "Department":  "TRACTOR",
-        "Series":  "4500",
-        "Model":  "45504AFLSK",
-        "Description":  "Mahindra 4550 4wd Gear Ag Tire w/Loader",
-        "SerialNumber":  "PNFY9001",
-        "Location":  "CLA",
-        "MSRP":  31017.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  21618,
         "Manufacturer":  "Mahindra USA",
         "Department":  "TRACTOR",
@@ -11878,25 +11859,6 @@
                       ]
     },
     {
-        "InventoryID":  22752,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "CUTTER",
-        "Model":  "1206SC",
-        "Description":  "TITAN 6\u0027 Standard Duty Cutter Slip Clutch WO/Chains",
-        "SerialNumber":  "394192",
-        "Location":  "CLA",
-        "MSRP":  2311.0600,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22753,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
@@ -12799,25 +12761,6 @@
         "SerialNumber":  "367908",
         "Location":  "CLA",
         "MSRP":  1065.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  20919,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "BLADE",
-        "Model":  "4406",
-        "Description":  "TITAN 6\u0027 Offset Grader Blade",
-        "SerialNumber":  "367912",
-        "Location":  "CLA",
-        "MSRP":  1130.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -14887,25 +14830,6 @@
         "Model":  "SERG66",
         "Description":  "TITAN 66\" Economy Single Cylinder Root Grapple 66\"",
         "SerialNumber":  "394096",
-        "Location":  "CLA",
-        "MSRP":  1415.6200,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22796,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "GRAPPLE",
-        "Model":  "SERG66",
-        "Description":  "TITAN 66\" Economy Single Cylinder Root Grapple 66\"",
-        "SerialNumber":  "394097",
         "Location":  "CLA",
         "MSRP":  1415.6200,
         "Web_Price":  null,
