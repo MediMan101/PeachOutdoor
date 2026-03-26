@@ -6699,25 +6699,6 @@
                       ]
     },
     {
-        "InventoryID":  23512,
-        "Manufacturer":  "G2 TRAILERS",
-        "Department":  "TRAILER",
-        "Series":  "7K",
-        "Model":  "82x22 3500CH",
-        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
-        "SerialNumber":  "1L9UBC222TT700213",
-        "Location":  "CLA",
-        "MSRP":  4995.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23515,
         "Manufacturer":  "G2 TRAILERS",
         "Department":  "TRAILER",
