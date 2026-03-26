@@ -3781,25 +3781,6 @@
                       ]
     },
     {
-        "InventoryID":  20362,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "MAGNUM",
-        "Model":  "BMZ48FR651",
-        "Description":  "Bad Boy Magnum 48\" 726cc Kawasaki FR",
-        "SerialNumber":  "BMZ48FR65111240109",
-        "Location":  "CLA",
-        "MSRP":  5199.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23347,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
