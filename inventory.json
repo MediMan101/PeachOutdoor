@@ -2280,25 +2280,6 @@
                       ]
     },
     {
-        "InventoryID":  23420,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBLG",
-        "Model":  "BBLG60",
-        "Description":  "BAD BOY 60\" Land Grader",
-        "SerialNumber":  "BBLG60BK02260014",
-        "Location":  "CLA",
-        "MSRP":  1968.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23421,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
