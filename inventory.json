@@ -13832,6 +13832,25 @@
                       ]
     },
     {
+        "InventoryID":  21971,
+        "Manufacturer":  "TITAN",
+        "Department":  "IMP",
+        "Series":  "PHD",
+        "Model":  "PHD-9-AUG",
+        "Description":  "TITAN ToolTuff 9\" Auger",
+        "SerialNumber":  "383012",
+        "Location":  "CLA",
+        "MSRP":  265.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  21918,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
@@ -13953,6 +13972,25 @@
         "Model":  "PHDT",
         "Description":  "TITAN - ToolTuff Post Hole Digger (Red)",
         "SerialNumber":  "395477",
+        "Location":  "CLA",
+        "MSRP":  951.0300,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22924,
+        "Manufacturer":  "TITAN",
+        "Department":  "IMP",
+        "Series":  "PHD",
+        "Model":  "PHDT",
+        "Description":  "TITAN - ToolTuff Post Hole Digger (Red)",
+        "SerialNumber":  "395479",
         "Location":  "CLA",
         "MSRP":  951.0300,
         "Web_Price":  null,
