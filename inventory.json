@@ -2223,25 +2223,6 @@
                       ]
     },
     {
-        "InventoryID":  23421,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBLG",
-        "Model":  "BBLG60",
-        "Description":  "BAD BOY 60\" Land Grader",
-        "SerialNumber":  "BBLG60BK02260015",
-        "Location":  "CLA",
-        "MSRP":  1968.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23422,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
@@ -2496,25 +2477,6 @@
         "Model":  "BBRCSC60",
         "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch- BLACK",
         "SerialNumber":  "BBRCSC60BK09250039",
-        "Location":  "CLA",
-        "MSRP":  2636.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22609,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch- BLACK",
-        "SerialNumber":  "BBRCSC60BK09250045",
         "Location":  "CLA",
         "MSRP":  2636.0000,
         "Web_Price":  null,
