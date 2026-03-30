@@ -2527,63 +2527,6 @@
                       ]
     },
     {
-        "InventoryID":  23126,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60SD",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD Black",
-        "SerialNumber":  "BBRCSC60SDBK12250013",
-        "Location":  "CLA",
-        "MSRP":  1938.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23127,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60SD",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD Black",
-        "SerialNumber":  "BBRCSC60SDBK12250014",
-        "Location":  "CLA",
-        "MSRP":  1938.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23132,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60SD",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD Black",
-        "SerialNumber":  "BBRCSC60SDBK12250025",
-        "Location":  "CLA",
-        "MSRP":  1938.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23031,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
@@ -2686,6 +2629,44 @@
         "Model":  "BBRCSC60SD",
         "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD",
         "SerialNumber":  "BBRCSC60SDBK11250072",
+        "Location":  "CLA",
+        "MSRP":  1938.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23126,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "IMP",
+        "Series":  "BBRC",
+        "Model":  "BBRCSC60SD",
+        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD Black",
+        "SerialNumber":  "BBRCSC60SDBK12250013",
+        "Location":  "CLA",
+        "MSRP":  1938.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23127,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "IMP",
+        "Series":  "BBRC",
+        "Model":  "BBRCSC60SD",
+        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD Black",
+        "SerialNumber":  "BBRCSC60SDBK12250014",
         "Location":  "CLA",
         "MSRP":  1938.0000,
         "Web_Price":  null,
@@ -3002,25 +2983,6 @@
                       ]
     },
     {
-        "InventoryID":  23026,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "MAVERICK",
-        "Model":  "BMH60FX730",
-        "Description":  "Bad Boy Maverick HD 60\" Kawasaki FX730 23.5HP",
-        "SerialNumber":  "BMH60FX73011250206",
-        "Location":  "CLA",
-        "MSRP":  10453.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22738,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
@@ -3059,6 +3021,25 @@
                       ]
     },
     {
+        "InventoryID":  23026,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "MAVERICK",
+        "Model":  "BMH60FX730",
+        "Description":  "Bad Boy Maverick HD 60\" Kawasaki FX730 23.5HP",
+        "SerialNumber":  "BMH60FX73011250206",
+        "Location":  "CLA",
+        "MSRP":  10453.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23174,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
@@ -3078,13 +3059,13 @@
                       ]
     },
     {
-        "InventoryID":  23504,
+        "InventoryID":  20686,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "MAVERICK",
         "Model":  "BMR54FS730",
-        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730 24HP",
-        "SerialNumber":  "BMR54FS73003260009",
+        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730",
+        "SerialNumber":  "BMR54FS73001250023",
         "Location":  "CLA",
         "MSRP":  8953.0000,
         "Web_Price":  null,
@@ -3097,13 +3078,13 @@
                       ]
     },
     {
-        "InventoryID":  20686,
+        "InventoryID":  23504,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "MAVERICK",
         "Model":  "BMR54FS730",
-        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730",
-        "SerialNumber":  "BMR54FS73001250023",
+        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730 24HP",
+        "SerialNumber":  "BMR54FS73003260009",
         "Location":  "CLA",
         "MSRP":  8953.0000,
         "Web_Price":  null,
@@ -3182,25 +3163,6 @@
         "SerialNumber":  "BMZ4219BG03260257",
         "Location":  "CLA",
         "MSRP":  4432.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23168,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "RAMBLER",
-        "Model":  "BMZ4219BG",
-        "Description":  "Rambler 42\" Briggs 19HP",
-        "SerialNumber":  "BMZ4219BG12250876",
-        "Location":  "CLA",
-        "MSRP":  4211.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -3401,15 +3363,15 @@
                       ]
     },
     {
-        "InventoryID":  23346,
+        "InventoryID":  23168,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "RAMBLER",
-        "Model":  "BMZ42FR651",
-        "Description":  "Bad Boy Rambler 42\" Kawasaki FR651 22HP",
-        "SerialNumber":  "BMZ42FR65102260137",
+        "Model":  "BMZ4219BG",
+        "Description":  "Rambler 42\" Briggs 19HP",
+        "SerialNumber":  "BMZ4219BG12250876",
         "Location":  "CLA",
-        "MSRP":  5082.0000,
+        "MSRP":  4211.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -3458,15 +3420,15 @@
                       ]
     },
     {
-        "InventoryID":  22736,
+        "InventoryID":  23346,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
-        "Series":  "MAGNUM",
-        "Model":  "BMZ48FR651",
-        "Description":  "Bad Boy Magnum 48\" 726cc Kawasaki FR",
-        "SerialNumber":  "BMZ48FR65110250497",
+        "Series":  "RAMBLER",
+        "Model":  "BMZ42FR651",
+        "Description":  "Bad Boy Rambler 42\" Kawasaki FR651 22HP",
+        "SerialNumber":  "BMZ42FR65102260137",
         "Location":  "CLA",
-        "MSRP":  4999.0000,
+        "MSRP":  5082.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -3486,6 +3448,25 @@
         "SerialNumber":  "BMZ48FR65102260038",
         "Location":  "CLA",
         "MSRP":  5305.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22736,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "MAGNUM",
+        "Model":  "BMZ48FR651",
+        "Description":  "Bad Boy Magnum 48\" 726cc Kawasaki FR",
+        "SerialNumber":  "BMZ48FR65110250497",
+        "Location":  "CLA",
+        "MSRP":  4999.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -3857,6 +3838,44 @@
                       ]
     },
     {
+        "InventoryID":  23066,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "30",
+        "Model":  "BB3026HIL",
+        "Description":  "BAD BOY 30 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL300 LOADER",
+        "SerialNumber":  "SFLS00737",
+        "Location":  "CLA",
+        "MSRP":  26303.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23190,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "30",
+        "Model":  "BB3026HIL",
+        "Description":  "BAD BOY 30 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL300 LOADER",
+        "SerialNumber":  "SFLS00680",
+        "Location":  "CLA",
+        "MSRP":  27620.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22744,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -3920,44 +3939,6 @@
                       ]
     },
     {
-        "InventoryID":  23066,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "30",
-        "Model":  "BB3026HIL",
-        "Description":  "BAD BOY 30 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL300 LOADER",
-        "SerialNumber":  "SFLS00737",
-        "Location":  "CLA",
-        "MSRP":  26303.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23190,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "30",
-        "Model":  "BB3026HIL",
-        "Description":  "BAD BOY 30 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL300 LOADER",
-        "SerialNumber":  "SFLS00680",
-        "Location":  "CLA",
-        "MSRP":  27620.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23295,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -3996,13 +3977,13 @@
                       ]
     },
     {
-        "InventoryID":  23449,
+        "InventoryID":  23456,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
         "Series":  "30",
         "Model":  "BB3026HIL",
         "Description":  "BAD BOY 30 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL300 LOADER",
-        "SerialNumber":  "SFLS01170",
+        "SerialNumber":  "SFLS00910",
         "Location":  "CLA",
         "MSRP":  27620.0000,
         "Web_Price":  null,
@@ -4015,13 +3996,13 @@
                       ]
     },
     {
-        "InventoryID":  23456,
+        "InventoryID":  23449,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
         "Series":  "30",
         "Model":  "BB3026HIL",
         "Description":  "BAD BOY 30 SERIES HYDRO, IND TIRE, 25HP TRACTOR WITH BBL300 LOADER",
-        "SerialNumber":  "SFLS00910",
+        "SerialNumber":  "SFLS01170",
         "Location":  "CLA",
         "MSRP":  27620.0000,
         "Web_Price":  null,
@@ -4604,13 +4585,13 @@
                       ]
     },
     {
-        "InventoryID":  23147,
+        "InventoryID":  22745,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
         "Series":  "40",
         "Model":  "BB4035CHIL",
         "Description":  "BAD BOY 40 SERIES CAB, HYDRO, IND TIRE, 35HP TRACTOR WITH BBL400C LOADER",
-        "SerialNumber":  "SFLR00151",
+        "SerialNumber":  "SFLR00107",
         "Location":  "CLA",
         "MSRP":  45832.0000,
         "Web_Price":  null,
@@ -4681,13 +4662,13 @@
                       ]
     },
     {
-        "InventoryID":  22745,
+        "InventoryID":  22452,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
         "Series":  "40",
         "Model":  "BB4035CHIL",
         "Description":  "BAD BOY 40 SERIES CAB, HYDRO, IND TIRE, 35HP TRACTOR WITH BBL400C LOADER",
-        "SerialNumber":  "SFLR00107",
+        "SerialNumber":  "RFLR00474",
         "Location":  "CLA",
         "MSRP":  45832.0000,
         "Web_Price":  null,
@@ -4700,13 +4681,13 @@
                       ]
     },
     {
-        "InventoryID":  22452,
+        "InventoryID":  23147,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
         "Series":  "40",
         "Model":  "BB4035CHIL",
         "Description":  "BAD BOY 40 SERIES CAB, HYDRO, IND TIRE, 35HP TRACTOR WITH BBL400C LOADER",
-        "SerialNumber":  "RFLR00474",
+        "SerialNumber":  "SFLR00151",
         "Location":  "CLA",
         "MSRP":  45832.0000,
         "Web_Price":  null,
@@ -4951,44 +4932,6 @@
                       ]
     },
     {
-        "InventoryID":  23457,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "50",
-        "Model":  "BB5045CH",
-        "Description":  "BAD BOY 50 SERIES HYDRO CAB, 48HP TRACTOR WITH BBL500C LOADER",
-        "SerialNumber":  "S45CH010225",
-        "Location":  "CLA",
-        "MSRP":  53296.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23458,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "50",
-        "Model":  "BB5045CH",
-        "Description":  "BAD BOY 50 SERIES HYDRO CAB, 48HP TRACTOR WITH BBL500C LOADER",
-        "SerialNumber":  "S45CH010275",
-        "Location":  "CLA",
-        "MSRP":  null,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22561,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -5017,6 +4960,44 @@
         "SerialNumber":  "S45CH010136",
         "Location":  "CLA",
         "MSRP":  50758.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23457,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "50",
+        "Model":  "BB5045CH",
+        "Description":  "BAD BOY 50 SERIES HYDRO CAB, 48HP TRACTOR WITH BBL500C LOADER",
+        "SerialNumber":  "S45CH010225",
+        "Location":  "CLA",
+        "MSRP":  53296.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23458,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "TRACTOR",
+        "Series":  "50",
+        "Model":  "BB5045CH",
+        "Description":  "BAD BOY 50 SERIES HYDRO CAB, 48HP TRACTOR WITH BBL500C LOADER",
+        "SerialNumber":  "S45CH010275",
+        "Location":  "CLA",
+        "MSRP":  null,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -5236,101 +5217,6 @@
                       ]
     },
     {
-        "InventoryID":  23207,
-        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
-        "Department":  "CANOPY",
-        "Series":  "STD",
-        "Model":  "CANTPALM",
-        "Description":  "Aluminum Tread Plate Std. Canopy",
-        "SerialNumber":  "116893-16",
-        "Location":  "CLA",
-        "MSRP":  549.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23208,
-        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
-        "Department":  "CANOPY",
-        "Series":  "STD",
-        "Model":  "CANTPALM",
-        "Description":  "Aluminum Tread Plate Std. Canopy",
-        "SerialNumber":  "116893-17",
-        "Location":  "CLA",
-        "MSRP":  549.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23209,
-        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
-        "Department":  "CANOPY",
-        "Series":  "STD",
-        "Model":  "CANTPALM",
-        "Description":  "Aluminum Tread Plate Std. Canopy",
-        "SerialNumber":  "116893-18",
-        "Location":  "CLA",
-        "MSRP":  549.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23210,
-        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
-        "Department":  "CANOPY",
-        "Series":  "STD",
-        "Model":  "CANTPALM",
-        "Description":  "Aluminum Tread Plate Std. Canopy",
-        "SerialNumber":  "116893-19",
-        "Location":  "CLA",
-        "MSRP":  549.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23211,
-        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
-        "Department":  "CANOPY",
-        "Series":  "STD",
-        "Model":  "CANTPALM",
-        "Description":  "Aluminum Tread Plate Std. Canopy",
-        "SerialNumber":  "116893-20",
-        "Location":  "CLA",
-        "MSRP":  549.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23231,
         "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
         "Department":  "CANOPY",
@@ -5414,6 +5300,101 @@
         "Model":  "CANTPALM",
         "Description":  "Aluminum Tread Plate Std. Canopy",
         "SerialNumber":  "116894-15",
+        "Location":  "CLA",
+        "MSRP":  549.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23207,
+        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
+        "Department":  "CANOPY",
+        "Series":  "STD",
+        "Model":  "CANTPALM",
+        "Description":  "Aluminum Tread Plate Std. Canopy",
+        "SerialNumber":  "116893-16",
+        "Location":  "CLA",
+        "MSRP":  549.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23208,
+        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
+        "Department":  "CANOPY",
+        "Series":  "STD",
+        "Model":  "CANTPALM",
+        "Description":  "Aluminum Tread Plate Std. Canopy",
+        "SerialNumber":  "116893-17",
+        "Location":  "CLA",
+        "MSRP":  549.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23209,
+        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
+        "Department":  "CANOPY",
+        "Series":  "STD",
+        "Model":  "CANTPALM",
+        "Description":  "Aluminum Tread Plate Std. Canopy",
+        "SerialNumber":  "116893-18",
+        "Location":  "CLA",
+        "MSRP":  549.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23210,
+        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
+        "Department":  "CANOPY",
+        "Series":  "STD",
+        "Model":  "CANTPALM",
+        "Description":  "Aluminum Tread Plate Std. Canopy",
+        "SerialNumber":  "116893-19",
+        "Location":  "CLA",
+        "MSRP":  549.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23211,
+        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
+        "Department":  "CANOPY",
+        "Series":  "STD",
+        "Model":  "CANTPALM",
+        "Description":  "Aluminum Tread Plate Std. Canopy",
+        "SerialNumber":  "116893-20",
         "Location":  "CLA",
         "MSRP":  549.0000,
         "Web_Price":  null,
@@ -6357,25 +6338,6 @@
                       ]
     },
     {
-        "InventoryID":  23525,
-        "Manufacturer":  "G2 TRAILERS",
-        "Department":  "TRAILER",
-        "Series":  "7K",
-        "Model":  "82x22 3500CH",
-        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
-        "SerialNumber":  "1L9UBC222TT700246",
-        "Location":  "CLA",
-        "MSRP":  4995.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23526,
         "Manufacturer":  "G2 TRAILERS",
         "Department":  "TRAILER",
@@ -6737,6 +6699,25 @@
                       ]
     },
     {
+        "InventoryID":  22547,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "IMP",
+        "Series":  "MBB",
+        "Model":  "MBB3048",
+        "Description":  "LS BOX BLADE 48\" WITH SHANKS",
+        "SerialNumber":  "BA07250003",
+        "Location":  "CLA",
+        "MSRP":  1160.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22555,
         "Manufacturer":  "LS Tractor",
         "Department":  "IMP",
@@ -6801,25 +6782,6 @@
         "Model":  "MBB3048",
         "Description":  "LS BOX BLADE 48\" WITH SHANKS",
         "SerialNumber":  "BA07250002",
-        "Location":  "CLA",
-        "MSRP":  1160.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22547,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "IMP",
-        "Series":  "MBB",
-        "Model":  "MBB3048",
-        "Description":  "LS BOX BLADE 48\" WITH SHANKS",
-        "SerialNumber":  "BA07250003",
         "Location":  "CLA",
         "MSRP":  1160.0000,
         "Web_Price":  null,
@@ -7098,6 +7060,25 @@
                       ]
     },
     {
+        "InventoryID":  22300,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "IMP",
+        "Series":  "RT",
+        "Model":  "MRT6601",
+        "Description":  "LS ROTARY TILLER 66\"",
+        "SerialNumber":  "RT66SH0038",
+        "Location":  "CLA",
+        "MSRP":  2960.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22305,
         "Manufacturer":  "LS Tractor",
         "Department":  "IMP",
@@ -7143,25 +7124,6 @@
         "Model":  "MRT6601",
         "Description":  "LS ROTARY TILLER 66\"",
         "SerialNumber":  "RT66SH0051",
-        "Location":  "CLA",
-        "MSRP":  2960.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22300,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "IMP",
-        "Series":  "RT",
-        "Model":  "MRT6601",
-        "Description":  "LS ROTARY TILLER 66\"",
-        "SerialNumber":  "RT66SH0038",
         "Location":  "CLA",
         "MSRP":  2960.0000,
         "Web_Price":  null,
@@ -7326,6 +7288,44 @@
                       ]
     },
     {
+        "InventoryID":  22083,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226E",
+        "Description":  "LS Tractor MT226E Gear 4wd",
+        "SerialNumber":  "2436001932",
+        "Location":  "CLA",
+        "MSRP":  21130.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22085,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226E",
+        "Description":  "LS Tractor MT226E Gear 4wd",
+        "SerialNumber":  "2436001931",
+        "Location":  "CLA",
+        "MSRP":  21130.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22011,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -7403,44 +7403,6 @@
                           "https://res.cloudinary.com/dtidlilrj/image/upload/v1774415901/peachoutdoor/22017_2436001685/photo_164504.jpg",
                           "https://res.cloudinary.com/dtidlilrj/image/upload/v1774415905/peachoutdoor/22017_2436001685/photo_164543.jpg",
                           "https://res.cloudinary.com/dtidlilrj/image/upload/v1774415908/peachoutdoor/22017_2436001685/photo_164555.jpg"
-                      ]
-    },
-    {
-        "InventoryID":  22083,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226E",
-        "Description":  "LS Tractor MT226E Gear 4wd",
-        "SerialNumber":  "2436001932",
-        "Location":  "CLA",
-        "MSRP":  21130.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22085,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226E",
-        "Description":  "LS Tractor MT226E Gear 4wd",
-        "SerialNumber":  "2436001931",
-        "Location":  "CLA",
-        "MSRP":  21130.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
                       ]
     },
     {
@@ -7786,44 +7748,6 @@
                       ]
     },
     {
-        "InventoryID":  22487,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226E",
-        "Description":  "LS Tractor MT226E Gear 4wd",
-        "SerialNumber":  "KLJ24361VSJ002142",
-        "Location":  "CLA",
-        "MSRP":  21130.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22489,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226E",
-        "Description":  "LS Tractor MT226E Gear 4wd",
-        "SerialNumber":  "KLJ24361ASJ002160",
-        "Location":  "CLA",
-        "MSRP":  21130.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22537,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -7850,6 +7774,44 @@
         "Model":  "MT226E",
         "Description":  "LS Tractor MT226E Gear 4wd",
         "SerialNumber":  "2436001098",
+        "Location":  "CLA",
+        "MSRP":  21130.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22487,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226E",
+        "Description":  "LS Tractor MT226E Gear 4wd",
+        "SerialNumber":  "KLJ24361VSJ002142",
+        "Location":  "CLA",
+        "MSRP":  21130.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22489,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226E",
+        "Description":  "LS Tractor MT226E Gear 4wd",
+        "SerialNumber":  "KLJ24361ASJ002160",
         "Location":  "CLA",
         "MSRP":  21130.0000,
         "Web_Price":  null,
@@ -7995,25 +7957,6 @@
                       ]
     },
     {
-        "InventoryID":  23367,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226E",
-        "Description":  "LS TRACTOR MT226E GEAR 4WD",
-        "SerialNumber":  "KLJ24361ASJ003115",
-        "Location":  "CLA",
-        "MSRP":  21130.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23388,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -8052,13 +7995,13 @@
                       ]
     },
     {
-        "InventoryID":  23481,
+        "InventoryID":  23367,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "MT2",
         "Model":  "MT226E",
         "Description":  "LS TRACTOR MT226E GEAR 4WD",
-        "SerialNumber":  "KLJ24361ASJ002952",
+        "SerialNumber":  "KLJ24361ASJ003115",
         "Location":  "CLA",
         "MSRP":  21130.0000,
         "Web_Price":  null,
@@ -8078,6 +8021,25 @@
         "Model":  "MT226E",
         "Description":  "LS TRACTOR MT226E GEAR 4WD",
         "SerialNumber":  "KLJ24361PSJ003107",
+        "Location":  "CLA",
+        "MSRP":  21130.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23481,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226E",
+        "Description":  "LS TRACTOR MT226E GEAR 4WD",
+        "SerialNumber":  "KLJ24361ASJ002952",
         "Location":  "CLA",
         "MSRP":  21130.0000,
         "Web_Price":  null,
@@ -8375,25 +8337,6 @@
                       ]
     },
     {
-        "InventoryID":  22645,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226HE",
-        "Description":  "LS TRACTOR MT226HE HST 4WD",
-        "SerialNumber":  "KLJ24361KSJ002234",
-        "Location":  "CLA",
-        "MSRP":  22430.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22647,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -8451,6 +8394,25 @@
                       ]
     },
     {
+        "InventoryID":  22318,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT232E",
+        "Description":  "LS TRACTOR MT232E GEAR 4WD",
+        "SerialNumber":  "KLJ24401JSJ000922",
+        "Location":  "CLA",
+        "MSRP":  25010.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22310,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -8477,25 +8439,6 @@
         "Model":  "MT232E",
         "Description":  "LS TRACTOR MT232E GEAR 4WD",
         "SerialNumber":  "2440000852",
-        "Location":  "CLA",
-        "MSRP":  25010.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22318,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT232E",
-        "Description":  "LS TRACTOR MT232E GEAR 4WD",
-        "SerialNumber":  "KLJ24401JSJ000922",
         "Location":  "CLA",
         "MSRP":  25010.0000,
         "Web_Price":  null,
@@ -8660,6 +8603,25 @@
                       ]
     },
     {
+        "InventoryID":  22510,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT235HE",
+        "Description":  "LS TRACTOR MT235HE HST 4WD",
+        "SerialNumber":  "2340002929",
+        "Location":  "CLA",
+        "MSRP":  24560.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "3rd Function Kit $1800.00",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22331,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -8692,25 +8654,6 @@
         "Used":  false,
         "FeaturedItem":  false,
         "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22510,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT235HE",
-        "Description":  "LS TRACTOR MT235HE HST 4WD",
-        "SerialNumber":  "2340002929",
-        "Location":  "CLA",
-        "MSRP":  24560.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "3rd Function Kit $1800.00",
         "PrimaryPhotoURL":  null,
         "AllPhotos":  [
 
@@ -9249,13 +9192,13 @@
                       ]
     },
     {
-        "InventoryID":  23375,
+        "InventoryID":  23357,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "XJ",
         "Model":  "XJ2025H",
         "Description":  "LS- XJ2025 Hydro-stat, w/ Ind Tire and Loader",
-        "SerialNumber":  "KLJ23381PSJ003995",
+        "SerialNumber":  "KLJ23381TSJ003980",
         "Location":  "CLA",
         "MSRP":  18690.0000,
         "Web_Price":  null,
@@ -9268,13 +9211,13 @@
                       ]
     },
     {
-        "InventoryID":  23357,
+        "InventoryID":  23375,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "XJ",
         "Model":  "XJ2025H",
         "Description":  "LS- XJ2025 Hydro-stat, w/ Ind Tire and Loader",
-        "SerialNumber":  "KLJ23381TSJ003980",
+        "SerialNumber":  "KLJ23381PSJ003995",
         "Location":  "CLA",
         "MSRP":  18690.0000,
         "Web_Price":  null,
@@ -9936,13 +9879,13 @@
                       ]
     },
     {
-        "InventoryID":  22522,
+        "InventoryID":  22631,
         "Manufacturer":  "Mahindra USA",
         "Department":  "TRACTOR",
         "Series":  "2100",
         "Model":  "21264CHIL",
-        "Description":  "Mahindra 2126 Hydro-stat Cab w/ Industrial tires and Loader",
-        "SerialNumber":  "MBNMFLWBKSZB00394",
+        "Description":  "Mahindra 2126 4wd CAB HST w/Industrial Tires",
+        "SerialNumber":  "MBNMFLWBKSZC00424",
         "Location":  "CLA",
         "MSRP":  29174.0000,
         "Web_Price":  null,
@@ -9955,13 +9898,13 @@
                       ]
     },
     {
-        "InventoryID":  22631,
+        "InventoryID":  22522,
         "Manufacturer":  "Mahindra USA",
         "Department":  "TRACTOR",
         "Series":  "2100",
         "Model":  "21264CHIL",
-        "Description":  "Mahindra 2126 4wd CAB HST w/Industrial Tires",
-        "SerialNumber":  "MBNMFLWBKSZC00424",
+        "Description":  "Mahindra 2126 Hydro-stat Cab w/ Industrial tires and Loader",
+        "SerialNumber":  "MBNMFLWBKSZB00394",
         "Location":  "CLA",
         "MSRP":  29174.0000,
         "Web_Price":  null,
@@ -12635,6 +12578,25 @@
                       ]
     },
     {
+        "InventoryID":  21947,
+        "Manufacturer":  "TITAN",
+        "Department":  "IMP",
+        "Series":  "DISC",
+        "Model":  "7320",
+        "Description":  "TITAN 20x18\" Medium Duty Adjustable Tandem Disc Harrow",
+        "SerialNumber":  "383072",
+        "Location":  "CLA",
+        "MSRP":  2765.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  21876,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
@@ -12661,25 +12623,6 @@
         "Model":  "7320",
         "Description":  "TITAN 20x18\" Disc Harrow",
         "SerialNumber":  "382532",
-        "Location":  "CLA",
-        "MSRP":  2765.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  21947,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "DISC",
-        "Model":  "7320",
-        "Description":  "TITAN 20x18\" Medium Duty Adjustable Tandem Disc Harrow",
-        "SerialNumber":  "383072",
         "Location":  "CLA",
         "MSRP":  2765.0000,
         "Web_Price":  null,
@@ -12977,44 +12920,6 @@
                       ]
     },
     {
-        "InventoryID":  22917,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "MOWER",
-        "Model":  "FRF-165",
-        "Description":  "TITAN - FRF-165 Offset Flail Mower",
-        "SerialNumber":  "05025007",
-        "Location":  "CLA",
-        "MSRP":  7038.3600,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22918,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "MOWER",
-        "Model":  "FRF-165",
-        "Description":  "TITAN - FRF-165 Offset Flail Mower",
-        "SerialNumber":  "05425007",
-        "Location":  "CLA",
-        "MSRP":  7038.3600,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22888,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
@@ -13041,6 +12946,44 @@
         "Model":  "FRF-165",
         "Description":  "TITAN FRF-165 Offset Flail Mower",
         "SerialNumber":  "06325007",
+        "Location":  "CLA",
+        "MSRP":  7038.3600,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22917,
+        "Manufacturer":  "TITAN",
+        "Department":  "IMP",
+        "Series":  "MOWER",
+        "Model":  "FRF-165",
+        "Description":  "TITAN - FRF-165 Offset Flail Mower",
+        "SerialNumber":  "05025007",
+        "Location":  "CLA",
+        "MSRP":  7038.3600,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  22918,
+        "Manufacturer":  "TITAN",
+        "Department":  "IMP",
+        "Series":  "MOWER",
+        "Model":  "FRF-165",
+        "Description":  "TITAN - FRF-165 Offset Flail Mower",
+        "SerialNumber":  "05425007",
         "Location":  "CLA",
         "MSRP":  7038.3600,
         "Web_Price":  null,
@@ -13110,13 +13053,13 @@
                       ]
     },
     {
-        "InventoryID":  21957,
+        "InventoryID":  21904,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
         "Series":  "FORKS",
         "Model":  "HDFF",
-        "Description":  "TITAN Heavy Duty Class II Forks \u0026 Frame",
-        "SerialNumber":  "503000",
+        "Description":  "TITAN Heavy Duty Class II 48\" Forks \u0026 Frame",
+        "SerialNumber":  "380494",
         "Location":  "CLA",
         "MSRP":  1045.0000,
         "Web_Price":  null,
@@ -13129,13 +13072,13 @@
                       ]
     },
     {
-        "InventoryID":  21904,
+        "InventoryID":  21957,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
         "Series":  "FORKS",
         "Model":  "HDFF",
-        "Description":  "TITAN Heavy Duty Class II 48\" Forks \u0026 Frame",
-        "SerialNumber":  "380494",
+        "Description":  "TITAN Heavy Duty Class II Forks \u0026 Frame",
+        "SerialNumber":  "503000",
         "Location":  "CLA",
         "MSRP":  1045.0000,
         "Web_Price":  null,
@@ -13898,25 +13841,6 @@
         "SerialNumber":  "395473",
         "Location":  "CLA",
         "MSRP":  1345.6700,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  22897,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "GRAPPLE",
-        "Model":  "SERG66",
-        "Description":  "TITAN 66\" Economy Single Cylinder Root Grapple 66\"",
-        "SerialNumber":  "396007",
-        "Location":  "CLA",
-        "MSRP":  1415.6200,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -15207,25 +15131,6 @@
         "Model":  "UM-56",
         "Description":  "TITAN Heavy Duty 60\" Gear Drive Tiller ",
         "SerialNumber":  "804990",
-        "Location":  "CLA",
-        "MSRP":  2700.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  21889,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "TILLER",
-        "Model":  "UM-56",
-        "Description":  "TITAN Heavy Duty 60\" Gear Drive Tiller ",
-        "SerialNumber":  "804998",
         "Location":  "CLA",
         "MSRP":  2700.0000,
         "Web_Price":  null,
