@@ -9021,25 +9021,6 @@
                       ]
     },
     {
-        "InventoryID":  22400,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT242HE",
-        "Description":  "LS TRACTOR MT242HE HST 4WD",
-        "SerialNumber":  "KLJ24381PSJ000964",
-        "Location":  "CLA",
-        "MSRP":  28550.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23359,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
