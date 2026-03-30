@@ -21,6 +21,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             overflow-x: hidden;
+            background-color: #ffffff;
         }
 
         /* Navigation */
@@ -28,7 +29,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 15px 0;
@@ -65,7 +66,7 @@
         }
 
         .nav-links a {
-            color: white;
+            color: #333333;
             text-decoration: none;
             font-size: 1.05em;
             transition: color 0.3s;
@@ -82,28 +83,19 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            background: transparent;
         }
 
         .video-background {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            z-index: -1;
             overflow: hidden;
         }
 
-        .video-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
-            z-index: 1;
-        }
 
         .hero-content {
             position: relative;
@@ -150,12 +142,13 @@
 
         .scroll-indicator {
             position: absolute;
-            bottom: 40px;
+            bottom: 15px;
             left: 50%;
             transform: translateX(-50%);
-            color: white;
+            color: #333333;
             font-size: 0.9em;
             animation: bounce 2s infinite;
+            z-index: 2;
         }
 
         @keyframes bounce {
@@ -426,9 +419,6 @@
             <div id="bgndVideo" class="player" data-property="{videoURL:'dUBMjhAdb5Q',containment:'.video-background',startAt:0,mute:true,autoPlay:true,loop:true,opacity:1,showControls:false,quality:'default',optimizeDisplay:false,abundance:0.3,coverImage:false}"></div>
         </div>
         <div class="hero-content">
-            <h1>Build Your Ultimate Tractor</h1>
-            <p class="tagline">Premium Equipment. Expert Service. Unbeatable Selection.</p>
-            <a href="#configure" class="hero-cta">Start Configuring</a>
         </div>
         <div class="scroll-indicator">
             ↓ Scroll to explore
