@@ -6585,25 +6585,6 @@
                       ]
     },
     {
-        "InventoryID":  23529,
-        "Manufacturer":  "IronCraft",
-        "Department":  "IMP",
-        "Series":  "RAKE",
-        "Model":  "ARSGR66-S",
-        "Description":  "IRONCRAFT 66\" AR 400 Standard Grapple Rake",
-        "SerialNumber":  "00533113",
-        "Location":  "CLA",
-        "MSRP":  3031.6000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "Special Order",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23298,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
