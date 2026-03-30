@@ -414,6 +414,11 @@
         let currentPage = 1;
         const PAGE_SIZE = 24;
 
+        function cloudinaryUrl(url) {
+            if (!url || !url.includes('res.cloudinary.com')) return url;
+            return url.replace('/upload/', '/upload/w_600,h_400,c_fill,q_auto,f_auto/');
+        }
+
         // Load inventory
         async function loadInventory() {
             try {
@@ -517,7 +522,7 @@
                 const featBadge = item.FeaturedItem ? '<span class="badge badge-featured">Featured</span>' : '';
 
                 const photo = item.PrimaryPhotoURL
-                    ? `<img src="${item.PrimaryPhotoURL}" alt="${item.Model || ''}" loading="lazy">`
+                    ? `<img src="${cloudinaryUrl(item.PrimaryPhotoURL)}" alt="${item.Model || ''}" loading="lazy">`
                     : `<span class="no-photo">🚜</span>`;
 
                 const priceHTML = item.Web_Price != null
