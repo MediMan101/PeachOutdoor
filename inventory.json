@@ -11134,25 +11134,6 @@
                       ]
     },
     {
-        "InventoryID":  20144,
-        "Manufacturer":  "Spartan Mowers",
-        "Department":  "MOWER",
-        "Series":  "SRT-XDE",
-        "Model":  "SSXDE54801KX",
-        "Description":  "Spartan SRT-XDE 61\" Deck Kawasaki FX801 25.5 HP",
-        "SerialNumber":  "417281564",
-        "Location":  "CLA",
-        "MSRP":  13679.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  20145,
         "Manufacturer":  "Spartan Mowers",
         "Department":  "MOWER",
