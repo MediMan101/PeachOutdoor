@@ -509,7 +509,7 @@
                 return `
                     <div class="photo-gallery">
                         <div class="main-photo">
-                            <img src="${photos[0]}" alt="${itemData.Model}">
+                            <img src="${cloudinaryUrl(photos[0], 'w_1200,h_800,c_limit,q_auto,f_auto')}" alt="${itemData.Model}">
                         </div>
                     </div>
                 `;
@@ -518,14 +518,14 @@
                 return `
                     <div class="photo-gallery">
                         <div class="main-photo" id="mainPhoto">
-                            <img src="${photos[0]}" alt="${itemData.Model}" id="mainPhotoImg">
+                            <img src="${cloudinaryUrl(photos[0], 'w_1200,h_800,c_limit,q_auto,f_auto')}" alt="${itemData.Model}" id="mainPhotoImg">
                             <button class="photo-nav prev" onclick="changePhoto(-1)">‹</button>
                             <button class="photo-nav next" onclick="changePhoto(1)">›</button>
                         </div>
                         <div class="photo-thumbnails" id="thumbnails">
                             ${photos.map((photo, index) => `
                                 <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="selectPhoto(${index})">
-                                    <img src="${photo}" alt="Photo ${index + 1}">
+                                    <img src="${cloudinaryUrl(photo, 'w_200,h_150,c_fill,q_auto,f_auto')}" alt="Photo ${index + 1}">
                                 </div>
                             `).join('')}
                         </div>
@@ -533,6 +533,11 @@
                     </div>
                 `;
             }
+        }
+
+        function cloudinaryUrl(url, transform) {
+            if (!url || !url.includes('res.cloudinary.com')) return url;
+            return url.replace('/upload/', `/upload/${transform}/`);
         }
 
         let currentPhotoIndex = 0;
@@ -554,7 +559,7 @@
             currentPhotoIndex = index;
             
             // Update main photo
-            document.getElementById('mainPhotoImg').src = allPhotos[index];
+            document.getElementById('mainPhotoImg').src = cloudinaryUrl(allPhotos[index], 'w_1200,h_800,c_limit,q_auto,f_auto');
             
             // Update thumbnails
             document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
