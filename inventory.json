@@ -1501,25 +1501,6 @@
                       ]
     },
     {
-        "InventoryID":  23274,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBBB",
-        "Model":  "BBBB72",
-        "Description":  "BAD BOY 72\" Box Blade",
-        "SerialNumber":  "BBBB72BK01260017",
-        "Location":  "CLA",
-        "MSRP":  1545.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23412,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
@@ -2629,25 +2610,6 @@
         "Model":  "BBRCSC60SD",
         "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD",
         "SerialNumber":  "BBRCSC60SDBK11250072",
-        "Location":  "CLA",
-        "MSRP":  1938.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23126,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60SD",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD Black",
-        "SerialNumber":  "BBRCSC60SDBK12250013",
         "Location":  "CLA",
         "MSRP":  1938.0000,
         "Web_Price":  null,
@@ -4808,25 +4770,6 @@
         "SerialNumber":  "TFLR00066",
         "Location":  "CLA",
         "MSRP":  45832.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23386,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "40",
-        "Model":  "BB4035HIL",
-        "Description":  "BAD BOY 40 SERIES HYDRO, IND TIRE, 35HP TRACTOR WITH BBL400 LOADER",
-        "SerialNumber":  "SFLP00438",
-        "Location":  "CLA",
-        "MSRP":  36560.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
