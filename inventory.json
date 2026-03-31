@@ -5597,25 +5597,6 @@
                       ]
     },
     {
-        "InventoryID":  23193,
-        "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
-        "Department":  "CANOPY",
-        "Series":  "STD",
-        "Model":  "CANTPBLUE",
-        "Description":  "Aluminum Tread Plate Blue Std. Canopy",
-        "SerialNumber":  "116893-2",
-        "Location":  "CLA",
-        "MSRP":  559.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23194,
         "Manufacturer":  "Burdeshaw Tractor Canopies (BTC)",
         "Department":  "CANOPY",
