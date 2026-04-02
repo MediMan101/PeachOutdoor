@@ -3344,6 +3344,25 @@
                       ]
     },
     {
+        "InventoryID":  20876,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "ROGUE",
+        "Model":  "BRG5435KA",
+        "Description":  "Rogue 54\" Kawasiki 35HP Mower",
+        "SerialNumber":  "BRG5435KA03250003",
+        "Location":  "CLA",
+        "MSRP":  14620.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23350,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
@@ -3439,13 +3458,13 @@
                       ]
     },
     {
-        "InventoryID":  20683,
+        "InventoryID":  20794,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "ELITE",
         "Model":  "BZS48FR730",
         "Description":  "Bad Boy ZT Elite 48\" Kawasaki FR730V",
-        "SerialNumber":  "BZS48FR73012240121",
+        "SerialNumber":  "BZS48FR73002250055",
         "Location":  "CLA",
         "MSRP":  7347.0000,
         "Web_Price":  null,
@@ -3458,13 +3477,13 @@
                       ]
     },
     {
-        "InventoryID":  20794,
+        "InventoryID":  20683,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "ELITE",
         "Model":  "BZS48FR730",
         "Description":  "Bad Boy ZT Elite 48\" Kawasaki FR730V",
-        "SerialNumber":  "BZS48FR73002250055",
+        "SerialNumber":  "BZS48FR73012240121",
         "Location":  "CLA",
         "MSRP":  7347.0000,
         "Web_Price":  null,
