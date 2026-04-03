@@ -6498,25 +6498,6 @@
                       ]
     },
     {
-        "InventoryID":  22056,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226E",
-        "Description":  "LS Tractor MT226E Gear 4wd",
-        "SerialNumber":  "2436002146",
-        "Location":  "CLA",
-        "MSRP":  21130.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22061,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
