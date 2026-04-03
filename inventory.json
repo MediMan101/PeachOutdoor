@@ -23,6 +23,25 @@
                       ]
     },
     {
+        "InventoryID":  23534,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "ACCESSORY",
+        "Series":  "BANDIT",
+        "Model":  "088-7657-00",
+        "Description":  "Bad Boy Bandit Accessory - Lawn \u0026 Garden Kit",
+        "SerialNumber":  "00",
+        "Location":  "CLA",
+        "MSRP":  889.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "Customer Order - Strength - 6384",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23477,
         "Manufacturer":  "Bad Boy",
         "Department":  "HANDHELD",
@@ -7828,25 +7847,6 @@
                       ]
     },
     {
-        "InventoryID":  21635,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT3",
-        "Model":  "MT355E",
-        "Description":  "LS Tractor MT355E HST 4WD",
-        "SerialNumber":  "2367000851",
-        "Location":  "CLA",
-        "MSRP":  33880.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  21588,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -7889,7 +7889,7 @@
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "MT3",
-        "Model":  "MT355E",
+        "Model":  "MT355HE",
         "Description":  "LS Tractor MT355E HST 4WD",
         "SerialNumber":  "2367000756",
         "Location":  "CLA",
@@ -7908,9 +7908,28 @@
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "MT3",
-        "Model":  "MT355E",
+        "Model":  "MT355HE",
         "Description":  "LS Tractor MT355E HST 4WD",
         "SerialNumber":  "2367000753",
+        "Location":  "CLA",
+        "MSRP":  33880.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  21635,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT3",
+        "Model":  "MT355HE",
+        "Description":  "LS Tractor MT355E HST 4WD",
+        "SerialNumber":  "2367000851",
         "Location":  "CLA",
         "MSRP":  33880.0000,
         "Web_Price":  null,
@@ -7927,7 +7946,7 @@
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "MT3",
-        "Model":  "MT355E",
+        "Model":  "MT355HE",
         "Description":  "LS Tractor MT355E HST 4WD",
         "SerialNumber":  "2367000700",
         "Location":  "CLA",
