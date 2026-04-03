@@ -23,6 +23,25 @@
                       ]
     },
     {
+        "InventoryID":  20138,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SRT-XDE",
+        "Model":  "SSXDE54801KX",
+        "Description":  "Spartan SRT-XDE 54\" Deck Kawasaki FX801 25.5 HP",
+        "SerialNumber":  "416816698",
+        "Location":  "CLA",
+        "MSRP":  13309.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  true,
+        "Notes":  "",
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1775256463/peachoutdoor/defaults/spartan/srt-xde/_series/photo_1.png",
+        "AllPhotos":  [
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1775256463/peachoutdoor/defaults/spartan/srt-xde/_series/photo_1.png"
+                      ]
+    },
+    {
         "InventoryID":  23477,
         "Manufacturer":  "Bad Boy",
         "Department":  "HANDHELD",
@@ -9425,25 +9444,6 @@
         "PrimaryPhotoURL":  null,
         "AllPhotos":  [
 
-                      ]
-    },
-    {
-        "InventoryID":  20138,
-        "Manufacturer":  "Spartan Mowers",
-        "Department":  "MOWER",
-        "Series":  "SRT-XDE",
-        "Model":  "SSXDE54801KX",
-        "Description":  "Spartan SRT-XDE 54\" Deck Kawasaki FX801 25.5 HP",
-        "SerialNumber":  "416816698",
-        "Location":  "CLA",
-        "MSRP":  13309.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1775256463/peachoutdoor/defaults/spartan/srt-xde/_series/photo_1.png",
-        "AllPhotos":  [
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1775256463/peachoutdoor/defaults/spartan/srt-xde/_series/photo_1.png"
                       ]
     },
     {
