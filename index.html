@@ -904,14 +904,8 @@
                 const resp = await fetch('inventory.json');
                 const all = await resp.json();
 
-                // Priority: items with photos first, then tractors/mowers by price desc
-                const withPhotos = all.filter(x => x.PrimaryPhotoURL && x.MSRP > 0);
-                const noPhotos = all.filter(x => !x.PrimaryPhotoURL && x.MSRP > 5000
-                    && ['TRACTOR','MOWER','ZERO TURN','TRAILER'].includes(x.Department));
-
-                noPhotos.sort((a, b) => b.MSRP - a.MSRP);
-
-                const featured = [...withPhotos, ...noPhotos].slice(0, 20);
+                // Only show items explicitly marked as featured
+                const featured = all.filter(x => x.FeaturedItem === true);
 
                 // Brand color map
                 const brandColors = {
@@ -922,6 +916,11 @@
                     'Iron Craft':   'linear-gradient(135deg,#2d4a1e,#4a7c3f)',
                     'G2 TRAILERS':  'linear-gradient(135deg,#333,#666)',
                 };
+
+                if (featured.length === 0) {
+                    container.innerHTML = '<p style="color:#888;padding:16px;font-size:0.8em;text-align:center;">No featured items at this time.<br>Check back soon!</p>';
+                    return;
+                }
 
                 featured.forEach(item => {
                     const price = item.Web_Price || item.MSRP;
