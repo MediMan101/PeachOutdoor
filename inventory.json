@@ -9352,6 +9352,25 @@
                       ]
     },
     {
+        "InventoryID":  23537,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SRT-XDe",
+        "Model":  "RSSXDE61801KX",
+        "Description":  "SPARTAN SRT-XDE 61\" Kawi FX801 25.5HP ",
+        "SerialNumber":  "419013598",
+        "Location":  "CLA",
+        "MSRP":  12299.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1775256463/peachoutdoor/defaults/spartan/srt-xde/_series/photo_1.png",
+        "AllPhotos":  [
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1775256463/peachoutdoor/defaults/spartan/srt-xde/_series/photo_1.png"
+                      ]
+    },
+    {
         "InventoryID":  20120,
         "Manufacturer":  "Spartan Mowers",
         "Department":  "MOWER",
