@@ -1771,25 +1771,6 @@
                       ]
     },
     {
-        "InventoryID":  23403,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBLR",
-        "Model":  "BBLR60",
-        "Description":  "BAD BOY 5\u0027 Landscape Rake",
-        "SerialNumber":  "BBLR6002260015",
-        "Location":  "CLA",
-        "MSRP":  877.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23424,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
