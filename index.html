@@ -984,6 +984,23 @@
     </script>
     
     <!-- Live Chat Widget -->
+    <!-- Move Kenect chat widget to left side to avoid sidebar overlap -->
+    <style>
+        /* Kenect widget override - force to bottom left */
+        #kenect-chat-widget,
+        #kenect-chat-widget-container,
+        [id*="kenect"],
+        [class*="kenect"] {
+            right: auto !important;
+            left: 20px !important;
+        }
+        /* Catch-all for any iframe or div the widget injects bottom-right */
+        body > iframe[style*="bottom"],
+        body > div[style*="bottom"][style*="right"] {
+            right: auto !important;
+            left: 20px !important;
+        }
+    </style>
     <script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
 
     <!-- Featured Inventory Sidebar Loader -->
