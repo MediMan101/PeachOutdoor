@@ -333,17 +333,21 @@
             background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
         }
 
+        .sidebar-badge-wrap {
+            margin-top: auto;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
         .sidebar-item-badge {
-            position: absolute;
-            top: 7px;
-            left: 7px;
             font-size: 0.62em;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             padding: 3px 8px;
             border-radius: 20px;
-            z-index: 2;
+            text-align: center;
         }
 
         .badge-used {
@@ -1030,13 +1034,15 @@
                                     <span class="sidebar-price-label our-price-label">Our Price</span>
                                     <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call'}</span>
                                 </div>
+                                <div class="sidebar-badge-wrap">
+                                    <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
+                                </div>
                             </div>
                             <div class="sidebar-item-thumb">
                                 <div class="sidebar-item-img-overlay">
                                     <div class="sidebar-item-brand">${item.Manufacturer}</div>
                                     <div class="sidebar-item-name">${item.Description}</div>
                                 </div>
-                                <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
                                 ${item.PrimaryPhotoURL
                                     ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
                                     : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
