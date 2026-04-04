@@ -2132,25 +2132,6 @@
                       ]
     },
     {
-        "InventoryID":  22739,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "AVENGER",
-        "Model":  "BAZ60FR691",
-        "Description":  "Bad Boy Avenger 60\" 691cc Kawasaki 23hp",
-        "SerialNumber":  "BAZ60FR69110250139",
-        "Location":  "CLA",
-        "MSRP":  6612.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23316,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
@@ -2284,13 +2265,13 @@
                       ]
     },
     {
-        "InventoryID":  20686,
+        "InventoryID":  23174,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "MAVERICK",
         "Model":  "BMR54FS730",
-        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730",
-        "SerialNumber":  "BMR54FS73001250023",
+        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730 24HP",
+        "SerialNumber":  "BMR54FS73012250228",
         "Location":  "CLA",
         "MSRP":  8953.0000,
         "Web_Price":  null,
@@ -2303,13 +2284,13 @@
                       ]
     },
     {
-        "InventoryID":  23174,
+        "InventoryID":  20686,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
         "Series":  "MAVERICK",
         "Model":  "BMR54FS730",
-        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730 24HP",
-        "SerialNumber":  "BMR54FS73012250228",
+        "Description":  "Bad Boy Maverick 54\" Kawasaki FS730",
+        "SerialNumber":  "BMR54FS73001250023",
         "Location":  "CLA",
         "MSRP":  8953.0000,
         "Web_Price":  null,
@@ -2388,6 +2369,25 @@
         "SerialNumber":  "BMZ4219BG03260257",
         "Location":  "CLA",
         "MSRP":  4432.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23168,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "RAMBLER",
+        "Model":  "BMZ4219BG",
+        "Description":  "Rambler 42\" Briggs 19HP",
+        "SerialNumber":  "BMZ4219BG12250876",
+        "Location":  "CLA",
+        "MSRP":  4211.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -2483,25 +2483,6 @@
         "SerialNumber":  "BMZ4219BG01260343",
         "Location":  "CLA",
         "MSRP":  4432.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23168,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "RAMBLER",
-        "Model":  "BMZ4219BG",
-        "Description":  "Rambler 42\" Briggs 19HP",
-        "SerialNumber":  "BMZ4219BG12250876",
-        "Location":  "CLA",
-        "MSRP":  4211.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
