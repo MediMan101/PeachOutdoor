@@ -373,6 +373,13 @@
                 </div>
 
                 <div class="filter-group">
+                    <label>Series</label>
+                    <select id="seriesFilter">
+                        <option value="">All Series</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
                     <label>Condition</label>
                     <select id="conditionFilter">
                         <option value="">New &amp; Used</option>
@@ -440,6 +447,9 @@
             if (p.has('mfg'))       document.getElementById('mfgFilter').value       = p.get('mfg');
             if (p.has('condition')) document.getElementById('conditionFilter').value = p.get('condition');
             if (p.has('dept'))      document.getElementById('deptFilter').value      = p.get('dept');
+            // Update series options based on restored mfg/dept, then restore series value
+            updateSeriesFilter();
+            if (p.has('series'))    document.getElementById('seriesFilter').value    = p.get('series');
         }
 
         function populateFilters() {
@@ -452,6 +462,33 @@
             [...new Set(inventoryData.map(i => i.Department))].sort().forEach(d => {
                 if (d) deptSelect.insertAdjacentHTML('beforeend', `<option value="${d}">${d}</option>`);
             });
+
+            // Update series when mfg or dept changes
+            document.getElementById('mfgFilter').addEventListener('change', () => { updateSeriesFilter(); filterInventory(); });
+            document.getElementById('deptFilter').addEventListener('change', () => { updateSeriesFilter(); filterInventory(); });
+        }
+
+        function updateSeriesFilter() {
+            const mfg  = document.getElementById('mfgFilter').value;
+            const dept = document.getElementById('deptFilter').value;
+            const seriesSelect = document.getElementById('seriesFilter');
+            const currentSeries = seriesSelect.value;
+
+            // Filter inventory to current mfg/dept selection to get relevant series
+            const relevant = inventoryData.filter(item =>
+                (!mfg  || item.Manufacturer === mfg) &&
+                (!dept || item.Department   === dept) &&
+                item.Series
+            );
+            const seriesOptions = [...new Set(relevant.map(i => i.Series))].sort();
+
+            seriesSelect.innerHTML = '<option value="">All Series</option>';
+            seriesOptions.forEach(s => {
+                seriesSelect.insertAdjacentHTML('beforeend', `<option value="${s}">${s}</option>`);
+            });
+
+            // Restore previous selection if still valid
+            if (seriesOptions.includes(currentSeries)) seriesSelect.value = currentSeries;
         }
 
         function filterInventory() {
@@ -459,6 +496,7 @@
             const mfg       = document.getElementById('mfgFilter').value;
             const condition = document.getElementById('conditionFilter').value;
             const dept      = document.getElementById('deptFilter').value;
+            const series    = document.getElementById('seriesFilter').value;
             const sort      = document.getElementById('sortSelect').value;
 
             // Update URL
@@ -467,6 +505,7 @@
             if (mfg)       params.set('mfg',       mfg);
             if (condition) params.set('condition', condition);
             if (dept)      params.set('dept',      dept);
+            if (series)    params.set('series',    series);
             window.history.replaceState({}, '', params.toString() ? '?' + params.toString() : window.location.pathname);
 
             filteredData = inventoryData.filter(item => {
@@ -475,12 +514,13 @@
                     (item.Description && item.Description.toLowerCase().includes(search)) ||
                     (item.Series      && item.Series.toLowerCase().includes(search)) ||
                     (item.SerialNumber && item.SerialNumber.toLowerCase().includes(search));
-                const matchMfg  = !mfg  || item.Manufacturer === mfg;
-                const matchDept = !dept || item.Department    === dept;
-                const matchCond = !condition ||
+                const matchMfg    = !mfg    || item.Manufacturer === mfg;
+                const matchDept   = !dept   || item.Department   === dept;
+                const matchSeries = !series || item.Series       === series;
+                const matchCond   = !condition ||
                     (condition === 'new'  && !item.Used) ||
                     (condition === 'used' &&  item.Used);
-                return matchSearch && matchMfg && matchDept && matchCond;
+                return matchSearch && matchMfg && matchDept && matchSeries && matchCond;
             });
 
             // Sort
@@ -596,16 +636,17 @@
 
         // Event listeners
         document.getElementById('searchInput').addEventListener('input', filterInventory);
-        document.getElementById('mfgFilter').addEventListener('change', filterInventory);
         document.getElementById('conditionFilter').addEventListener('change', filterInventory);
-        document.getElementById('deptFilter').addEventListener('change', filterInventory);
+        document.getElementById('seriesFilter').addEventListener('change', filterInventory);
         document.getElementById('sortSelect').addEventListener('change', filterInventory);
         document.getElementById('resetBtn').addEventListener('click', () => {
-            document.getElementById('searchInput').value    = '';
-            document.getElementById('mfgFilter').value      = '';
+            document.getElementById('searchInput').value     = '';
+            document.getElementById('mfgFilter').value       = '';
             document.getElementById('conditionFilter').value = '';
-            document.getElementById('deptFilter').value     = '';
-            document.getElementById('sortSelect').value     = 'default';
+            document.getElementById('deptFilter').value      = '';
+            document.getElementById('sortSelect').value      = 'default';
+            updateSeriesFilter();
+            document.getElementById('seriesFilter').value    = '';
             window.history.replaceState({}, '', window.location.pathname);
             filterInventory();
         });
