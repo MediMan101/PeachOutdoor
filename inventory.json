@@ -13228,25 +13228,6 @@
                       ]
     },
     {
-        "InventoryID":  21556,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "TILLER",
-        "Model":  "UM-72",
-        "Description":  "TITAN Heavy Duty 72\" Gear Drive Tiller",
-        "SerialNumber":  "805257",
-        "Location":  "CLA",
-        "MSRP":  3000.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  21557,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
