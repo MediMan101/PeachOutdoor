@@ -1064,9 +1064,6 @@
                     container.appendChild(link);
                 });
 
-                // Measure exact height of original items before cloning
-                const originalHeight = container.scrollHeight;
-
                 // Clone all items and append to create seamless infinite loop
                 const originals = Array.from(container.children);
                 originals.forEach(el => container.appendChild(el.cloneNode(true)));
@@ -1075,6 +1072,7 @@
                 let scrolling = true;
                 let pos = 0;
                 const speed = 0.6;
+                let originalHeight = 0;
 
                 function autoScroll() {
                     if (!scrolling) {
@@ -1082,7 +1080,6 @@
                         return;
                     }
                     pos += speed;
-                    // Use exact measured height for seamless reset
                     if (pos >= originalHeight) {
                         pos -= originalHeight;
                     }
@@ -1094,8 +1091,12 @@
                 container.addEventListener('mouseenter', () => scrolling = false);
                 container.addEventListener('mouseleave', () => scrolling = true);
 
-                // Start after a short delay
-                setTimeout(() => requestAnimationFrame(autoScroll), 2000);
+                // Wait for full render before measuring and starting scroll
+                setTimeout(() => {
+                    // Total height is double the originals — divide by 2 for exact reset point
+                    originalHeight = container.scrollHeight / 2;
+                    requestAnimationFrame(autoScroll);
+                }, 2500);
 
             } catch (e) {
                 console.warn('Could not load featured inventory:', e);
