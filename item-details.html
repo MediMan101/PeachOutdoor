@@ -694,14 +694,28 @@
 
         function goBackToInventory() {
             const urlParams = new URLSearchParams(window.location.search);
+            const from = urlParams.get('from');
             const returnParams = urlParams.get('return');
-            
-            if (returnParams) {
+
+            if (from === 'home') {
+                window.location.href = 'index.html';
+            } else if (returnParams) {
                 window.location.href = 'inventory.html' + returnParams;
             } else {
                 window.location.href = 'inventory.html';
             }
         }
+
+        // Update back button label based on where user came from
+        (function() {
+            const from = new URLSearchParams(window.location.search).get('from');
+            if (from === 'home') {
+                document.querySelectorAll('a[onclick*="goBackToInventory"], button[onclick*="goBackToInventory"]').forEach(el => {
+                    el.textContent = el.textContent.replace('Back to Inventory', 'Back to Home');
+                    if (el.tagName === 'A') el.innerHTML = '← Back to Home';
+                });
+            }
+        })();
     </script>
     
     <!-- Live Chat Widget -->
