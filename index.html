@@ -1093,8 +1093,8 @@
 
                 // Wait for full render before measuring and starting scroll
                 setTimeout(() => {
-                    // Total height is double the originals — divide by 2 for exact reset point
-                    originalHeight = container.scrollHeight / 2;
+                    // Subtract small buffer to reset just before the seam
+                    originalHeight = (container.scrollHeight / 2) - 20;
                     requestAnimationFrame(autoScroll);
                 }, 2500);
 
