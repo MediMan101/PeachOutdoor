@@ -227,9 +227,9 @@
         .featured-sidebar {
             position: absolute;
             right: 0;
-            top: 0;
+            top: 160px; /* header (110px) + nav (~50px) */
             width: 25%;
-            height: 100%;
+            height: calc(100% - 160px);
             background: rgba(15, 15, 15, 0.92);
             z-index: 3;
             display: flex;
