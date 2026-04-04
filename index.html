@@ -323,6 +323,16 @@
             min-height: 144px;
         }
 
+        .sidebar-item-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            padding: 6px 8px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+        }
+
         .sidebar-item-badge {
             position: absolute;
             top: 7px;
@@ -415,24 +425,25 @@
         }
 
         .sidebar-item-info {
-            padding: 8px 10px;
-            border-top: 1px solid rgba(255,255,255,0.07);
+            display: none;
         }
 
         .sidebar-item-brand {
-            font-size: 0.65em;
+            font-size: 0.62em;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: #ff6b35;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
 
         .sidebar-item-name {
-            font-size: 0.75em;
+            font-size: 0.72em;
             color: #ffffff;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
         }
         .sidebar-footer {
             padding: 12px;
@@ -1021,16 +1032,16 @@
                                 </div>
                             </div>
                             <div class="sidebar-item-thumb">
+                                <div class="sidebar-item-img-overlay">
+                                    <div class="sidebar-item-brand">${item.Manufacturer}</div>
+                                    <div class="sidebar-item-name">${item.Description}</div>
+                                </div>
                                 <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
                                 ${item.PrimaryPhotoURL
                                     ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
                                     : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
                                 }
                             </div>
-                        </div>
-                        <div class="sidebar-item-info">
-                            <div class="sidebar-item-brand">${item.Manufacturer}</div>
-                            <div class="sidebar-item-name">${item.Description}</div>
                         </div>`;
 
                     container.appendChild(link);
