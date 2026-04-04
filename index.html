@@ -1093,9 +1093,7 @@
 
                 // Wait for full render before measuring and starting scroll
                 setTimeout(() => {
-                    // Find where the first clone starts - that's our exact reset point
-                    const firstClone = container.children[originals.length];
-                    originalHeight = firstClone.offsetTop;
+                    originalHeight = (container.scrollHeight / 2) - 10;
                     requestAnimationFrame(autoScroll);
                 }, 2500);
 
