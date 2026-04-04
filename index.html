@@ -335,6 +335,45 @@
             color: #ffd700;
         }
 
+        .sidebar-item-pricing {
+            margin-top: 4px;
+        }
+
+        .sidebar-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3px;
+        }
+
+        .sidebar-price-label {
+            font-size: 0.65em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+        }
+
+        .sidebar-price-value {
+            font-size: 0.78em;
+            font-weight: 700;
+        }
+
+        .msrp-value {
+            color: #aaaaaa;
+            text-decoration: line-through;
+        }
+
+        .our-price-label {
+            color: #ffd700;
+        }
+
+        .our-price-value {
+            color: #ffd700;
+            font-size: 0.95em;
+            font-weight: 800;
+        }
+
         .sidebar-item-badge {
             display: inline-block;
             font-size: 0.6em;
@@ -924,7 +963,6 @@
 
                 featured.forEach(item => {
                     const price = item.Web_Price || item.MSRP;
-                    const priceStr = price ? '$' + price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call for Price';
                     const isUsed = item.Used;
                     const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
 
@@ -940,8 +978,15 @@
                         <div class="sidebar-item-info">
                             <div class="sidebar-item-brand">${item.Manufacturer}</div>
                             <div class="sidebar-item-name">${item.Description}</div>
-                            <div class="sidebar-item-price">
-                                ${priceStr}
+                            <div class="sidebar-item-pricing">
+                                <div class="sidebar-price-row msrp-row">
+                                    <span class="sidebar-price-label">MSRP</span>
+                                    <span class="sidebar-price-value msrp-value">${item.MSRP ? '$' + item.MSRP.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'N/A'}</span>
+                                </div>
+                                <div class="sidebar-price-row our-price-row">
+                                    <span class="sidebar-price-label our-price-label">Our Price</span>
+                                    <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call for Price'}</span>
+                                </div>
                                 <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
                             </div>
                         </div>`;
