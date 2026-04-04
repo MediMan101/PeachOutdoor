@@ -1064,6 +1064,9 @@
                     container.appendChild(link);
                 });
 
+                // Measure exact height of original items before cloning
+                const originalHeight = container.scrollHeight;
+
                 // Clone all items and append to create seamless infinite loop
                 const originals = Array.from(container.children);
                 originals.forEach(el => container.appendChild(el.cloneNode(true)));
@@ -1079,10 +1082,9 @@
                         return;
                     }
                     pos += speed;
-                    // When we've scrolled through the original set, silently jump back to start
-                    const halfHeight = container.scrollHeight / 2;
-                    if (pos >= halfHeight) {
-                        pos -= halfHeight;
+                    // Use exact measured height for seamless reset
+                    if (pos >= originalHeight) {
+                        pos -= originalHeight;
                     }
                     container.scrollTop = pos;
                     requestAnimationFrame(autoScroll);
