@@ -297,7 +297,7 @@
 
         .sidebar-item-img {
             width: 100%;
-            height: 150px;
+            height: 100%;
             object-fit: cover;
             object-position: center;
             display: block;
@@ -306,7 +306,7 @@
 
         .sidebar-item-img-placeholder {
             width: 100%;
-            height: 150px;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -318,6 +318,9 @@
 
         .sidebar-item-thumb {
             position: relative;
+            width: 60%;
+            flex-shrink: 0;
+            min-height: 120px;
         }
 
         .sidebar-item-badge {
@@ -343,8 +346,65 @@
             color: #b7e4c7;
         }
 
+        /* Card body: pricing left | image right */
+        .sidebar-item-body {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 120px;
+        }
+
+        .sidebar-item-pricing-col {
+            width: 40%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px 8px;
+            background: rgba(0,0,0,0.3);
+            border-right: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .sidebar-price-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .sidebar-price-label {
+            font-size: 0.55em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .sidebar-price-value {
+            font-size: 0.8em;
+            font-weight: 800;
+            white-space: nowrap;
+            line-height: 1.3;
+        }
+
+        .msrp-value {
+            color: #aaaaaa;
+            text-decoration: line-through;
+        }
+
+        .our-price-label {
+            color: #ffd700;
+        }
+
+        .our-price-value {
+            color: #ffd700;
+        }
+
         .sidebar-item-info {
-            padding: 10px 12px;
+            padding: 8px 10px;
+            border-top: 1px solid rgba(255,255,255,0.07);
         }
 
         .sidebar-item-brand {
@@ -361,56 +421,6 @@
             color: #ffffff;
             font-weight: 600;
             line-height: 1.3;
-            margin-bottom: 6px;
-        }
-
-        .sidebar-item-price {
-            font-size: 0.9em;
-            font-weight: 800;
-            color: #ffd700;
-        }
-
-        .sidebar-item-pricing {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 6px;
-            gap: 6px;
-        }
-
-        .sidebar-price-row {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .sidebar-price-label {
-            font-size: 0.58em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #999;
-            white-space: nowrap;
-        }
-
-        .sidebar-price-value {
-            font-size: 0.78em;
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .msrp-value {
-            color: #aaaaaa;
-            text-decoration: line-through;
-        }
-
-        .our-price-label {
-            color: #ffd700;
-        }
-
-        .our-price-value {
-            color: #ffd700;
-            font-weight: 800;
         }
         .sidebar-footer {
             padding: 12px;
@@ -987,26 +997,28 @@
                     link.href = `item-details.html?id=${item.InventoryID}`;
 
                     link.innerHTML = `
-                        <div class="sidebar-item-thumb">
-                            <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
-                            ${item.PrimaryPhotoURL
-                                ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
-                                : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
-                            }
+                        <div class="sidebar-item-body">
+                            <div class="sidebar-item-pricing-col">
+                                <div class="sidebar-price-block">
+                                    <span class="sidebar-price-label">MSRP</span>
+                                    <span class="sidebar-price-value msrp-value">${item.MSRP ? '$' + item.MSRP.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'N/A'}</span>
+                                </div>
+                                <div class="sidebar-price-block">
+                                    <span class="sidebar-price-label our-price-label">Our Price</span>
+                                    <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call'}</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item-thumb">
+                                <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
+                                ${item.PrimaryPhotoURL
+                                    ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
+                                    : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
+                                }
+                            </div>
                         </div>
                         <div class="sidebar-item-info">
                             <div class="sidebar-item-brand">${item.Manufacturer}</div>
                             <div class="sidebar-item-name">${item.Description}</div>
-                            <div class="sidebar-item-pricing">
-                                <div class="sidebar-price-row msrp-row">
-                                    <span class="sidebar-price-label">MSRP</span>
-                                    <span class="sidebar-price-value msrp-value">${item.MSRP ? '$' + item.MSRP.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'N/A'}</span>
-                                </div>
-                                <div class="sidebar-price-row our-price-row">
-                                    <span class="sidebar-price-label our-price-label">Our Price</span>
-                                    <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call for Price'}</span>
-                                </div>
-                            </div>
                         </div>`;
 
                     container.appendChild(link);
