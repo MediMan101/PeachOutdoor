@@ -225,16 +225,23 @@
 
         /* Featured Inventory Sidebar */
         .featured-sidebar {
-            position: absolute;
+            position: fixed;
             right: 0;
             top: 160px; /* header (110px) + nav (~50px) */
             width: 20%;
-            height: calc(100% - 160px);
+            height: calc(100vh - 160px);
             background: rgba(15, 15, 15, 0.92);
-            z-index: 3;
+            z-index: 999;
             display: flex;
             flex-direction: column;
             border-left: 3px solid #ff6b35;
+            transition: height 0.1s ease;
+        }
+
+        .featured-sidebar.at-footer {
+            position: absolute;
+            top: auto;
+            bottom: 0;
         }
 
         .sidebar-header {
@@ -1027,6 +1034,36 @@
                 console.warn('Could not load featured inventory:', e);
                 container.innerHTML = '<p style="color:#888;padding:16px;font-size:0.8em;">Unable to load inventory.</p>';
             }
+        })();
+    </script>
+
+    <!-- Featured Sidebar: scroll with page, stop at footer -->
+    <script>
+        (function() {
+            const sidebar = document.querySelector('.featured-sidebar');
+            const footer = document.querySelector('footer');
+            if (!sidebar || !footer) return;
+
+            const SIDEBAR_TOP = 160;
+
+            function updateSidebar() {
+                const footerTop = footer.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                const fullHeight = viewportHeight - SIDEBAR_TOP;
+
+                if (footerTop < viewportHeight) {
+                    // Footer is encroaching — shrink sidebar height so it stops at footer
+                    const availableHeight = Math.max(footerTop - SIDEBAR_TOP, 0);
+                    sidebar.style.height = availableHeight + 'px';
+                } else {
+                    // Normal — full height
+                    sidebar.style.height = fullHeight + 'px';
+                }
+            }
+
+            window.addEventListener('scroll', updateSidebar, { passive: true });
+            window.addEventListener('resize', updateSidebar, { passive: true });
+            updateSidebar();
         })();
     </script>
 </body>
