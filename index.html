@@ -1064,23 +1064,36 @@
                     container.appendChild(link);
                 });
 
-                // Auto-scroll the sidebar slowly
+                // Clone all items and append to create seamless infinite loop
+                const originals = Array.from(container.children);
+                originals.forEach(el => container.appendChild(el.cloneNode(true)));
+
+                // Smooth infinite auto-scroll
                 let scrolling = true;
                 let pos = 0;
+                const speed = 0.6;
+
                 function autoScroll() {
-                    if (!scrolling) return;
-                    pos += 0.5;
-                    if (pos >= container.scrollHeight - container.clientHeight) {
-                        pos = 0;
+                    if (!scrolling) {
+                        requestAnimationFrame(autoScroll);
+                        return;
+                    }
+                    pos += speed;
+                    // When we've scrolled through the original set, silently jump back to start
+                    const halfHeight = container.scrollHeight / 2;
+                    if (pos >= halfHeight) {
+                        pos -= halfHeight;
                     }
                     container.scrollTop = pos;
                     requestAnimationFrame(autoScroll);
                 }
-                // Pause on hover
+
+                // Pause on hover, resume on leave
                 container.addEventListener('mouseenter', () => scrolling = false);
-                container.addEventListener('mouseleave', () => { scrolling = true; autoScroll(); });
+                container.addEventListener('mouseleave', () => scrolling = true);
+
                 // Start after a short delay
-                setTimeout(autoScroll, 2000);
+                setTimeout(() => requestAnimationFrame(autoScroll), 2000);
 
             } catch (e) {
                 console.warn('Could not load featured inventory:', e);
