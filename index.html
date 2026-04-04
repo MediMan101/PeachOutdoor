@@ -994,14 +994,37 @@
             right: auto !important;
             left: 20px !important;
         }
-        /* Catch-all for any iframe or div the widget injects bottom-right */
-        body > iframe[style*="bottom"],
-        body > div[style*="bottom"][style*="right"] {
-            right: auto !important;
-            left: 20px !important;
-        }
     </style>
     <script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+
+    <script>
+        // Aggressively reposition Kenect widget to bottom-left after it loads
+        function moveWidgetLeft(el) {
+            el.style.setProperty('right', 'auto', 'important');
+            el.style.setProperty('left', '20px', 'important');
+        }
+
+        function scanAndMove() {
+            // Target iframes and divs injected at body level with bottom/right positioning
+            document.querySelectorAll('body > iframe, body > div').forEach(el => {
+                const style = el.getAttribute('style') || '';
+                if (style.includes('right') || style.includes('bottom')) {
+                    moveWidgetLeft(el);
+                }
+            });
+            // Also try known Kenect IDs/classes
+            ['kenect-chat-widget', 'kenect-chat-widget-container'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) moveWidgetLeft(el);
+            });
+            document.querySelectorAll('[id*="kenect"],[class*="kenect"]').forEach(moveWidgetLeft);
+        }
+
+        // Run on load and then watch for any new elements being added
+        window.addEventListener('load', scanAndMove);
+        const observer = new MutationObserver(scanAndMove);
+        observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+    </script>
 
     <!-- Featured Inventory Sidebar Loader -->
     <script>
