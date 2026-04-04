@@ -1093,8 +1093,9 @@
 
                 // Wait for full render before measuring and starting scroll
                 setTimeout(() => {
-                    // Subtract small buffer to reset just before the seam
-                    originalHeight = (container.scrollHeight / 2) - 12;
+                    // Find where the first clone starts - that's our exact reset point
+                    const firstClone = container.children[originals.length];
+                    originalHeight = firstClone.offsetTop;
                     requestAnimationFrame(autoScroll);
                 }, 2500);
 
