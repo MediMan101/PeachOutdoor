@@ -7752,6 +7752,25 @@
                       ]
     },
     {
+        "InventoryID":  23538,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT3",
+        "Model":  "MT357H",
+        "Description":  "LS TRACTOR MT357H HST 4WD",
+        "SerialNumber":  "2354002158",
+        "Location":  "CLA",
+        "MSRP":  39650.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23363,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
