@@ -9637,25 +9637,6 @@
                       ]
     },
     {
-        "InventoryID":  22753,
-        "Manufacturer":  "TITAN",
-        "Department":  "IMP",
-        "Series":  "CUTTER",
-        "Model":  "1206SC",
-        "Description":  "TITAN 6\u0027 Standard Duty Cutter Slip Clutch WO/Chains",
-        "SerialNumber":  "394193",
-        "Location":  "CLA",
-        "MSRP":  2311.0600,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22757,
         "Manufacturer":  "TITAN",
         "Department":  "IMP",
