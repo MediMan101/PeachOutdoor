@@ -9295,6 +9295,63 @@
                       ]
     },
     {
+        "InventoryID":  23540,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "RZ-HD",
+        "Model":  "RSZL1154FR730",
+        "Description":  "Spartan RZ-HD 24HP Kawasaki FR730V w/54\" Deck RT-Pro Seat",
+        "SerialNumber":  "420605776",
+        "Location":  "CLA",
+        "MSRP":  8399.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23541,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "RZ-HD",
+        "Model":  "RSZL1154FR730",
+        "Description":  "Spartan RZ-HD 24HP Kawasaki FR730V w/54\" Deck RT-Pro Seat",
+        "SerialNumber":  "420605777",
+        "Location":  "CLA",
+        "MSRP":  8399.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23542,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "RZ-HD",
+        "Model":  "RSZL1154FR730",
+        "Description":  "Spartan RZ-HD 24HP Kawasaki FR730V w/54\" Deck RT-Pro Seat",
+        "SerialNumber":  "420605779",
+        "Location":  "CLA",
+        "MSRP":  8399.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  20120,
         "Manufacturer":  "Spartan Mowers",
         "Department":  "MOWER",
@@ -9551,6 +9608,120 @@
         "SerialNumber":  "48691KR3PB133899",
         "Location":  "CLA",
         "MSRP":  6609.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23543,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SHIELD",
+        "Model":  "SZSH1K42722SE",
+        "Description":  "Spartan Shield 42\" Deck Briggs 22Hp",
+        "SerialNumber":  "420400237",
+        "Location":  "CLA",
+        "MSRP":  4299.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23544,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SHIELD",
+        "Model":  "SZSH1K42722SE",
+        "Description":  "Spartan Shield 42\" Deck Briggs 22Hp",
+        "SerialNumber":  "420400239",
+        "Location":  "CLA",
+        "MSRP":  4299.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23545,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SHIELD",
+        "Model":  "SZSH1K42722SE",
+        "Description":  "Spartan Shield 42\" Deck Briggs 22Hp",
+        "SerialNumber":  "420400240",
+        "Location":  "CLA",
+        "MSRP":  4299.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23546,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SHIELD",
+        "Model":  "SZSH1K42722SE",
+        "Description":  "Spartan Shield 42\" Deck Briggs 22Hp",
+        "SerialNumber":  "420400306",
+        "Location":  "CLA",
+        "MSRP":  4299.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23547,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SHIELD",
+        "Model":  "SZSH1K54722SE",
+        "Description":  "Spartan Shield 54\" Deck Briggs 22Hp",
+        "SerialNumber":  "420400219",
+        "Location":  "CLA",
+        "MSRP":  4599.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23548,
+        "Manufacturer":  "Spartan Mowers",
+        "Department":  "MOWER",
+        "Series":  "SHIELD",
+        "Model":  "SZSH1K54722SE",
+        "Description":  "Spartan Shield 54\" Deck Briggs 22Hp",
+        "SerialNumber":  "420400220",
+        "Location":  "CLA",
+        "MSRP":  4599.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
