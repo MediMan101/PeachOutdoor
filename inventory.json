@@ -2911,25 +2911,6 @@
                       ]
     },
     {
-        "InventoryID":  23256,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "ELITE",
-        "Model":  "BZS54FR730",
-        "Description":  "Bad Boy ZT Elite 54\" Kawasaki FR730 24HP",
-        "SerialNumber":  "BZS54FR73001260371",
-        "Location":  "CLA",
-        "MSRP":  7586.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  6576,
         "Manufacturer":  "Bad Boy",
         "Department":  "PARTS",
