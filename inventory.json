@@ -2778,25 +2778,6 @@
                       ]
     },
     {
-        "InventoryID":  23502,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "ROGUE",
-        "Model":  "BRG61385KA",
-        "Description":  "Bad Boy Rogue 61\" Kawasaki FX1000 EFI 38.5HP",
-        "SerialNumber":  "BRG61385KA03260014",
-        "Location":  "CLA",
-        "MSRP":  15499.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  22701,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
