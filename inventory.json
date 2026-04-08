@@ -5183,6 +5183,25 @@
                       ]
     },
     {
+        "InventoryID":  23552,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "3.5K",
+        "Model":  "6X10SA",
+        "Description":  "G2 TRAILERS 6x10 Single Axle 4\u0027 Ramp",
+        "SerialNumber":  "1L9UBC222TT700325",
+        "Location":  "CLA",
+        "MSRP":  1654.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  23437,
         "Manufacturer":  "G2 TRAILERS",
         "Department":  "TRAILER",
@@ -5192,6 +5211,25 @@
         "SerialNumber":  "1L9UBU121TT700155",
         "Location":  "CLA",
         "MSRP":  1699.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23553,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "3.5K",
+        "Model":  "6x14SA",
+        "Description":  "G2 TRAILERS 6x14 Single Axle 4\u0027 Ramp",
+        "SerialNumber":  "1L9UBC222TT700325",
+        "Location":  "CLA",
+        "MSRP":  1899.0000,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -5228,6 +5266,44 @@
         "Model":  "82x22 3500CH",
         "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
         "SerialNumber":  "1L9UBC222TT700264",
+        "Location":  "CLA",
+        "MSRP":  4995.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23550,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "7K",
+        "Model":  "82x22 3500CH",
+        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
+        "SerialNumber":  "1L9UBC222TT700323",
+        "Location":  "CLA",
+        "MSRP":  4995.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23551,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "7K",
+        "Model":  "82x22 3500CH",
+        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
+        "SerialNumber":  "1L9UBC222TT700324",
         "Location":  "CLA",
         "MSRP":  4995.0000,
         "Web_Price":  null,
