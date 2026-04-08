@@ -5316,25 +5316,6 @@
                       ]
     },
     {
-        "InventoryID":  23530,
-        "Manufacturer":  "G2 TRAILERS",
-        "Department":  "TRAILER",
-        "Series":  "10K",
-        "Model":  "82x22 5200CH",
-        "Description":  "G2 TRAILERS 7x22 10K Trailer w/Ramps w/Brakes w/LED",
-        "SerialNumber":  "1L9UBC222TT700263",
-        "Location":  "CLA",
-        "MSRP":  5995.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  6145,
         "Manufacturer":  "Husqvarna",
         "Department":  "HANDHELD",
