@@ -270,25 +270,6 @@
                       ]
     },
     {
-        "InventoryID":  23471,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "HANDHELD",
-        "Series":  "SAW",
-        "Model":  "CS300-14",
-        "Description":  "Bad Boy Chainsaw CS300-14 ",
-        "SerialNumber":  "G400692",
-        "Location":  "CLA",
-        "MSRP":  369.9900,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23472,
         "Manufacturer":  "Bad Boy",
         "Department":  "HANDHELD",
@@ -5259,25 +5240,6 @@
                       ]
     },
     {
-        "InventoryID":  23531,
-        "Manufacturer":  "G2 TRAILERS",
-        "Department":  "TRAILER",
-        "Series":  "7K",
-        "Model":  "82x22 3500CH",
-        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
-        "SerialNumber":  "1L9UBC222TT700264",
-        "Location":  "CLA",
-        "MSRP":  4995.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23550,
         "Manufacturer":  "G2 TRAILERS",
         "Department":  "TRAILER",
@@ -5304,6 +5266,25 @@
         "Model":  "82x22 3500CH",
         "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
         "SerialNumber":  "1L9UBC222TT700324",
+        "Location":  "CLA",
+        "MSRP":  4995.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
+        "InventoryID":  23531,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "7K",
+        "Model":  "82x22 3500CH",
+        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
+        "SerialNumber":  "1L9UBC222TT700264",
         "Location":  "CLA",
         "MSRP":  4995.0000,
         "Web_Price":  null,
