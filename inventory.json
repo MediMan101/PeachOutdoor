@@ -650,25 +650,6 @@
                       ]
     },
     {
-        "InventoryID":  23100,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBBB",
-        "Model":  "BBBB60",
-        "Description":  "BAD BOY 60\" Box Blade Black",
-        "SerialNumber":  "BBBB60BK12250008",
-        "Location":  "CLA",
-        "MSRP":  1273.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23101,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
@@ -1949,25 +1930,6 @@
         "Model":  "BBRCSC60",
         "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch Orange",
         "SerialNumber":  "BBRCSC60O11250002",
-        "Location":  "CLA",
-        "MSRP":  2423.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
-        "InventoryID":  23038,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch Orange",
-        "SerialNumber":  "BBRCSC60O11250003",
         "Location":  "CLA",
         "MSRP":  2423.0000,
         "Web_Price":  null,
