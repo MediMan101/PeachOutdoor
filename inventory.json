@@ -5430,25 +5430,6 @@
                       ]
     },
     {
-        "InventoryID":  23300,
-        "Manufacturer":  "IronCraft",
-        "Department":  "IMP",
-        "Series":  "QH",
-        "Model":  "QH-1",
-        "Description":  "IRONCRAFT QUICK HITCH Cat 1",
-        "SerialNumber":  "399631",
-        "Location":  "CLA",
-        "MSRP":  285.6000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23301,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
