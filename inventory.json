@@ -5088,25 +5088,6 @@
                       ]
     },
     {
-        "InventoryID":  23553,
-        "Manufacturer":  "G2 TRAILERS",
-        "Department":  "TRAILER",
-        "Series":  "3.5K",
-        "Model":  "6x14SA",
-        "Description":  "G2 TRAILERS 6x14 Single Axle 4\u0027 Ramp",
-        "SerialNumber":  "1L9UBC222TT700326",
-        "Location":  "CLA",
-        "MSRP":  1899.0000,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "AllPhotos":  [
-
-                      ]
-    },
-    {
         "InventoryID":  23007,
         "Manufacturer":  "G2 TRAILERS",
         "Department":  "TRAILER",
