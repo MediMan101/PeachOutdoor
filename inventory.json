@@ -9200,6 +9200,25 @@
                       ]
     },
     {
+        "InventoryID":  23581,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "TRACTOR",
+        "Series":  "6000",
+        "Model":  "60754FPAL",
+        "Description":  "Mahindra 6075 4wd Power Shuttle Ag Tire w/Loader",
+        "SerialNumber":  "MU4S2792",
+        "Location":  "CLA",
+        "MSRP":  39682.0000,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "PrimaryPhotoURL":  null,
+        "AllPhotos":  [
+
+                      ]
+    },
+    {
         "InventoryID":  22846,
         "Manufacturer":  "Mahindra USA",
         "Department":  "UTV",
