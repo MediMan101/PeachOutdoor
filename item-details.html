@@ -576,7 +576,6 @@
             // Info pills
             let pillsHtml = '';
             if (itemData.Department) pillsHtml += pill('Type', itemData.Department);
-            if (itemData.Location)   pillsHtml += pill('Location', itemData.Location);
             if (itemData.Used && itemData.Hours != null) pillsHtml += pill('Hours', itemData.Hours.toLocaleString());
             if (itemData.Year)       pillsHtml += pill('Year', itemData.Year);
 
