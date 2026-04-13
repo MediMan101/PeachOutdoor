@@ -19,6 +19,22 @@ $ErrorActionPreference = "Stop"
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 Write-Host "[$timestamp] Starting Peach Outdoor sync..." -ForegroundColor Cyan
 
+# Verify repo path exists before doing anything
+if (-not (Test-Path $RepoPath)) {
+    Write-Host "ERROR: Repo path not found: $RepoPath" -ForegroundColor Red
+    Write-Host "Folders found under Documents\GitHub:" -ForegroundColor Yellow
+    $githubPath = "$env:USERPROFILE\Documents\GitHub"
+    if (Test-Path $githubPath) {
+        Get-ChildItem $githubPath -Directory | ForEach-Object { Write-Host "  $($_.FullName)" }
+    } else {
+        Write-Host "  Documents\GitHub folder does not exist" -ForegroundColor Red
+        Write-Host "  Looking for PeachOutdoor elsewhere..." -ForegroundColor Yellow
+        Get-ChildItem "$env:USERPROFILE" -Recurse -Filter "inventory.json" -ErrorAction SilentlyContinue |
+            Select-Object -First 5 | ForEach-Object { Write-Host "  Found: $($_.DirectoryName)" }
+    }
+    exit 1
+}
+
 # ── Helper: run SQL and return DataTable ──────────────────────────────────────
 function Invoke-SQL {
     param([string]$Query)
