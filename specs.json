@@ -1,94 +1,218 @@
 [
-  {
-    "Model": "7530",
-    "Manufacturer": "Bad Boy",
-    "Specs": {
-      "Engine": {
-        "Type": "Brushless Electric Motor",
-        "Power": "80V",
-        "Battery": "2.5 Ah Lithium-Ion"
-      },
-      "Performance": {
-        "Runtime": "Up to 45 minutes",
-        "Charge Time": "60 minutes",
-        "Weight": "5.2 lbs"
-      },
-      "Features": {
-        "Variable Speed": "Yes",
-        "LED Indicator": "Battery level display",
-        "Warranty": "3 years"
-      }
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "BATTERY",
+        "Model":  "7530"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT1",
+        "Model":  "MT125"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1500",
+        "Model":  "15264FHIL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHALB"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHI"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHIL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHILB"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHILB12"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHILB16"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHILM"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHTL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHTLB12"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHTLM"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FHTM"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSA"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSAL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSALB"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSI"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSIL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSILB"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSILB12"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSILB16"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSIM"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSRFIL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSTL"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "16264FSTLB"
+    },
+    {
+        "Specs":  {
+
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "1626L"
     }
-  },
-  {
-    "Model": "MT125",
-    "Manufacturer": "LS",
-    "Specs": {
-      "Engine": {
-        "Type": "Diesel 3-Cylinder",
-        "Displacement": "1.5L",
-        "Horsepower": "24.5 HP",
-        "Cylinders": "3"
-      },
-      "Transmission": {
-        "Type": "Hydrostatic",
-        "Speeds": "Variable"
-      },
-      "Dimensions": {
-        "Length": "108 inches",
-        "Width": "54 inches",
-        "Height": "78 inches",
-        "Weight": "2,450 lbs"
-      },
-      "Hydraulics": {
-        "3-Point Hitch": "Category 1",
-        "Lift Capacity": "1,250 lbs",
-        "PTO HP": "20.5 HP"
-      },
-      "Features": {
-        "4WD": "Yes",
-        "Power Steering": "Yes",
-        "Cruise Control": "Optional",
-        "Warranty": "5 years powertrain"
-      }
-    }
-  },
-  {
-    "Model": "1526",
-    "Manufacturer": "Mahindra",
-    "Specs": {
-      "Engine": {
-        "Type": "Diesel 3-Cylinder",
-        "Displacement": "1.5L",
-        "Horsepower": "26 HP",
-        "Cylinders": "3",
-        "Fuel Tank": "6.3 gallons"
-      },
-      "Transmission": {
-        "Type": "Synchro Shuttle",
-        "Forward Gears": "8",
-        "Reverse Gears": "8"
-      },
-      "Dimensions": {
-        "Length": "115 inches",
-        "Width": "56 inches",
-        "Height": "82 inches",
-        "Wheelbase": "68 inches",
-        "Weight": "2,756 lbs"
-      },
-      "Hydraulics": {
-        "3-Point Hitch": "Category 1",
-        "Lift Capacity": "1,433 lbs",
-        "PTO HP": "22 HP",
-        "PTO Speed": "540 RPM"
-      },
-      "Features": {
-        "4WD": "Yes",
-        "Power Steering": "Standard",
-        "Differential Lock": "Yes",
-        "ROPS": "Foldable",
-        "Warranty": "6 years powertrain"
-      }
-    }
-  }
 ]
