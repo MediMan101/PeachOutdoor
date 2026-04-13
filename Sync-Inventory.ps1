@@ -12,7 +12,7 @@
 param(
     [string]$SqlServer    = "localhost\MCSSQLEXPRESS",
     [string]$Database     = "Peach",
-    [string]$RepoPath     = "C:\GitHub\PeachOutdoor",
+    [string]$RepoPath     = "C:\Users\John Pierce\Documents\GitHub\PeachOutdoor",
     [string]$GitExe       = "C:\Program Files\Git\bin\git.exe",
     [switch]$Force        = $false   # push even if nothing changed
 )
