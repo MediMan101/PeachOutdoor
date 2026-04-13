@@ -1,62 +1,102 @@
 # =============================================================================
 # Sync-Inventory.ps1
-# Peach Outdoor - Export inventory + specs from [Peach] database to GitHub
+# Peach Outdoor - Export inventory + specs to GitHub via API
 #
-# Outputs two files:
-#   inventory.json  - all web-enabled inventory items
-#   specs.json      - model specs from ModelSpec table
+# Runs on Windows Server — no Git install required.
+# Pushes inventory.json and specs.json directly to GitHub via HTTPS API.
+# Netlify detects the push and deploys automatically.
+#
+# Location: C:\WebSiteScripts\Sync-Inventory.ps1
 # =============================================================================
 
-param(
-    [string]$SqlServer    = "localhost\MCSSQLEXPRESS",
-    [string]$Database     = "Peach",
-    [string]$RepoPath     = "C:\Users\John Pierce\Documents\GitHub\PeachOutdoor",
-    [string]$GitExe       = "C:\Program Files\Git\bin\git.exe",
-    [switch]$Force        = $false
-)
+# ── CONFIGURATION ─────────────────────────────────────────────────────────────
 
-$ErrorActionPreference = "Stop"
-$timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-Write-Host "[$timestamp] Starting Peach Outdoor sync..." -ForegroundColor Cyan
+$GitHubToken  = "YOUR_GITHUB_TOKEN_HERE"
+$GitHubOwner  = "MediMan101"
+$GitHubRepo   = "PeachOutdoor"
+$GitHubBranch = "main"
 
-# Verify repo path exists before doing anything
-if (-not (Test-Path $RepoPath)) {
-    Write-Host "ERROR: Repo path not found: $RepoPath" -ForegroundColor Red
-    Write-Host "Folders found under Documents\GitHub:" -ForegroundColor Yellow
-    $githubPath = "$env:USERPROFILE\Documents\GitHub"
-    if (Test-Path $githubPath) {
-        Get-ChildItem $githubPath -Directory | ForEach-Object { Write-Host "  $($_.FullName)" }
-    } else {
-        Write-Host "  Documents\GitHub folder does not exist" -ForegroundColor Red
-        Write-Host "  Looking for PeachOutdoor elsewhere..." -ForegroundColor Yellow
-        Get-ChildItem "$env:USERPROFILE" -Recurse -Filter "inventory.json" -ErrorAction SilentlyContinue |
-            Select-Object -First 5 | ForEach-Object { Write-Host "  Found: $($_.DirectoryName)" }
-    }
-    exit 1
+$SqlServer    = "localhost\MCSSQLEXPRESS"
+$Database     = "Peach"
+
+$LogFile      = "C:\WebSiteScripts\Logs\sync-inventory.log"
+
+# ── LOGGING ───────────────────────────────────────────────────────────────────
+
+$LogDir = Split-Path $LogFile
+if (-not (Test-Path $LogDir)) { New-Item -ItemType Directory -Path $LogDir -Force | Out-Null }
+
+function Write-Log {
+    param([string]$Message, [string]$Level = "INFO")
+    $entry = "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] [$Level] $Message"
+    Add-Content -Path $LogFile -Value $entry
+    $color = if ($Level -eq "ERROR") { "Red" } elseif ($Level -eq "WARN") { "Yellow" } else { "Cyan" }
+    Write-Host $entry -ForegroundColor $color
 }
 
-# ── Helper: run SQL and return DataTable ──────────────────────────────────────
+# ── HELPER: Run SQL query, return DataTable ───────────────────────────────────
+
 function Invoke-SQL {
     param([string]$Query)
     $conn = New-Object System.Data.SqlClient.SqlConnection
     $conn.ConnectionString = "Server=$SqlServer;Database=$Database;Integrated Security=True;"
     $conn.Open()
-    $cmd = $conn.CreateCommand()
+    $cmd             = $conn.CreateCommand()
     $cmd.CommandText = $Query
     $cmd.CommandTimeout = 120
     $adapter = New-Object System.Data.SqlClient.SqlDataAdapter $cmd
-    $dt = New-Object System.Data.DataTable
+    $dt      = New-Object System.Data.DataTable
     $adapter.Fill($dt) | Out-Null
     $conn.Close()
     return $dt
 }
 
+# ── HELPER: Push a file to GitHub via API ────────────────────────────────────
+
+function Push-GitHubFile {
+    param(
+        [string]$FilePath,    # e.g. "inventory.json"
+        [string]$Content,     # file content as string
+        [string]$CommitMsg
+    )
+
+    $headers = @{
+        "Authorization"        = "Bearer $GitHubToken"
+        "Accept"               = "application/vnd.github+json"
+        "X-GitHub-Api-Version" = "2022-11-28"
+    }
+    $apiUrl = "https://api.github.com/repos/$GitHubOwner/$GitHubRepo/contents/$FilePath"
+
+    # Get current SHA (required to update existing file)
+    $currentSha = $null
+    try {
+        $existing   = Invoke-RestMethod -Uri $apiUrl -Headers $headers -Method Get
+        $currentSha = $existing.sha
+    } catch {
+        if ($_.Exception.Response.StatusCode -ne 404) {
+            throw "GitHub GET failed for $FilePath`: $($_.Exception.Message)"
+        }
+        # 404 = file doesn't exist yet, will be created
+    }
+
+    $encoded = [System.Convert]::ToBase64String(
+        [System.Text.Encoding]::UTF8.GetBytes($Content)
+    )
+
+    $body = @{ message = $CommitMsg; content = $encoded; branch = $GitHubBranch }
+    if ($currentSha) { $body.sha = $currentSha }
+
+    Invoke-RestMethod -Uri $apiUrl -Headers $headers -Method Put `
+        -Body ($body | ConvertTo-Json) -ContentType "application/json" | Out-Null
+
+    Write-Log "Pushed $FilePath to GitHub."
+}
+
 # =============================================================================
-# STEP 1 — Export inventory.json
-# Uses WebDisplay (ShowOnWeb/FeaturedItem), WebPricing (Web_Price),
-# InventoryPhotos (photos), and Vendor (full manufacturer name)
+# STEP 1 — Build inventory.json
 # =============================================================================
-Write-Host "  Querying inventory..." -ForegroundColor Gray
+Write-Log "===== Sync-Inventory started ====="
+Write-Log "Querying inventory..."
 
 $inventorySQL = @"
 SELECT
@@ -82,18 +122,15 @@ SELECT
 FROM dbo.Inventory i
 INNER JOIN dbo.WebDisplay wd
     ON wd.InventoryID = i.InventoryID
-    AND wd.ShowOnWeb = 1
+   AND wd.ShowOnWeb = 1
 LEFT JOIN dbo.WebPricing wp
     ON wp.InventoryID = i.InventoryID
-    AND wp.IsActive = 1
-    AND wp.EffectiveDate = (
-        SELECT MAX(EffectiveDate)
-        FROM dbo.WebPricing
-        WHERE InventoryID = i.InventoryID
-          AND IsActive = 1
-    )
-LEFT JOIN dbo.Vendor v
-    ON v.VendorID = i.MFG
+   AND wp.IsActive = 1
+   AND wp.EffectiveDate = (
+       SELECT MAX(EffectiveDate) FROM dbo.WebPricing
+       WHERE InventoryID = i.InventoryID AND IsActive = 1
+   )
+LEFT JOIN dbo.Vendor v ON v.VendorID = i.MFG
 WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) > 0
   AND ISNULL(i.Deleted, 0)          = 0
   AND ISNULL(i.Attachment, 0)       = 0
@@ -102,15 +139,19 @@ WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) > 0
 ORDER BY wd.FeaturedItem DESC, v.Name, i.Dept, i.Model
 "@
 
-# Photos query — all photos per item ordered by primary first then sort order
 $photosSQL = @"
 SELECT InventoryID, PhotoURL
 FROM dbo.InventoryPhotos
 ORDER BY InventoryID, IsPrimary DESC, SortOrder ASC
 "@
 
-$inventoryRows = Invoke-SQL -Query $inventorySQL
-$photoRows     = Invoke-SQL -Query $photosSQL
+try {
+    $inventoryRows = Invoke-SQL -Query $inventorySQL
+    $photoRows     = Invoke-SQL -Query $photosSQL
+} catch {
+    Write-Log "ERROR querying database: $($_.Exception.Message)" "ERROR"
+    exit 1
+}
 
 # Build photo lookup: InventoryID -> [url, url, ...]
 $photoLookup = @{}
@@ -120,11 +161,11 @@ foreach ($row in $photoRows) {
     $photoLookup[$id] += [string]$row.PhotoURL
 }
 
-# Build inventory array
+# Build inventory list
 $inventoryList = @()
 foreach ($row in $inventoryRows) {
     $id = [int]$row.InventoryID
-    $item = [ordered]@{
+    $inventoryList += [PSCustomObject]@{
         InventoryID     = $id
         Manufacturer    = [string]$row.Manufacturer
         Department      = [string]$row.Department
@@ -133,7 +174,7 @@ foreach ($row in $inventoryRows) {
         Description     = [string]$row.Description
         SerialNumber    = [string]$row.SerialNumber
         Location        = [string]$row.Location
-        MSRP            = if ($row.MSRP    -is [DBNull]) { $null } else { [double]$row.MSRP }
+        MSRP            = if ($row.MSRP      -is [DBNull]) { $null } else { [double]$row.MSRP }
         Web_Price       = if ($row.Web_Price -is [DBNull]) { $null } else { [double]$row.Web_Price }
         Used            = ([int]$row.Used -eq 1)
         FeaturedItem    = ([int]$row.FeaturedItem -eq 1)
@@ -141,18 +182,15 @@ foreach ($row in $inventoryRows) {
         PrimaryPhotoURL = if ($row.PrimaryPhotoURL -is [DBNull]) { $null } else { [string]$row.PrimaryPhotoURL }
         AllPhotos       = if ($photoLookup.ContainsKey($id)) { $photoLookup[$id] } else { @() }
     }
-    $inventoryList += $item
 }
 
 $inventoryJson = $inventoryList | ConvertTo-Json -Depth 5
-$inventoryPath = Join-Path $RepoPath "inventory.json"
-$inventoryJson | Set-Content -Path $inventoryPath -Encoding UTF8
-Write-Host "  Exported $($inventoryList.Count) inventory items." -ForegroundColor Green
+Write-Log "Inventory built: $($inventoryList.Count) items."
 
 # =============================================================================
-# STEP 2 — Export specs.json from ModelSpec table
+# STEP 2 — Build specs.json
 # =============================================================================
-Write-Host "  Querying model specs..." -ForegroundColor Gray
+Write-Log "Querying model specs..."
 
 $specsSQL = @"
 SELECT
@@ -168,7 +206,12 @@ FROM dbo.vw_ModelSpecs ms
 ORDER BY ms.Manufacture, ms.Series, ms.ForModel, ms.Category, ms.SortOrder, ms.SpecLabel
 "@
 
-$specRows = Invoke-SQL -Query $specsSQL
+try {
+    $specRows = Invoke-SQL -Query $specsSQL
+} catch {
+    Write-Log "ERROR querying specs: $($_.Exception.Message)" "WARN"
+    $specRows = @()
+}
 
 $specsByModel    = @{}
 $specsByModelPri = @{}
@@ -176,24 +219,16 @@ $specsByModelPri = @{}
 foreach ($row in $specRows) {
     $key = "$($row.Manufacture)||$($row.Series)||$($row.Model)"
     if (-not $specsByModel.ContainsKey($key)) {
-        $specsByModel[$key] = @{
-            Manufacturer = $row.Manufacture
-            Series       = $row.Series
-            Model        = $row.Model
-            Specs        = [ordered]@{}
-        }
+        $specsByModel[$key]    = @{ Manufacturer = $row.Manufacture; Series = $row.Series; Model = $row.Model; Specs = [ordered]@{} }
         $specsByModelPri[$key] = @{}
     }
-
     $cat      = $row.Category
     $label    = $row.SpecLabel
     $priority = [int]$row.SpecPriority
-
     if (-not $specsByModel[$key].Specs.ContainsKey($cat)) {
         $specsByModel[$key].Specs[$cat]  = [ordered]@{}
         $specsByModelPri[$key][$cat]     = @{}
     }
-
     $existingPri = $specsByModelPri[$key][$cat][$label]
     if (-not $existingPri -or $priority -lt $existingPri) {
         $specsByModel[$key].Specs[$cat][$label]  = $row.SpecValue
@@ -203,27 +238,20 @@ foreach ($row in $specRows) {
 
 $specsList = $specsByModel.Values | Sort-Object { $_.Manufacturer }, { $_.Model }
 $specsJson = $specsList | ConvertTo-Json -Depth 6
-$specsPath = Join-Path $RepoPath "specs.json"
-$specsJson | Set-Content -Path $specsPath -Encoding UTF8
-Write-Host "  Exported $($specsList.Count) model spec sets." -ForegroundColor Green
+Write-Log "Specs built: $($specsList.Count) model spec sets."
 
 # =============================================================================
-# STEP 3 — Git commit and push (only if files changed)
+# STEP 3 — Push both files to GitHub
 # =============================================================================
-Write-Host "  Checking for changes..." -ForegroundColor Gray
+$commitMsg = "Auto-sync inventory + specs $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 
-Set-Location $RepoPath
-$gitStatus = & $GitExe status --porcelain 2>&1
-
-if ($gitStatus -or $Force) {
-    Write-Host "  Changes detected — committing..." -ForegroundColor Yellow
-    & $GitExe add inventory.json specs.json
-    $commitMsg = "Auto-sync inventory + specs $((Get-Date -Format 'yyyy-MM-dd HH:mm'))"
-    & $GitExe commit -m $commitMsg
-    & $GitExe push
-    Write-Host "  Pushed to GitHub. Netlify will deploy automatically." -ForegroundColor Green
-} else {
-    Write-Host "  No changes — skipping push." -ForegroundColor Gray
+try {
+    Push-GitHubFile -FilePath "inventory.json" -Content $inventoryJson -CommitMsg $commitMsg
+    Push-GitHubFile -FilePath "specs.json"     -Content $specsJson     -CommitMsg $commitMsg
+    Write-Log "Netlify will deploy automatically."
+} catch {
+    Write-Log "ERROR pushing to GitHub: $($_.Exception.Message)" "ERROR"
+    exit 1
 }
 
-Write-Host "[$((Get-Date -Format 'yyyy-MM-dd HH:mm:ss'))] Sync complete." -ForegroundColor Cyan
+Write-Log "===== Sync-Inventory completed successfully ====="
