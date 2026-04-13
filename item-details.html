@@ -547,9 +547,7 @@
         }
 
         function displayItem() {
-            const specs = specsData.find(s =>
-                s.Model === itemData.Model && s.Manufacturer === itemData.Manufacturer
-            );
+            const specs = specsData.find(s => s.Model === itemData.Model);
 
             let photos = [];
             if (itemData.AllPhotos && Array.isArray(itemData.AllPhotos) && itemData.AllPhotos.length > 0) {
