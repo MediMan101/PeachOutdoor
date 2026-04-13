@@ -263,43 +263,21 @@ GO
 --    Remove or comment out if you don't want these seed rows.
 -- =============================================================================
 
--- Bad Boy 7530
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Engine',      'Type',       'Brushless Electric Motor', 1
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Engine',      'Power',      '80V',                      2
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Engine',      'Battery',    '2.5 Ah Lithium-Ion',       3
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Performance', 'Runtime',    'Up to 45 minutes',         1
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Performance', 'Charge Time','60 minutes',               2
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Performance', 'Weight',     '5.2 lbs',                  3
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Features',    'Variable Speed','Yes',                   1
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Features',    'LED Indicator','Battery level display',  2
-EXEC sp_UpsertModelSpec 'Bad Boy', 'BATTERY', '7530', 'Features',    'Warranty',   '3 years',                  3
+-- LS MT125  (Manufacture='LS', Series='MT1', Model='MT125' per Model table)
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Engine',       'Type',          'Diesel 3-Cylinder',    1
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Engine',       'Displacement',  '1.5L',                 2
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Engine',       'Horsepower',    '24.5 HP',              3
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Transmission', 'Type',          'Hydrostatic',          1
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Transmission', 'Speeds',        'Variable',             2
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Dimensions',   'Length',        '108 inches',           1
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Dimensions',   'Width',         '54 inches',            2
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Dimensions',   'Weight',        '2,450 lbs',            3
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Hydraulics',   '3-Point Hitch', 'Category 1',           1
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Hydraulics',   'Lift Capacity', '1,250 lbs',            2
+EXEC sp_UpsertModelSpec 'LS', 'MT1', 'MT125', 'Hydraulics',   'PTO HP',        '20.5 HP',              3
 
--- LS MT125
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Engine',       'Type',          'Diesel 3-Cylinder',    1
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Engine',       'Displacement',  '1.5L',                 2
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Engine',       'Horsepower',    '24.5 HP',              3
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Transmission', 'Type',          'Hydrostatic',          1
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Transmission', 'Speeds',        'Variable',             2
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Dimensions',   'Length',        '108 inches',           1
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Dimensions',   'Width',         '54 inches',            2
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Dimensions',   'Weight',        '2,450 lbs',            3
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Hydraulics',   '3-Point Hitch', 'Category 1',           1
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Hydraulics',   'Lift Capacity', '1,250 lbs',            2
-EXEC sp_UpsertModelSpec 'LS', 'MT', 'MT125', 'Hydraulics',   'PTO HP',        '20.5 HP',              3
-
--- Mahindra 1526
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Engine',       'Type',          'Diesel 3-Cylinder',    1
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Engine',       'Horsepower',    '26 HP',                2
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Engine',       'Fuel Tank',     '6.3 gallons',          3
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Transmission', 'Type',          'Synchro Shuttle',      1
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Transmission', 'Forward Gears', '8',                    2
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Transmission', 'Reverse Gears', '8',                    3
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Dimensions',   'Length',        '115 inches',           1
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Dimensions',   'Width',         '56 inches',            2
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Dimensions',   'Weight',        '2,756 lbs',            3
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Hydraulics',   '3-Point Hitch', 'Category 1',           1
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Hydraulics',   'Lift Capacity', '1,433 lbs',            2
-EXEC sp_UpsertModelSpec 'Mahindra', '1500', '1526', 'Hydraulics',   'PTO HP',        '22 HP',                3
+-- TODO: Add BAD and MAH sample data once Series confirmed.
+-- Run: SELECT Manufacture, Series, Model FROM dbo.Model WHERE Manufacture IN ('BAD','MAH')
 
 GO
 PRINT 'Sample data inserted.'
