@@ -4,396 +4,519 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Details - Peach Outdoor</title>
-    
+
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ── Design tokens ── */
+        :root {
+            --charcoal-dark:  #1f1f21;
+            --charcoal-mid:   #2c2c2e;
+            --charcoal-light: #3a3a3c;
+            --charcoal-border:#4a4a4c;
+            --accent:         #e07b2a;
+            --accent-hover:   #c96a1a;
+            --text-primary:   #f0f0f0;
+            --text-secondary: #a0a0a4;
+            --text-muted:     #707074;
+            --gold:           #ffd166;
+            --green:          #4caf6e;
+            --yellow:         #ffc107;
+            --radius-sm:      8px;
+            --radius-md:      12px;
+            --radius-lg:      20px;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--charcoal-dark);
+            color: var(--text-primary);
             min-height: 100vh;
-            padding: 20px;
+        }
+
+        /* ── Top bar ── */
+        .top-bar {
+            background: var(--charcoal-mid);
+            border-bottom: 1px solid var(--charcoal-border);
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .back-link {
-            max-width: 1200px;
-            margin: 0 auto 20px;
-        }
-
-        .back-link a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
-            background: rgba(255,255,255,0.2);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid var(--charcoal-border);
             border-radius: 50px;
-            transition: all 0.3s;
+            transition: all 0.2s;
+            cursor: pointer;
         }
 
-        .back-link a:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateX(-5px);
+        .back-link:hover {
+            color: var(--text-primary);
+            border-color: var(--accent);
+            background: rgba(224,123,42,0.08);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+        .site-logo img {
+            height: 52px;
+            width: auto;
+            display: block;
         }
 
-        .item-header {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
-            padding: 40px;
+        /* ── Main two-column layout ── */
+        .product-layout {
             display: grid;
-            grid-template-columns: 500px 1fr;
-            gap: 40px;
-            align-items: center;
+            grid-template-columns: 1fr 460px;
+            gap: 0;
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 40px 32px;
+            align-items: start;
         }
 
-        .photo-gallery {
-            width: 500px;
+        /* ── LEFT: Image gallery ── */
+        .gallery-col {
+            padding-right: 48px;
         }
 
-        .main-photo {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 8em;
-            border: 3px solid rgba(255,255,255,0.2);
-            margin-bottom: 15px;
-            overflow: hidden;
+        .main-photo-wrap {
             position: relative;
+            background: var(--charcoal-mid);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            border: 1px solid var(--charcoal-border);
+            margin-bottom: 14px;
         }
 
-        .main-photo img {
+        .main-photo-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 12px;
+            display: block;
+            transition: opacity 0.25s ease;
+        }
+
+        .placeholder-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            font-size: 6em;
+            color: var(--text-muted);
         }
 
         .photo-nav {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
+            background: rgba(31,31,33,0.75);
+            color: var(--text-primary);
+            border: 1px solid var(--charcoal-border);
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.5em;
-            display: none;
+            font-size: 1.6em;
+            display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+            opacity: 0;
+            transition: opacity 0.2s, background 0.2s;
+            backdrop-filter: blur(6px);
         }
 
-        .photo-nav:hover {
-            background: rgba(0,0,0,0.8);
+        .main-photo-wrap:hover .photo-nav { opacity: 1; }
+        .photo-nav:hover { background: rgba(224,123,42,0.85); border-color: var(--accent); }
+        .photo-nav.prev { left: 14px; }
+        .photo-nav.next { right: 14px; }
+
+        .photo-counter {
+            position: absolute;
+            bottom: 14px;
+            right: 14px;
+            background: rgba(31,31,33,0.75);
+            color: var(--text-secondary);
+            font-size: 0.8em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
         }
 
-        .photo-nav.prev {
-            left: 15px;
-        }
-
-        .photo-nav.next {
-            right: 15px;
-        }
-
-        .main-photo:hover .photo-nav {
+        .thumbnails-row {
             display: flex;
-        }
-
-        .photo-thumbnails {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
             gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .thumbnail {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            border: 3px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s;
+        .thumb {
+            width: 82px;
+            height: 68px;
+            border-radius: var(--radius-sm);
             overflow: hidden;
+            border: 2px solid var(--charcoal-border);
+            cursor: pointer;
+            transition: border-color 0.2s, transform 0.15s;
+            background: var(--charcoal-mid);
+            flex-shrink: 0;
         }
 
-        .thumbnail:hover {
-            border-color: rgba(255,255,255,0.5);
-            transform: scale(1.05);
-        }
-
-        .thumbnail.active {
-            border-color: #ffd700;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
-
-        .thumbnail img {
+        .thumb img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 5px;
+            display: block;
         }
 
-        .photo-count {
-            text-align: center;
-            margin-top: 10px;
-            opacity: 0.8;
-            font-size: 0.9em;
+        .thumb:hover { border-color: var(--text-secondary); transform: scale(1.04); }
+        .thumb.active { border-color: var(--accent); }
+
+        /* ── RIGHT: Sticky info panel ── */
+        .info-col {
+            position: sticky;
+            top: 72px;
         }
 
-        .item-info h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .info-panel {
+            background: var(--charcoal-mid);
+            border: 1px solid var(--charcoal-border);
+            border-radius: var(--radius-lg);
+            padding: 30px;
         }
 
-        .item-info .manufacturer {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 5px;
+        .item-manufacturer {
+            font-size: 0.82em;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
         }
 
-        .item-info .series {
-            font-size: 1.1em;
-            opacity: 0.8;
+        .item-title {
+            font-size: 0.92em;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .item-series {
+            font-size: 0.92em;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .item-description-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+        }
+
+        .item-serial {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            font-family: 'Courier New', monospace;
+            letter-spacing: 0.06em;
             margin-bottom: 20px;
+            padding: 7px 12px;
+            background: var(--charcoal-light);
+            border-radius: var(--radius-sm);
+            display: inline-block;
         }
 
-        .item-info .description {
-            font-size: 1.1em;
-            line-height: 1.6;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        .price-section {
+        .price-row {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 14px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
         }
 
-        .price {
-            font-size: 3em;
-            font-weight: bold;
-            color: #ffd700;
+        .price-main {
+            font-size: 2.3em;
+            font-weight: 800;
+            color: var(--gold);
         }
 
-        .stock-badge {
-            background: #4caf50;
-            color: white;
-            padding: 8px 20px;
+        .price-call {
+            font-size: 1.35em;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .msrp-price {
+            font-size: 0.95em;
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 14px;
             border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .badge-new  { background: var(--green);  color: #fff; }
+        .badge-used { background: var(--yellow); color: #1f1f21; }
+
+        .info-pills {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--charcoal-light);
+            border: 1px solid var(--charcoal-border);
+            border-radius: var(--radius-md);
+            padding: 10px 18px;
+            min-width: 85px;
+        }
+
+        .pill-label {
+            font-size: 0.7em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.09em;
+            margin-bottom: 3px;
+        }
+
+        .pill-value {
+            font-size: 0.92em;
             font-weight: 600;
+            color: var(--text-primary);
         }
 
-        .used-badge {
-            background: #ffc107;
-            color: #000;
-            padding: 8px 20px;
-            border-radius: 20px;
+        .divider {
+            border: none;
+            border-top: 1px solid var(--charcoal-border);
+            margin: 20px 0;
+        }
+
+        .item-description {
+            font-size: 0.93em;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .notes-box {
+            background: var(--charcoal-light);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 12px 16px;
+            font-size: 0.88em;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-chat {
+            width: 100%;
+            padding: 16px;
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.05em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-chat:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--charcoal-border);
+            border-radius: var(--radius-md);
+            font-size: 0.95em;
             font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .content-section {
-            padding: 40px;
+        .btn-back:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+            background: var(--charcoal-light);
         }
 
-        .section-title {
-            font-size: 2em;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
+        /* ── Specs section (full width below) ── */
+        .specs-section {
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0 32px 60px;
+        }
+
+        .specs-section-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .specs-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--charcoal-border);
         }
 
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 16px;
         }
 
         .spec-category {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 25px;
-            border: 2px solid #e0e0e0;
+            background: var(--charcoal-mid);
+            border: 1px solid var(--charcoal-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
         }
 
-        .spec-category h3 {
-            color: #667eea;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+        .spec-category-header {
+            background: var(--charcoal-light);
+            padding: 12px 20px;
+            font-size: 0.82em;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1px solid var(--charcoal-border);
         }
 
         .spec-item {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #e0e0e0;
+            align-items: center;
+            padding: 11px 20px;
+            border-bottom: 1px solid var(--charcoal-border);
+            gap: 16px;
         }
 
-        .spec-item:last-child {
-            border-bottom: none;
-        }
+        .spec-item:last-child { border-bottom: none; }
 
         .spec-label {
-            font-weight: 600;
-            color: #666;
+            font-size: 0.88em;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .spec-value {
-            color: #2c3e50;
-            font-weight: 500;
+            font-size: 0.88em;
+            color: var(--text-primary);
+            font-weight: 600;
             text-align: right;
         }
 
         .no-specs {
+            background: var(--charcoal-mid);
+            border: 1px solid var(--charcoal-border);
+            border-radius: var(--radius-md);
+            padding: 50px;
             text-align: center;
-            padding: 60px;
-            color: #666;
-            background: #f8f9fa;
-            border-radius: 15px;
+            color: var(--text-muted);
         }
 
         .no-specs h3 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
         }
 
-        .action-buttons {
+        /* Loading / Error */
+        .loading, .error-state {
             display: flex;
-            gap: 20px;
-            margin-top: 40px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            gap: 16px;
+            color: var(--text-secondary);
+            font-size: 1.1em;
         }
 
-        .btn-primary {
-            flex: 1;
-            padding: 18px 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+        .error-state { color: #e05050; }
 
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            flex: 1;
-            padding: 18px 40px;
-            background: white;
-            color: #667eea;
-            border: 3px solid #667eea;
-            border-radius: 50px;
-            font-size: 1.2em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: #f8f9fa;
-            transform: translateY(-3px);
-        }
-
-        .loading {
-            text-align: center;
-            padding: 60px;
-            font-size: 1.5em;
-            color: #666;
-        }
-
-        .error {
-            text-align: center;
-            padding: 60px;
-            color: #e74c3c;
-        }
-
-        @media (max-width: 768px) {
-            .item-header {
+        /* ── Responsive ── */
+        @media (max-width: 960px) {
+            .product-layout {
                 grid-template-columns: 1fr;
-                text-align: center;
+                padding: 24px 20px;
             }
+            .gallery-col { padding-right: 0; margin-bottom: 28px; }
+            .info-col { position: static; }
+            .top-bar { padding: 12px 20px; }
+            .specs-section { padding: 0 20px 40px; }
+        }
 
-            .photo-gallery {
-                width: 100%;
-                margin: 0 auto;
-            }
-
-            .main-photo {
-                height: 300px;
-            }
-
-            .price-section {
-                justify-content: center;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-            }
-
-            .specs-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 600px) {
+            .item-title { font-size: 1.5em; }
+            .price-main { font-size: 2em; }
+            .info-panel { padding: 22px; }
         }
     </style>
 </head>
 <body>
-    <div class="back-link">
-        <a href="#" onclick="goBackToInventory(); return false;">← Back to Inventory</a>
+
+    <div class="top-bar">
+        <a class="back-link" href="#" onclick="goBackToInventory(); return false;">&#8592; Back to Inventory</a>
+        <a href="index.html" class="site-logo"><img src="PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
     </div>
 
-    <div class="container">
-        <div id="content">
-            <div class="loading">Loading item details...</div>
-        </div>
+    <div id="content">
+        <div class="loading">Loading item details&#8230;</div>
     </div>
 
     <script>
-        let itemData = null;
+        let itemData  = null;
         let specsData = null;
 
-        // Get item ID from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
-        const itemId = urlParams.get('id');
+        const itemId    = urlParams.get('id');
 
         if (!itemId) {
             showError('No item specified');
@@ -403,30 +526,20 @@
 
         async function loadItemDetails() {
             try {
-                // Load inventory data
                 const inventoryResponse = await fetch('inventory.json');
                 const inventory = await inventoryResponse.json();
-                
-                // Find the item
-                itemData = inventory.find(item => item.InventoryID == itemId);
-                
-                if (!itemData) {
-                    showError('Item not found');
-                    return;
-                }
 
-                // Load specs data
+                itemData = inventory.find(item => item.InventoryID == itemId);
+                if (!itemData) { showError('Item not found'); return; }
+
                 try {
                     const specsResponse = await fetch('specs.json');
                     specsData = await specsResponse.json();
                 } catch (e) {
-                    console.log('No specs data available');
                     specsData = [];
                 }
 
-                // Display the item
                 displayItem();
-
             } catch (error) {
                 console.error('Error loading item:', error);
                 showError('Unable to load item details');
@@ -434,276 +547,221 @@
         }
 
         function displayItem() {
-            // Find specs for this model
-            const specs = specsData.find(s => 
-                s.Model === itemData.Model && 
-                s.Manufacturer === itemData.Manufacturer
+            const specs = specsData.find(s =>
+                s.Model === itemData.Model && s.Manufacturer === itemData.Manufacturer
             );
 
-            // Get photos array - use AllPhotos from inventory JSON
             let photos = [];
             if (itemData.AllPhotos && Array.isArray(itemData.AllPhotos) && itemData.AllPhotos.length > 0) {
                 photos = itemData.AllPhotos;
             } else if (itemData.PrimaryPhotoURL) {
                 photos = [itemData.PrimaryPhotoURL];
             } else if (itemData.ImageURL) {
-                // Legacy fallback
                 photos = [itemData.ImageURL];
             }
 
-            const content = document.getElementById('content');
-            content.innerHTML = `
-                <div class="item-header">
-                    ${renderPhotoGallery(photos)}
-                    <div class="item-info">
-                        <h1>${itemData.Model || 'Model N/A'}</h1>
-                        <div class="manufacturer">${itemData.Manufacturer || 'Unknown Manufacturer'}</div>
-                        ${itemData.Series ? `<div class="series">Series: ${itemData.Series}</div>` : ''}
-                        <div class="series" style="margin-bottom:8px;">Serial #: <span style="font-family:monospace;letter-spacing:0.05em;">${itemData.SerialNumber || 'N/A'}</span></div>
-                        <div class="description">${itemData.Description || 'No description available'}</div>
-                        
-                        <div class="price-section">
-                            <div class="price">${itemData.Web_Price != null ? '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : '<span style="color:#ffd700;font-size:0.6em;">Call for Price</span>'}</div>
-                            ${itemData.Used ? '<div class="used-badge">USED</div>' : '<div class="stock-badge">NEW</div>'}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="content-section">
-                    <h2 class="section-title">Specifications</h2>
-                    
-                    ${specs ? displaySpecs(specs.Specs) : displayNoSpecs()}
-
-                    ${itemData.Notes ? `
-                        <h2 class="section-title" style="margin-top: 40px;">Additional Notes</h2>
-                        <div class="spec-category">
-                            <p style="color: #666; line-height: 1.6; font-size: 1.1em;">${itemData.Notes}</p>
-                        </div>
-                    ` : ''}
-
-                    <div class="action-buttons">
-                        <button class="btn-primary" onclick="chatAboutItem()">💬 Chat About This Item</button>
-                        <button class="btn-secondary" onclick="goBackToInventory()">Browse More Items</button>
-                    </div>
-                </div>
-            `;
-
-            // Initialize photo gallery if there are multiple photos
-            if (photos.length > 1) {
-                initPhotoGallery(photos);
-            }
-        }
-
-        function renderPhotoGallery(photos) {
-            if (photos.length === 0) {
-                // No photos - show placeholder
-                return `
-                    <div class="photo-gallery">
-                        <div class="main-photo">
-                            <div style="font-size: 8em;">🚜</div>
-                        </div>
-                    </div>
-                `;
-            } else if (photos.length === 1) {
-                // Single photo - simple display
-                return `
-                    <div class="photo-gallery">
-                        <div class="main-photo">
-                            <img src="${cloudinaryUrl(photos[0], 'w_1200,h_800,c_limit,q_auto,f_auto')}" alt="${itemData.Model}">
-                        </div>
-                    </div>
-                `;
+            // Price
+            let priceHtml = '';
+            if (itemData.Web_Price != null) {
+                const fmt = '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                priceHtml = '<span class="price-main">' + fmt + '</span>';
+                if (itemData.MSRP && itemData.MSRP > itemData.Web_Price) {
+                    const msrpFmt = '$' + itemData.MSRP.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                    priceHtml += '<span class="msrp-price">MSRP ' + msrpFmt + '</span>';
+                }
             } else {
-                // Multiple photos - gallery with thumbnails
-                return `
-                    <div class="photo-gallery">
-                        <div class="main-photo" id="mainPhoto">
-                            <img src="${cloudinaryUrl(photos[0], 'w_1200,h_800,c_limit,q_auto,f_auto')}" alt="${itemData.Model}" id="mainPhotoImg">
-                            <button class="photo-nav prev" onclick="changePhoto(-1)">‹</button>
-                            <button class="photo-nav next" onclick="changePhoto(1)">›</button>
-                        </div>
-                        <div class="photo-thumbnails" id="thumbnails">
-                            ${photos.map((photo, index) => `
-                                <div class="thumbnail ${index === 0 ? 'active' : ''}" onclick="selectPhoto(${index})">
-                                    <img src="${cloudinaryUrl(photo, 'w_200,h_150,c_fill,q_auto,f_auto')}" alt="Photo ${index + 1}">
-                                </div>
-                            `).join('')}
-                        </div>
-                        <div class="photo-count">Photo 1 of ${photos.length}</div>
-                    </div>
-                `;
+                priceHtml = '<span class="price-call">Call for Price</span>';
             }
+
+            // Info pills
+            let pillsHtml = '';
+            if (itemData.Department) pillsHtml += pill('Type', itemData.Department);
+            if (itemData.Used && itemData.Hours != null) pillsHtml += pill('Hours', itemData.Hours.toLocaleString());
+            if (itemData.Year)       pillsHtml += pill('Year', itemData.Year);
+
+            document.getElementById('content').innerHTML =
+                '<div class="product-layout">' +
+                    '<div class="gallery-col">' + renderGallery(photos, itemData.Model) + '</div>' +
+                    '<div class="info-col"><div class="info-panel">' +
+                        '<div class="item-manufacturer">' + (itemData.Manufacturer || '') + '</div>' +
+                        (itemData.Description ? '<h1 class="item-description-title">' + itemData.Description + '</h1>' : '') +
+                        '<div class="item-title">' + (itemData.Model || 'Model N/A') + '</div>' +
+                        (itemData.Series ? '<div class="item-series">' + itemData.Series + ' Series</div>' : '') +
+                        '<div class="item-serial">S/N: ' + (itemData.SerialNumber || 'N/A') + '</div>' +
+                        '<div class="price-row">' + priceHtml +
+                            '<span class="badge ' + (itemData.Used ? 'badge-used' : 'badge-new') + '">' +
+                                (itemData.Used ? 'USED' : 'NEW') +
+                            '</span>' +
+                        '</div>' +
+                        (pillsHtml ? '<div class="info-pills">' + pillsHtml + '</div>' : '') +
+                        (itemData.Notes ? '<div class="notes-box">&#128205; ' + itemData.Notes + '</div>' : '') +
+                        '<hr class="divider">' +
+                        '<button class="btn-chat" onclick="chatAboutItem()">&#128172; Chat About This Item</button>' +
+                        '<button class="btn-back" onclick="goBackToInventory()">&#8592; Browse More Items</button>' +
+                    '</div></div>' +
+                '</div>' +
+                '<div class="specs-section">' +
+                    '<div class="specs-section-title">Specifications</div>' +
+                    (specs ? renderSpecs(specs.Specs) : renderNoSpecs()) +
+                '</div>';
+
+            if (photos.length > 1) initGallery(photos);
         }
 
-        function cloudinaryUrl(url, transform) {
-            if (!url || !url.includes('res.cloudinary.com')) return url;
-            return url.replace('/upload/', `/upload/${transform}/`);
+        /* Gallery */
+        function renderGallery(photos, modelName) {
+            if (photos.length === 0) {
+                return '<div class="main-photo-wrap"><div class="placeholder-icon">&#128668;</div></div>';
+            }
+
+            var mainHtml =
+                '<div class="main-photo-wrap" id="mainPhotoWrap">' +
+                    '<img id="mainPhotoImg" src="' + cloudinaryUrl(photos[0], 'w_1200,h_900,c_limit,q_auto,f_auto') + '" alt="' + modelName + '">' +
+                    (photos.length > 1 ?
+                        '<button class="photo-nav prev" onclick="changePhoto(-1)">&#8249;</button>' +
+                        '<button class="photo-nav next" onclick="changePhoto(1)">&#8250;</button>' +
+                        '<div class="photo-counter" id="photoCounter">1 / ' + photos.length + '</div>'
+                    : '') +
+                '</div>';
+
+            if (photos.length === 1) return mainHtml;
+
+            var thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
+            for (var i = 0; i < photos.length; i++) {
+                thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
+                    '<img src="' + cloudinaryUrl(photos[i], 'w_200,h_160,c_fill,q_auto,f_auto') + '" alt="Photo ' + (i+1) + '">' +
+                    '</div>';
+            }
+            thumbsHtml += '</div>';
+            return mainHtml + thumbsHtml;
         }
 
-        let currentPhotoIndex = 0;
-        let allPhotos = [];
+        var currentPhotoIndex = 0;
+        var allPhotos = [];
 
-        function initPhotoGallery(photos) {
+        function initGallery(photos) {
             allPhotos = photos;
             currentPhotoIndex = 0;
         }
 
-        function changePhoto(direction) {
-            currentPhotoIndex += direction;
-            if (currentPhotoIndex < 0) currentPhotoIndex = allPhotos.length - 1;
-            if (currentPhotoIndex >= allPhotos.length) currentPhotoIndex = 0;
+        function changePhoto(dir) {
+            currentPhotoIndex = (currentPhotoIndex + dir + allPhotos.length) % allPhotos.length;
             selectPhoto(currentPhotoIndex);
         }
 
         function selectPhoto(index) {
             currentPhotoIndex = index;
-            
-            // Update main photo
-            document.getElementById('mainPhotoImg').src = cloudinaryUrl(allPhotos[index], 'w_1200,h_800,c_limit,q_auto,f_auto');
-            
-            // Update thumbnails
-            document.querySelectorAll('.thumbnail').forEach((thumb, i) => {
-                if (i === index) {
-                    thumb.classList.add('active');
-                } else {
-                    thumb.classList.remove('active');
-                }
+            document.getElementById('mainPhotoImg').src = cloudinaryUrl(allPhotos[index], 'w_1200,h_900,c_limit,q_auto,f_auto');
+            document.querySelectorAll('.thumb').forEach(function(t, i) {
+                t.classList.toggle('active', i === index);
             });
-
-            // Update counter
-            const counter = document.querySelector('.photo-count');
-            if (counter) {
-                counter.textContent = `Photo ${index + 1} of ${allPhotos.length}`;
-            }
+            var counter = document.getElementById('photoCounter');
+            if (counter) counter.textContent = (index + 1) + ' / ' + allPhotos.length;
         }
 
-        function displaySpecs(specs) {
-            let html = '<div class="specs-grid">';
-            
-            for (const [category, items] of Object.entries(specs)) {
-                html += `
-                    <div class="spec-category">
-                        <h3>${category}</h3>
-                `;
-                
-                for (const [label, value] of Object.entries(items)) {
-                    html += `
-                        <div class="spec-item">
-                            <span class="spec-label">${label}</span>
-                            <span class="spec-value">${value}</span>
-                        </div>
-                    `;
+        function cloudinaryUrl(url, transform) {
+            if (!url || url.indexOf('res.cloudinary.com') === -1) return url;
+            return url.replace('/upload/', '/upload/' + transform + '/');
+        }
+
+        /* Specs */
+        function renderSpecs(specs) {
+            var html = '<div class="specs-grid">';
+            for (var category in specs) {
+                if (!specs.hasOwnProperty(category)) continue;
+                html += '<div class="spec-category"><div class="spec-category-header">' + category + '</div>';
+                var items = specs[category];
+                for (var label in items) {
+                    if (!items.hasOwnProperty(label)) continue;
+                    html += '<div class="spec-item"><span class="spec-label">' + label + '</span><span class="spec-value">' + items[label] + '</span></div>';
                 }
-                
                 html += '</div>';
             }
-            
             html += '</div>';
             return html;
         }
 
-        function displayNoSpecs() {
-            return `
-                <div class="no-specs">
-                    <h3>Specifications Coming Soon</h3>
-                    <p>Detailed specifications for this model are being updated. Please contact us for more information.</p>
-                </div>
-            `;
+        function renderNoSpecs() {
+            return '<div class="no-specs"><h3>Specifications Coming Soon</h3><p>Detailed specs for this model are being updated. Contact us for more information.</p></div>';
         }
 
+        function pill(label, value) {
+            return '<div class="pill"><span class="pill-label">' + label + '</span><span class="pill-value">' + value + '</span></div>';
+        }
+
+        /* Chat */
         function chatAboutItem() {
-            const priceStr = itemData.Web_Price != null ? '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : 'Call for Price';
-            const itemInfo = `Interested in: ${itemData.Manufacturer} ${itemData.Model} - Serial #${itemData.SerialNumber || 'N/A'} (ID: ${itemData.InventoryID}) - ${priceStr}`;
-            
-            // Try to copy to clipboard
-            let clipboardSuccess = false;
-            
-            // Method 1: Modern clipboard API
+            var priceStr = itemData.Web_Price != null
+                ? '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})
+                : 'Call for Price';
+            var itemInfo = 'Interested in: ' + itemData.Manufacturer + ' ' + itemData.Model +
+                ' - Serial #' + (itemData.SerialNumber || 'N/A') +
+                ' (ID: ' + itemData.InventoryID + ') - ' + priceStr;
+
+            var clipboardSuccess = false;
             if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(itemInfo)
-                    .then(() => {
-                        clipboardSuccess = true;
-                        console.log('Copied to clipboard:', itemInfo);
-                    })
-                    .catch(err => {
-                        console.error('Clipboard API failed:', err);
-                    });
+                navigator.clipboard.writeText(itemInfo).then(function() { clipboardSuccess = true; }).catch(function(){});
             }
-            
-            // Method 2: Fallback using textarea (works more reliably)
             if (!clipboardSuccess) {
                 try {
-                    const textarea = document.createElement('textarea');
-                    textarea.value = itemInfo;
-                    textarea.style.position = 'fixed';
-                    textarea.style.opacity = '0';
-                    document.body.appendChild(textarea);
-                    textarea.select();
+                    var ta = document.createElement('textarea');
+                    ta.value = itemInfo;
+                    ta.style.cssText = 'position:fixed;opacity:0';
+                    document.body.appendChild(ta);
+                    ta.select();
                     document.execCommand('copy');
-                    document.body.removeChild(textarea);
+                    document.body.removeChild(ta);
                     clipboardSuccess = true;
-                    console.log('Copied via execCommand:', itemInfo);
-                } catch (err) {
-                    console.error('execCommand failed:', err);
-                }
+                } catch(e) {}
             }
-            
-            // Open Kenect widget
-            const kenectWrapper = document.getElementById('iframe-wrapper-YMG00J4LwubAnqrXw9851g');
-            
-            if (kenectWrapper) {
-                kenectWrapper.click();
-                
-                // Show different message based on clipboard success
-                setTimeout(() => {
-                    if (clipboardSuccess) {
-                        alert('📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the message field.');
-                    } else {
-                        alert('💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
-                    }
-                }, 800);
-                
-                return;
-            }
-            
-            // Fallback
-            const wrapper = document.querySelector('[id*="iframe-wrapper"]');
-            if (wrapper) {
-                wrapper.click();
-                setTimeout(() => {
-                    alert('💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
+
+            var kenectWrapper = document.getElementById('iframe-wrapper-YMG00J4LwubAnqrXw9851g');
+            var anyWrapper    = document.querySelector('[id*="iframe-wrapper"]');
+            var target        = kenectWrapper || anyWrapper;
+
+            if (target) {
+                target.click();
+                setTimeout(function() {
+                    alert(clipboardSuccess
+                        ? '📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the message field.'
+                        : '💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
                 }, 800);
                 return;
             }
-            
-            // Last resort
             alert('Please click "Text us!" to chat about:\n\n' + itemInfo);
         }
 
         function showError(message) {
-            document.getElementById('content').innerHTML = `
-                <div class="error">
-                    <h2>⚠️ ${message}</h2>
-                    <p>Please go back and try again.</p>
-                    <button class="btn-secondary" onclick="goBackToInventory()" style="margin-top: 20px;">
-                        Back to Inventory
-                    </button>
-                </div>
-            `;
+            document.getElementById('content').innerHTML =
+                '<div class="error-state">' +
+                    '<div style="font-size:2em">&#9888;&#65039;</div>' +
+                    '<h2>' + message + '</h2>' +
+                    '<p>Please go back and try again.</p>' +
+                    '<button class="btn-back" onclick="goBackToInventory()" style="margin-top:20px;max-width:200px;">Back to Inventory</button>' +
+                '</div>';
         }
 
         function goBackToInventory() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const returnParams = urlParams.get('return');
-            
-            if (returnParams) {
+            var from         = urlParams.get('from');
+            var returnParams = urlParams.get('return');
+            if (from === 'home') {
+                window.location.href = 'index.html';
+            } else if (returnParams) {
                 window.location.href = 'inventory.html' + returnParams;
             } else {
                 window.location.href = 'inventory.html';
             }
         }
+
+        // Update back link text if coming from home
+        (function() {
+            if (urlParams.get('from') === 'home') {
+                var link = document.querySelector('.back-link');
+                if (link) link.innerHTML = '&#8592; Back to Home';
+            }
+        })();
     </script>
-    
+
     <!-- Live Chat Widget -->
     <script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
 </body>

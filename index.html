@@ -32,11 +32,26 @@
             background: #ffffff;
             z-index: 1001;
             padding: 12px 40px;
+            padding-right: 22%;
             height: 110px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid #eeeeee;
+        }
+
+        /* Brand carousel sits centered over the 20% sidebar */
+        .brand-carousel {
+            position: absolute;
+            right: 0;
+            width: 20%;
+            height: 90px;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #eeeeee;
         }
 
         .logo {
@@ -96,14 +111,6 @@
         }
 
         /* Brand logo carousel */
-        .brand-carousel {
-            position: relative;
-            width: 180px;
-            height: 80px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
         .brand-slide {
             position: absolute;
             top: 0;
@@ -124,13 +131,13 @@
 
         .brand-slide img {
             max-height: 70px;
-            max-width: 175px;
+            max-width: 230px;
             width: auto;
             object-fit: contain;
         }
 
         .brand-slide .brand-name {
-            font-size: 1.3em;
+            font-size: 1.9em;
             font-weight: 800;
             letter-spacing: 0.04em;
             text-align: center;
@@ -138,7 +145,7 @@
         }
 
         .brand-slide .brand-tagline {
-            font-size: 0.55em;
+            font-size: 0.7em;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
@@ -186,29 +193,292 @@
             position: relative;
             height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            align-items: stretch;
             background: transparent;
-        }
-
-        .video-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
             overflow: hidden;
         }
 
+        /* Video takes up left ~75% of hero */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .video-background::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
 
         .hero-content {
-            position: relative;
+            position: absolute;
             z-index: 2;
             text-align: center;
             color: white;
-            max-width: 1200px;
-            padding: 0 20px;
+            left: 0;
+            width: 80%;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 40px;
+        }
+
+        /* Featured Inventory Sidebar */
+        .featured-sidebar {
+            position: fixed;
+            right: 0;
+            top: 160px; /* header (110px) + nav (~50px) */
+            width: 20%;
+            height: calc(100vh - 160px);
+            background: rgba(15, 15, 15, 0.92);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            border-left: 3px solid #ff6b35;
+            transition: height 0.1s ease;
+        }
+
+        .featured-sidebar.at-footer {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+        }
+
+        .sidebar-header {
+            padding: 16px 18px 12px;
+            background: #ff6b35;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h3 {
+            color: #ffffff;
+            font-size: 0.85em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin: 0;
+        }
+
+        .sidebar-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #ff6b35;
+            border-radius: 3px;
+        }
+
+        .sidebar-item {
+            display: block;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: background 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 107, 53, 0.15);
+            border-color: #ff6b35;
+        }
+
+        .sidebar-item-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: #222;
+        }
+
+        .sidebar-item-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .sidebar-item-thumb {
+            position: relative;
+            width: 72%;
+            flex-shrink: 0;
+            min-height: 144px;
+        }
+
+        .sidebar-item-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            padding: 6px 8px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .sidebar-badge-wrap {
+            margin-top: auto;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sidebar-item-badge {
+            font-size: 0.62em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .badge-used {
+            background: rgba(60,60,60,0.88);
+            color: #ccc;
+        }
+
+        .badge-new {
+            background: rgba(45,106,79,0.92);
+            color: #b7e4c7;
+        }
+
+        /* Card body: pricing left | image right */
+        .sidebar-item-body {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 144px;
+        }
+
+        .sidebar-item-pricing-col {
+            width: 28%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 10px 6px 8px;
+            background: rgba(0,0,0,0.3);
+            border-right: 1px solid rgba(255,255,255,0.07);
+            min-height: 144px;
+            gap: 10px;
+        }
+
+        .sidebar-price-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sidebar-price-block:first-child {
+            justify-content: flex-start;
+            padding-top: 0;
+        }
+
+        .sidebar-price-block:last-child {
+            justify-content: flex-start;
+            padding-bottom: 0;
+        }
+
+        .sidebar-price-label {
+            font-size: 0.68em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .sidebar-price-value {
+            font-size: 1em;
+            font-weight: 800;
+            white-space: nowrap;
+            line-height: 1.3;
+        }
+
+        .msrp-value {
+            color: #aaaaaa;
+            text-decoration: line-through;
+        }
+
+        .our-price-label {
+            color: #ffd700;
+        }
+
+        .our-price-value {
+            color: #ffd700;
+        }
+
+        .sidebar-item-info {
+            display: none;
+        }
+
+        .sidebar-item-brand {
+            font-size: 0.62em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ff6b35;
+            margin-bottom: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .sidebar-item-name {
+            font-size: 0.72em;
+            color: #ffffff;
+            font-weight: 600;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+        .sidebar-footer {
+            padding: 12px;
+            flex-shrink: 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-view-all {
+            display: block;
+            text-align: center;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.78em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .sidebar-view-all:hover {
+            background: #e85d2a;
         }
 
         .hero-content h1 {
@@ -248,12 +518,13 @@
         .scroll-indicator {
             position: absolute;
             bottom: 15px;
-            left: 50%;
+            left: 40%; /* center of the 80% video area */
             transform: translateX(-50%);
-            color: #333333;
+            color: #ffffff;
             font-size: 0.9em;
             animation: bounce 2s infinite;
             z-index: 2;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
 
         @keyframes spin360 {
@@ -276,15 +547,15 @@
         .shop-by-type {
             position: relative;
             background: #ffffff;
-            padding: 80px 40px;
+            padding: 80px calc(40px + 20%) 80px 40px;
             overflow: hidden;
         }
 
         .shop-by-type-watermark {
             position: absolute;
             top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 40%;
+            transform: translateX(-50%) scaleX(0.68);
             font-size: 14em;
             font-weight: 900;
             color: #d0d0d0;
@@ -294,7 +565,6 @@
             line-height: 1;
             user-select: none;
             transform-origin: top center;
-            transform: translateX(-50%) scaleX(0.68);
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
         }
@@ -362,7 +632,7 @@
 
         /* Features Section */
         .features {
-            padding: 100px 40px;
+            padding: 100px calc(40px + 20%) 100px 40px;
             background: white;
         }
 
@@ -547,6 +817,19 @@
         <div class="scroll-indicator">
             ↓ Scroll to explore
         </div>
+
+        <!-- Featured Inventory Sidebar -->
+        <aside class="featured-sidebar">
+            <div class="sidebar-header">
+                <h3>⭐ Featured Inventory</h3>
+            </div>
+            <div class="sidebar-scroll" id="featuredSidebarScroll">
+                <!-- Items injected by JS -->
+            </div>
+            <div class="sidebar-footer">
+                <a href="inventory.html" class="sidebar-view-all">View All Inventory →</a>
+            </div>
+        </aside>
     </section>
 
     <!-- Shop By Type Section -->
@@ -560,12 +843,12 @@
                 <span class="shop-item-link">Shop Now</span>
             </a>
             <a href="inventory.html?mfg=LS Tractor&dept=TRACTOR" class="shop-item">
-                <div class="shop-item-image" style="background: linear-gradient(135deg, #005baa 0%, #0088cc 100%);">LS TRACTOR</div>
+                <div class="shop-item-image spinning" style="background: url('oie_transparent.png') center/contain no-repeat; background-color: transparent;"></div>
                 <span class="shop-item-title">LS Tractors</span>
                 <span class="shop-item-link">Shop Now</span>
             </a>
             <a href="inventory.html?mfg=Bad Boy&dept=TRACTOR" class="shop-item">
-                <div class="shop-item-image" style="background: linear-gradient(135deg, #1a1a1a 0%, #f5a800 100%);">BAD BOY</div>
+                <div class="shop-item-image spinning" style="background: url('BadBoyTractor_Transparent.png') center/contain no-repeat; background-color: transparent;"></div>
                 <span class="shop-item-title">Bad Boy Tractors</span>
                 <span class="shop-item-link">Shop Now</span>
             </a>
@@ -578,32 +861,36 @@
                 <span class="shop-item-title">Packages</span>
                 <span class="shop-item-link">Shop Now</span>
             </a>
-            <a href="inventory.html?type=commercial-zero-turn" class="shop-item">
-                <div class="shop-item-image" style="background: linear-gradient(135deg, #e8272a 0%, #ff6b35 100%);">ZERO TURNS</div>
-                <span class="shop-item-title">Commercial Zero Turns</span>
+            <a href="inventory.html?dept=MOWER" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('ZeroTurnIcon.jpg') center/cover no-repeat;"></div>
+                <span class="shop-item-title">Zero Turns</span>
                 <span class="shop-item-link">Shop Now</span>
             </a>
-            <a href="inventory.html?type=residential-zero-turn" class="shop-item">
-                <div class="shop-item-image" style="background: linear-gradient(135deg, #555 0%, #999 100%);">ZERO TURNS</div>
-                <span class="shop-item-title">Residential Zero Turns</span>
+            <a href="inventory.html?dept=TRAILER" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('Trailer_Transparent.png') center/contain no-repeat; background-color: transparent;"></div>
+                <span class="shop-item-title">Trailers</span>
                 <span class="shop-item-link">Shop Now</span>
             </a>
 
             <div class="shop-row-divider"></div>
 
             <!-- Row 3 -->
-            <a href="inventory.html?type=implements" class="shop-item">
+            <a href="inventory.html?dept=IMP" class="shop-item">
                 <div class="shop-item-image" style="background: linear-gradient(135deg, #4a7c3f 0%, #76b041 100%);">IMPLEMENTS</div>
                 <span class="shop-item-title">Implements</span>
                 <span class="shop-item-link">Shop Now</span>
             </a>
             <a href="financing.html" class="shop-item">
-                <div class="shop-item-image" style="background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);">FINANCING</div>
+                <div class="shop-item-image" style="background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%); display:flex; align-items:center; justify-content:center;">
+                    <img src="CreditAppIcon.png" alt="Credit Application" style="height:120px; width:auto; object-fit:contain;">
+                </div>
                 <span class="shop-item-title">Financing</span>
                 <span class="shop-item-link">Apply Now</span>
             </a>
             <a href="#contact" class="shop-item">
-                <div class="shop-item-image" style="background: linear-gradient(135deg, #6d4c41 0%, #a1887f 100%);">SERVICE</div>
+                <div class="shop-item-image" style="background: linear-gradient(135deg, #6d4c41 0%, #a1887f 100%); display:flex; align-items:center; justify-content:center;">
+                    <img src="PartsServiceIcon.png" alt="Parts & Service" style="height:120px; width:auto; object-fit:contain;">
+                </div>
                 <span class="shop-item-title">Parts &amp; Service</span>
                 <span class="shop-item-link">Contact Us</span>
             </a>
@@ -707,6 +994,144 @@
     </script>
     
     <!-- Live Chat Widget -->
+    <!-- Live Chat Widget -->
     <script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+
+    <!-- Featured Inventory Sidebar Loader -->
+    <script>
+        (async function loadFeaturedInventory() {
+            const container = document.getElementById('featuredSidebarScroll');
+            if (!container) return;
+
+            try {
+                const resp = await fetch('inventory.json');
+                const all = await resp.json();
+
+                // Only show items explicitly marked as featured
+                const featured = all.filter(x => x.FeaturedItem === true);
+
+                // Brand color map
+                const brandColors = {
+                    'Bad Boy':      'linear-gradient(135deg,#1a1a1a,#f5a800)',
+                    'Mahindra USA': 'linear-gradient(135deg,#8b0000,#cc0000)',
+                    'LS Tractor':   'linear-gradient(135deg,#003d7a,#005baa)',
+                    'Spartan':      'linear-gradient(135deg,#7b0000,#e8272a)',
+                    'Iron Craft':   'linear-gradient(135deg,#2d4a1e,#4a7c3f)',
+                    'G2 TRAILERS':  'linear-gradient(135deg,#333,#666)',
+                };
+
+                if (featured.length === 0) {
+                    container.innerHTML = '<p style="color:#888;padding:16px;font-size:0.8em;text-align:center;">No featured items at this time.<br>Check back soon!</p>';
+                    return;
+                }
+
+                featured.forEach(item => {
+                    const price = item.Web_Price || item.MSRP;
+                    const isUsed = item.Used;
+                    const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
+
+                    const link = document.createElement('a');
+                    link.className = 'sidebar-item';
+                    link.href = `item-details.html?id=${item.InventoryID}&from=home`;
+
+                    link.innerHTML = `
+                        <div class="sidebar-item-body">
+                            <div class="sidebar-item-pricing-col">
+                                <div class="sidebar-price-block">
+                                    <span class="sidebar-price-label">MSRP</span>
+                                    <span class="sidebar-price-value msrp-value">${item.MSRP ? '$' + item.MSRP.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'N/A'}</span>
+                                </div>
+                                <div class="sidebar-price-block">
+                                    <span class="sidebar-price-label our-price-label">Our Price</span>
+                                    <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call'}</span>
+                                </div>
+                                <div class="sidebar-badge-wrap">
+                                    <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item-thumb">
+                                <div class="sidebar-item-img-overlay">
+                                    <div class="sidebar-item-brand">${item.Manufacturer}</div>
+                                    <div class="sidebar-item-name">${item.Description}</div>
+                                </div>
+                                ${item.PrimaryPhotoURL
+                                    ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
+                                    : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
+                                }
+                            </div>
+                        </div>`;
+
+                    container.appendChild(link);
+                });
+
+                // Clone all items and append to create seamless infinite loop
+                const originals = Array.from(container.children);
+                originals.forEach(el => container.appendChild(el.cloneNode(true)));
+
+                // Smooth infinite auto-scroll
+                let scrolling = true;
+                let pos = 0;
+                const speed = 0.6;
+                let originalHeight = 0;
+
+                function autoScroll() {
+                    if (!scrolling) {
+                        requestAnimationFrame(autoScroll);
+                        return;
+                    }
+                    pos += speed;
+                    if (pos >= originalHeight) {
+                        pos -= originalHeight;
+                    }
+                    container.scrollTop = pos;
+                    requestAnimationFrame(autoScroll);
+                }
+
+                // Pause on hover, resume on leave
+                container.addEventListener('mouseenter', () => scrolling = false);
+                container.addEventListener('mouseleave', () => scrolling = true);
+
+                // Wait for full render before measuring and starting scroll
+                setTimeout(() => {
+                    originalHeight = (container.scrollHeight / 2) - 10;
+                    requestAnimationFrame(autoScroll);
+                }, 2500);
+
+            } catch (e) {
+                console.warn('Could not load featured inventory:', e);
+                container.innerHTML = '<p style="color:#888;padding:16px;font-size:0.8em;">Unable to load inventory.</p>';
+            }
+        })();
+    </script>
+
+    <!-- Featured Sidebar: scroll with page, stop at footer -->
+    <script>
+        (function() {
+            const sidebar = document.querySelector('.featured-sidebar');
+            const footer = document.querySelector('footer');
+            if (!sidebar || !footer) return;
+
+            const SIDEBAR_TOP = 160;
+
+            function updateSidebar() {
+                const footerTop = footer.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                const fullHeight = viewportHeight - SIDEBAR_TOP;
+
+                if (footerTop < viewportHeight) {
+                    // Footer is encroaching — shrink sidebar height so it stops at footer
+                    const availableHeight = Math.max(footerTop - SIDEBAR_TOP, 0);
+                    sidebar.style.height = availableHeight + 'px';
+                } else {
+                    // Normal — full height
+                    sidebar.style.height = fullHeight + 'px';
+                }
+            }
+
+            window.addEventListener('scroll', updateSidebar, { passive: true });
+            window.addEventListener('resize', updateSidebar, { passive: true });
+            updateSidebar();
+        })();
+    </script>
 </body>
 </html>
