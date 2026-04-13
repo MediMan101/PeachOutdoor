@@ -210,16 +210,24 @@
         }
 
         .item-title {
-            font-size: 1.85em;
-            font-weight: 700;
+            font-size: 0.92em;
+            font-weight: 600;
             line-height: 1.2;
-            color: var(--text-primary);
+            color: var(--text-secondary);
             margin-bottom: 4px;
         }
 
         .item-series {
             font-size: 0.92em;
             color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+
+        .item-description-title {
+            font-size: 1.85em;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--text-primary);
             margin-bottom: 14px;
         }
 
@@ -578,7 +586,8 @@
                     '<div class="gallery-col">' + renderGallery(photos, itemData.Model) + '</div>' +
                     '<div class="info-col"><div class="info-panel">' +
                         '<div class="item-manufacturer">' + (itemData.Manufacturer || '') + '</div>' +
-                        '<h1 class="item-title">' + (itemData.Model || 'Model N/A') + '</h1>' +
+                        (itemData.Description ? '<h1 class="item-description-title">' + itemData.Description + '</h1>' : '') +
+                        '<div class="item-title">' + (itemData.Model || 'Model N/A') + '</div>' +
                         (itemData.Series ? '<div class="item-series">' + itemData.Series + ' Series</div>' : '') +
                         '<div class="item-serial">S/N: ' + (itemData.SerialNumber || 'N/A') + '</div>' +
                         '<div class="price-row">' + priceHtml +
@@ -587,7 +596,6 @@
                             '</span>' +
                         '</div>' +
                         (pillsHtml ? '<div class="info-pills">' + pillsHtml + '</div>' : '') +
-                        (itemData.Description ? '<hr class="divider"><p class="item-description">' + itemData.Description + '</p>' : '') +
                         (itemData.Notes ? '<div class="notes-box">&#128205; ' + itemData.Notes + '</div>' : '') +
                         '<hr class="divider">' +
                         '<button class="btn-chat" onclick="chatAboutItem()">&#128172; Chat About This Item</button>' +
