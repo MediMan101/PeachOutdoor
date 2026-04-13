@@ -1,7 +1,21 @@
 [
     {
         "Specs":  {
-
+                      "Performance":  {
+                                          "Runtime":  "Up to 45 minutes",
+                                          "Charge Time":  "60 minutes",
+                                          "Weight":  "5.2 lbs"
+                                      },
+                      "Engine":  {
+                                     "Voltage":  "80V",
+                                     "Battery":  "2.5 Ah Lithium-Ion",
+                                     "Type":  "Brushless Electric Motor"
+                                 },
+                      "Features":  {
+                                       "Warranty":  "3 years",
+                                       "Variable Speed":  "Yes",
+                                       "LED Indicator":  "Battery level display"
+                                   }
                   },
         "Manufacturer":  "BAD",
         "Series":  "BATTERY",
@@ -9,7 +23,25 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,450 lbs",
+                                         "Width":  "54 inches",
+                                         "Length":  "108 inches"
+                                     },
+                      "Engine":  {
+                                     "Displacement":  "1.5L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "24.5 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO HP":  "20.5 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,250 lbs"
+                                     },
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic",
+                                           "Speeds":  "Variable"
+                                       }
                   },
         "Manufacturer":  "LS",
         "Series":  "MT1",
@@ -17,7 +49,30 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,756 lbs",
+                                         "Width":  "56 inches",
+                                         "Length":  "115 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "6.3 gallons",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,433 lbs"
+                                     },
+                      "Features":  {
+                                       "ROPS":  "Foldable",
+                                       "4WD":  "Yes",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1500",
@@ -25,7 +80,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -33,7 +113,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -41,7 +146,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -49,7 +179,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -57,7 +212,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -65,7 +242,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -73,7 +272,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -81,7 +305,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -89,7 +338,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -97,7 +368,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -105,7 +401,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Hydrostatic (HST)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -113,7 +434,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -121,7 +467,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -129,7 +500,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -137,7 +533,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -145,7 +566,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -153,7 +599,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -161,7 +632,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -169,7 +662,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -177,7 +692,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -185,7 +722,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift (REF)"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -193,7 +755,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -201,7 +788,32 @@
     },
     {
         "Specs":  {
-
+                      "Transmission":  {
+                                           "Type":  "Shuttle Shift"
+                                       },
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
@@ -209,7 +821,29 @@
     },
     {
         "Specs":  {
-
+                      "Dimensions":  {
+                                         "Weight":  "2,866 lbs",
+                                         "Width":  "57 inches",
+                                         "Length":  "117 inches"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank":  "7.4 gallons",
+                                     "Displacement":  "1.6L",
+                                     "Type":  "Diesel 3-Cylinder",
+                                     "Horsepower":  "26 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "PTO Speed":  "540 RPM",
+                                         "PTO HP":  "22 HP",
+                                         "3-Point Hitch":  "Category 1",
+                                         "Lift Capacity":  "1,543 lbs"
+                                     },
+                      "Features":  {
+                                       "Diff Lock":  "Rear",
+                                       "4WD":  "Standard",
+                                       "ROPS":  "Foldable",
+                                       "Power Steering":  "Standard"
+                                   }
                   },
         "Manufacturer":  "MAH",
         "Series":  "1600",
