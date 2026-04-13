@@ -3,10 +3,8 @@
 # Peach Outdoor - Export inventory + specs from [Peach] database to GitHub
 #
 # Outputs two files:
-#   inventory.json  - all available inventory items (existing)
-#   specs.json      - model specs from ModelSpec table (updated to pull from DB)
-#
-# Schedule with Windows Task Scheduler to run automatically.
+#   inventory.json  - all web-enabled inventory items
+#   specs.json      - model specs from ModelSpec table
 # =============================================================================
 
 param(
@@ -14,14 +12,14 @@ param(
     [string]$Database     = "Peach",
     [string]$RepoPath     = "C:\Users\John Pierce\Documents\GitHub\PeachOutdoor",
     [string]$GitExe       = "C:\Program Files\Git\bin\git.exe",
-    [switch]$Force        = $false   # push even if nothing changed
+    [switch]$Force        = $false
 )
 
 $ErrorActionPreference = "Stop"
 $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
 Write-Host "[$timestamp] Starting Peach Outdoor sync..." -ForegroundColor Cyan
 
-# ── Helper: run a SQL query and return DataTable ──────────────────────────────
+# ── Helper: run SQL and return DataTable ──────────────────────────────────────
 function Invoke-SQL {
     param([string]$Query)
     $conn = New-Object System.Data.SqlClient.SqlConnection
@@ -39,56 +37,93 @@ function Invoke-SQL {
 
 # =============================================================================
 # STEP 1 — Export inventory.json
+# Uses WebDisplay (ShowOnWeb/FeaturedItem), WebPricing (Web_Price),
+# InventoryPhotos (photos), and Vendor (full manufacturer name)
 # =============================================================================
 Write-Host "  Querying inventory..." -ForegroundColor Gray
 
 $inventorySQL = @"
 SELECT
     i.InventoryID,
-    i.MFG           AS Manufacturer,
-    i.Dept          AS Department,
-    i.Series,
-    i.Model,
-    i.Description,
-    i.Serial_Number AS SerialNumber,
-    i.Location,
+    ISNULL(v.Name, i.MFG)          AS Manufacturer,
+    ISNULL(i.Dept, '')             AS Department,
+    ISNULL(i.Series, '')           AS Series,
+    ISNULL(i.Model, '')            AS Model,
+    ISNULL(i.Description, '')      AS Description,
+    ISNULL(i.Serial_Number, '')    AS SerialNumber,
+    ISNULL(i.Location, '')         AS Location,
     i.MSRP,
-    i.Web_Price,
-    CAST(CASE WHEN i.Used = 1 THEN 1 ELSE 0 END AS BIT) AS Used,
-    CAST(CASE WHEN i.FeaturedItem = 1 THEN 1 ELSE 0 END AS BIT) AS FeaturedItem,
-    ISNULL(i.Notes, '') AS Notes,
-    i.PrimaryPhotoURL,
-    i.AllPhotos
+    wp.Web_Price,
+    CAST(ISNULL(i.Used, 0) AS INT) AS Used,
+    ISNULL(i.Notes, '')            AS Notes,
+    ISNULL(wd.FeaturedItem, 0)     AS FeaturedItem,
+    (
+        SELECT TOP 1 PhotoURL
+        FROM dbo.InventoryPhotos
+        WHERE InventoryID = i.InventoryID
+          AND IsPrimary = 1
+    ) AS PrimaryPhotoURL
 FROM dbo.Inventory i
+INNER JOIN dbo.WebDisplay wd
+    ON wd.InventoryID = i.InventoryID
+    AND wd.ShowOnWeb = 1
+LEFT JOIN dbo.WebPricing wp
+    ON wp.InventoryID = i.InventoryID
+    AND wp.IsActive = 1
+    AND wp.EffectiveDate = (
+        SELECT MAX(EffectiveDate)
+        FROM dbo.WebPricing
+        WHERE InventoryID = i.InventoryID
+          AND IsActive = 1
+    )
+LEFT JOIN dbo.Vendor v
+    ON v.VendorID = i.MFG
 WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) > 0
-  AND i.Deleted   = 0
-  AND i.NonInventoryItem = 0
-ORDER BY i.MFG, i.Model
+  AND ISNULL(i.Deleted, 0)          = 0
+  AND ISNULL(i.Attachment, 0)       = 0
+  AND ISNULL(i.NonInventoryItem, 0) = 0
+  AND ISNULL(i.IsLinkedItem, 0)     = 0
+ORDER BY wd.FeaturedItem DESC, v.Name, i.Dept, i.Model
+"@
+
+# Photos query — all photos per item ordered by primary first then sort order
+$photosSQL = @"
+SELECT InventoryID, PhotoURL
+FROM dbo.InventoryPhotos
+ORDER BY InventoryID, IsPrimary DESC, SortOrder ASC
 "@
 
 $inventoryRows = Invoke-SQL -Query $inventorySQL
+$photoRows     = Invoke-SQL -Query $photosSQL
+
+# Build photo lookup: InventoryID -> [url, url, ...]
+$photoLookup = @{}
+foreach ($row in $photoRows) {
+    $id = [int]$row.InventoryID
+    if (-not $photoLookup.ContainsKey($id)) { $photoLookup[$id] = @() }
+    $photoLookup[$id] += [string]$row.PhotoURL
+}
 
 # Build inventory array
 $inventoryList = @()
 foreach ($row in $inventoryRows) {
+    $id = [int]$row.InventoryID
     $item = [ordered]@{
-        InventoryID     = $row.InventoryID
-        Manufacturer    = $row.Manufacturer
-        Department      = $row.Department
-        Series          = $row.Series
-        Model           = $row.Model
-        Description     = $row.Description
-        SerialNumber    = $row.SerialNumber
-        Location        = $row.Location
-        MSRP            = if ($row.MSRP   -is [DBNull]) { $null } else { [double]$row.MSRP }
+        InventoryID     = $id
+        Manufacturer    = [string]$row.Manufacturer
+        Department      = [string]$row.Department
+        Series          = [string]$row.Series
+        Model           = [string]$row.Model
+        Description     = [string]$row.Description
+        SerialNumber    = [string]$row.SerialNumber
+        Location        = [string]$row.Location
+        MSRP            = if ($row.MSRP    -is [DBNull]) { $null } else { [double]$row.MSRP }
         Web_Price       = if ($row.Web_Price -is [DBNull]) { $null } else { [double]$row.Web_Price }
-        Used            = [bool]$row.Used
-        FeaturedItem    = [bool]$row.FeaturedItem
-        Notes           = $row.Notes
-        PrimaryPhotoURL = if ($row.PrimaryPhotoURL -is [DBNull]) { $null } else { $row.PrimaryPhotoURL }
-        AllPhotos       = if ($row.AllPhotos -is [DBNull]) { @() } else {
-                              $row.AllPhotos -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ -ne '' }
-                          }
+        Used            = ([int]$row.Used -eq 1)
+        FeaturedItem    = ([int]$row.FeaturedItem -eq 1)
+        Notes           = [string]$row.Notes
+        PrimaryPhotoURL = if ($row.PrimaryPhotoURL -is [DBNull]) { $null } else { [string]$row.PrimaryPhotoURL }
+        AllPhotos       = if ($photoLookup.ContainsKey($id)) { $photoLookup[$id] } else { @() }
     }
     $inventoryList += $item
 }
@@ -112,18 +147,15 @@ SELECT
     ms.SpecLabel,
     ms.SpecValue,
     ms.SortOrder,
-    ms.SpecPriority  -- 1=variant-specific (wins), 2=base/family spec
+    ms.SpecPriority
 FROM dbo.vw_ModelSpecs ms
 ORDER BY ms.Manufacture, ms.Series, ms.ForModel, ms.Category, ms.SortOrder, ms.SpecLabel
 "@
 
 $specRows = Invoke-SQL -Query $specsSQL
 
-# Group into nested structure: [ { Manufacturer, Model, Specs: { Category: { Label: Value } } } ]
-# Priority rules: SpecPriority 1 (variant-specific) overrides SpecPriority 2 (base spec)
-# for the same Category + SpecLabel combination.
-$specsByModel   = @{}   # final spec values
-$specsByModelPri = @{}  # tracks priority of each inserted value
+$specsByModel    = @{}
+$specsByModelPri = @{}
 
 foreach ($row in $specRows) {
     $key = "$($row.Manufacture)||$($row.Series)||$($row.Model)"
@@ -142,15 +174,14 @@ foreach ($row in $specRows) {
     $priority = [int]$row.SpecPriority
 
     if (-not $specsByModel[$key].Specs.ContainsKey($cat)) {
-        $specsByModel[$key].Specs[$cat]     = [ordered]@{}
-        $specsByModelPri[$key][$cat]        = @{}
+        $specsByModel[$key].Specs[$cat]  = [ordered]@{}
+        $specsByModelPri[$key][$cat]     = @{}
     }
 
-    # Only write if no value exists yet, or incoming has higher priority (lower number)
     $existingPri = $specsByModelPri[$key][$cat][$label]
     if (-not $existingPri -or $priority -lt $existingPri) {
-        $specsByModel[$key].Specs[$cat][$label]    = $row.SpecValue
-        $specsByModelPri[$key][$cat][$label]       = $priority
+        $specsByModel[$key].Specs[$cat][$label]  = $row.SpecValue
+        $specsByModelPri[$key][$cat][$label]     = $priority
     }
 }
 
