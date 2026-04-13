@@ -51,12 +51,12 @@ function Invoke-SQL {
     return $dt
 }
 
-# ── HELPER: Push a file to GitHub via API ────────────────────────────────────
+# ── HELPER: Push multiple files in one commit via Git Tree API ───────────────
+# One commit = one Netlify build trigger
 
-function Push-GitHubFile {
+function Push-GitHubFiles {
     param(
-        [string]$FilePath,    # e.g. "inventory.json"
-        [string]$Content,     # file content as string
+        [hashtable]$Files,     # @{ "filename.json" = "content string" }
         [string]$CommitMsg
     )
 
@@ -65,31 +65,48 @@ function Push-GitHubFile {
         "Accept"               = "application/vnd.github+json"
         "X-GitHub-Api-Version" = "2022-11-28"
     }
-    $apiUrl = "https://api.github.com/repos/$GitHubOwner/$GitHubRepo/contents/$FilePath"
+    $baseUrl = "https://api.github.com/repos/$GitHubOwner/$GitHubRepo"
 
-    # Get current SHA (required to update existing file)
-    $currentSha = $null
-    try {
-        $existing   = Invoke-RestMethod -Uri $apiUrl -Headers $headers -Method Get
-        $currentSha = $existing.sha
-    } catch {
-        if ($_.Exception.Response.StatusCode -ne 404) {
-            throw "GitHub GET failed for $FilePath`: $($_.Exception.Message)"
-        }
-        # 404 = file doesn't exist yet, will be created
+    # 1. Get current branch SHA
+    $branchData = Invoke-RestMethod -Uri "$baseUrl/git/ref/heads/$GitHubBranch" -Headers $headers
+    $latestSha  = $branchData.object.sha
+
+    # 2. Get current tree SHA
+    $commitData = Invoke-RestMethod -Uri "$baseUrl/git/commits/$latestSha" -Headers $headers
+    $treeSha    = $commitData.tree.sha
+
+    # 3. Create blobs for each file
+    $treeItems = @()
+    foreach ($filePath in $Files.Keys) {
+        $encoded = [System.Convert]::ToBase64String(
+            [System.Text.Encoding]::UTF8.GetBytes($Files[$filePath])
+        )
+        $blobBody = @{ content = $encoded; encoding = "base64" } | ConvertTo-Json
+        $blob = Invoke-RestMethod -Uri "$baseUrl/git/blobs" -Headers $headers `
+                    -Method Post -Body $blobBody -ContentType "application/json"
+        $treeItems += @{ path = $filePath; mode = "100644"; type = "blob"; sha = $blob.sha }
     }
 
-    $encoded = [System.Convert]::ToBase64String(
-        [System.Text.Encoding]::UTF8.GetBytes($Content)
-    )
+    # 4. Create new tree
+    $newTreeBody = @{ base_tree = $treeSha; tree = $treeItems } | ConvertTo-Json -Depth 5
+    $newTree = Invoke-RestMethod -Uri "$baseUrl/git/trees" -Headers $headers `
+                    -Method Post -Body $newTreeBody -ContentType "application/json"
 
-    $body = @{ message = $CommitMsg; content = $encoded; branch = $GitHubBranch }
-    if ($currentSha) { $body.sha = $currentSha }
+    # 5. Create commit
+    $newCommitBody = @{
+        message = $CommitMsg
+        tree    = $newTree.sha
+        parents = @($latestSha)
+    } | ConvertTo-Json
+    $newCommit = Invoke-RestMethod -Uri "$baseUrl/git/commits" -Headers $headers `
+                    -Method Post -Body $newCommitBody -ContentType "application/json"
 
-    Invoke-RestMethod -Uri $apiUrl -Headers $headers -Method Put `
-        -Body ($body | ConvertTo-Json) -ContentType "application/json" | Out-Null
+    # 6. Update branch ref
+    $updateRefBody = @{ sha = $newCommit.sha; force = $false } | ConvertTo-Json
+    Invoke-RestMethod -Uri "$baseUrl/git/refs/heads/$GitHubBranch" -Headers $headers `
+        -Method Patch -Body $updateRefBody -ContentType "application/json" | Out-Null
 
-    Write-Log "Pushed $FilePath to GitHub."
+    Write-Log "Pushed $($Files.Count) files in single commit. One Netlify build triggered."
 }
 
 # =============================================================================
@@ -259,8 +276,10 @@ Write-Log "Specs built: $($specsList.Count) model spec sets."
 $commitMsg = "Auto-sync inventory + specs $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 
 try {
-    Push-GitHubFile -FilePath "inventory.json" -Content $inventoryJson -CommitMsg $commitMsg
-    Push-GitHubFile -FilePath "specs.json"     -Content $specsJson     -CommitMsg $commitMsg
+    Push-GitHubFiles -Files @{
+        "inventory.json" = $inventoryJson
+        "specs.json"     = $specsJson
+    } -CommitMsg $commitMsg
     Write-Log "Netlify will deploy automatically."
 } catch {
     Write-Log "ERROR pushing to GitHub: $($_.Exception.Message)" "ERROR"
