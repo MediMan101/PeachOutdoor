@@ -107,19 +107,24 @@ $specsSQL = @"
 SELECT
     ms.Manufacture,
     ms.Series,
-    ms.Model,
+    ms.ForModel     AS Model,
     ms.Category,
     ms.SpecLabel,
     ms.SpecValue,
-    ms.SortOrder
+    ms.SortOrder,
+    ms.SpecPriority  -- 1=variant-specific (wins), 2=base/family spec
 FROM dbo.vw_ModelSpecs ms
-ORDER BY ms.Manufacture, ms.Series, ms.Model, ms.Category, ms.SortOrder, ms.SpecLabel
+ORDER BY ms.Manufacture, ms.Series, ms.ForModel, ms.Category, ms.SortOrder, ms.SpecLabel
 "@
 
 $specRows = Invoke-SQL -Query $specsSQL
 
 # Group into nested structure: [ { Manufacturer, Model, Specs: { Category: { Label: Value } } } ]
-$specsByModel = @{}
+# Priority rules: SpecPriority 1 (variant-specific) overrides SpecPriority 2 (base spec)
+# for the same Category + SpecLabel combination.
+$specsByModel   = @{}   # final spec values
+$specsByModelPri = @{}  # tracks priority of each inserted value
+
 foreach ($row in $specRows) {
     $key = "$($row.Manufacture)||$($row.Series)||$($row.Model)"
     if (-not $specsByModel.ContainsKey($key)) {
@@ -129,12 +134,24 @@ foreach ($row in $specRows) {
             Model        = $row.Model
             Specs        = [ordered]@{}
         }
+        $specsByModelPri[$key] = @{}
     }
-    $cat = $row.Category
+
+    $cat      = $row.Category
+    $label    = $row.SpecLabel
+    $priority = [int]$row.SpecPriority
+
     if (-not $specsByModel[$key].Specs.ContainsKey($cat)) {
-        $specsByModel[$key].Specs[$cat] = [ordered]@{}
+        $specsByModel[$key].Specs[$cat]     = [ordered]@{}
+        $specsByModelPri[$key][$cat]        = @{}
     }
-    $specsByModel[$key].Specs[$cat][$row.SpecLabel] = $row.SpecValue
+
+    # Only write if no value exists yet, or incoming has higher priority (lower number)
+    $existingPri = $specsByModelPri[$key][$cat][$label]
+    if (-not $existingPri -or $priority -lt $existingPri) {
+        $specsByModel[$key].Specs[$cat][$label]    = $row.SpecValue
+        $specsByModelPri[$key][$cat][$label]       = $priority
+    }
 }
 
 $specsList = $specsByModel.Values | Sort-Object { $_.Manufacturer }, { $_.Model }
