@@ -219,18 +219,24 @@ $specsByModelPri = @{}
 foreach ($row in $specRows) {
     $key = "$($row.Manufacture)||$($row.Series)||$($row.Model)"
     if (-not $specsByModel.ContainsKey($key)) {
-        $specsByModel[$key]    = @{ Manufacturer = $row.Manufacture; Series = $row.Series; Model = $row.Model; Specs = [ordered]@{} }
+        $specsByModel[$key] = @{
+            Manufacturer = $row.Manufacture
+            Series       = $row.Series
+            Model        = $row.Model
+            Specs        = @{}
+        }
         $specsByModelPri[$key] = @{}
     }
     $cat      = $row.Category
     $label    = $row.SpecLabel
     $priority = [int]$row.SpecPriority
+
     if (-not $specsByModel[$key].Specs.ContainsKey($cat)) {
-        $specsByModel[$key].Specs[$cat]  = [ordered]@{}
+        $specsByModel[$key].Specs[$cat]  = @{}
         $specsByModelPri[$key][$cat]     = @{}
     }
     $existingPri = $specsByModelPri[$key][$cat][$label]
-    if (-not $existingPri -or $priority -lt $existingPri) {
+    if (-not $existingPri -or $priority -lt [int]$existingPri) {
         $specsByModel[$key].Specs[$cat][$label]  = $row.SpecValue
         $specsByModelPri[$key][$cat][$label]     = $priority
     }
