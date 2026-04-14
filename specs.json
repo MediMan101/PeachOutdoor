@@ -1,6 +1,667 @@
 [
     {
         "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "2 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST",
+                                          "Clutch":  "Dry Single Plate"
+                                      },
+                      "PTO":  {
+                                  "PTO HP":  "15.4",
+                                  "Rear PTO Speed (RPM)":  "540",
+                                  "Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "7-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Ground Clearance (in)":  "8.3",
+                                         "Overall Width (in)":  "44.5",
+                                         "Overall Height (in)":  "86.6",
+                                         "Weight (lbs)":  "1,433",
+                                         "Wheelbase (in)":  "53.1",
+                                         "Overall Length (in)":  "94.2"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "679",
+                                         "3-Point Hitch":  "Limited CAT 1",
+                                         "Total Flow GPM (Steering + Implement)":  "6.3 (2.1 + 4.2)",
+                                         "Type":  "Power Assisted Hydro-Static"
+                                     },
+                      "Engine":  {
+                                     "Displacement (in³)":  "60.6",
+                                     "Fuel Tank (gal)":  "6.6",
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "21.5 HP"
+                                 },
+                      "Loader - BBL100":  {
+                                              "Max Lift Height (in)":  "72.7",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "617",
+                                              "Bucket Size (in)":  "48",
+                                              "Breakout Force (lbs)":  "1,253"
+                                          },
+                      "Backhoe - BBH100":  {
+                                               "Dig Force Bucket (lbs)":  "1,975",
+                                               "Bucket Size (in)":  "12",
+                                               "Max Dig Depth (in)":  "66"
+                                           },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 40A",
+                                         "Battery":  "12V, 425 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.50-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "10",
+        "Model":  "1022"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST",
+                                          "Clutch":  "Dry Single Plate"
+                                      },
+                      "Loader - BBL300":  {
+                                              "Max Lift Height (in)":  "86",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "1,314",
+                                              "Bucket Size (in)":  "54",
+                                              "Breakout Force (lbs)":  "1,960"
+                                          },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Ground Clearance (in)":  "16.4",
+                                         "Overall Width (in)":  "53.8",
+                                         "Overall Height (in)":  "91.4",
+                                         "Weight (lbs)":  "2,106",
+                                         "Wheelbase (in)":  "65.7",
+                                         "Overall Length (in)":  "110"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "974",
+                                         "3-Point Hitch":  "CAT 1",
+                                         "Total Flow GPM (Steering + Implement)":  "7.4 (3.1 + 4.3)",
+                                         "Type":  "Power Assisted Hydro-Static"
+                                     },
+                      "Engine":  {
+                                     "Displacement (in³)":  "71.7",
+                                     "Fuel Tank (gal)":  "6.0",
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "25 HP"
+                                 },
+                      "Backhoe - BBH200":  {
+                                               "Dig Force Bucket (lbs)":  "2,050",
+                                               "Bucket Size (in)":  "12",
+                                               "Max Dig Depth (in)":  "76"
+                                           },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 50A",
+                                         "Battery":  "12V, 425 CCA"
+                                     },
+                      "PTO":  {
+                                  "PTO HP":  "18",
+                                  "Rear PTO Speed (RPM)":  "540 / 960",
+                                  "Type":  "Live"
+                              },
+                      "Tires":  {
+                                    "Front Tires":  "25x8.50-14",
+                                    "Rear Tires":  "14x17.5"
+                                }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "30",
+        "Model":  "3026"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540",
+                                  "Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Hydraulics":  {
+                                         "3-Point Hitch":  "CAT 1"
+                                     },
+                      "Engine":  {
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "25 HP"
+                                 },
+                      "Loader - BBL400":  {
+                                              "Lift Capacity at Pivot Pin (lbs)":  "1,477"
+                                          }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "40",
+        "Model":  "4025"
+    },
+    {
+        "Specs":  {
+                      "Backhoe - BBH400":  {
+                                               "Dig Force Bucket (lbs)":  "4,380",
+                                               "Bucket Size (in)":  "16",
+                                               "Max Dig Depth (in)":  "92.2"
+                                           },
+                      "PTO":  {
+                                  "PTO HP":  "29.5",
+                                  "Rear PTO Speed (RPM)":  "540",
+                                  "Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Width ROPS / Cab (in)":  "56.7 / 55.6",
+                                         "Ground Clearance (in)":  "13.1",
+                                         "Wheelbase (in)":  "65.7",
+                                         "Overall Length (in)":  "134.88",
+                                         "Height ROPS / Cab (in)":  "97 / 86",
+                                         "Weight ROPS / Cab (lbs)":  "3,164 / 3,551"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "2,425",
+                                         "3-Point Hitch":  "CAT 1",
+                                         "Total Flow GPM (Steering + Implement)":  "12.6 (4.4 + 8.2)",
+                                         "Type":  "Hydro-Static Power Steering"
+                                     },
+                      "Engine":  {
+                                     "Displacement (in³)":  "104.5",
+                                     "Fuel Tank (gal)":  "7.1",
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "35 HP"
+                                 },
+                      "Loader - BBL400":  {
+                                              "Max Lift Height (in)":  "104",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "2,200",
+                                              "Bucket Size (in)":  "62",
+                                              "Breakout Force (lbs)":  "3,660"
+                                          },
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 50A",
+                                         "Battery":  "12V, 540 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "28x8.50-15",
+                                    "Rear Tires":  "43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "40",
+        "Model":  "4035"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission (Shuttle)":  "Synchro 16F / 16R",
+                                          "Transmission (ROPS)":  "HST — 4 Range"
+                                      },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Engine":  {
+                                     "Fuel Tank (gal)":  "11.8",
+                                     "Rated HP":  "48 HP",
+                                     "Engine Type":  "4 Cylinder, Water-Cooled Diesel"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "2,425",
+                                         "Hitch Lift Capacity (lbs)":  "3,306",
+                                         "3-Point Category":  "CAT 1"
+                                     },
+                      "Loader - BBL500":  {
+                                              "Max Lift Height (in)":  "106.6",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "2,700",
+                                              "Bucket Size (in)":  "72"
+                                          }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "50",
+        "Model":  "5045"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission (ROPS/S)":  "HST — 4 Range",
+                                          "Transmission (Shuttle)":  "Synchro 16F / 16R"
+                                      },
+                      "PTO":  {
+                                  "PTO Speed 540 / 540E (RPM)":  "584 / 791"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Ground Clearance (in)":  "15.5",
+                                         "Wheelbase (in)":  "71.1",
+                                         "Overall Width (in)":  "64.9",
+                                         "Overall Length (in)":  "127.4",
+                                         "Height ROPS / Cab (in)":  "98.4 / 97",
+                                         "Weight ROPS / Cab (lbs)":  "3,836 / 4,349"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "3,306",
+                                         "Implement Pump GPM (ROPS/S)":  "10.7 / 11.4",
+                                         "Steering Pump GPM":  "5",
+                                         "Max Total Flow GPM (ROPS/S)":  "15.7 / 16.4",
+                                         "3-Point Category":  "CAT 1",
+                                         "3-Point Lift @ 24\" (lbs)":  "2,425"
+                                     },
+                      "Engine":  {
+                                     "Rated HP":  "55 HP",
+                                     "Displacement (in³)":  "139.5",
+                                     "Number of Cylinders":  "4",
+                                     "Max PTO Power (HP)":  "44",
+                                     "Fuel Tank (gal)":  "11.8",
+                                     "Model":  "A2300T3-UTR_4",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "Fuel System":  "Water-Cooled Diesel"
+                                 },
+                      "Backhoe - BBH500":  {
+                                               "Max Dig Depth (in)":  "91.2",
+                                               "Bucket Size (in)":  "16"
+                                           },
+                      "Loader - BBL500":  {
+                                              "Max Lift Height (in)":  "106.6",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "2,700",
+                                              "Bucket Size (in)":  "72",
+                                              "Breakout Force (lbs)":  "3,660"
+                                          }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "50",
+        "Model":  "5055"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "6.5"
+                               },
+                      "Dimensions":  {
+                                         "Weight 48\" (lbs)":  "957",
+                                         "Length (in)":  "80",
+                                         "Weight 54\" (lbs)":  "1,005",
+                                         "Weight 60\" (lbs)":  "1,031"
+                                     },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "747cc, 25hp Kohler Confidant ZT740",
+                                     "Kawasaki Option":  "726cc, 24hp Kawasaki FS730V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 Smooth",
+                                    "Rear Tires 54\"/60\"":  "23x11-12 Reaper®",
+                                    "Rear Tires 48\"":  "23x9-12 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Ground Speed (Forward)":  "Up to 9 mph",
+                                    "Transmission":  "Hydro-Gear 3200 Series 10cc Integrated",
+                                    "Suspension":  "EZ-Ride® Patented Compression Rear + Independent Front"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\" / 60\"",
+                                   "Deck Thickness":  "3/16\" or 7-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4.5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "MAVERICK",
+        "Model":  "Maverick"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated",
+                                    "Ground Speed (Forward)":  "Up to 10 mph"
+                                },
+                      "Engine":  {
+                                     "Honda Option":  "GXV700/800 EFI, 27HP",
+                                     "Kawasaki Option":  "726cc, 23.5hp Kawasaki FX730V",
+                                     "Kohler Option":  "749cc, 26.5hp Kohler Command EFI"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 60\"",
+                                   "Deck Thickness":  "1/4\" Solid Steel",
+                                   "Cutting Height":  "1\" – 5\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "MAVERICK",
+        "Model":  "Maverick HD"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "3"
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "725cc, 25hp Kohler 7000 KT740",
+                                     "Kawasaki Option":  "726cc, 21.5hp Kawasaki FR651V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "11x4-5 Smooth",
+                                    "Rear Tires":  "20x8-8"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear EZT Series Integrated",
+                                    "Ground Speed (Forward)":  "Up to 6.5 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\"",
+                                   "Deck Thickness":  "10-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "MAGNUM",
+        "Model":  "MZ Magnum"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "3"
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Briggs Option":  "540cc, 19hp Briggs \u0026 Stratton",
+                                     "Kawasaki Option":  "651cc, 21.5hp Kawasaki FR651V",
+                                     "Kohler Option":  "725cc, 22hp Kohler KT722/KT725"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "11x4-5 Smooth",
+                                    "Rear Tires":  "18x9.5-8"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear EZT Series Integrated",
+                                    "Ground Speed (Forward)":  "Up to 6.5 mph"
+                                },
+                      "Deck":  {
+                                   "Deck Thickness":  "10-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4\"",
+                                   "Available Width":  "42\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "RAMBLER",
+        "Model":  "MZ Rambler"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "13"
+                               },
+                      "Dimensions":  {
+                                         "Weight 72\" (lbs)":  "1,419",
+                                         "Weight 61\" (lbs)":  "1,382",
+                                         "Length (in)":  "92",
+                                         "Weight 54\" (lbs)":  "1,257"
+                                     },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kawasaki 27HP Option":  "852cc, 27hp Kawasaki FX850V (54\" / 61\")",
+                                     "Kawasaki 31HP EFI":  "822cc, 31hp Kawasaki FX781V EVO EFI (54\")",
+                                     "Kawasaki 35HP Option":  "999cc, 35hp Kawasaki FX1000V (61\" / 72\")",
+                                     "Kawasaki 34HP EFI":  "822cc, 34hp Kawasaki FX820V EVO EFI (61\" / 72\")"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat Smooth",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 4400 Series 16cc Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 61\" / 72\"",
+                                   "Deck Thickness":  "1/4\" (3-Gauge), Sides 3/8\"",
+                                   "Cutting Height":  "1\" – 5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REBEL",
+        "Model":  "Rebel"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 4400 Series 16cc Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki Option":  "999cc EFI, 38.5hp Kawasaki FX1000V EFI"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat Smooth",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Deck":  {
+                                   "Deck Thickness":  "1/4\" (3-Gauge), Sides 3/8\"",
+                                   "Cutting Height":  "1\" – 5\"",
+                                   "Available Width":  "61\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REBEL",
+        "Model":  "Rebel X"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated"
+                                },
+                      "Engine":  {
+                                     "Perkins Option":  "1100cc Diesel, 24.7hp Perkins (61\")"
+                                 },
+                      "Deck":  {
+                                   "Deck Thickness":  "1/4\" (3-Gauge) Steel",
+                                   "Available Width":  "61\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn — Diesel"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "RENEGADE",
+        "Model":  "Renegade Diesel"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kohler EFI Option":  "980cc EFI, 38.5hp Kohler Command (72\")",
+                                     "Vanguard EFI Option":  "993cc EFI, 37hp Briggs Vanguard (61\")"
+                                 },
+                      "Deck":  {
+                                   "Deck Thickness":  "1/4\" (3-Gauge) Steel",
+                                   "Available Widths":  "61\" / 72\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "RENEGADE",
+        "Model":  "Renegade Gas"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Ground Speed (Forward)":  "Up to 10 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki Option":  "726cc, 23.5hp Kawasaki FX730V"
+                                 },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Stand-On Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REVOLT",
+        "Model":  "Revolt"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki EFI Option":  "999cc EFI, 38.5hp Kawasaki FX1000V EFI"
+                                 },
+                      "Deck":  {
+                                   "Available Width":  "61\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Stand-On Zero-Turn — Commercial"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REVOLT",
+        "Model":  "Revolt X"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki 38.5HP EFI":  "999cc EFI, 38.5hp Kawasaki FX1000V EFI (61\")",
+                                     "Yamaha EFI Option":  "824cc EFI, 33hp Yamaha (61\")",
+                                     "Kawasaki 35HP Option":  "999cc, 35hp Kawasaki FX1000V (54\" / 61\")"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat Smooth",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 61\"",
+                                   "Deck Thickness":  "1/4\" (3-Gauge) Steel",
+                                   "Cutting Height":  "1\" – 5\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "ROGUE",
+        "Model":  "Rogue"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "6"
+                               },
+                      "Dimensions":  {
+                                         "Length (in)":  "74.5",
+                                         "Width 54\" Chute Up/Down (in)":  "58 / 67",
+                                         "Width 60\" Chute Up/Down (in)":  "64 / 73",
+                                         "Weight 54\" (lbs)":  "746",
+                                         "Weight 60\" (lbs)":  "763",
+                                         "Height (in)":  "46"
+                                     },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "747cc, 26hp Kohler Pro 7000 KT726",
+                                     "Kawasaki Option":  "726cc, 23hp Kawasaki FR691V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "12x6-6 Smooth",
+                                    "Rear Tires":  "20x10-8 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 2800 Series 10cc Integrated",
+                                    "Ground Speed (Forward)":  "Up to 7 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 60\"",
+                                   "Deck Thickness":  "3/16\" or 7-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4.5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "AVENGER",
+        "Model":  "ZT Avenger"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "6"
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "747cc, 26hp Kohler Pro 7000 KT745",
+                                     "Kawasaki Option":  "726cc, 24hp Kawasaki FR730V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x5-6 Smooth",
+                                    "Rear Tires":  "20x10-8 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 3100 Series Integrated",
+                                    "Ground Speed (Forward)":  "Up to 8 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\" / 60\"",
+                                   "Deck Thickness":  "3/16\" or 7-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4.5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "ELITE",
+        "Model":  "ZT Elite"
+    },
+    {
+        "Specs":  {
                       "Dimensions \u0026 Weight":  {
                                                        "Ground Clearance in (mm)":  "6.6 (169)",
                                                        "Turning Radius ft (m)":  "7.2 (2.2)",
