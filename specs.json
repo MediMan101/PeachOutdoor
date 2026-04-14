@@ -1,852 +1,563 @@
 [
     {
         "Specs":  {
-                      "Performance":  {
-                                          "Runtime":  "Up to 45 minutes",
-                                          "Charge Time":  "60 minutes",
-                                          "Weight":  "5.2 lbs"
+                      "Dimensions \u0026 Weight":  {
+                                                       "Ground Clearance in (mm)":  "6.6 (169)",
+                                                       "Turning Radius ft (m)":  "7.2 (2.2)",
+                                                       "Overall Height OS/Cab in":  "86.6 / 80.5",
+                                                       "Overall Length in (mm)":  "100.4 (2550)",
+                                                       "Wheelbase in (mm)":  "55.1 (1400)",
+                                                       "Weight Cab lbs (kg)":  "1,962 (890)",
+                                                       "Overall Width in (mm)":  "46.3 (1177)",
+                                                       "Weight OS lbs (kg)":  "1,620 (735)"
+                                                   },
+                      "PTO":  {
+                                  "PTO HP (kW)":  "13.9 (10.4)",
+                                  "Rear PTO RPM":  "540 @ 2837",
+                                  "Mid PTO RPM":  "2500 @ 2837",
+                                  "PTO Type":  "Independent Wet Clutch"
+                              },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "771",
+                                         "3-Point Hitch":  "CAT 1 with Check Chains",
+                                         "Total Flow GPM":  "11.2",
+                                         "Type":  "Open Center, Full-Live w/ Position Control",
+                                         "Main Pump GPM (L/min)":  "7.6 (28.7)"
+                                     },
+                      "Loader":  {
+                                     "Loader Model":  "L11",
+                                     "Digging Depth (in)":  "3",
+                                     "Max Lift Height (in)":  "68",
+                                     "Loader Lift Capacity (lbs)":  "794"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "20.1 (15) @ 2900",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "67.2 (1102)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "3.00 x 3.20"
+                                 },
+                      "Drive Train":  {
+                                          "Brakes":  "Single Pedal",
+                                          "Max Speed (mph)":  "7.3",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
                                       },
-                      "Engine":  {
-                                     "Voltage":  "80V",
-                                     "Battery":  "2.5 Ah Lithium-Ion",
-                                     "Type":  "Brushless Electric Motor"
-                                 },
-                      "Features":  {
-                                       "Warranty":  "3 years",
-                                       "Variable Speed":  "Yes",
-                                       "LED Indicator":  "Battery level display"
-                                   }
+                      "Electrical":  {
+                                         "Alternator":  "12V, 55A",
+                                         "Battery":  "12.6V, 650 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.5-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
                   },
-        "Manufacturer":  "BAD",
-        "Series":  "BATTERY",
-        "Model":  "7530"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "1100",
+        "Model":  "1120 HST"
     },
     {
         "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,450 lbs",
-                                         "Width":  "54 inches",
-                                         "Length":  "108 inches"
-                                     },
-                      "Engine":  {
-                                     "Displacement":  "1.5L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "24.5 HP"
-                                 },
+                      "Dimensions \u0026 Weight":  {
+                                                       "Ground Clearance in (mm)":  "6.6 (169)",
+                                                       "Turning Radius ft (m)":  "7.2 (2.2)",
+                                                       "Overall Height OS/Cab in":  "86.6 / 80.5",
+                                                       "Overall Length in (mm)":  "100.4 (2550)",
+                                                       "Wheelbase in (mm)":  "55.1 (1400)",
+                                                       "Weight Cab lbs (kg)":  "1,962 (890)",
+                                                       "Overall Width in (mm)":  "46.3 (1177)",
+                                                       "Weight OS lbs (kg)":  "1,620 (735)"
+                                                   },
+                      "PTO":  {
+                                  "PTO HP (kW)":  "16.8 (12.5)",
+                                  "Rear PTO RPM":  "540 @ 2837",
+                                  "Mid PTO RPM":  "2500 @ 2837",
+                                  "PTO Type":  "Independent Wet Clutch"
+                              },
                       "Hydraulics":  {
-                                         "PTO HP":  "20.5 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,250 lbs"
+                                         "3-Point Lift @ 24\" (lbs)":  "771",
+                                         "3-Point Hitch":  "CAT 1 with Check Chains",
+                                         "Total Flow GPM":  "11.2",
+                                         "Type":  "Open Center, Full-Live w/ Position Control",
+                                         "Main Pump GPM (L/min)":  "7.6 (28.7)"
                                      },
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic",
-                                           "Speeds":  "Variable"
-                                       }
+                      "Loader":  {
+                                     "Loader Model":  "L11",
+                                     "Digging Depth (in)":  "3",
+                                     "Max Lift Height (in)":  "68",
+                                     "Loader Lift Capacity (lbs)":  "794"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "22.9 (17.0) @ 3000",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "67.2 (1102)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "3.00 x 3.20"
+                                 },
+                      "Drive Train":  {
+                                          "Brakes":  "Single Pedal",
+                                          "Max Speed (mph)":  "7.3",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 55A",
+                                         "Battery":  "12.6V, 650 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.5-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
                   },
-        "Manufacturer":  "LS",
-        "Series":  "MT1",
-        "Model":  "MT125"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "1100",
+        "Model":  "1123 HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,756 lbs",
-                                         "Width":  "56 inches",
-                                         "Length":  "115 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "6.3 gallons",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
+                      "Dimensions \u0026 Weight":  {
+                                                       "Ground Clearance in (mm)":  "6.6 (169)",
+                                                       "Turning Radius ft (m)":  "7.2 (2.2)",
+                                                       "Overall Height OS/Cab in":  "86.6 / 80.5",
+                                                       "Overall Length in (mm)":  "100.4 (2550)",
+                                                       "Wheelbase in (mm)":  "55.1 (1400)",
+                                                       "Weight Cab lbs (kg)":  "1,962 (890)",
+                                                       "Overall Width in (mm)":  "46.3 (1177)",
+                                                       "Weight OS lbs (kg)":  "1,620 (735)"
+                                                   },
+                      "PTO":  {
+                                  "PTO HP (kW)":  "19.2 (14.3)",
+                                  "Rear PTO RPM":  "540 @ 2837",
+                                  "Mid PTO RPM":  "2500 @ 2837",
+                                  "PTO Type":  "Independent Wet Clutch"
+                              },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,433 lbs"
+                                         "3-Point Lift @ 24\" (lbs)":  "771",
+                                         "3-Point Hitch":  "CAT 1 with Check Chains",
+                                         "Total Flow GPM":  "11.2",
+                                         "Type":  "Open Center, Full-Live w/ Position Control",
+                                         "Main Pump GPM (L/min)":  "7.6 (28.7)"
                                      },
-                      "Features":  {
-                                       "ROPS":  "Foldable",
-                                       "4WD":  "Yes",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "Loader":  {
+                                     "Loader Model":  "L11",
+                                     "Digging Depth (in)":  "3",
+                                     "Max Lift Height (in)":  "68",
+                                     "Loader Lift Capacity (lbs)":  "794"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "25.3 (18.9) @ 3000",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "67.2 (1102)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "3.00 x 3.20"
+                                 },
+                      "Drive Train":  {
+                                          "Brakes":  "Single Pedal",
+                                          "Max Speed (mph)":  "7.3",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 55A",
+                                         "Battery":  "12.6V, 650 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.5-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1500",
-        "Model":  "15264FHIL"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "1100",
+        "Model":  "1126 HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,560"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP Range":  "25.9 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
+        "Manufacturer":  "MAHINDRA",
         "Series":  "1600",
-        "Model":  "16264FHALB"
+        "Model":  "1626 HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,650"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP Range":  "38.7 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
+        "Manufacturer":  "MAHINDRA",
         "Series":  "1600",
-        "Model":  "16264FHI"
+        "Model":  "1640 HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "HST – 3 Range",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,477"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, Tier 4",
+                                     "Engine HP":  "22.9 – 25.3 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "1,760 (798 kg)"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHIL"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "2100",
+        "Model":  "2126 HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,634"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP Range":  "37.4 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHILB"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "2600",
+        "Model":  "2638 HST"
     },
     {
         "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "PST (Power Shuttle)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,122"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP Range":  "70 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "3,528"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHILB12"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "2600",
+        "Model":  "2670 PST"
     },
     {
         "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "Gear (Synchro)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,866"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "41 HP",
+                                     "Cylinders":  "4"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "3,527"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHILB16"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "4500",
+        "Model":  "4540"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "Gear (Synchro)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,866"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "48 HP",
+                                     "Cylinders":  "4"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "3,527"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHILM"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "4500",
+        "Model":  "4550"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "Synchro Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity lbs (kg)":  "3,245 (1,472)"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP":  "45 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "3,748"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHTL"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "5100",
+        "Model":  "5145"
     },
     {
         "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "Synchro Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity lbs (kg)":  "3,245 (1,472)"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP":  "55 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "3,748"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHTLB12"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "5100",
+        "Model":  "5155"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
+                      "Drive Train":  {
+                                          "Transmission":  "Power Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "7-Year / 3,000 Hour No-Deductible"
+                                   },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "4,840"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,609"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "62 HP",
+                                     "Cylinders":  "4"
+                                 }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHTLM"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "6000",
+        "Model":  "6065"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Hydrostatic (HST)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
+                      "Drive Train":  {
+                                          "Transmission":  "Power Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "7-Year / 3,000 Hour No-Deductible"
+                                   },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "4,840"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,609"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "71 HP",
+                                     "Cylinders":  "4"
+                                 }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FHTM"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "6000",
+        "Model":  "6075"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Brakes":  "Wet Disc",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range",
+                                          "Clutch":  "Dry-Single"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "617"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP (kW) @ RPM":  "19.4 (14.5) @ 3000",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "60.6 (993)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "2.91 x 3.03"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Lift (lbs)":  "680"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "Rear PTO RPM":  "540 @ 2942",
+                                  "Mid PTO RPM":  "2500 @ 2958",
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSA"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "eMax",
+        "Model":  "eMax 20S HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Brakes":  "Wet Disc",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "900"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP (kW) @ RPM":  "22 (16) @ 2600",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "71.7 (1175)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "5.8 (22)",
+                                     "Bore x Stroke (in)":  "3.07 x 3.23"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Lift (lbs)":  "1,323"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "Rear PTO RPM":  "540 @ 2893",
+                                  "Mid PTO RPM":  "2000 @ 2875",
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSAL"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "eMax",
+        "Model":  "eMax 22L HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Brakes":  "Wet Disc",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "900"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP (kW) @ RPM":  "24 (18) @ 2600",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "71.7 (1175)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "5.8 (22)",
+                                     "Bore x Stroke (in)":  "3.07 x 3.23"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Lift (lbs)":  "1,323"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "Rear PTO RPM":  "540 @ 2550",
+                                  "Mid PTO RPM":  "2000",
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSALB"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "eMax",
+        "Model":  "eMax 25L HST"
     },
     {
         "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle \u0026 HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,402"
+                                 },
                       "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
+                                     "Engine HP":  "25.9 HP"
                                  },
                       "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
+                                         "3-Point Hitch Lift (lbs)":  "2,315"
                                      },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
                   },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSI"
-    },
-    {
-        "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSIL"
-    },
-    {
-        "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSILB"
-    },
-    {
-        "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSILB12"
-    },
-    {
-        "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSILB16"
-    },
-    {
-        "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSIM"
-    },
-    {
-        "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift (REF)"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSRFIL"
-    },
-    {
-        "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSTL"
-    },
-    {
-        "Specs":  {
-                      "Transmission":  {
-                                           "Type":  "Shuttle Shift"
-                                       },
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "16264FSTLB"
-    },
-    {
-        "Specs":  {
-                      "Dimensions":  {
-                                         "Weight":  "2,866 lbs",
-                                         "Width":  "57 inches",
-                                         "Length":  "117 inches"
-                                     },
-                      "Engine":  {
-                                     "Fuel Tank":  "7.4 gallons",
-                                     "Displacement":  "1.6L",
-                                     "Type":  "Diesel 3-Cylinder",
-                                     "Horsepower":  "26 HP"
-                                 },
-                      "Hydraulics":  {
-                                         "PTO Speed":  "540 RPM",
-                                         "PTO HP":  "22 HP",
-                                         "3-Point Hitch":  "Category 1",
-                                         "Lift Capacity":  "1,543 lbs"
-                                     },
-                      "Features":  {
-                                       "Diff Lock":  "Rear",
-                                       "4WD":  "Standard",
-                                       "ROPS":  "Foldable",
-                                       "Power Steering":  "Standard"
-                                   }
-                  },
-        "Manufacturer":  "MAH",
-        "Series":  "1600",
-        "Model":  "1626L"
+        "Manufacturer":  "MAHINDRA",
+        "Series":  "Max",
+        "Model":  "Max 26 XLT"
     }
 ]
