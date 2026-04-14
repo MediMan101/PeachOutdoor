@@ -199,6 +199,30 @@
     {
         "Specs":  {
                       "Drive Train":  {
+                                          "Transmission":  "Shuttle \u0026 HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,600"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, Tier 4",
+                                     "HP":  "35.1 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "1635 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
                                           "Transmission":  "HST",
                                           "Drive":  "4WD"
                                       },
@@ -266,6 +290,102 @@
         "Manufacturer":  "MAH",
         "Series":  "2600",
         "Model":  "2638 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,117"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "45 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,086"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2645 Shuttle"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,645"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "55 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,086"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2655 Shuttle"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "PST (Power Shuttle)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,086"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "60 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,528"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2660 PST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "PST (Power Shuttle)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,122"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "65 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,528"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2665 PST"
     },
     {
         "Specs":  {
