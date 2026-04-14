@@ -53,7 +53,7 @@
                                     "Rear Tires":  "26x12-12"
                                 }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "1100",
         "Model":  "1120 HST"
     },
@@ -111,7 +111,7 @@
                                     "Rear Tires":  "26x12-12"
                                 }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "1100",
         "Model":  "1123 HST"
     },
@@ -169,7 +169,7 @@
                                     "Rear Tires":  "26x12-12"
                                 }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "1100",
         "Model":  "1126 HST"
     },
@@ -192,7 +192,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "1600",
         "Model":  "1626 HST"
     },
@@ -215,7 +215,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "1600",
         "Model":  "1640 HST"
     },
@@ -239,7 +239,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "2100",
         "Model":  "2126 HST"
     },
@@ -263,7 +263,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "2600",
         "Model":  "2638 HST"
     },
@@ -287,7 +287,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "2600",
         "Model":  "2670 PST"
     },
@@ -312,7 +312,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "4500",
         "Model":  "4540"
     },
@@ -337,7 +337,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "4500",
         "Model":  "4550"
     },
@@ -360,7 +360,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "5100",
         "Model":  "5145"
     },
@@ -383,7 +383,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "5100",
         "Model":  "5155"
     },
@@ -411,7 +411,7 @@
                                      "Cylinders":  "4"
                                  }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "6000",
         "Model":  "6065"
     },
@@ -439,7 +439,7 @@
                                      "Cylinders":  "4"
                                  }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "6000",
         "Model":  "6075"
     },
@@ -471,7 +471,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "eMax",
         "Model":  "eMax 20S HST"
     },
@@ -502,7 +502,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "eMax",
         "Model":  "eMax 22L HST"
     },
@@ -533,7 +533,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "eMax",
         "Model":  "eMax 25L HST"
     },
@@ -556,7 +556,7 @@
                                   "PTO Type":  "Independent"
                               }
                   },
-        "Manufacturer":  "MAHINDRA",
+        "Manufacturer":  "MAH",
         "Series":  "Max",
         "Model":  "Max 26 XLT"
     }
