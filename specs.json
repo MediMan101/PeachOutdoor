@@ -662,6 +662,704 @@
     },
     {
         "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "2 Ranges",
+                                          "Transmission Type":  "Hydrostatic Drive (HST)",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Mid PTO":  "Standard (2,500 RPM)",
+                                  "Rear PTO":  "Standard (540 RPM)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "97",
+                                         "Height to ROPS (in)":  "87",
+                                         "Overall Width (in)":  "47",
+                                         "Total Weight (lbs)":  "1,455",
+                                         "Wheelbase (in)":  "56"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "992 (728 @ 24\")",
+                                         "Total Flow (gpm)":  "6.7",
+                                         "Implement Pump (gpm)":  "4.6",
+                                         "Steering Pump (gpm)":  "2.1"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "6.6",
+                                     "Engine Type":  "3-Cylinder, Indirect-Injection, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "24.7",
+                                     "Displacement (cu. in)":  "77.3",
+                                     "Engine Model (Tier 4)":  "Yanmar 3TNV80F",
+                                     "Alternator":  "12V – 40A",
+                                     "Rated Speed (RPM)":  "3,000",
+                                     "PTO HP":  "17.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "18x8.5-10 / 26x12-12"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT1",
+        "Model":  "MT125"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F12 x R12",
+                                          "Transmission Type":  "Synchro Shuttle / Gear",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "121",
+                                         "Height to ROPS (in)":  "89",
+                                         "Overall Width (in)":  "60",
+                                         "Total Weight (lbs)":  "3,241",
+                                         "Wheelbase (in)":  "65"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,543",
+                                         "Total Flow (gpm)":  "10.0",
+                                         "Implement Pump (gpm)":  "6.3",
+                                         "Steering Pump (gpm)":  "3.7"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "29.4",
+                                     "Displacement (cu. in)":  "91.5",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "24.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20",
+                                    "Ag Front / Rear":  "7-14 / 11.2-24"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226E"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to Cab (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,721",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "29.4",
+                                     "Displacement (cu. in)":  "91.5",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "24.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226HC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to ROPS (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,242",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "1 Pair",
+                                         "Total Flow (gpm)":  "11.7"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226HE"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,721"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226HEC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F12 x R12",
+                                          "Transmission Type":  "Synchro Shuttle / Gear",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to ROPS (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,241",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "36.2",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "29.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232E"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,721"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "36.2",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "29.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232HC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to ROPS (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,242",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "1 Pair",
+                                         "Total Flow (gpm)":  "11.7"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232HE"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)"
+                              },
+                      "Dimensions":  {
+                                         "Total Weight (lbs)":  "3,721"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "3-Point Hitch Category":  "CAT I"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232HEC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "70",
+                                         "Total Weight (lbs)":  "4,519"
+                                     },
+                      "Hydraulics":  {
+                                         "Total Flow (gpm)":  "14.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "2,315",
+                                         "Remote Valves":  "2 Pairs (Detent, Standard)",
+                                         "Implement Pump (gpm)":  "8.2"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "14.1",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "42.5",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "35.0"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT242HC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "70",
+                                         "Total Weight (lbs)":  "3,879"
+                                     },
+                      "Hydraulics":  {
+                                         "Total Flow (gpm)":  "14.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "2,315",
+                                         "Remote Valves":  "2 Pairs (Detent, Standard)",
+                                         "Implement Pump (gpm)":  "8.2"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "14.1",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "42.5",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "35.0"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT242HE"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16 (Gear) / 3 Ranges (HST)",
+                                          "Transmission Type":  "Synchro Shuttle / Gear or HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position / Draft",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "133"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "2,755",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.1 Gear / 5.5 HST",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "2 Pairs Front + 2 Pairs Rear",
+                                         "Total Flow (gpm)":  "12.3 Gear / 13.7 HST"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "12.4 (Cab) / 10.6 (ROPS)",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "47.6",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "39.0"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34",
+                                    "Ag Front / Rear":  "9.5-24 / 16.9-30"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT342"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16 (Gear) / 3 Ranges (HST)",
+                                          "Transmission Type":  "Synchro Shuttle / Gear or HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position / Draft",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "133"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "2,755",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.1 Gear / 5.5 HST",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "2 Pairs Front + 2 Pairs Rear",
+                                         "Total Flow (gpm)":  "12.3 Gear / 13.7 HST"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "12.4 (Cab) / 10.6 (ROPS)",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "52.3",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "43.5"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34",
+                                    "Ag Front / Rear":  "9.5-24 / 16.9-30"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT347"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F8 x R8",
+                                          "Transmission Type":  "Synchro Shuttle / Constant Mesh",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "13.7",
+                                     "Engine Type":  "Vertical Water-Cooled 4-Cycle Diesel",
+                                     "Engine HP (Gross)":  "55",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Engine Model (Tier 4)":  "L3C19-T",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "44.0 – 46.7"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "3,527",
+                                         "Total Flow (gpm)":  "13.0",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.8"
+                                     },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34",
+                                    "Ag Front / Rear":  "9.5-24 / 18.4-28"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT355E"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16",
+                                          "Transmission Type":  "Synchro Shuttle / PowerClutch",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position / Draft",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "133"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "2,755",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.1 Gear",
+                                         "3-Point Hitch Category":  "CAT 2",
+                                         "Remote Valves":  "2 Pairs Front + 2 Pairs Rear",
+                                         "Total Flow (gpm)":  "12.3 Gear"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "12.4 (Cab) / 10.6 (ROPS)",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "57",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT357PCT"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16",
+                                          "Transmission Type":  "Synchro Shuttle",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "Engine":  {
+                                     "Rated Speed (RPM)":  "2,300",
+                                     "Engine HP (Gross)":  "73",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel"
+                                 },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "5,511",
+                                         "3-Point Hitch Category":  "CAT 2"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 / 1000",
+                                  "Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT5",
+        "Model":  "MT573"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F32 x R32",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "Power Shuttle / Synchro",
+                                          "Brakes":  "Wet, Multi-Disc"
+                                      },
+                      "Engine":  {
+                                     "Rated Speed (RPM)":  "2,200",
+                                     "Engine HP (Gross)":  "101",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel, Turbo"
+                                 },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "8,818",
+                                         "3-Point Hitch Category":  "CAT 2"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 / 1000",
+                                  "Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT7",
+        "Model":  "MT7101CSPS"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission Type":  "HST",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "Engine":  {
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "24.4"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO":  "540 RPM"
+                              }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "XJ",
+        "Model":  "XJ2025H"
+    },
+    {
+        "Specs":  {
                       "Dimensions \u0026 Weight":  {
                                                        "Ground Clearance in (mm)":  "6.6 (169)",
                                                        "Turning Radius ft (m)":  "7.2 (2.2)",
