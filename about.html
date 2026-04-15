@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Peach Outdoor</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* ── Nav ── */
+        nav {
+            background: #1a1a2e;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav .logo {
+            color: #fff;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover,
+        nav .nav-links a.active {
+            color: #fff;
+        }
+
+        /* ── Page wrapper ── */
+        .page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 40px 0 32px;
+            border-bottom: 1px solid #ddd;
+        }
+        .hero-tagline {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+            max-width: 720px;
+        }
+
+        /* ── Sections ── */
+        .section {
+            padding: 36px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+        .section p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Stats ── */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .stat-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* ── Team ── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .team-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1a1a2e;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .team-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+        .team-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ── Brands ── */
+        .brand-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .brand-pill {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 999px;
+            padding: 7px 18px;
+            font-size: 13px;
+            color: #444;
+            text-decoration: none;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            display: inline-block;
+        }
+        .brand-pill:hover {
+            background: #1a1a2e;
+            border-color: #1a1a2e;
+            color: #fff;
+        }
+
+        /* ── Location ── */
+        .location-section {
+            padding: 36px 0 0;
+        }
+        .location-section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+        .location-section p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 24px; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="logo" href="index.html">Peach Outdoor</a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="configurator.html">Build & Price</a>
+        <a href="financing.html">Financing</a>
+        <a href="about.html" class="active">About Us</a>
+    </div>
+</nav>
+
+<div class="page-wrapper">
+
+    <div class="hero">
+        <p class="hero-tagline">About Peach Outdoor</p>
+        <h1>For all your outdoor equipment needs</h1>
+        <p>Whether you're in the market for a new tractor, utility vehicle, zero turn mower, or other power equipment — Peach Outdoor is here for you. We're your go-to outdoor equipment supplier for Central Alabama, and one of the top-ranked Mahindra and LS Tractor dealers in the nation.</p>
+    </div>
+
+    <div class="section">
+        <h2>Our story</h2>
+        <p>Founded in 2014, Peach Outdoor has spent over a decade helping Central Alabama find the right outdoor equipment for the job. Our owners, Mark and John, bring a lifetime of hands-on experience to the table — they don't just sell this equipment, they know it inside and out. That kind of real-world know-how is what sets us apart.</p>
+        <p>Our sales, service, parts, and finance departments are all here to help you find the right solution for your needs — whether you're a weekend warrior, a working farmer, or anything in between.</p>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years in business</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Top</div>
+                <div class="stat-label">Ranked Mahindra &amp; LS dealer</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Departments ready to help</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Meet the owners</h2>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="avatar">MS</div>
+                <div>
+                    <div class="team-name">Mark Smith</div>
+                    <div class="team-desc">A lifetime in automotive and equipment service means Mark understands what it takes to keep your equipment running right — from the sale all the way through to service.</div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="avatar">JP</div>
+                <div>
+                    <div class="team-name">John Pierce</div>
+                    <div class="team-desc">With a lifetime of equipment operation experience, John knows firsthand what you need out in the field — and exactly which machine will get the job done.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Brands we carry</h2>
+        <p>We carry a wide selection of trusted outdoor equipment brands. Click any brand below to browse our current inventory.</p>
+        <div class="brand-pills">
+            <a class="brand-pill" href="inventory.html?mfg=Mahindra">Mahindra Tractors</a>
+            <a class="brand-pill" href="inventory.html?mfg=LS">LS Tractors</a>
+            <a class="brand-pill" href="inventory.html?mfg=Bad+Boy">Bad Boy Tractors</a>
+            <a class="brand-pill" href="inventory.html?mfg=Mahindra">Mahindra Roxor</a>
+            <a class="brand-pill" href="inventory.html?mfg=Bad+Boy">Bad Boy Mowers</a>
+            <a class="brand-pill" href="inventory.html?mfg=Spartan+Mowers">Spartan Mowers</a>
+            <a class="brand-pill" href="inventory.html?mfg=IronCraft">IronCraft</a>
+            <a class="brand-pill" href="inventory.html?mfg=Bush+Hog">Bush Hog</a>
+        </div>
+    </div>
+
+    <div class="location-section">
+        <h2>Come see us</h2>
+        <p>Peach Outdoor is conveniently located just off <strong>Interstate 65, Exit 205</strong>, in the heart of Alabama. Stop in and let our team help you find the right equipment — we'd love to see you on the lot.</p>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2025 Peach Outdoor &mdash; Clanton, Alabama &mdash; I-65 Exit 205
+</footer>
+
+</body>
+</html>
