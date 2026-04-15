@@ -714,20 +714,13 @@
                 } catch(e) {}
             }
 
-            var kenectWrapper = document.getElementById('iframe-wrapper-YMG00J4LwubAnqrXw9851g');
-            var anyWrapper    = document.querySelector('[id*="iframe-wrapper"]');
-            var target        = kenectWrapper || anyWrapper;
-
-            if (target) {
-                target.click();
-                setTimeout(function() {
-                    alert(clipboardSuccess
-                        ? '📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the message field.'
-                        : '💬 Asking about:\n\n' + itemInfo + '\n\n(Copy this text and paste into the message field)');
-                }, 800);
-                return;
+            // Open tawk.to chat widget
+            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+                Tawk_API.maximize();
             }
-            alert('Please click "Text us!" to chat about:\n\n' + itemInfo);
+            if (clipboardSuccess) {
+                alert('📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the chat message field.');
+            }
         }
 
         function showError(message) {
