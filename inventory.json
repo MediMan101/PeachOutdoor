@@ -253,16 +253,14 @@
         "SerialNumber":  "G400749",
         "Location":  "CLA",
         "MSRP":  369.99,
-        "Web_Price":  null,
+        "Web_Price":  349.99,
         "Used":  false,
         "FeaturedItem":  false,
         "Notes":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287191/peachoutdoor/inventory/23472/photo_1.png",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287191/peachoutdoor/inventory/23472/photo_1.png"
     },
     {
         "InventoryID":  23473,
@@ -274,16 +272,14 @@
         "SerialNumber":  "G400824",
         "Location":  "CLA",
         "MSRP":  369.99,
-        "Web_Price":  null,
+        "Web_Price":  349.99,
         "Used":  false,
         "FeaturedItem":  false,
         "Notes":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287202/peachoutdoor/inventory/23473/photo_1.png",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287202/peachoutdoor/inventory/23473/photo_1.png"
     },
     {
         "InventoryID":  23474,
@@ -295,16 +291,14 @@
         "SerialNumber":  "G400851",
         "Location":  "CLA",
         "MSRP":  369.99,
-        "Web_Price":  null,
+        "Web_Price":  349.99,
         "Used":  false,
         "FeaturedItem":  false,
         "Notes":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287211/peachoutdoor/inventory/23474/photo_1.png",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287211/peachoutdoor/inventory/23474/photo_1.png"
     },
     {
         "InventoryID":  23470,
