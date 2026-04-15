@@ -590,9 +590,19 @@
                 const mfgKey = (item.Manufacturer || '').toLowerCase();
                 const mfgColor = Object.keys(mfgColors).find(k => mfgKey.includes(k));
                 const placeholderColor = mfgColor ? mfgColors[mfgColor] : '#666';
-                const photo = item.PrimaryPhotoURL
-                    ? `<img src="${cloudinaryUrl(item.PrimaryPhotoURL)}" alt="${item.Model || ''}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-photo-default\\' style=\\'background:${placeholderColor};\\'>'+('${(item.Manufacturer||'').replace(/'/g,"\\'")}')+'</div>'">`
-                    : `<div class="no-photo-default" style="background:${placeholderColor};">${item.Manufacturer || '🚜'}</div>`;
+                const isLS = mfgKey.includes('ls');
+                const fallbackImg = isLS ? 'LSMT226_Default.jpg' : null;
+                let photo;
+                if (item.PrimaryPhotoURL) {
+                    const fallbackAttr = fallbackImg
+                        ? `onerror="this.src='${fallbackImg}';this.onerror=null;"`
+                        : `onerror="this.parentElement.innerHTML='<div class=\\'no-photo-default\\' style=\\'background:${placeholderColor};\\'>'+('${(item.Manufacturer||'').replace(/'/g,"\\'")}')+'</div>'"`;
+                    photo = `<img src="${cloudinaryUrl(item.PrimaryPhotoURL)}" alt="${item.Model || ''}" loading="lazy" ${fallbackAttr}>`;
+                } else if (fallbackImg) {
+                    photo = `<img src="${fallbackImg}" alt="${item.Model || ''}" loading="lazy">`;
+                } else {
+                    photo = `<div class="no-photo-default" style="background:${placeholderColor};">${item.Manufacturer || '🚜'}</div>`;
+                }
 
                 const priceHTML = item.Web_Price != null
                     ? `$${Number(item.Web_Price).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`
