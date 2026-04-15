@@ -168,27 +168,6 @@
                       }
     },
     {
-        "InventoryID":  19612,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "HANDHELD",
-        "Series":  "TRIMMER",
-        "Model":  "7673",
-        "Description":  "Bad Boy 225-24 Hedge Trimmer",
-        "SerialNumber":  "A410971",
-        "Location":  "CLA",
-        "MSRP":  784,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
         "InventoryID":  19613,
         "Manufacturer":  "Bad Boy",
         "Department":  "HANDHELD",
