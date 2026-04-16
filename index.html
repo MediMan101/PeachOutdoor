@@ -730,12 +730,113 @@
         }
 
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5em;
+
+            /* ── HEADER ── */
+            .site-header {
+                padding: 10px 12px;
+                height: auto;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding-right: 12px;   /* override the 22% desktop right-pad */
             }
 
+            /* Logo stays left, shrinks a bit */
+            .logo img {
+                height: 48px;
+            }
+
+            /* Contact blocks & dividers: hide to save space */
+            .contact-block,
+            .contact-divider {
+                display: none;
+            }
+
+            /* Brand carousel: pull out of absolute positioning, show inline */
+            .brand-carousel {
+                position: static;
+                width: 100%;
+                height: 52px;
+                border-left: none;
+                border-top: 1px solid #eeeeee;
+                justify-content: center;
+            }
+
+            /* Make brand name text a bit smaller so long names fit */
+            .brand-slide .brand-name {
+                font-size: 1.4em;
+            }
+
+            .brand-slide .brand-tagline {
+                font-size: 0.65em;
+            }
+
+            /* header-contact wrapper: take full width, center brand carousel */
+            .header-contact {
+                width: 100%;
+                justify-content: center;
+                gap: 0;
+            }
+
+            /* ── NAV ── */
             .nav-links {
                 display: none;
+            }
+
+            /* Nav is now effectively gone on mobile, so reset its top offset */
+            nav {
+                top: auto;
+            }
+
+            /* ── HERO / VIDEO ── */
+            /* On mobile the YTPlayer renders as a tiny iframe in a tall black box.
+               We hide the video wrapper and show a solid branded background instead. */
+            .video-background {
+                display: none;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 260px;
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 60%, #3a2010 100%);
+                align-items: center;
+                justify-content: center;
+                /* Remove top offset that was sized for desktop header+nav */
+                margin-top: 0;
+            }
+
+            /* Push hero content below the now-auto-height header */
+            .hero-content {
+                position: static;
+                transform: none;
+                width: 100%;
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2em;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            /* ── FEATURED SIDEBAR ── hide completely on mobile ── */
+            .featured-sidebar {
+                display: none;
+            }
+
+            /* ── SHOP / FEATURES / FOOTER sections: remove 20% right-pad ── */
+            .shop-by-type {
+                padding: 40px 20px;
+            }
+
+            .shop-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features {
+                padding: 60px 20px;
             }
 
             .features-grid {
