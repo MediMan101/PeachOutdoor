@@ -198,6 +198,11 @@
             overflow: hidden;
         }
 
+        /* Mobile-only video wrapper — hidden on desktop */
+        .mobile-video-wrap {
+            display: none;
+        }
+
         /* Video takes up left ~75% of hero */
         .video-background {
             position: absolute;
@@ -784,16 +789,35 @@
             }
 
             /* ── HERO / VIDEO ── */
-            /* Hide the YouTube player — it renders as a tiny video in a huge black box on mobile */
+            /* Hide the YouTube background player — it renders badly on mobile */
             .video-background {
                 display: none;
             }
 
-            /* Give the hero a branded dark background instead of the video */
+            /* Show the mobile iframe instead — 16:9 fills width perfectly */
+            .mobile-video-wrap {
+                display: block;
+                width: 100%;
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 */
+                height: 0;
+                overflow: hidden;
+                background: #1a1a1a;
+            }
+
+            .mobile-video-wrap iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            /* Hero: let it size naturally around the video */
             .hero {
                 height: auto;
-                min-height: 180px;
-                background: linear-gradient(160deg, #1a1a1a 0%, #2a1a0a 60%, #3a2010 100%);
+                background: #1a1a1a;
                 overflow: visible;
             }
 
@@ -937,6 +961,16 @@
     <section class="hero" id="home">
         <div class="video-background">
             <div id="bgndVideo" class="player" data-property="{videoURL:'dUBMjhAdb5Q',containment:'.video-background',startAt:0,mute:true,autoPlay:true,loop:true,opacity:1,showControls:false,quality:'default',optimizeDisplay:false,abundance:0.3,coverImage:false}"></div>
+        </div>
+        <!-- Mobile-only video: standard 16:9 iframe fills width with no black bars -->
+        <div class="mobile-video-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Peach Outdoor background video">
+            </iframe>
         </div>
         <div class="hero-content">
         </div>
