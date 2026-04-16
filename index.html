@@ -794,46 +794,36 @@
                 display: none;
             }
 
-            /* Show the mobile iframe instead — 16:9 fills width perfectly */
+            /* Hero: push down below the fixed header (~124px on mobile), block layout */
+            .hero {
+                height: auto;
+                background: #1a1a1a;
+                overflow: hidden;
+                display: block;
+                padding-top: 124px;
+                margin-top: 0;
+            }
+
+            /* Mobile video wrapper: use aspect-ratio to size correctly */
             .mobile-video-wrap {
                 display: block;
                 width: 100%;
-                position: relative;
-                padding-bottom: 56.25%; /* 16:9 */
-                height: 0;
+                aspect-ratio: 16 / 9;
                 overflow: hidden;
                 background: #1a1a1a;
+                line-height: 0;
             }
 
             .mobile-video-wrap iframe {
-                position: absolute;
-                top: 0;
-                left: 0;
+                display: block;
                 width: 100%;
                 height: 100%;
                 border: 0;
             }
 
-            /* Hero: let it size naturally around the video */
-            .hero {
-                height: auto;
-                background: #1a1a1a;
-                overflow: visible;
-            }
-
-            /* Hero content: was absolutely centered over the 80% video area */
+            /* Hero content: empty on mobile, hide it to avoid adding space */
             .hero-content {
-                position: relative;
-                left: auto;
-                width: 100%;
-                top: auto;
-                transform: none;
-                padding: 36px 20px 28px;
-                text-align: center;
-            }
-
-            .hero-content h1 {
-                font-size: 1.9em;
+                display: none;
             }
 
             .scroll-indicator {
