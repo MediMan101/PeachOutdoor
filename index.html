@@ -198,6 +198,11 @@
             overflow: hidden;
         }
 
+        /* Mobile featured strip — hidden on desktop */
+        .mobile-featured-strip {
+            display: none;
+        }
+
         /* Mobile-only video wrapper — hidden on desktop */
         .mobile-video-wrap {
             display: none;
@@ -830,9 +835,188 @@
                 display: none;
             }
 
-            /* ── FEATURED SIDEBAR ── hide completely on mobile */
+            /* ── FEATURED SIDEBAR ── hide the fixed sidebar on mobile */
             .featured-sidebar {
                 display: none;
+            }
+
+            /* ── MOBILE FEATURED STRIP ── horizontal scroll bar below video */
+            .mobile-featured-strip {
+                display: block;
+                background: rgba(15, 15, 15, 0.97);
+                border-top: 3px solid #ff6b35;
+                border-bottom: 3px solid #ff6b35;
+            }
+
+            .mobile-strip-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 8px 14px;
+                background: #ff6b35;
+            }
+
+            .mobile-strip-header span {
+                color: #fff;
+                font-size: 0.8em;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+
+            .mobile-strip-viewall {
+                color: #fff;
+                font-size: 0.75em;
+                font-weight: 700;
+                text-decoration: none;
+                letter-spacing: 0.08em;
+                opacity: 0.9;
+            }
+
+            .mobile-strip-scroll {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+                padding: 12px;
+                /* Hide scrollbar visually but keep it functional */
+                scrollbar-width: thin;
+                scrollbar-color: #ff6b35 #1a1a1a;
+            }
+
+            .mobile-strip-scroll::-webkit-scrollbar {
+                height: 4px;
+            }
+            .mobile-strip-scroll::-webkit-scrollbar-track {
+                background: #1a1a1a;
+            }
+            .mobile-strip-scroll::-webkit-scrollbar-thumb {
+                background: #ff6b35;
+                border-radius: 2px;
+            }
+
+            /* Each card in the strip */
+            .mobile-strip-card {
+                flex-shrink: 0;
+                width: 220px;
+                scroll-snap-align: start;
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 8px;
+                overflow: hidden;
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-strip-card:active {
+                border-color: #ff6b35;
+                background: rgba(255,107,53,0.15);
+            }
+
+            /* Card image area */
+            .mobile-strip-img-wrap {
+                position: relative;
+                width: 100%;
+                height: 120px;
+                overflow: hidden;
+                background: #222;
+                flex-shrink: 0;
+            }
+
+            .mobile-strip-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+            }
+
+            .mobile-strip-img-placeholder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.72em;
+                font-weight: 800;
+                color: rgba(255,255,255,0.6);
+                letter-spacing: 0.06em;
+            }
+
+            .mobile-strip-img-overlay {
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                padding: 6px 8px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%);
+            }
+
+            .mobile-strip-brand {
+                font-size: 0.6em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: #ff6b35;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            }
+
+            .mobile-strip-name {
+                font-size: 0.7em;
+                font-weight: 600;
+                color: #fff;
+                line-height: 1.2;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            }
+
+            /* Card pricing row */
+            .mobile-strip-pricing {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 10px;
+                gap: 6px;
+            }
+
+            .mobile-strip-price-block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mobile-strip-price-label {
+                font-size: 0.58em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: #999;
+                white-space: nowrap;
+            }
+
+            .mobile-strip-price-value {
+                font-size: 0.85em;
+                font-weight: 800;
+                white-space: nowrap;
+            }
+
+            .mobile-strip-msrp {
+                color: #888;
+                text-decoration: line-through;
+            }
+
+            .mobile-strip-our-label { color: #ffd700; }
+            .mobile-strip-our-value { color: #ffd700; }
+
+            .mobile-strip-badge {
+                font-size: 0.58em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                padding: 3px 7px;
+                border-radius: 20px;
+                align-self: center;
             }
 
             /* ── SHOP BY TYPE ── */
@@ -981,6 +1165,17 @@
             </div>
         </aside>
     </section>
+
+    <!-- Mobile-only horizontal featured strip -->
+    <div class="mobile-featured-strip" id="mobileFeaturedStrip">
+        <div class="mobile-strip-header">
+            <span>⭐ Featured Inventory</span>
+            <a href="inventory.html" class="mobile-strip-viewall">View All →</a>
+        </div>
+        <div class="mobile-strip-scroll" id="mobileFeaturedScroll">
+            <!-- Cards injected by JS -->
+        </div>
+    </div>
 
     <!-- Shop By Type Section -->
     <section class="shop-by-type" id="configure">
@@ -1278,6 +1473,75 @@
             window.addEventListener('scroll', updateSidebar, { passive: true });
             window.addEventListener('resize', updateSidebar, { passive: true });
             updateSidebar();
+        })();
+    </script>
+
+    <!-- Mobile Featured Strip Loader (mobile only) -->
+    <script>
+        (async function loadMobileStrip() {
+            const strip = document.getElementById('mobileFeaturedScroll');
+            if (!strip) return;
+            // Only run on mobile
+            if (window.innerWidth > 768) return;
+
+            try {
+                const resp = await fetch('inventory.json');
+                const all = await resp.json();
+                const featured = all.filter(x => x.FeaturedItem === true);
+
+                const brandColors = {
+                    'Bad Boy':      'linear-gradient(135deg,#1a1a1a,#f5a800)',
+                    'Mahindra USA': 'linear-gradient(135deg,#8b0000,#cc0000)',
+                    'LS Tractor':   'linear-gradient(135deg,#003d7a,#005baa)',
+                    'Spartan':      'linear-gradient(135deg,#7b0000,#e8272a)',
+                    'Iron Craft':   'linear-gradient(135deg,#2d4a1e,#4a7c3f)',
+                    'G2 TRAILERS':  'linear-gradient(135deg,#333,#666)',
+                };
+
+                if (featured.length === 0) {
+                    document.getElementById('mobileFeaturedStrip').style.display = 'none';
+                    return;
+                }
+
+                featured.forEach(item => {
+                    const msrp   = item.MSRP     ? '$' + item.MSRP.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'N/A';
+                    const price  = item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'Call';
+                    const isUsed = item.Used;
+                    const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
+
+                    const card = document.createElement('a');
+                    card.className = 'mobile-strip-card';
+                    card.href = `item-details.html?id=${item.InventoryID}&from=home`;
+
+                    card.innerHTML = `
+                        <div class="mobile-strip-img-wrap">
+                            <div class="mobile-strip-img-overlay">
+                                <div class="mobile-strip-brand">${item.Manufacturer}</div>
+                                <div class="mobile-strip-name">${item.Description}</div>
+                            </div>
+                            ${item.PrimaryPhotoURL
+                                ? `<img class="mobile-strip-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.parentElement.style.background='${bgColor}'">`
+                                : `<div class="mobile-strip-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
+                            }
+                        </div>
+                        <div class="mobile-strip-pricing">
+                            <div class="mobile-strip-price-block">
+                                <span class="mobile-strip-price-label">MSRP</span>
+                                <span class="mobile-strip-price-value mobile-strip-msrp">${msrp}</span>
+                            </div>
+                            <div class="mobile-strip-price-block">
+                                <span class="mobile-strip-price-label mobile-strip-our-label">Our Price</span>
+                                <span class="mobile-strip-price-value mobile-strip-our-value">${price}</span>
+                            </div>
+                            <span class="mobile-strip-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
+                        </div>`;
+
+                    strip.appendChild(card);
+                });
+
+            } catch(e) {
+                document.getElementById('mobileFeaturedStrip').style.display = 'none';
+            }
         })();
     </script>
 
