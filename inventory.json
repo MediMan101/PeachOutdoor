@@ -60,6 +60,26 @@
         "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776287191/peachoutdoor/inventory/23472/photo_1.png"
     },
     {
+        "InventoryID":  19569,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "PUSH",
+        "Model":  "7500",
+        "Description":  "Bad Boy 80V Dual Port Self Propelled 21\" Mower",
+        "SerialNumber":  "1032212100005535",
+        "Location":  "CLA",
+        "MSRP":  929,
+        "Web_Price":  659.99,
+        "Used":  false,
+        "FeaturedItem":  true,
+        "Notes":  "Bad Boy 21 in. 80V Cordless Self-Propelled Lawn Mower with Battery and Charger",
+        "AboutThisItem":  "More torque takes the work out of yard work. Powerfully smart. Tackle the toughest yards 1-handed because the Bad Boy 80V Self Propelled 21 in. Lawn Mower with Battery and Charger never bogs you down. When grass gets thick, tall, or wet, Bad Boy sensors tell our brushless motor to rush power to the mower blades. The end result? The perfect lawn, every time. Powerfully tough, the deck is forged with heavy-duty steel, ready to tackle any terrain. Includes 3-in-1 mulch, bag or side-discharge.",
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320668/peachoutdoor/defaults/bad/push/_series/photo_1.jpg",
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320668/peachoutdoor/defaults/bad/push/_series/photo_1.jpg"
+    },
+    {
         "InventoryID":  23149,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -2240,26 +2260,6 @@
         "AllPhotos":  {
 
                       }
-    },
-    {
-        "InventoryID":  19569,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "PUSH",
-        "Model":  "7500",
-        "Description":  "Bad Boy 80V Dual Port Self Propelled 21\" Mower",
-        "SerialNumber":  "1032212100005535",
-        "Location":  "CLA",
-        "MSRP":  929,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320668/peachoutdoor/defaults/bad/push/_series/photo_1.jpg",
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320668/peachoutdoor/defaults/bad/push/_series/photo_1.jpg"
     },
     {
         "InventoryID":  23595,
