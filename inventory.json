@@ -2765,26 +2765,6 @@
         "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320226/peachoutdoor/defaults/bad/rambler/_series/photo_1.jpg"
     },
     {
-        "InventoryID":  22741,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "RAMBLER",
-        "Model":  "BMZ42FR651",
-        "Description":  "Rambler 42\" 651cc 21.5hp",
-        "SerialNumber":  "BMZ42FR65110250603",
-        "Location":  "CLA",
-        "MSRP":  4847,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320226/peachoutdoor/defaults/bad/rambler/_series/photo_1.jpg",
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  "MZ Rambler",
-        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320226/peachoutdoor/defaults/bad/rambler/_series/photo_1.jpg"
-    },
-    {
         "InventoryID":  22742,
         "Manufacturer":  "Bad Boy",
         "Department":  "MOWER",
