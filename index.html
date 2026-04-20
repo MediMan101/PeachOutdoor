@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peach Outdoor - Premium Tractors & Equipment | Clanton, AL</title>
+    
+    <!-- jQuery (required for YouTube player) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- YouTube Background Video Player -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+        /* Site Header - logo + contact info */
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #ffffff;
+            z-index: 1001;
+            padding: 12px 40px;
+            padding-right: 22%;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        /* Brand carousel sits centered over the 20% sidebar */
+        .brand-carousel {
+            position: absolute;
+            right: 0;
+            width: 20%;
+            height: 90px;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #eeeeee;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .contact-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+            line-height: 1.4;
+        }
+
+        .contact-label {
+            font-size: 0.75em;
+            font-weight: 700;
+            color: #cc0000;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .contact-phone {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #222222;
+            text-decoration: none;
+        }
+
+        .contact-phone:hover {
+            color: #cc0000;
+        }
+
+        .contact-address {
+            font-size: 0.78em;
+            color: #666666;
+            line-height: 1.3;
+        }
+
+        .contact-divider {
+            width: 1px;
+            height: 60px;
+            background: #dddddd;
+        }
+
+        /* Brand logo carousel */
+        .brand-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .brand-slide.active {
+            opacity: 1;
+        }
+
+        .brand-slide img {
+            max-height: 70px;
+            max-width: 230px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .brand-slide .brand-name {
+            font-size: 1.9em;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .brand-slide .brand-tagline {
+            font-size: 0.7em;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+            margin-top: 3px;
+        }
+
+        /* Nav bar - menu links overlaying the video */
+        nav {
+            position: fixed;
+            top: 110px;
+            width: 100%;
+            background: rgba(20, 20, 20, 0.82);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        /* Hamburger button — hidden on desktop */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            width: 100%;
+            padding: 14px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 0.85em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-hamburger .bar {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .nav-hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile nav dropdown */
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            background: rgba(20, 20, 20, 0.97);
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.35s ease;
+        }
+
+        .mobile-nav-menu.open {
+            max-height: 400px;
+        }
+
+        .mobile-nav-menu a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 16px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .mobile-nav-menu a:hover, .mobile-nav-menu a:active {
+            background: #FFDAB9;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.15em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 16px 32px;
+            display: block;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: #FFDAB9;
+            color: #333333;
+        }
+
+        /* Hero Section with Video Background */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: stretch;
+            background: transparent;
+            overflow: hidden;
+        }
+
+        /* Mobile featured strip — hidden on desktop */
+        .mobile-featured-strip {
+            display: none;
+        }
+
+        /* Mobile-only video wrapper — hidden on desktop */
+        .mobile-video-wrap {
+            display: none;
+        }
+
+        /* Video takes up left ~75% of hero */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .video-background::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: absolute;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            left: 0;
+            width: 80%;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 40px;
+        }
+
+        /* Featured Inventory Sidebar */
+        .featured-sidebar {
+            position: fixed;
+            right: 0;
+            top: 160px; /* header (110px) + nav (~50px) */
+            width: 20%;
+            height: calc(100vh - 160px);
+            background: rgba(15, 15, 15, 0.92);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            border-left: 3px solid #ff6b35;
+            transition: height 0.1s ease;
+        }
+
+        .featured-sidebar.at-footer {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+        }
+
+        .sidebar-header {
+            padding: 16px 18px 12px;
+            background: #ff6b35;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .sidebar-header h3 {
+            color: #ffffff;
+            font-size: 0.85em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin: 0;
+        }
+
+        .sidebar-scroll {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            scroll-behavior: smooth;
+        }
+
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #ff6b35;
+            border-radius: 3px;
+        }
+
+        .sidebar-item {
+            display: block;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: background 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .sidebar-item:hover {
+            background: rgba(255, 107, 53, 0.15);
+            border-color: #ff6b35;
+        }
+
+        .sidebar-item-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: #222;
+        }
+
+        .sidebar-item-img-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .sidebar-item-thumb {
+            position: relative;
+            width: 72%;
+            flex-shrink: 0;
+            min-height: 144px;
+        }
+
+        .sidebar-item-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            padding: 6px 8px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .sidebar-badge-wrap {
+            margin-top: auto;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sidebar-item-badge {
+            font-size: 0.62em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .badge-used {
+            background: rgba(60,60,60,0.88);
+            color: #ccc;
+        }
+
+        .badge-new {
+            background: rgba(45,106,79,0.92);
+            color: #b7e4c7;
+        }
+
+        /* Card body: pricing left | image right */
+        .sidebar-item-body {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            min-height: 144px;
+        }
+
+        .sidebar-item-pricing-col {
+            width: 28%;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 10px 6px 8px;
+            background: rgba(0,0,0,0.3);
+            border-right: 1px solid rgba(255,255,255,0.07);
+            min-height: 144px;
+            gap: 10px;
+        }
+
+        .sidebar-price-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .sidebar-price-block:first-child {
+            justify-content: flex-start;
+            padding-top: 0;
+        }
+
+        .sidebar-price-block:last-child {
+            justify-content: flex-start;
+            padding-bottom: 0;
+        }
+
+        .sidebar-price-label {
+            font-size: 0.68em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .sidebar-price-value {
+            font-size: 1em;
+            font-weight: 800;
+            white-space: nowrap;
+            line-height: 1.3;
+        }
+
+        .msrp-value {
+            color: #aaaaaa;
+            text-decoration: line-through;
+        }
+
+        .our-price-label {
+            color: #ffd700;
+        }
+
+        .our-price-value {
+            color: #ffd700;
+        }
+
+        .sidebar-item-info {
+            display: none;
+        }
+
+        .sidebar-item-brand {
+            font-size: 0.62em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #ff6b35;
+            margin-bottom: 2px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .sidebar-item-name {
+            font-size: 0.72em;
+            color: #ffffff;
+            font-weight: 600;
+            line-height: 1.2;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+        .sidebar-footer {
+            padding: 12px;
+            flex-shrink: 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-view-all {
+            display: block;
+            text-align: center;
+            background: #ff6b35;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.78em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 10px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .sidebar-view-all:hover {
+            background: #e85d2a;
+        }
+
+        .hero-content h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            padding: 18px 45px;
+            background: #ff6b35;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .hero-cta:hover {
+            background: #ff8555;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 15px;
+            left: 40%; /* center of the 80% video area */
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 0.9em;
+            animation: bounce 2s infinite;
+            z-index: 2;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        @keyframes spin360 {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+        .shop-item:hover .shop-item-image.spinning {
+            animation: spin360 4s linear infinite;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Shop By Type Section */
+        .shop-by-type {
+            position: relative;
+            background: #ffffff;
+            padding: 80px calc(40px + 20%) 80px 40px;
+            overflow: hidden;
+        }
+
+        .shop-by-type-watermark {
+            position: absolute;
+            top: 20px;
+            left: 40%;
+            transform: translateX(-50%) scaleX(0.68);
+            font-size: 14em;
+            font-weight: 900;
+            color: #d0d0d0;
+            white-space: nowrap;
+            pointer-events: none;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            user-select: none;
+            transform-origin: top center;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .shop-grid {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .shop-row-divider {
+            grid-column: 1 / -1;
+            height: 1px;
+            background: #dddddd;
+            margin: 10px 0;
+        }
+
+        .shop-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 30px 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .shop-item:hover {
+            opacity: 0.75;
+        }
+
+        .shop-item-image {
+            width: 200px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 0.05em;
+        }
+
+        .shop-item-title {
+            font-size: 1.15em;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+
+        .shop-item-link {
+            font-size: 0.85em;
+            color: #888888;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px calc(40px + 20%) 100px 40px;
+            background: white;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8555 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2em;
+        }
+
+        .feature-item h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #ff6b35;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .brands-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* ── HEADER ── */
+            /* Stack logo on top row, brand carousel on second row */
+            .site-header {
+                padding: 10px 12px 0 12px;
+                height: auto;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding-right: 12px;
+            }
+
+            /* Logo row */
+            .logo img {
+                height: 48px;
+            }
+
+            /* Hide phone/address blocks — no room */
+            .contact-block,
+            .contact-divider {
+                display: none;
+            }
+
+            /* header-contact: only the carousel remains, full width */
+            .header-contact {
+                width: 100%;
+                gap: 0;
+            }
+
+            /* Brand carousel: remove absolute, go full-width below logo */
+            .brand-carousel {
+                position: relative;  /* must be relative so absolute slides have a containing block */
+                right: auto;
+                width: 100%;
+                height: 52px;        /* explicit height so slides (position:absolute; height:100%) render */
+                border-left: none;
+                border-top: 1px solid #eeeeee;
+                margin-top: 8px;
+                overflow: hidden;    /* clip slides that are fading out */
+            }
+
+            .brand-slide .brand-name {
+                font-size: 1.3em;
+            }
+
+            .brand-slide .brand-tagline {
+                font-size: 0.6em;
+            }
+
+            /* ── NAV ── hide desktop links, show hamburger on mobile */
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .mobile-nav-menu {
+                display: flex;
+            }
+
+            /* ── HERO / VIDEO ── */
+            /* Hide the YouTube background player — it renders badly on mobile */
+            .video-background {
+                display: none;
+            }
+
+            /* Hero: push down below the fixed header (~124px on mobile), block layout */
+            .hero {
+                height: auto;
+                background: #1a1a1a;
+                overflow: hidden;
+                display: block;
+                padding-top: 124px;
+                margin-top: 0;
+            }
+
+            /* Mobile video wrapper: use aspect-ratio to size correctly */
+            .mobile-video-wrap {
+                display: block;
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                overflow: hidden;
+                background: #1a1a1a;
+                line-height: 0;
+            }
+
+            .mobile-video-wrap iframe {
+                display: block;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+
+            /* Hero content: empty on mobile, hide it to avoid adding space */
+            .hero-content {
+                display: none;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            /* ── FEATURED SIDEBAR ── hide the fixed sidebar on mobile */
+            .featured-sidebar {
+                display: none;
+            }
+
+            /* ── MOBILE FEATURED STRIP ── horizontal scroll bar below video */
+            .mobile-featured-strip {
+                display: block;
+                background: rgba(15, 15, 15, 0.97);
+                border-top: 3px solid #ff6b35;
+                border-bottom: 3px solid #ff6b35;
+            }
+
+            .mobile-strip-header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 8px 14px;
+                background: #ff6b35;
+            }
+
+            .mobile-strip-header span {
+                color: #fff;
+                font-size: 0.8em;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+            }
+
+            .mobile-strip-viewall {
+                color: #fff;
+                font-size: 0.75em;
+                font-weight: 700;
+                text-decoration: none;
+                letter-spacing: 0.08em;
+                opacity: 0.9;
+            }
+
+            .mobile-strip-scroll {
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                gap: 10px;
+                padding: 12px;
+                scrollbar-width: thin;
+                scrollbar-color: #ff6b35 #1a1a1a;
+            }
+
+            .mobile-strip-scroll::-webkit-scrollbar {
+                height: 4px;
+            }
+            .mobile-strip-scroll::-webkit-scrollbar-track {
+                background: #1a1a1a;
+            }
+            .mobile-strip-scroll::-webkit-scrollbar-thumb {
+                background: #ff6b35;
+                border-radius: 2px;
+            }
+
+            /* Each card in the strip */
+            .mobile-strip-card {
+                flex-shrink: 0;
+                width: 220px;
+                background: rgba(255,255,255,0.05);
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: 8px;
+                overflow: hidden;
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .mobile-strip-card:active {
+                border-color: #ff6b35;
+                background: rgba(255,107,53,0.15);
+            }
+
+            /* Card image area */
+            .mobile-strip-img-wrap {
+                position: relative;
+                width: 100%;
+                height: 120px;
+                overflow: hidden;
+                background: #222;
+                flex-shrink: 0;
+            }
+
+            .mobile-strip-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
+            }
+
+            .mobile-strip-img-placeholder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.72em;
+                font-weight: 800;
+                color: rgba(255,255,255,0.6);
+                letter-spacing: 0.06em;
+            }
+
+            .mobile-strip-img-overlay {
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                padding: 6px 8px;
+                background: linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, transparent 100%);
+            }
+
+            .mobile-strip-brand {
+                font-size: 0.6em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+                color: #ff6b35;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            }
+
+            .mobile-strip-name {
+                font-size: 0.7em;
+                font-weight: 600;
+                color: #fff;
+                line-height: 1.2;
+                text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            }
+
+            /* Card pricing row */
+            .mobile-strip-pricing {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 10px;
+                gap: 6px;
+            }
+
+            .mobile-strip-price-block {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mobile-strip-price-label {
+                font-size: 0.58em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: #999;
+                white-space: nowrap;
+            }
+
+            .mobile-strip-price-value {
+                font-size: 0.85em;
+                font-weight: 800;
+                white-space: nowrap;
+            }
+
+            .mobile-strip-msrp {
+                color: #888;
+                text-decoration: line-through;
+            }
+
+            .mobile-strip-our-label { color: #ffd700; }
+            .mobile-strip-our-value { color: #ffd700; }
+
+            .mobile-strip-badge {
+                font-size: 0.58em;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                padding: 3px 7px;
+                border-radius: 20px;
+                align-self: center;
+            }
+
+            /* ── SHOP BY TYPE ── */
+            /* Remove right padding made for the sidebar, kill overflow that causes horizontal scroll */
+            .shop-by-type {
+                padding: 36px 16px 36px 16px;
+                overflow: hidden;
+            }
+
+            /* Watermark: tone it way down so it doesn't cause overflow or bleed */
+            .shop-by-type-watermark {
+                display: none;
+            }
+
+            /* Single column grid on mobile */
+            .shop-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0;
+            }
+
+            /* Shop item images: fixed 200px is too wide for a single/double column — make fluid */
+            .shop-item-image {
+                width: 100%;
+                max-width: 140px;
+                height: 100px;
+            }
+
+            .shop-item {
+                padding: 16px 8px;
+            }
+
+            .shop-item-title {
+                font-size: 0.85em;
+            }
+
+            .shop-item-link {
+                font-size: 0.72em;
+            }
+
+            /* ── FEATURES ── */
+            .features {
+                padding: 50px 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* ── FOOTER ── */
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <a href="index.html" class="logo">
+            <img src="PeachOutdoorLogo.png" alt="Peach Outdoor">
+        </a>
+        <div class="header-contact">
+            <div class="contact-block">
+                <span class="contact-label">Clanton Sales</span>
+                <a href="tel:2052808838" class="contact-phone">&#128222; 205-280-8838</a>
+                <span class="contact-address">1940 Big M Blvd<br>Clanton, AL 35046</span>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="contact-block">
+                <span class="contact-label">Clanton Service</span>
+                <a href="tel:2052801885" class="contact-phone">&#128222; 205-280-1885</a>
+                <span class="contact-address">2037 Christian St.<br>Clanton, AL 35045</span>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="brand-carousel" id="brandCarousel">
+                <div class="brand-slide active">
+                    <span class="brand-name" style="color:#cc0000;">mahindra</span>
+                    <span class="brand-tagline" style="color:#555;">Official Tractor of Tough™</span>
+                </div>
+                <div class="brand-slide">
+                    <span class="brand-name" style="color:#f5a800;">BAD BOY</span>
+                    <span class="brand-tagline" style="color:#555;">Mowers &amp; Tractors</span>
+                </div>
+                <div class="brand-slide">
+                    <span class="brand-name" style="color:#005baa;">LS Tractor</span>
+                    <span class="brand-tagline" style="color:#555;">Built to Last</span>
+                </div>
+                <div class="brand-slide">
+                    <span class="brand-name" style="color:#e8272a;">SPARTAN</span>
+                    <span class="brand-tagline" style="color:#555;">Mowers</span>
+                </div>
+                <div class="brand-slide">
+                    <span class="brand-name" style="color:#4a7c3f;">IRON CRAFT</span>
+                    <span class="brand-tagline" style="color:#555;">Implements</span>
+                </div>
+                <div class="brand-slide">
+                    <span class="brand-name" style="color:#e8272a;">BUSH HOG</span>
+                    <span class="brand-tagline" style="color:#555;">The Original Rotary Cutter</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="financing.html">Financing</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+
+        <!-- Mobile hamburger button -->
+        <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <!-- Mobile slide-down menu -->
+        <div class="mobile-nav-menu" id="mobileNavMenu">
+            <a href="#home"      onclick="closeMobileNav()">Home</a>
+            <a href="inventory.html"  onclick="closeMobileNav()">Inventory</a>
+            <a href="financing.html"  onclick="closeMobileNav()">Financing</a>
+            <a href="#services"  onclick="closeMobileNav()">Services</a>
+            <a href="#contact"   onclick="closeMobileNav()">Contact</a>
+            <a href="about.html" onclick="closeMobileNav()">About Us</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero" id="home">
+        <div class="video-background">
+            <div id="bgndVideo" class="player" data-property="{videoURL:'dUBMjhAdb5Q',containment:'.video-background',startAt:0,mute:true,autoPlay:true,loop:true,opacity:1,showControls:false,quality:'default',optimizeDisplay:false,abundance:0.3,coverImage:false}"></div>
+        </div>
+        <!-- Mobile-only video: standard 16:9 iframe fills width with no black bars -->
+        <div class="mobile-video-wrap">
+            <iframe
+                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Peach Outdoor background video">
+            </iframe>
+        </div>
+        <div class="hero-content">
+        </div>
+        <div class="scroll-indicator">
+            ↓ Scroll to explore
+        </div>
+
+        <!-- Featured Inventory Sidebar -->
+        <aside class="featured-sidebar">
+            <div class="sidebar-header">
+                <h3>⭐ Featured Inventory</h3>
+            </div>
+            <div class="sidebar-scroll" id="featuredSidebarScroll">
+                <!-- Items injected by JS -->
+            </div>
+            <div class="sidebar-footer">
+                <a href="inventory.html" class="sidebar-view-all">View All Inventory →</a>
+            </div>
+        </aside>
+    </section>
+
+    <!-- Mobile-only horizontal featured strip -->
+    <div class="mobile-featured-strip" id="mobileFeaturedStrip">
+        <div class="mobile-strip-header">
+            <span>⭐ Featured Inventory</span>
+            <a href="inventory.html" class="mobile-strip-viewall">View All →</a>
+        </div>
+        <div class="mobile-strip-scroll" id="mobileFeaturedScroll">
+            <!-- Cards injected by JS -->
+        </div>
+    </div>
+
+    <!-- Shop By Type Section -->
+    <section class="shop-by-type" id="configure">
+        <div class="shop-by-type-watermark">SHOP BY TYPE</div>
+        <div class="shop-grid">
+            <!-- Row 1 -->
+            <a href="inventory.html?mfg=Mahindra USA&dept=TRACTOR" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('MahindraTractor.png') center/contain no-repeat; background-color: transparent;"></div>
+                <span class="shop-item-title">Mahindra Tractors</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+            <a href="inventory.html?mfg=LS Tractor&dept=TRACTOR" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('oie_transparent.png') center/contain no-repeat; background-color: transparent;"></div>
+                <span class="shop-item-title">LS Tractors</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+            <a href="inventory.html?mfg=Bad Boy&dept=TRACTOR" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('BadBoyTractor_Transparent.png') center/contain no-repeat; background-color: transparent;"></div>
+                <span class="shop-item-title">Bad Boy Tractors</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+
+            <div class="shop-row-divider"></div>
+
+            <!-- Row 2 -->
+            <a href="configurator.html" class="shop-item">
+                <div class="shop-item-image" style="background: linear-gradient(135deg, #2d6a4f 0%, #52b788 100%);">PACKAGES</div>
+                <span class="shop-item-title">Packages</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+            <a href="inventory.html?dept=MOWER" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('ZeroTurnIcon.jpg') center/cover no-repeat;"></div>
+                <span class="shop-item-title">Zero Turns</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+            <a href="inventory.html?dept=TRAILER" class="shop-item">
+                <div class="shop-item-image spinning" style="background: url('Trailer_Transparent.png') center/contain no-repeat; background-color: transparent;"></div>
+                <span class="shop-item-title">Trailers</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+
+            <div class="shop-row-divider"></div>
+
+            <!-- Row 3 -->
+            <a href="inventory.html?dept=IMP" class="shop-item">
+                <div class="shop-item-image" style="background: linear-gradient(135deg, #4a7c3f 0%, #76b041 100%);">IMPLEMENTS</div>
+                <span class="shop-item-title">Implements</span>
+                <span class="shop-item-link">Shop Now</span>
+            </a>
+            <a href="financing.html" class="shop-item">
+                <div class="shop-item-image" style="background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%); display:flex; align-items:center; justify-content:center;">
+                    <img src="CreditAppIcon.png" alt="Credit Application" style="height:120px; width:auto; object-fit:contain;">
+                </div>
+                <span class="shop-item-title">Financing</span>
+                <span class="shop-item-link">Apply Now</span>
+            </a>
+            <a href="#contact" class="shop-item">
+                <div class="shop-item-image" style="background: linear-gradient(135deg, #6d4c41 0%, #a1887f 100%); display:flex; align-items:center; justify-content:center;">
+                    <img src="PartsServiceIcon.png" alt="Parts & Service" style="height:120px; width:auto; object-fit:contain;">
+                </div>
+                <span class="shop-item-title">Parts &amp; Service</span>
+                <span class="shop-item-link">Contact Us</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2>Why Choose Peach Outdoor?</h2>
+            <p>More than just equipment - we're your partner in productivity</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h4>Expert Guidance</h4>
+                <p>Our team helps you find the perfect equipment for your needs</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h4>Competitive Pricing</h4>
+                <p>Unbeatable deals on premium equipment</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔧</div>
+                <h4>Full Service</h4>
+                <p>Expert maintenance and repair to keep you running</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📦</div>
+                <h4>250+ Units in Stock</h4>
+                <p>Huge selection ready for immediate delivery</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Peach Outdoor</h4>
+                <p>Your trusted partner for tractors, mowers, and outdoor equipment in Central Alabama.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#configure">Configure a Tractor</a>
+                <a href="inventory.html">View Inventory</a>
+                <a href="financing.html">Apply for Financing</a>
+                <a href="#services">Services</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact - Sales</h4>
+                <p>1940 Big M Blvd<br>Clanton, AL 35046</p>
+                <p>Phone: (205) 280-8838</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact - Service</h4>
+                <p>2037 Christian St.<br>Clanton, AL 35045</p>
+                <p>Phone: (205) 280-1885</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Peach Outdoor. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+    
+    <!-- YouTube Background Video Player Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script>
+    <script>
+        jQuery(document).ready(function($){
+            $("#bgndVideo").YTPlayer();
+
+            // Brand carousel fade
+            const slides = document.querySelectorAll('#brandCarousel .brand-slide');
+            let current = 0;
+            setInterval(() => {
+                slides[current].classList.remove('active');
+                current = (current + 1) % slides.length;
+                slides[current].classList.add('active');
+            }, 3000);
+        });
+    </script>
+    
+
+    <!-- Featured Inventory Sidebar Loader -->
+    <script>
+        (async function loadFeaturedInventory() {
+            const container = document.getElementById('featuredSidebarScroll');
+            if (!container) return;
+
+            try {
+                const resp = await fetch('inventory.json');
+                const all = await resp.json();
+
+                // Only show items explicitly marked as featured
+                const featured = all.filter(x => x.FeaturedItem === true);
+
+                // Brand color map
+                const brandColors = {
+                    'Bad Boy':      'linear-gradient(135deg,#1a1a1a,#f5a800)',
+                    'Mahindra USA': 'linear-gradient(135deg,#8b0000,#cc0000)',
+                    'LS Tractor':   'linear-gradient(135deg,#003d7a,#005baa)',
+                    'Spartan':      'linear-gradient(135deg,#7b0000,#e8272a)',
+                    'Iron Craft':   'linear-gradient(135deg,#2d4a1e,#4a7c3f)',
+                    'G2 TRAILERS':  'linear-gradient(135deg,#333,#666)',
+                };
+
+                if (featured.length === 0) {
+                    container.innerHTML = '<p style="color:#888;padding:16px;font-size:0.8em;text-align:center;">No featured items at this time.<br>Check back soon!</p>';
+                    return;
+                }
+
+                featured.forEach(item => {
+                    const price = item.Web_Price || item.MSRP;
+                    const isUsed = item.Used;
+                    const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
+
+                    const link = document.createElement('a');
+                    link.className = 'sidebar-item';
+                    link.href = `item-details.html?id=${item.InventoryID}&from=home`;
+
+                    link.innerHTML = `
+                        <div class="sidebar-item-body">
+                            <div class="sidebar-item-pricing-col">
+                                <div class="sidebar-price-block">
+                                    <span class="sidebar-price-label">MSRP</span>
+                                    <span class="sidebar-price-value msrp-value">${item.MSRP ? '$' + item.MSRP.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'N/A'}</span>
+                                </div>
+                                <div class="sidebar-price-block">
+                                    <span class="sidebar-price-label our-price-label">Our Price</span>
+                                    <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call'}</span>
+                                </div>
+                                <div class="sidebar-badge-wrap">
+                                    <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
+                                </div>
+                            </div>
+                            <div class="sidebar-item-thumb">
+                                <div class="sidebar-item-img-overlay">
+                                    <div class="sidebar-item-brand">${item.Manufacturer}</div>
+                                    <div class="sidebar-item-name">${item.Description}</div>
+                                </div>
+                                ${item.PrimaryPhotoURL
+                                    ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
+                                    : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
+                                }
+                            </div>
+                        </div>`;
+
+                    container.appendChild(link);
+                });
+
+                // Clone all items and append to create seamless infinite loop
+                const originals = Array.from(container.children);
+                originals.forEach(el => container.appendChild(el.cloneNode(true)));
+
+                // Smooth infinite auto-scroll
+                let scrolling = true;
+                let pos = 0;
+                const speed = 0.6;
+                let originalHeight = 0;
+
+                function autoScroll() {
+                    if (!scrolling) {
+                        requestAnimationFrame(autoScroll);
+                        return;
+                    }
+                    pos += speed;
+                    if (pos >= originalHeight) {
+                        pos -= originalHeight;
+                    }
+                    container.scrollTop = pos;
+                    requestAnimationFrame(autoScroll);
+                }
+
+                // Pause on hover, resume on leave
+                container.addEventListener('mouseenter', () => scrolling = false);
+                container.addEventListener('mouseleave', () => scrolling = true);
+
+                // Wait for full render before measuring and starting scroll
+                setTimeout(() => {
+                    originalHeight = (container.scrollHeight / 2) - 10;
+                    requestAnimationFrame(autoScroll);
+                }, 2500);
+
+            } catch (e) {
+                console.warn('Could not load featured inventory:', e);
+                container.innerHTML = '<p style="color:#888;padding:16px;font-size:0.8em;">Unable to load inventory.</p>';
+            }
+        })();
+    </script>
+
+    <!-- Featured Sidebar: scroll with page, stop at footer -->
+    <script>
+        (function() {
+            const sidebar = document.querySelector('.featured-sidebar');
+            const footer = document.querySelector('footer');
+            if (!sidebar || !footer) return;
+
+            const SIDEBAR_TOP = 160;
+
+            function updateSidebar() {
+                const footerTop = footer.getBoundingClientRect().top;
+                const viewportHeight = window.innerHeight;
+                const fullHeight = viewportHeight - SIDEBAR_TOP;
+
+                if (footerTop < viewportHeight) {
+                    // Footer is encroaching — shrink sidebar height so it stops at footer
+                    const availableHeight = Math.max(footerTop - SIDEBAR_TOP, 0);
+                    sidebar.style.height = availableHeight + 'px';
+                } else {
+                    // Normal — full height
+                    sidebar.style.height = fullHeight + 'px';
+                }
+            }
+
+            window.addEventListener('scroll', updateSidebar, { passive: true });
+            window.addEventListener('resize', updateSidebar, { passive: true });
+            updateSidebar();
+        })();
+    </script>
+
+    <!-- Mobile Featured Strip Loader (mobile only) -->
+    <script>
+        (async function loadMobileStrip() {
+            const strip = document.getElementById('mobileFeaturedScroll');
+            if (!strip) return;
+            // Only run on mobile
+            if (window.innerWidth > 768) return;
+
+            try {
+                const resp = await fetch('inventory.json');
+                const all = await resp.json();
+                const featured = all.filter(x => x.FeaturedItem === true);
+
+                const brandColors = {
+                    'Bad Boy':      'linear-gradient(135deg,#1a1a1a,#f5a800)',
+                    'Mahindra USA': 'linear-gradient(135deg,#8b0000,#cc0000)',
+                    'LS Tractor':   'linear-gradient(135deg,#003d7a,#005baa)',
+                    'Spartan':      'linear-gradient(135deg,#7b0000,#e8272a)',
+                    'Iron Craft':   'linear-gradient(135deg,#2d4a1e,#4a7c3f)',
+                    'G2 TRAILERS':  'linear-gradient(135deg,#333,#666)',
+                };
+
+                if (featured.length === 0) {
+                    document.getElementById('mobileFeaturedStrip').style.display = 'none';
+                    return;
+                }
+
+                featured.forEach(item => {
+                    const msrp   = item.MSRP     ? '$' + item.MSRP.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'N/A';
+                    const price  = item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'Call';
+                    const isUsed = item.Used;
+                    const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
+
+                    const card = document.createElement('a');
+                    card.className = 'mobile-strip-card';
+                    card.href = `item-details.html?id=${item.InventoryID}&from=home`;
+
+                    card.innerHTML = `
+                        <div class="mobile-strip-img-wrap">
+                            <div class="mobile-strip-img-overlay">
+                                <div class="mobile-strip-brand">${item.Manufacturer}</div>
+                                <div class="mobile-strip-name">${item.Description}</div>
+                            </div>
+                            ${item.PrimaryPhotoURL
+                                ? `<img class="mobile-strip-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.parentElement.style.background='${bgColor}'">`
+                                : `<div class="mobile-strip-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
+                            }
+                        </div>
+                        <div class="mobile-strip-pricing">
+                            <div class="mobile-strip-price-block">
+                                <span class="mobile-strip-price-label">MSRP</span>
+                                <span class="mobile-strip-price-value mobile-strip-msrp">${msrp}</span>
+                            </div>
+                            <div class="mobile-strip-price-block">
+                                <span class="mobile-strip-price-label mobile-strip-our-label">Our Price</span>
+                                <span class="mobile-strip-price-value mobile-strip-our-value">${price}</span>
+                            </div>
+                            <span class="mobile-strip-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
+                        </div>`;
+
+                    strip.appendChild(card);
+                });
+
+                // Clone all cards for seamless infinite loop
+                Array.from(strip.children).forEach(el => strip.appendChild(el.cloneNode(true)));
+
+                // Wait for render then start auto-scrolling
+                setTimeout(() => {
+                    const halfWidth = strip.scrollWidth / 2;
+                    let pos = 0;
+                    let scrolling = true;
+                    const speed = 0.6; // px per frame — adjust if too fast/slow
+
+                    function autoScroll() {
+                        if (scrolling) {
+                            pos += speed;
+                            if (pos >= halfWidth) pos -= halfWidth; // seamless loop
+                            strip.scrollLeft = pos;
+                        }
+                        requestAnimationFrame(autoScroll);
+                    }
+
+                    // Pause when user touches the strip, resume on release
+                    strip.addEventListener('touchstart', () => scrolling = false, { passive: true });
+                    strip.addEventListener('touchend',   () => scrolling = true,  { passive: true });
+
+                    requestAnimationFrame(autoScroll);
+                }, 1000);
+
+            } catch(e) {
+                document.getElementById('mobileFeaturedStrip').style.display = 'none';
+            }
+        })();
+    </script>
+
+    <!-- tawk.to Live Chat Widget -->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+    <script>
+        // Mobile nav hamburger toggle
+        (function () {
+            const btn  = document.getElementById('navHamburger');
+            const menu = document.getElementById('mobileNavMenu');
+            if (!btn || !menu) return;
+
+            btn.addEventListener('click', function () {
+                const isOpen = menu.classList.toggle('open');
+                btn.classList.toggle('open', isOpen);
+                btn.setAttribute('aria-expanded', isOpen);
+            });
+
+            // Close when tapping outside
+            document.addEventListener('click', function (e) {
+                if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.remove('open');
+                    btn.classList.remove('open');
+                }
+            });
+        })();
+
+        function closeMobileNav() {
+            document.getElementById('mobileNavMenu').classList.remove('open');
+            document.getElementById('navHamburger').classList.remove('open');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,2042 @@
+[
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "2 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST",
+                                          "Clutch":  "Dry Single Plate"
+                                      },
+                      "PTO":  {
+                                  "PTO HP":  "15.4",
+                                  "Rear PTO Speed (RPM)":  "540",
+                                  "Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "7-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Ground Clearance (in)":  "8.3",
+                                         "Overall Width (in)":  "44.5",
+                                         "Overall Height (in)":  "86.6",
+                                         "Weight (lbs)":  "1,433",
+                                         "Wheelbase (in)":  "53.1",
+                                         "Overall Length (in)":  "94.2"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "679",
+                                         "3-Point Hitch":  "Limited CAT 1",
+                                         "Total Flow GPM (Steering + Implement)":  "6.3 (2.1 + 4.2)",
+                                         "Type":  "Power Assisted Hydro-Static"
+                                     },
+                      "Engine":  {
+                                     "Displacement (in³)":  "60.6",
+                                     "Fuel Tank (gal)":  "6.6",
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "21.5 HP"
+                                 },
+                      "Loader - BBL100":  {
+                                              "Max Lift Height (in)":  "72.7",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "617",
+                                              "Bucket Size (in)":  "48",
+                                              "Breakout Force (lbs)":  "1,253"
+                                          },
+                      "Backhoe - BBH100":  {
+                                               "Dig Force Bucket (lbs)":  "1,975",
+                                               "Bucket Size (in)":  "12",
+                                               "Max Dig Depth (in)":  "66"
+                                           },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 40A",
+                                         "Battery":  "12V, 425 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.50-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "10",
+        "Model":  "1022"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST",
+                                          "Clutch":  "Dry Single Plate"
+                                      },
+                      "Loader - BBL300":  {
+                                              "Max Lift Height (in)":  "86",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "1,314",
+                                              "Bucket Size (in)":  "54",
+                                              "Breakout Force (lbs)":  "1,960"
+                                          },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Ground Clearance (in)":  "16.4",
+                                         "Overall Width (in)":  "53.8",
+                                         "Overall Height (in)":  "91.4",
+                                         "Weight (lbs)":  "2,106",
+                                         "Wheelbase (in)":  "65.7",
+                                         "Overall Length (in)":  "110"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "974",
+                                         "3-Point Hitch":  "CAT 1",
+                                         "Total Flow GPM (Steering + Implement)":  "7.4 (3.1 + 4.3)",
+                                         "Type":  "Power Assisted Hydro-Static"
+                                     },
+                      "Engine":  {
+                                     "Displacement (in³)":  "71.7",
+                                     "Fuel Tank (gal)":  "6.0",
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "25 HP"
+                                 },
+                      "Backhoe - BBH200":  {
+                                               "Dig Force Bucket (lbs)":  "2,050",
+                                               "Bucket Size (in)":  "12",
+                                               "Max Dig Depth (in)":  "76"
+                                           },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 50A",
+                                         "Battery":  "12V, 425 CCA"
+                                     },
+                      "PTO":  {
+                                  "PTO HP":  "18",
+                                  "Rear PTO Speed (RPM)":  "540 / 960",
+                                  "Type":  "Live"
+                              },
+                      "Tires":  {
+                                    "Front Tires":  "25x8.50-14",
+                                    "Rear Tires":  "14x17.5"
+                                }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "30",
+        "Model":  "3026"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540",
+                                  "Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Hydraulics":  {
+                                         "3-Point Hitch":  "CAT 1"
+                                     },
+                      "Engine":  {
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "25 HP"
+                                 },
+                      "Loader - BBL400":  {
+                                              "Lift Capacity at Pivot Pin (lbs)":  "1,477"
+                                          }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "40",
+        "Model":  "4025"
+    },
+    {
+        "Specs":  {
+                      "Backhoe - BBH400":  {
+                                               "Dig Force Bucket (lbs)":  "4,380",
+                                               "Bucket Size (in)":  "16",
+                                               "Max Dig Depth (in)":  "92.2"
+                                           },
+                      "PTO":  {
+                                  "PTO HP":  "29.5",
+                                  "Rear PTO Speed (RPM)":  "540",
+                                  "Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Width ROPS / Cab (in)":  "56.7 / 55.6",
+                                         "Ground Clearance (in)":  "13.1",
+                                         "Wheelbase (in)":  "65.7",
+                                         "Overall Length (in)":  "134.88",
+                                         "Height ROPS / Cab (in)":  "97 / 86",
+                                         "Weight ROPS / Cab (lbs)":  "3,164 / 3,551"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "2,425",
+                                         "3-Point Hitch":  "CAT 1",
+                                         "Total Flow GPM (Steering + Implement)":  "12.6 (4.4 + 8.2)",
+                                         "Type":  "Hydro-Static Power Steering"
+                                     },
+                      "Engine":  {
+                                     "Displacement (in³)":  "104.5",
+                                     "Fuel Tank (gal)":  "7.1",
+                                     "Number of Cylinders":  "3",
+                                     "Engine Type":  "3 Cylinder, Water-Cooled Diesel",
+                                     "Engine HP":  "35 HP"
+                                 },
+                      "Loader - BBL400":  {
+                                              "Max Lift Height (in)":  "104",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "2,200",
+                                              "Bucket Size (in)":  "62",
+                                              "Breakout Force (lbs)":  "3,660"
+                                          },
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Range",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Transmission":  "HST"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 50A",
+                                         "Battery":  "12V, 540 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "28x8.50-15",
+                                    "Rear Tires":  "43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "40",
+        "Model":  "4035"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission (Shuttle)":  "Synchro 16F / 16R",
+                                          "Transmission (ROPS)":  "HST — 4 Range"
+                                      },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Engine":  {
+                                     "Fuel Tank (gal)":  "11.8",
+                                     "Rated HP":  "48 HP",
+                                     "Engine Type":  "4 Cylinder, Water-Cooled Diesel"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "2,425",
+                                         "Hitch Lift Capacity (lbs)":  "3,306",
+                                         "3-Point Category":  "CAT 1"
+                                     },
+                      "Loader - BBL500":  {
+                                              "Max Lift Height (in)":  "106.6",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "2,700",
+                                              "Bucket Size (in)":  "72"
+                                          }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "50",
+        "Model":  "5045"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission (ROPS/S)":  "HST — 4 Range",
+                                          "Transmission (Shuttle)":  "Synchro 16F / 16R"
+                                      },
+                      "PTO":  {
+                                  "PTO Speed 540 / 540E (RPM)":  "584 / 791"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "6-Year"
+                                   },
+                      "Dimensions":  {
+                                         "Ground Clearance (in)":  "15.5",
+                                         "Wheelbase (in)":  "71.1",
+                                         "Overall Width (in)":  "64.9",
+                                         "Overall Length (in)":  "127.4",
+                                         "Height ROPS / Cab (in)":  "98.4 / 97",
+                                         "Weight ROPS / Cab (lbs)":  "3,836 / 4,349"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "3,306",
+                                         "Implement Pump GPM (ROPS/S)":  "10.7 / 11.4",
+                                         "Steering Pump GPM":  "5",
+                                         "Max Total Flow GPM (ROPS/S)":  "15.7 / 16.4",
+                                         "3-Point Category":  "CAT 1",
+                                         "3-Point Lift @ 24\" (lbs)":  "2,425"
+                                     },
+                      "Engine":  {
+                                     "Rated HP":  "55 HP",
+                                     "Displacement (in³)":  "139.5",
+                                     "Number of Cylinders":  "4",
+                                     "Max PTO Power (HP)":  "44",
+                                     "Fuel Tank (gal)":  "11.8",
+                                     "Model":  "A2300T3-UTR_4",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "Fuel System":  "Water-Cooled Diesel"
+                                 },
+                      "Backhoe - BBH500":  {
+                                               "Max Dig Depth (in)":  "91.2",
+                                               "Bucket Size (in)":  "16"
+                                           },
+                      "Loader - BBL500":  {
+                                              "Max Lift Height (in)":  "106.6",
+                                              "Lift Capacity at Pivot Pin (lbs)":  "2,700",
+                                              "Bucket Size (in)":  "72",
+                                              "Breakout Force (lbs)":  "3,660"
+                                          }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "50",
+        "Model":  "5055"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "6.5"
+                               },
+                      "Dimensions":  {
+                                         "Weight 48\" (lbs)":  "957",
+                                         "Length (in)":  "80",
+                                         "Weight 54\" (lbs)":  "1,005",
+                                         "Weight 60\" (lbs)":  "1,031"
+                                     },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "747cc, 25hp Kohler Confidant ZT740",
+                                     "Kawasaki Option":  "726cc, 24hp Kawasaki FS730V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 Smooth",
+                                    "Rear Tires 54\"/60\"":  "23x11-12 Reaper®",
+                                    "Rear Tires 48\"":  "23x9-12 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Ground Speed (Forward)":  "Up to 9 mph",
+                                    "Transmission":  "Hydro-Gear 3200 Series 10cc Integrated",
+                                    "Suspension":  "EZ-Ride® Patented Compression Rear + Independent Front"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\" / 60\"",
+                                   "Deck Thickness":  "3/16\" or 7-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4.5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "MAVERICK",
+        "Model":  "Maverick"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated",
+                                    "Ground Speed (Forward)":  "Up to 10 mph"
+                                },
+                      "Engine":  {
+                                     "Honda Option":  "GXV700/800 EFI, 27HP",
+                                     "Kawasaki Option":  "726cc, 23.5hp Kawasaki FX730V",
+                                     "Kohler Option":  "749cc, 26.5hp Kohler Command EFI"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 60\"",
+                                   "Deck Thickness":  "1/4\" Solid Steel",
+                                   "Cutting Height":  "1\" – 5\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "MAVERICK",
+        "Model":  "Maverick HD"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "3"
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "725cc, 25hp Kohler 7000 KT740",
+                                     "Kawasaki Option":  "726cc, 21.5hp Kawasaki FR651V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "11x4-5 Smooth",
+                                    "Rear Tires":  "20x8-8"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear EZT Series Integrated",
+                                    "Ground Speed (Forward)":  "Up to 6.5 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\"",
+                                   "Deck Thickness":  "10-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "MAGNUM",
+        "Model":  "MZ Magnum"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "3"
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Briggs Option":  "540cc, 19hp Briggs \u0026 Stratton",
+                                     "Kawasaki Option":  "651cc, 21.5hp Kawasaki FR651V",
+                                     "Kohler Option":  "725cc, 22hp Kohler KT722/KT725"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "11x4-5 Smooth",
+                                    "Rear Tires":  "18x9.5-8"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear EZT Series Integrated",
+                                    "Ground Speed (Forward)":  "Up to 6.5 mph"
+                                },
+                      "Deck":  {
+                                   "Deck Thickness":  "10-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4\"",
+                                   "Available Width":  "42\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "RAMBLER",
+        "Model":  "MZ Rambler"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "13"
+                               },
+                      "Dimensions":  {
+                                         "Weight 72\" (lbs)":  "1,419",
+                                         "Weight 61\" (lbs)":  "1,382",
+                                         "Length (in)":  "92",
+                                         "Weight 54\" (lbs)":  "1,257"
+                                     },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kawasaki 27HP Option":  "852cc, 27hp Kawasaki FX850V (54\" / 61\")",
+                                     "Kawasaki 31HP EFI":  "822cc, 31hp Kawasaki FX781V EVO EFI (54\")",
+                                     "Kawasaki 35HP Option":  "999cc, 35hp Kawasaki FX1000V (61\" / 72\")",
+                                     "Kawasaki 34HP EFI":  "822cc, 34hp Kawasaki FX820V EVO EFI (61\" / 72\")"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat Smooth",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 4400 Series 16cc Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 61\" / 72\"",
+                                   "Deck Thickness":  "1/4\" (3-Gauge), Sides 3/8\"",
+                                   "Cutting Height":  "1\" – 5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REBEL",
+        "Model":  "Rebel"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 4400 Series 16cc Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki Option":  "999cc EFI, 38.5hp Kawasaki FX1000V EFI"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat Smooth",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Deck":  {
+                                   "Deck Thickness":  "1/4\" (3-Gauge), Sides 3/8\"",
+                                   "Cutting Height":  "1\" – 5\"",
+                                   "Available Width":  "61\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REBEL",
+        "Model":  "Rebel X"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated"
+                                },
+                      "Engine":  {
+                                     "Perkins Option":  "1100cc Diesel, 24.7hp Perkins (61\")"
+                                 },
+                      "Deck":  {
+                                   "Deck Thickness":  "1/4\" (3-Gauge) Steel",
+                                   "Available Width":  "61\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn — Diesel"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "RENEGADE",
+        "Model":  "Renegade Diesel"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kohler EFI Option":  "980cc EFI, 38.5hp Kohler Command (72\")",
+                                     "Vanguard EFI Option":  "993cc EFI, 37hp Briggs Vanguard (61\")"
+                                 },
+                      "Deck":  {
+                                   "Deck Thickness":  "1/4\" (3-Gauge) Steel",
+                                   "Available Widths":  "61\" / 72\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "RENEGADE",
+        "Model":  "Renegade Gas"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Ground Speed (Forward)":  "Up to 10 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki Option":  "726cc, 23.5hp Kawasaki FX730V"
+                                 },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Stand-On Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REVOLT",
+        "Model":  "Revolt"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki EFI Option":  "999cc EFI, 38.5hp Kawasaki FX1000V EFI"
+                                 },
+                      "Deck":  {
+                                   "Available Width":  "61\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Stand-On Zero-Turn — Commercial"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "REVOLT",
+        "Model":  "Revolt X"
+    },
+    {
+        "Specs":  {
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 5400 Series Commercial Integrated",
+                                    "Ground Speed (Forward)":  "Up to 12 mph"
+                                },
+                      "Engine":  {
+                                     "Kawasaki 38.5HP EFI":  "999cc EFI, 38.5hp Kawasaki FX1000V EFI (61\")",
+                                     "Yamaha EFI Option":  "824cc EFI, 33hp Yamaha (61\")",
+                                     "Kawasaki 35HP Option":  "999cc, 35hp Kawasaki FX1000V (54\" / 61\")"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x6.5-6 No Flat Smooth",
+                                    "Rear Tires":  "24x12-12 Reaper®"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 61\"",
+                                   "Deck Thickness":  "1/4\" (3-Gauge) Steel",
+                                   "Cutting Height":  "1\" – 5\""
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Commercial Zero-Turn"
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "ROGUE",
+        "Model":  "Rogue"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "6"
+                               },
+                      "Dimensions":  {
+                                         "Length (in)":  "74.5",
+                                         "Width 54\" Chute Up/Down (in)":  "58 / 67",
+                                         "Width 60\" Chute Up/Down (in)":  "64 / 73",
+                                         "Weight 54\" (lbs)":  "746",
+                                         "Weight 60\" (lbs)":  "763",
+                                         "Height (in)":  "46"
+                                     },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "747cc, 26hp Kohler Pro 7000 KT726",
+                                     "Kawasaki Option":  "726cc, 23hp Kawasaki FR691V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "12x6-6 Smooth",
+                                    "Rear Tires":  "20x10-8 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 2800 Series 10cc Integrated",
+                                    "Ground Speed (Forward)":  "Up to 7 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "54\" / 60\"",
+                                   "Deck Thickness":  "3/16\" or 7-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4.5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "AVENGER",
+        "Model":  "ZT Avenger"
+    },
+    {
+        "Specs":  {
+                      "Fuel":  {
+                                   "Fuel Capacity (gal)":  "6"
+                               },
+                      "Type":  {
+                                   "Mower Type":  "Residential Zero-Turn"
+                               },
+                      "Engine":  {
+                                     "Kohler Option":  "747cc, 26hp Kohler Pro 7000 KT745",
+                                     "Kawasaki Option":  "726cc, 24hp Kawasaki FR730V"
+                                 },
+                      "Tires":  {
+                                    "Front Tires":  "13x5-6 Smooth",
+                                    "Rear Tires":  "20x10-8 Reaper®"
+                                },
+                      "Drive":  {
+                                    "Transmission":  "Hydro-Gear 3100 Series Integrated",
+                                    "Ground Speed (Forward)":  "Up to 8 mph"
+                                },
+                      "Deck":  {
+                                   "Available Widths":  "48\" / 54\" / 60\"",
+                                   "Deck Thickness":  "3/16\" or 7-Gauge Steel",
+                                   "Cutting Height":  "1.5\" – 4.5\""
+                               }
+                  },
+        "Manufacturer":  "BAD",
+        "Series":  "ELITE",
+        "Model":  "ZT Elite"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "2 Ranges",
+                                          "Transmission Type":  "Hydrostatic Drive (HST)",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Mid PTO":  "Standard (2,500 RPM)",
+                                  "Rear PTO":  "Standard (540 RPM)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "97",
+                                         "Height to ROPS (in)":  "87",
+                                         "Overall Width (in)":  "47",
+                                         "Total Weight (lbs)":  "1,455",
+                                         "Wheelbase (in)":  "56"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "992 (728 @ 24\")",
+                                         "Total Flow (gpm)":  "6.7",
+                                         "Implement Pump (gpm)":  "4.6",
+                                         "Steering Pump (gpm)":  "2.1"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "6.6",
+                                     "Engine Type":  "3-Cylinder, Indirect-Injection, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "24.7",
+                                     "Displacement (cu. in)":  "77.3",
+                                     "Engine Model (Tier 4)":  "Yanmar 3TNV80F",
+                                     "Alternator":  "12V – 40A",
+                                     "Rated Speed (RPM)":  "3,000",
+                                     "PTO HP":  "17.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "18x8.5-10 / 26x12-12"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT1",
+        "Model":  "MT125"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F12 x R12",
+                                          "Transmission Type":  "Synchro Shuttle / Gear",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "121",
+                                         "Height to ROPS (in)":  "89",
+                                         "Overall Width (in)":  "60",
+                                         "Total Weight (lbs)":  "3,241",
+                                         "Wheelbase (in)":  "65"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,543",
+                                         "Total Flow (gpm)":  "10.0",
+                                         "Implement Pump (gpm)":  "6.3",
+                                         "Steering Pump (gpm)":  "3.7"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "29.4",
+                                     "Displacement (cu. in)":  "91.5",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "24.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20",
+                                    "Ag Front / Rear":  "7-14 / 11.2-24"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226E"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to Cab (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,721",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "29.4",
+                                     "Displacement (cu. in)":  "91.5",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "24.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226HC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to ROPS (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,242",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "1 Pair",
+                                         "Total Flow (gpm)":  "11.7"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226HE"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,721"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT226HEC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F12 x R12",
+                                          "Transmission Type":  "Synchro Shuttle / Gear",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to ROPS (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,241",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "36.2",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "29.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232E"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,721"
+                                     },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Total Flow (gpm)":  "11.7",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "36.2",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "29.1"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232HC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "125",
+                                         "Height to ROPS (in)":  "90",
+                                         "Overall Width (in)":  "66",
+                                         "Total Weight (lbs)":  "3,242",
+                                         "Wheelbase (in)":  "69"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "Implement Pump (gpm)":  "6.7",
+                                         "Steering Pump (gpm)":  "5.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "1 Pair",
+                                         "Total Flow (gpm)":  "11.7"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "10.6",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Alternator":  "12V – 55 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232HE"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc"
+                                      },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)"
+                              },
+                      "Dimensions":  {
+                                         "Total Weight (lbs)":  "3,721"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "1,808",
+                                         "3-Point Hitch Category":  "CAT I"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "11.4",
+                                     "Engine Type":  "3-Cylinder, Liquid-Cooled Diesel",
+                                     "Engine HP (Gross)":  "31.7",
+                                     "Displacement (cu. in)":  "100.2",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "26.2"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT232HEC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "70",
+                                         "Total Weight (lbs)":  "4,519"
+                                     },
+                      "Hydraulics":  {
+                                         "Total Flow (gpm)":  "14.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "2,315",
+                                         "Remote Valves":  "2 Pairs (Detent, Standard)",
+                                         "Implement Pump (gpm)":  "8.2"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "14.1",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "42.5",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "35.0"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT242HC"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "3 Ranges",
+                                          "Transmission Type":  "HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Width (in)":  "70",
+                                         "Total Weight (lbs)":  "3,879"
+                                     },
+                      "Hydraulics":  {
+                                         "Total Flow (gpm)":  "14.0",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "2,315",
+                                         "Remote Valves":  "2 Pairs (Detent, Standard)",
+                                         "Implement Pump (gpm)":  "8.2"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "14.1",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "42.5",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "35.0"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "27x8.50-15 / 43x16.00-20"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT2",
+        "Model":  "MT242HE"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16 (Gear) / 3 Ranges (HST)",
+                                          "Transmission Type":  "Synchro Shuttle / Gear or HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position / Draft",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "133"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "2,755",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.1 Gear / 5.5 HST",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "2 Pairs Front + 2 Pairs Rear",
+                                         "Total Flow (gpm)":  "12.3 Gear / 13.7 HST"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "12.4 (Cab) / 10.6 (ROPS)",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "47.6",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "39.0"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34",
+                                    "Ag Front / Rear":  "9.5-24 / 16.9-30"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT342"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16 (Gear) / 3 Ranges (HST)",
+                                          "Transmission Type":  "Synchro Shuttle / Gear or HST",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position / Draft",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "133"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "2,755",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.1 Gear / 5.5 HST",
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Remote Valves":  "2 Pairs Front + 2 Pairs Rear",
+                                         "Total Flow (gpm)":  "12.3 Gear / 13.7 HST"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "12.4 (Cab) / 10.6 (ROPS)",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "52.3",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "43.5"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34",
+                                    "Ag Front / Rear":  "9.5-24 / 16.9-30"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT347"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F8 x R8",
+                                          "Transmission Type":  "Synchro Shuttle / Constant Mesh",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "13.7",
+                                     "Engine Type":  "Vertical Water-Cooled 4-Cycle Diesel",
+                                     "Engine HP (Gross)":  "55",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Engine Model (Tier 4)":  "L3C19-T",
+                                     "Rated Speed (RPM)":  "2,600",
+                                     "PTO HP":  "44.0 – 46.7"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I",
+                                         "Hitch Lift Capacity (lbs)":  "3,527",
+                                         "Total Flow (gpm)":  "13.0",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.8"
+                                     },
+                      "PTO":  {
+                                  "Control System":  "Position",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34",
+                                    "Ag Front / Rear":  "9.5-24 / 18.4-28"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT355E"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16",
+                                          "Transmission Type":  "Synchro Shuttle / PowerClutch",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "PTO":  {
+                                  "Control System":  "Position / Draft",
+                                  "Rear PTO Speed (RPM)":  "540 (Standard)",
+                                  "Type":  "Independent"
+                              },
+                      "Dimensions":  {
+                                         "Overall Length (in)":  "133"
+                                     },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "2,755",
+                                         "Implement Pump (gpm)":  "8.2",
+                                         "Steering Pump (gpm)":  "4.1 Gear",
+                                         "3-Point Hitch Category":  "CAT 2",
+                                         "Remote Valves":  "2 Pairs Front + 2 Pairs Rear",
+                                         "Total Flow (gpm)":  "12.3 Gear"
+                                     },
+                      "Engine":  {
+                                     "Fuel Tank Capacity (gal)":  "12.4 (Cab) / 10.6 (ROPS)",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "57",
+                                     "Displacement (cu. in)":  "114.7",
+                                     "Alternator":  "12V – 70 Amps",
+                                     "Rated Speed (RPM)":  "2,600"
+                                 },
+                      "Tires":  {
+                                    "IND Front / Rear":  "340/85R24 / 460/85R34"
+                                }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT3",
+        "Model":  "MT357PCT"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F16 x R16",
+                                          "Transmission Type":  "Synchro Shuttle",
+                                          "Brakes":  "Wet, Multi-Disc",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "Engine":  {
+                                     "Rated Speed (RPM)":  "2,300",
+                                     "Engine HP (Gross)":  "73",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel"
+                                 },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "5,511",
+                                         "3-Point Hitch Category":  "CAT 2"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 / 1000",
+                                  "Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT5",
+        "Model":  "MT573"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Number of Speeds":  "F32 x R32",
+                                          "Cab":  "Enclosed Cab with Heat \u0026 AC",
+                                          "Transmission Type":  "Power Shuttle / Synchro",
+                                          "Brakes":  "Wet, Multi-Disc"
+                                      },
+                      "Engine":  {
+                                     "Rated Speed (RPM)":  "2,200",
+                                     "Engine HP (Gross)":  "101",
+                                     "Engine Type":  "4-Cylinder, Water-Cooled Diesel, Turbo"
+                                 },
+                      "Hydraulics":  {
+                                         "Hitch Lift Capacity (lbs)":  "8,818",
+                                         "3-Point Hitch Category":  "CAT 2"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO Speed (RPM)":  "540 / 1000",
+                                  "Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "MT7",
+        "Model":  "MT7101CSPS"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission Type":  "HST",
+                                          "Steering":  "Hydrostatic Power Steering"
+                                      },
+                      "Engine":  {
+                                     "Engine Type":  "3-Cylinder, Water-Cooled Diesel",
+                                     "Engine HP (Gross)":  "24.4"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Category":  "CAT I"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO":  "540 RPM"
+                              }
+                  },
+        "Manufacturer":  "LS",
+        "Series":  "XJ",
+        "Model":  "XJ2025H"
+    },
+    {
+        "Specs":  {
+                      "Dimensions \u0026 Weight":  {
+                                                       "Ground Clearance in (mm)":  "6.6 (169)",
+                                                       "Turning Radius ft (m)":  "7.2 (2.2)",
+                                                       "Overall Height OS/Cab in":  "86.6 / 80.5",
+                                                       "Overall Length in (mm)":  "100.4 (2550)",
+                                                       "Wheelbase in (mm)":  "55.1 (1400)",
+                                                       "Weight Cab lbs (kg)":  "1,962 (890)",
+                                                       "Overall Width in (mm)":  "46.3 (1177)",
+                                                       "Weight OS lbs (kg)":  "1,620 (735)"
+                                                   },
+                      "PTO":  {
+                                  "PTO HP (kW)":  "13.9 (10.4)",
+                                  "Rear PTO RPM":  "540 @ 2837",
+                                  "Mid PTO RPM":  "2500 @ 2837",
+                                  "PTO Type":  "Independent Wet Clutch"
+                              },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "771",
+                                         "3-Point Hitch":  "CAT 1 with Check Chains",
+                                         "Total Flow GPM":  "11.2",
+                                         "Type":  "Open Center, Full-Live w/ Position Control",
+                                         "Main Pump GPM (L/min)":  "7.6 (28.7)"
+                                     },
+                      "Loader":  {
+                                     "Loader Model":  "L11",
+                                     "Digging Depth (in)":  "3",
+                                     "Max Lift Height (in)":  "68",
+                                     "Loader Lift Capacity (lbs)":  "794"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "20.1 (15) @ 2900",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "67.2 (1102)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "3.00 x 3.20"
+                                 },
+                      "Drive Train":  {
+                                          "Brakes":  "Single Pedal",
+                                          "Max Speed (mph)":  "7.3",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 55A",
+                                         "Battery":  "12.6V, 650 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.5-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1100",
+        "Model":  "1120 HST"
+    },
+    {
+        "Specs":  {
+                      "Dimensions \u0026 Weight":  {
+                                                       "Ground Clearance in (mm)":  "6.6 (169)",
+                                                       "Turning Radius ft (m)":  "7.2 (2.2)",
+                                                       "Overall Height OS/Cab in":  "86.6 / 80.5",
+                                                       "Overall Length in (mm)":  "100.4 (2550)",
+                                                       "Wheelbase in (mm)":  "55.1 (1400)",
+                                                       "Weight Cab lbs (kg)":  "1,962 (890)",
+                                                       "Overall Width in (mm)":  "46.3 (1177)",
+                                                       "Weight OS lbs (kg)":  "1,620 (735)"
+                                                   },
+                      "PTO":  {
+                                  "PTO HP (kW)":  "16.8 (12.5)",
+                                  "Rear PTO RPM":  "540 @ 2837",
+                                  "Mid PTO RPM":  "2500 @ 2837",
+                                  "PTO Type":  "Independent Wet Clutch"
+                              },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "771",
+                                         "3-Point Hitch":  "CAT 1 with Check Chains",
+                                         "Total Flow GPM":  "11.2",
+                                         "Type":  "Open Center, Full-Live w/ Position Control",
+                                         "Main Pump GPM (L/min)":  "7.6 (28.7)"
+                                     },
+                      "Loader":  {
+                                     "Loader Model":  "L11",
+                                     "Digging Depth (in)":  "3",
+                                     "Max Lift Height (in)":  "68",
+                                     "Loader Lift Capacity (lbs)":  "794"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "22.9 (17.0) @ 3000",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "67.2 (1102)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "3.00 x 3.20"
+                                 },
+                      "Drive Train":  {
+                                          "Brakes":  "Single Pedal",
+                                          "Max Speed (mph)":  "7.3",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 55A",
+                                         "Battery":  "12.6V, 650 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.5-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1100",
+        "Model":  "1123 HST"
+    },
+    {
+        "Specs":  {
+                      "Dimensions \u0026 Weight":  {
+                                                       "Ground Clearance in (mm)":  "6.6 (169)",
+                                                       "Turning Radius ft (m)":  "7.2 (2.2)",
+                                                       "Overall Height OS/Cab in":  "86.6 / 80.5",
+                                                       "Overall Length in (mm)":  "100.4 (2550)",
+                                                       "Wheelbase in (mm)":  "55.1 (1400)",
+                                                       "Weight Cab lbs (kg)":  "1,962 (890)",
+                                                       "Overall Width in (mm)":  "46.3 (1177)",
+                                                       "Weight OS lbs (kg)":  "1,620 (735)"
+                                                   },
+                      "PTO":  {
+                                  "PTO HP (kW)":  "19.2 (14.3)",
+                                  "Rear PTO RPM":  "540 @ 2837",
+                                  "Mid PTO RPM":  "2500 @ 2837",
+                                  "PTO Type":  "Independent Wet Clutch"
+                              },
+                      "Hydraulics":  {
+                                         "3-Point Lift @ 24\" (lbs)":  "771",
+                                         "3-Point Hitch":  "CAT 1 with Check Chains",
+                                         "Total Flow GPM":  "11.2",
+                                         "Type":  "Open Center, Full-Live w/ Position Control",
+                                         "Main Pump GPM (L/min)":  "7.6 (28.7)"
+                                     },
+                      "Loader":  {
+                                     "Loader Model":  "L11",
+                                     "Digging Depth (in)":  "3",
+                                     "Max Lift Height (in)":  "68",
+                                     "Loader Lift Capacity (lbs)":  "794"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "25.3 (18.9) @ 3000",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "67.2 (1102)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "3.00 x 3.20"
+                                 },
+                      "Drive Train":  {
+                                          "Brakes":  "Single Pedal",
+                                          "Max Speed (mph)":  "7.3",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Electrical":  {
+                                         "Alternator":  "12V, 55A",
+                                         "Battery":  "12.6V, 650 CCA"
+                                     },
+                      "Tires":  {
+                                    "Front Tires":  "18x8.5-10",
+                                    "Rear Tires":  "26x12-12"
+                                }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1100",
+        "Model":  "1126 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,560"
+                                 },
+                      "Engine":  {
+                                     "Engine HP Range":  "25.9 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "1626 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle \u0026 HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,600"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, Tier 4",
+                                     "HP":  "35.1 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "1635 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,650"
+                                 },
+                      "Engine":  {
+                                     "Engine HP Range":  "38.7 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "1600",
+        "Model":  "1640 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "HST – 3 Range",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,477"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, Tier 4",
+                                     "Engine HP":  "22.9 – 25.3 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "1,760 (798 kg)"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2100",
+        "Model":  "2126 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,634"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP Range":  "37.4 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "2,646"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2638 HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,117"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "45 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,086"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2645 Shuttle"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,645"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "55 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,086"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2655 Shuttle"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "PST (Power Shuttle)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,086"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "60 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,528"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2660 PST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "PST (Power Shuttle)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,122"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "HP":  "65 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,528"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2665 PST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "PST (Power Shuttle)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,122"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP Range":  "70 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,528"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "2600",
+        "Model":  "2670 PST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Gear (Synchro)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,866"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "41 HP",
+                                     "Cylinders":  "4"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,527"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "4500",
+        "Model":  "4540"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Gear (Synchro)",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "2,866"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "48 HP",
+                                     "Cylinders":  "4"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,527"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "4500",
+        "Model":  "4550"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Synchro Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity lbs (kg)":  "3,245 (1,472)"
+                                 },
+                      "Engine":  {
+                                     "Engine HP":  "45 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,748"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "5100",
+        "Model":  "5145"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Synchro Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity lbs (kg)":  "3,245 (1,472)"
+                                 },
+                      "Engine":  {
+                                     "Engine HP":  "55 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "3,748"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "5100",
+        "Model":  "5155"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Power Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "7-Year / 3,000 Hour No-Deductible"
+                                   },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "4,840"
+                                     },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,609"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "62 HP",
+                                     "Cylinders":  "4"
+                                 }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "6000",
+        "Model":  "6065"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Power Shuttle",
+                                          "Drive":  "4WD"
+                                      },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              },
+                      "Warranty":  {
+                                       "Powertrain Warranty":  "7-Year / 3,000 Hour No-Deductible"
+                                   },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "4,840"
+                                     },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "3,609"
+                                 },
+                      "Engine":  {
+                                     "Engine Type":  "4-Stroke, Water-Cooled Diesel, mCRD Tier 4 (No DPF)",
+                                     "Engine HP":  "71 HP",
+                                     "Cylinders":  "4"
+                                 }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "6000",
+        "Model":  "6075"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Brakes":  "Wet Disc",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range",
+                                          "Clutch":  "Dry-Single"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "617"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "19.4 (14.5) @ 3000",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "60.6 (993)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "6.6 (25)",
+                                     "Bore x Stroke (in)":  "2.91 x 3.03"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Lift (lbs)":  "680"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO RPM":  "540 @ 2942",
+                                  "Mid PTO RPM":  "2500 @ 2958",
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "eMax",
+        "Model":  "eMax 20S HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Brakes":  "Wet Disc",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "900"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "22 (16) @ 2600",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "71.7 (1175)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "5.8 (22)",
+                                     "Bore x Stroke (in)":  "3.07 x 3.23"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Lift (lbs)":  "1,323"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO RPM":  "540 @ 2893",
+                                  "Mid PTO RPM":  "2000 @ 2875",
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "eMax",
+        "Model":  "eMax 22L HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Brakes":  "Wet Disc",
+                                          "Speeds":  "Infinite",
+                                          "Transmission":  "HST – 2 Range"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "900"
+                                 },
+                      "Engine":  {
+                                     "Engine HP (kW) @ RPM":  "24 (18) @ 2600",
+                                     "Engine Type":  "4-Stroke, NA, IDI, Water-Cooled Diesel, Tier 4",
+                                     "Displacement in³ (cc)":  "71.7 (1175)",
+                                     "Cylinders":  "3",
+                                     "Fuel Tank gal (L)":  "5.8 (22)",
+                                     "Bore x Stroke (in)":  "3.07 x 3.23"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Lift (lbs)":  "1,323"
+                                     },
+                      "PTO":  {
+                                  "Rear PTO RPM":  "540 @ 2550",
+                                  "Mid PTO RPM":  "2000",
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "eMax",
+        "Model":  "eMax 25L HST"
+    },
+    {
+        "Specs":  {
+                      "Drive Train":  {
+                                          "Transmission":  "Shuttle \u0026 HST",
+                                          "Drive":  "4WD"
+                                      },
+                      "Loader":  {
+                                     "Loader Lift Capacity (lbs)":  "1,402"
+                                 },
+                      "Engine":  {
+                                     "Engine HP":  "25.9 HP"
+                                 },
+                      "Hydraulics":  {
+                                         "3-Point Hitch Lift (lbs)":  "2,315"
+                                     },
+                      "PTO":  {
+                                  "PTO Type":  "Independent"
+                              }
+                  },
+        "Manufacturer":  "MAH",
+        "Series":  "Max",
+        "Model":  "Max 26 XLT"
+    }
+]
