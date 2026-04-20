@@ -80,6 +80,32 @@
         "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776320668/peachoutdoor/defaults/bad/push/_series/photo_1.jpg"
     },
     {
+        "InventoryID":  23602,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "MOWER",
+        "Series":  "ELITE",
+        "Model":  "BZSM60FR730",
+        "Description":  "Bad Boy ZT Elite Military 60\" Kawasaki FR730V",
+        "SerialNumber":  "BZSM60FR73004260499",
+        "Location":  "CLA",
+        "MSRP":  7723,
+        "Web_Price":  6199,
+        "Used":  false,
+        "FeaturedItem":  true,
+        "Notes":  "WEB CASH PRICE ONLY\r\nhttps://badboycountry.com/mowers/zt-elite-military-edition",
+        "AboutThisItem":  "Mow For a Cause\r\nBad Boy’s Limited-Edition Military Mower is an American Made salute to our country’s heroes. This custom ZT Elite features a patriotic design that pays tribute to our armed forces.\r\n\r\nA portion of all proceeds will support 5 incredible veteran-based non-profits we’re proud to partner with. Help us give back to our nation’s heroes through power, performance, and attitude.",
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721204/peachoutdoor/23602_BZSM60FR73004260499/photo_163818.jpg",
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "ZT Elite",
+        "AllPhotos":  [
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721204/peachoutdoor/23602_BZSM60FR73004260499/photo_163818.jpg",
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721206/peachoutdoor/23602_BZSM60FR73004260499/photo_163840.jpg",
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721209/peachoutdoor/23602_BZSM60FR73004260499/photo_163851.jpg",
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721213/peachoutdoor/23602_BZSM60FR73004260499/photo_163900.jpg",
+                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721216/peachoutdoor/23602_BZSM60FR73004260499/photo_163912.jpg"
+                      ]
+    },
+    {
         "InventoryID":  23149,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -3207,32 +3233,6 @@
                           "https://res.cloudinary.com/dtidlilrj/image/upload/v1776705667/peachoutdoor/23594_BZS60FR73004260245/photo_113720.jpg",
                           "https://res.cloudinary.com/dtidlilrj/image/upload/v1776705670/peachoutdoor/23594_BZS60FR73004260245/photo_113729.jpg",
                           "https://res.cloudinary.com/dtidlilrj/image/upload/v1776705672/peachoutdoor/23594_BZS60FR73004260245/photo_113742.jpg"
-                      ]
-    },
-    {
-        "InventoryID":  23602,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "ELITE",
-        "Model":  "BZSM60FR730",
-        "Description":  "Bad Boy ZT Elite Military 60\" Kawasaki FR730V",
-        "SerialNumber":  "BZSM60FR73004260499",
-        "Location":  "CLA",
-        "MSRP":  7723,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721204/peachoutdoor/23602_BZSM60FR73004260499/photo_163818.jpg",
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  "ZT Elite",
-        "AllPhotos":  [
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721204/peachoutdoor/23602_BZSM60FR73004260499/photo_163818.jpg",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721206/peachoutdoor/23602_BZSM60FR73004260499/photo_163840.jpg",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721209/peachoutdoor/23602_BZSM60FR73004260499/photo_163851.jpg",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721213/peachoutdoor/23602_BZSM60FR73004260499/photo_163900.jpg",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/v1776721216/peachoutdoor/23602_BZSM60FR73004260499/photo_163912.jpg"
                       ]
     },
     {
