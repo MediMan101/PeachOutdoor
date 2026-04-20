@@ -340,12 +340,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776708192/peachoutdoor/defaults/bad/blower/hb450/photo_1.webp",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1776708192/peachoutdoor/defaults/bad/blower/hb450/photo_1.webp"
     },
     {
         "InventoryID":  23263,
