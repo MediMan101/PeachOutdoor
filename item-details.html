@@ -874,7 +874,14 @@
 
             // Open chat widget (Kenect opens via its own default button)
             if (clipboardSuccess) {
-                alert('📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the chat message field.');
+                alert('📋 Item details copied to your clipboard!\n\n' + itemInfo + '\n\n' +
+                      'Next steps:\n' +
+                      '1. Click the "Text us!" button at the bottom-right of the screen\n' +
+                      '2. Select "Peach Outdoor Sales"\n' +
+                      '3. Enter your Name and Phone Number\n' +
+                      '4. Click in the message area and Paste (Ctrl+V on PC, or press and hold then Paste on phone)\n' +
+                      '5. Click SEND\n\n' +
+                      'We\'ll get back to you shortly!');
             }
         }
 
