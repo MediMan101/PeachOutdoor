@@ -1,0 +1,25 @@
+# Redirects from old dealer CMS platform to new Netlify site
+# Old inventory listing pages -> new inventory page
+/mowers-tractors-utvs-for-sale--xAllInventory         /inventory.html   301
+/mowers-tractors-utvs-for-sale--xAllInventory*        /inventory.html   301
+/default.asp                                           /inventory.html   301
+
+# Old individual unit detail pages -> inventory
+/New-Inventory-*                                       /inventory.html   301
+/Used-Inventory-*                                      /inventory.html   301
+
+# Old hours/location/about pages -> about page
+/--hours                                               /about.html       301
+/mowers-tractors-utvs-dealership--hours-service-center /about.html      301
+/mowers-tractors-utvs-dealership--hours*               /about.html      301
+
+# Old showroom/configurator style pages -> configurator
+/inventory/v1                                          /configurator.html 301
+/inventory/*                                           /inventory.html   301
+
+# Old financing pages -> financing
+/financing*                                            /financing.html   301
+/apply*                                                /financing.html   301
+
+# Catch-all for any other old CMS paths not matched above -> home
+/*                                                     /index.html       200
