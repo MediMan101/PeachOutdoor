@@ -521,6 +521,131 @@
             .price-main { font-size: 2em; }
             .info-panel { padding: 22px; }
         }
+        /* ── Get a Quote button ── */
+        .btn-quote {
+            width: 100%;
+            padding: 16px;
+            background: #2a7d2e;
+            color: #fff;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.05em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-quote:hover {
+            background: #235f26;
+            transform: translateY(-2px);
+        }
+
+        /* ── Inquiry Modal ── */
+        .inquiry-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.65);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        .inquiry-overlay.open { display: flex; }
+        .inquiry-modal {
+            background: var(--charcoal-card, #1e1e1e);
+            border-radius: 12px;
+            padding: 32px 28px 24px;
+            width: 100%;
+            max-width: 520px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            color: var(--text-primary, #f0f0f0);
+        }
+        .inquiry-modal h2 {
+            margin: 0 0 4px;
+            font-size: 1.3em;
+            color: #fff;
+        }
+        .inquiry-modal .inquiry-subtitle {
+            font-size: 0.88em;
+            color: var(--text-secondary, #aaa);
+            margin-bottom: 20px;
+        }
+        .inquiry-modal .close-btn {
+            position: absolute;
+            top: 14px; right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: var(--text-secondary, #aaa);
+            cursor: pointer;
+            line-height: 1;
+        }
+        .inquiry-modal .close-btn:hover { color: #fff; }
+        .inq-row { display: flex; gap: 12px; margin-bottom: 12px; }
+        .inq-row .inq-field { flex: 1; }
+        .inq-field { margin-bottom: 12px; }
+        .inq-field label {
+            display: block;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--text-secondary, #aaa);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .inq-field input, .inq-field select {
+            width: 100%;
+            padding: 10px 12px;
+            background: var(--charcoal-light, #2a2a2a);
+            border: 1px solid var(--charcoal-border, #3a3a3a);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 0.95em;
+            box-sizing: border-box;
+        }
+        .inq-field input:focus, .inq-field select:focus {
+            outline: none;
+            border-color: var(--accent, #e87722);
+        }
+        .inq-field input::placeholder { color: #666; }
+        .inq-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 0 20px;
+            font-size: 0.88em;
+            color: var(--text-secondary, #aaa);
+            cursor: pointer;
+        }
+        .inq-checkbox input { width: auto; margin: 0; }
+        .btn-inq-submit {
+            width: 100%;
+            padding: 14px;
+            background: #2a7d2e;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-inq-submit:hover { background: #235f26; }
+        .btn-inq-submit:disabled { background: #555; cursor: not-allowed; }
+        .inq-success {
+            text-align: center;
+            padding: 20px 0 10px;
+        }
+        .inq-success .inq-check { font-size: 3em; }
+        .inq-success h3 { margin: 12px 0 6px; color: #4caf50; }
+        .inq-success p { color: var(--text-secondary, #aaa); font-size: 0.9em; }
     </style>
 </head>
 <body>
@@ -554,6 +679,14 @@
 
                 itemData = inventory.find(item => item.InventoryID == itemId);
                 if (!itemData) { showError('Item not found'); return; }
+
+                // Make item info available to the inquiry modal
+                window._currentInqItem = {
+                    id:        itemData.InventoryID || '',
+                    make:      itemData.Manufacturer || '',
+                    model:     itemData.Model || '',
+                    condition: itemData.Used ? 'Used' : 'New'
+                };
 
                 try {
                     const specsResponse = await fetch('specs.json');
@@ -619,6 +752,7 @@
                         (itemData.Notes ? '<div class="notes-box">&#128205; ' + itemData.Notes + '</div>' : '') +
                         (itemData.AboutThisItem ? '<div class="about-this-item"><div class="about-this-item-title">About This Item</div><div class="about-this-item-body">' + itemData.AboutThisItem + '</div></div>' : '') +
                         '<hr class="divider">' +
+                        '<button class="btn-quote" onclick="openInquiryModal()">&#128203; Get A Quote</button>' +
                         '<button class="btn-chat" onclick="chatAboutItem()">&#128172; Chat About This Item</button>' +
                         '<button class="btn-back" onclick="goBackToInventory()">&#8592; Browse More Items</button>' +
                     '</div></div>' +
@@ -774,6 +908,159 @@
             }
         })();
     </script>
+
+<!-- ══════════════════════════════════════════
+     Get A Quote / Inquiry Modal
+══════════════════════════════════════════ -->
+<div class="inquiry-overlay" id="inquiryOverlay">
+  <div class="inquiry-modal">
+    <button class="close-btn" onclick="closeInquiryModal()">&#10005;</button>
+    <div id="inquiryFormArea">
+      <h2>&#128203; Get A Quote</h2>
+      <div class="inquiry-subtitle" id="inquiryItemLabel">Loading item info...</div>
+
+      <div class="inq-row">
+        <div class="inq-field">
+          <label>First Name *</label>
+          <input type="text" id="inqFirstName" placeholder="First name">
+        </div>
+        <div class="inq-field">
+          <label>Last Name *</label>
+          <input type="text" id="inqLastName" placeholder="Last name">
+        </div>
+      </div>
+      <div class="inq-field">
+        <label>Phone *</label>
+        <input type="tel" id="inqPhone" placeholder="(555) 555-5555">
+      </div>
+      <div class="inq-field">
+        <label>Email Address *</label>
+        <input type="email" id="inqEmail" placeholder="you@example.com">
+      </div>
+      <div class="inq-field">
+        <label>Street Address</label>
+        <input type="text" id="inqAddress" placeholder="123 Main St">
+      </div>
+      <div class="inq-row">
+        <div class="inq-field">
+          <label>City</label>
+          <input type="text" id="inqCity" placeholder="City">
+        </div>
+        <div class="inq-field" style="max-width:90px">
+          <label>State</label>
+          <input type="text" id="inqState" placeholder="AL" maxlength="2">
+        </div>
+        <div class="inq-field" style="max-width:110px">
+          <label>Zip</label>
+          <input type="text" id="inqZip" placeholder="00000">
+        </div>
+      </div>
+      <label class="inq-checkbox">
+        <input type="checkbox" id="inqNewsletter" checked>
+        Sign me up for the Peach Outdoor newsletter
+      </label>
+      <button class="btn-inq-submit" id="inqSubmitBtn" onclick="submitInquiry()">Send My Inquiry</button>
+    </div>
+    <div class="inq-success" id="inquirySuccess" style="display:none">
+      <div class="inq-check">&#9989;</div>
+      <h3>Inquiry Sent!</h3>
+      <p>A member of our team will be in touch with you shortly.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ── Inquiry Modal ──────────────────────────────
+  var _inqItem = {};
+
+  function openInquiryModal() {
+    // Pull item data from the global currentItem set during page load
+    var item = window._currentInqItem || {};
+    document.getElementById('inquiryItemLabel').textContent =
+      (item.make || '') + (item.model ? ' ' + item.model : '') || 'Item Inquiry';
+    document.getElementById('inqFirstName').value = '';
+    document.getElementById('inqLastName').value = '';
+    document.getElementById('inqPhone').value = '';
+    document.getElementById('inqEmail').value = '';
+    document.getElementById('inqAddress').value = '';
+    document.getElementById('inqCity').value = '';
+    document.getElementById('inqState').value = '';
+    document.getElementById('inqZip').value = '';
+    document.getElementById('inqNewsletter').checked = true;
+    document.getElementById('inquiryFormArea').style.display = '';
+    document.getElementById('inquirySuccess').style.display = 'none';
+    document.getElementById('inqSubmitBtn').disabled = false;
+    document.getElementById('inqSubmitBtn').textContent = 'Send My Inquiry';
+    document.getElementById('inquiryOverlay').classList.add('open');
+  }
+
+  function closeInquiryModal() {
+    document.getElementById('inquiryOverlay').classList.remove('open');
+  }
+
+  // Close if user clicks outside modal
+  document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeInquiryModal();
+  });
+
+  async function submitInquiry() {
+    var firstName = document.getElementById('inqFirstName').value.trim();
+    var lastName  = document.getElementById('inqLastName').value.trim();
+    var phone     = document.getElementById('inqPhone').value.trim();
+    var email     = document.getElementById('inqEmail').value.trim();
+
+    if (!firstName || !lastName || !phone || !email) {
+      alert('Please fill in First Name, Last Name, Phone, and Email.');
+      return;
+    }
+
+    var btn = document.getElementById('inqSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    var item = window._currentInqItem || {};
+    var itemUrl = window.location.href;
+
+    var payload = {
+      firstName:      firstName,
+      lastName:       lastName,
+      phone:          phone,
+      email:          email,
+      address:        document.getElementById('inqAddress').value.trim(),
+      city:           document.getElementById('inqCity').value.trim(),
+      state:          document.getElementById('inqState').value.trim(),
+      zip:            document.getElementById('inqZip').value.trim(),
+      interestedMake:  item.make  || '',
+      interestedModel: item.model || '',
+      condition:      item.condition || 'New',
+      location:       'Clanton',
+      itemId:         item.id   || '',
+      itemUrl:        itemUrl,
+      newsletterOptIn: document.getElementById('inqNewsletter').checked
+    };
+
+    try {
+      var resp = await fetch('/.netlify/functions/send-inquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      var result = await resp.json();
+      if (result.success) {
+        document.getElementById('inquiryFormArea').style.display = 'none';
+        document.getElementById('inquirySuccess').style.display = '';
+      } else {
+        alert('There was a problem sending your inquiry. Please call us directly.');
+        btn.disabled = false;
+        btn.textContent = 'Send My Inquiry';
+      }
+    } catch (err) {
+      alert('There was a problem sending your inquiry. Please call us directly.');
+      btn.disabled = false;
+      btn.textContent = 'Send My Inquiry';
+    }
+  }
+</script>
 
 <!-- Live Chat Widget (Kenect) -->
 <script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
