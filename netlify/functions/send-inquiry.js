@@ -45,7 +45,7 @@ ${itemUrl || ''}`;
         from: 'Peach Outdoor Inquiries <noreply@peachoutdoor.com>',
         to: [
           'sherylsmith147@gmail.com',
-          'john.medicomp@gmail.com',
+          'peachout.john@gmail.com',
           'markstowingandauto@gmail.com',
           'peachout.inventory@gmail.com'
         ],
