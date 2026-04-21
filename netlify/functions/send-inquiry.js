@@ -42,7 +42,7 @@ ${itemUrl || ''}`;
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'Peach Outdoor Inquiries <onboarding@resend.dev>',
+        from: 'Peach Outdoor Inquiries <noreply@peachoutdoor.com>',
         to: [
           'sherylsmith147@gmail.com',
           'john.medicomp@gmail.com',
