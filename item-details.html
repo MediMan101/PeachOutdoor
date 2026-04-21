@@ -1050,12 +1050,12 @@
         document.getElementById('inquiryFormArea').style.display = 'none';
         document.getElementById('inquirySuccess').style.display = '';
       } else {
-        alert('There was a problem sending your inquiry. Please call us directly.');
+        alert('Error: ' + JSON.stringify(result));
         btn.disabled = false;
         btn.textContent = 'Send My Inquiry';
       }
     } catch (err) {
-      alert('There was a problem sending your inquiry. Please call us directly.');
+      alert('Exception: ' + err.message);
       btn.disabled = false;
       btn.textContent = 'Send My Inquiry';
     }
