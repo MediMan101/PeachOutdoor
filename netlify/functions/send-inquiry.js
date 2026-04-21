@@ -1,5 +1,3 @@
-const nodemailer = require('nodemailer');
-
 exports.handler = async (event, context) => {
   if (event.httpMethod !== 'POST') {
     return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
@@ -9,24 +7,12 @@ exports.handler = async (event, context) => {
     const data = JSON.parse(event.body);
 
     const {
-      firstName,
-      lastName,
-      phone,
-      email,
-      address,
-      city,
-      state,
-      zip,
-      interestedMake,
-      interestedModel,
-      condition,
-      location,
-      itemId,
-      itemUrl,
+      firstName, lastName, phone, email,
+      address, city, state, zip,
+      interestedMake, interestedModel,
+      condition, location, itemId, itemUrl,
       newsletterOptIn
     } = data;
-
-    const subject = `Peach Outdoor Get A Quote Form`;
 
     const emailBody =
 `First Name: ${firstName || ''}
@@ -47,37 +33,41 @@ SourcePage: inquiry
 formpage: inquiry
 NewsletterOptIn: ${newsletterOptIn ? 'Y' : 'N'}
 [Inquiry][]
-${itemUrl || ''}
-`;
+${itemUrl || ''}`;
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        from: 'Peach Outdoor Inquiries <onboarding@resend.dev>',
+        to: [
+          'sherylsmith147@gmail.com',
+          'john.medicomp@gmail.com',
+          'markstowingandauto@gmail.com',
+          'peachout.inventory@gmail.com'
+        ],
+        reply_to: email || undefined,
+        subject: 'Peach Outdoor Get A Quote Form',
+        text: emailBody
+      })
     });
 
-    // Distribution list: sherylsmith147, john, markstowingandauto, peachout.inventory
-    // (rayfarris0 excluded per request)
-    const recipients = [
-      'sherylsmith147@gmail.com',
-      process.env.EMAIL_USER,
-      'markstowingandauto@gmail.com',
-      'peachout.inventory@gmail.com'
-    ].join(', ');
+    const result = await response.json();
 
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: recipients,
-      replyTo: email || '',
-      subject: subject,
-      text: emailBody
-    });
+    if (!response.ok) {
+      console.error('Resend error:', JSON.stringify(result));
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Failed to send', details: result })
+      };
+    }
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, message: 'Your inquiry has been sent!' })
+      body: JSON.stringify({ success: true })
     };
 
   } catch (error) {
