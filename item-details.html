@@ -964,6 +964,10 @@
           <input type="text" id="inqZip" placeholder="00000">
         </div>
       </div>
+      <div class="inq-field">
+        <label>Message (optional)</label>
+        <textarea id="inqMessage" placeholder="Any questions or details you'd like to share..." rows="3" style="width:100%;padding:10px 12px;background:var(--charcoal-light,#2a2a2a);border:1px solid var(--charcoal-border,#3a3a3a);border-radius:6px;color:#fff;font-size:0.95em;box-sizing:border-box;resize:vertical;font-family:inherit;"></textarea>
+      </div>
       <label class="inq-checkbox">
         <input type="checkbox" id="inqNewsletter" checked>
         Sign me up for the Peach Outdoor newsletter
@@ -996,6 +1000,7 @@
     document.getElementById('inqState').value = '';
     document.getElementById('inqZip').value = '';
     document.getElementById('inqNewsletter').checked = true;
+    document.getElementById('inqMessage').value = '';
     document.getElementById('inquiryFormArea').style.display = '';
     document.getElementById('inquirySuccess').style.display = 'none';
     document.getElementById('inqSubmitBtn').disabled = false;
@@ -1047,7 +1052,8 @@
       location:       'Clanton',
       itemId:         item.id   || '',
       itemUrl:        itemUrl,
-      newsletterOptIn: document.getElementById('inqNewsletter').checked
+      newsletterOptIn: document.getElementById('inqNewsletter').checked,
+      message:        document.getElementById('inqMessage').value.trim()
     };
 
     try {

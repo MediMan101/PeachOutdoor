@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
       interestedMake, interestedModel,
       condition, location, itemId, itemUrl,
       serialNumber, itemLocation,
-      newsletterOptIn
+      newsletterOptIn, message
     } = data;
 
     const fullName = `${firstName || ''} ${lastName || ''}`.trim();
@@ -78,6 +78,12 @@ exports.handler = async (event, context) => {
         <div class="field"><span class="label">Location</span><span class="value">${location || 'Clanton'}</span></div>
         <div class="field"><span class="label">Newsletter</span><span class="value"><span class="newsletter">${newsletterOptIn ? '✓ Opted In' : 'No'}</span></span></div>
       </div>
+
+      ${message ? `
+      <div class="section">
+        <div class="section-title">Customer Message</div>
+        <div style="background:#f9f9f9;border:1px solid #e0e0e0;border-radius:6px;padding:14px 16px;font-size:15px;color:#333;line-height:1.6;white-space:pre-wrap;">${message}</div>
+      </div>` : ''}
 
     </div>
     <div class="footer">
