@@ -11,6 +11,7 @@ exports.handler = async (event, context) => {
       address, city, state, zip,
       interestedMake, interestedModel,
       condition, location, itemId, itemUrl,
+      serialNumber, itemLocation,
       newsletterOptIn
     } = data;
 
@@ -57,6 +58,8 @@ exports.handler = async (event, context) => {
         <div class="highlight">
           <div class="make">${interestedMake || ''}</div>
           <div class="model">${interestedModel || ''}</div>
+          ${serialNumber ? `<div class="field" style="margin-top:8px;"><span class="label">Serial #</span><span class="value">${serialNumber}</span></div>` : ''}
+          ${itemLocation ? `<div class="field"><span class="label">Location</span><span class="value">${itemLocation}</span></div>` : ''}
           <div class="condition">${condition || 'New'}</div>
           ${itemUrl ? `<br><a class="item-link" href="${itemUrl}">View Item on Website &rarr;</a>` : ''}
         </div>

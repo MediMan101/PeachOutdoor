@@ -685,7 +685,9 @@
                     id:        itemData.InventoryID || '',
                     make:      itemData.Manufacturer || '',
                     model:     itemData.Model || '',
-                    condition: itemData.Used ? 'Used' : 'New'
+                    condition: itemData.Used ? 'Used' : 'New',
+                    serial:    itemData.SerialNumber || '',
+                    location:  itemData.Location || itemData.Branch || ''
                 };
 
                 try {
@@ -1040,6 +1042,8 @@
       interestedMake:  item.make  || '',
       interestedModel: item.model || '',
       condition:      item.condition || 'New',
+      serialNumber:   item.serial || '',
+      itemLocation:   item.location || '',
       location:       'Clanton',
       itemId:         item.id   || '',
       itemUrl:        itemUrl,
