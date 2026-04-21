@@ -738,10 +738,8 @@
                 } catch(e) {}
             }
 
-            // Open tawk.to chat widget
-            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-                Tawk_API.maximize();
-            }
+            // Open chat widget (Kenect opens via its own default button)
+            // tawk.to: if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) { Tawk_API.maximize(); }
             if (clipboardSuccess) {
                 alert('📋 Item details copied!\n\n' + itemInfo + '\n\nPaste (Ctrl+V) into the chat message field.');
             }
@@ -778,7 +776,11 @@
         })();
     </script>
 
-<!--Start of Tawk.to Script-->
+<!-- Live Chat Widget (Kenect) -->
+<script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+
+<!-- tawk.to Live Chat Widget (retained for future re-implementation)
+Start of Tawk.to Script
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
@@ -790,6 +792,6 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-<!--End of Tawk.to Script-->
+End of Tawk.to Script -->
 </body>
 </html>
