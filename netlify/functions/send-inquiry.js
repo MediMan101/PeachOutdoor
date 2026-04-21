@@ -59,9 +59,10 @@ ${itemUrl || ''}`;
 
     if (!response.ok) {
       console.error('Resend error:', JSON.stringify(result));
+      // Return the actual Resend error so we can diagnose
       return {
         statusCode: 500,
-        body: JSON.stringify({ error: 'Failed to send', details: result })
+        body: JSON.stringify({ error: 'Resend rejected', resend_status: response.status, resend_details: result })
       };
     }
 
@@ -74,7 +75,7 @@ ${itemUrl || ''}`;
     console.error('send-inquiry error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send inquiry', details: error.message })
+      body: JSON.stringify({ error: 'Exception thrown', details: error.message })
     };
   }
 };
