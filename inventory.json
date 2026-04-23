@@ -8702,6 +8702,28 @@
                       }
     },
     {
+        "InventoryID":  20263,
+        "Manufacturer":  "IronCraft",
+        "Department":  "IMP",
+        "Series":  "PHD",
+        "Model":  "PHDT",
+        "Description":  "IRON CRAFT ToolTuff Post Hole Digger",
+        "SerialNumber":  "356158",
+        "Location":  "CLA",
+        "MSRP":  965,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  22920,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
