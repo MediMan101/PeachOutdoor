@@ -152,32 +152,6 @@
         "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/v1775279426/peachoutdoor/inventory/22091/photo_1.png"
     },
     {
-        "InventoryID":  22312,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT232E",
-        "Description":  "LS TRACTOR MT232E GEAR 4WD",
-        "SerialNumber":  "2440000852",
-        "Location":  "CLA",
-        "MSRP":  25010,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  true,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/peachoutdoor/22312_2440000852/photo_161607",
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  "MT232E",
-        "AllPhotos":  [
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/peachoutdoor/22312_2440000852/photo_161607",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/peachoutdoor/22312_2440000852/photo_161615",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/peachoutdoor/22312_2440000852/photo_161624",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/peachoutdoor/22312_2440000852/photo_161640",
-                          "https://res.cloudinary.com/dtidlilrj/image/upload/f_auto,q_auto,w_1200/peachoutdoor/22312_2440000852/photo_161658"
-                      ]
-    },
-    {
         "InventoryID":  20138,
         "Manufacturer":  "Spartan Mowers",
         "Department":  "MOWER",
