@@ -440,9 +440,10 @@
         let currentPage = 1;
         const PAGE_SIZE = 24;
 
+        // URLs are pre-optimized in the database with f_auto,q_auto,w_1200 —
+        // no client-side transform injection needed. Return URL unchanged.
         function cloudinaryUrl(url) {
-            if (!url || !url.includes('res.cloudinary.com')) return url;
-            return url.replace('/upload/', '/upload/w_600,h_400,c_fill,q_auto,f_auto/');
+            return url;
         }
 
         // Load inventory

@@ -775,7 +775,7 @@
 
             var mainHtml =
                 '<div class="main-photo-wrap" id="mainPhotoWrap">' +
-                    '<img id="mainPhotoImg" src="' + cloudinaryUrl(photos[0], 'w_1200,h_900,c_limit,q_auto,f_auto') + '" alt="' + modelName + '">' +
+                    '<img id="mainPhotoImg" src="' + cloudinaryUrl(photos[0]) + '" alt="' + modelName + '">' +
                     (photos.length > 1 ?
                         '<button class="photo-nav prev" onclick="changePhoto(-1)">&#8249;</button>' +
                         '<button class="photo-nav next" onclick="changePhoto(1)">&#8250;</button>' +
@@ -788,7 +788,7 @@
             var thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
             for (var i = 0; i < photos.length; i++) {
                 thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
-                    '<img src="' + cloudinaryUrl(photos[i], 'w_200,h_160,c_fill,q_auto,f_auto') + '" alt="Photo ' + (i+1) + '">' +
+                    '<img src="' + cloudinaryUrl(photos[i]) + '" alt="Photo ' + (i+1) + '">' +
                     '</div>';
             }
             thumbsHtml += '</div>';
@@ -810,7 +810,7 @@
 
         function selectPhoto(index) {
             currentPhotoIndex = index;
-            document.getElementById('mainPhotoImg').src = cloudinaryUrl(allPhotos[index], 'w_1200,h_900,c_limit,q_auto,f_auto');
+            document.getElementById('mainPhotoImg').src = cloudinaryUrl(allPhotos[index]);
             document.querySelectorAll('.thumb').forEach(function(t, i) {
                 t.classList.toggle('active', i === index);
             });
@@ -818,9 +818,10 @@
             if (counter) counter.textContent = (index + 1) + ' / ' + allPhotos.length;
         }
 
-        function cloudinaryUrl(url, transform) {
-            if (!url || url.indexOf('res.cloudinary.com') === -1) return url;
-            return url.replace('/upload/', '/upload/' + transform + '/');
+        // URLs are pre-optimized in the database with f_auto,q_auto,w_1200 —
+        // no client-side transform injection needed. Return URL unchanged.
+        function cloudinaryUrl(url) {
+            return url;
         }
 
         /* Specs */
@@ -874,7 +875,6 @@
                 } catch(e) {}
             }
 
-            // Open chat widget (Kenect opens via its own default button)
             if (clipboardSuccess) {
                 alert('📋 Item details copied to your clipboard!\n\n' + itemInfo + '\n\n' +
                       'Next steps:\n' +
@@ -987,7 +987,6 @@
   var _inqItem = {};
 
   function openInquiryModal() {
-    // Pull item data from the global currentItem set during page load
     var item = window._currentInqItem || {};
     document.getElementById('inquiryItemLabel').textContent =
       (item.make || '') + (item.model ? ' ' + item.model : '') || 'Item Inquiry';
@@ -1012,7 +1011,6 @@
     document.getElementById('inquiryOverlay').classList.remove('open');
   }
 
-  // Close if user clicks outside modal
   document.getElementById('inquiryOverlay').addEventListener('click', function(e) {
     if (e.target === this) closeInquiryModal();
   });
