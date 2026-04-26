@@ -10936,12 +10936,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777203555/peachoutdoor/inventory/21513/photo_1.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777203555/peachoutdoor/inventory/21513/photo_1.jpg"
     },
     {
         "InventoryID":  21514,
