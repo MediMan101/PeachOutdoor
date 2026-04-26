@@ -11194,8 +11194,8 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777204247/peachoutdoor/inventory/21331/photo_1.jpg",
+        "PrimaryPhotoIsDefault":  true,
         "SpecModel":  null,
         "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777204247/peachoutdoor/inventory/21331/photo_1.jpg"
     },
