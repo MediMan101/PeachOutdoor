@@ -11194,10 +11194,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/LS/MT3/LS_MT3_Series.jpg",
-        "PrimaryPhotoIsDefault":  true,
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/LS/MT3/LS_MT3_Series.jpg"
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777204247/peachoutdoor/inventory/21331/photo_1.jpg"
     },
     {
         "InventoryID":  21403,
