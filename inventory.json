@@ -10956,12 +10956,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777203954/peachoutdoor/defaults/ls/mcg/_series/photo_1.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777203954/peachoutdoor/defaults/ls/mcg/_series/photo_1.jpg"
     },
     {
         "InventoryID":  21515,
@@ -10978,12 +10976,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777203954/peachoutdoor/defaults/ls/mcg/_series/photo_1.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://res.cloudinary.com/dtidlilrj/image/upload/v1777203954/peachoutdoor/defaults/ls/mcg/_series/photo_1.jpg"
     },
     {
         "InventoryID":  22502,
