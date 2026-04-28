@@ -3,7 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Details - Peach Outdoor</title>
+
+    <!-- SEO: dynamically populated by updatePageSEO() once item data loads -->
+    <title id="page-title">Item Details | Peach Outdoor</title>
+    <meta id="meta-description" name="description" content="Tractors, mowers, UTVs and outdoor power equipment from Peach Outdoor in Clanton, AL.">
+    <meta property="og:type" content="product">
+    <meta property="og:title" id="og-title" content="">
+    <meta property="og:description" id="og-description" content="">
+    <meta property="og:image" id="og-image" content="">
+    <meta property="og:url" id="og-url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" id="canonical-url" href="">
+    <script type="application/ld+json" id="product-schema"></script>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -704,7 +715,127 @@
             }
         }
 
+        function updatePageSEO(item) {
+            // Build a clean human title from available fields
+            const titleBase = [item.Manufacturer, item.Model].filter(Boolean).join(' ');
+            const headline  = item.Description ? item.Description : titleBase;
+
+            // Price string for title and meta
+            let priceText;
+            if (item.Web_Price != null) {
+                priceText = '$' + Number(item.Web_Price).toLocaleString('en-US', {
+                    minimumFractionDigits: 2, maximumFractionDigits: 2
+                });
+            } else {
+                priceText = 'Call for Price';
+            }
+
+            const condition = item.Used ? 'Used' : 'New';
+            const pageTitle = headline + ' — ' + priceText + ' | Peach Outdoor';
+
+            document.title = pageTitle;
+            const ogTitleEl = document.getElementById('og-title');
+            if (ogTitleEl) ogTitleEl.setAttribute('content', pageTitle);
+
+            // Meta description: prefer AboutThisItem, otherwise build a sensible default
+            let description;
+            if (item.AboutThisItem && item.AboutThisItem.length > 20) {
+                description = item.AboutThisItem.replace(/\s+/g, ' ').trim();
+                if (description.length > 160) {
+                    description = description.slice(0, 157).trim() + '…';
+                }
+            } else {
+                description = condition + ' ' + headline + ' for sale at Peach Outdoor in Clanton, AL. ' +
+                              priceText + '. Call 205-280-8838.';
+            }
+            const metaDescEl = document.getElementById('meta-description');
+            if (metaDescEl) metaDescEl.setAttribute('content', description);
+            const ogDescEl = document.getElementById('og-description');
+            if (ogDescEl) ogDescEl.setAttribute('content', description);
+
+            // Pick the first photo for social previews
+            let primaryImage = '';
+            if (item.AllPhotos && Array.isArray(item.AllPhotos) && item.AllPhotos.length > 0) {
+                primaryImage = item.AllPhotos[0];
+            } else if (item.PrimaryPhotoURL) {
+                primaryImage = item.PrimaryPhotoURL;
+            }
+            if (primaryImage) {
+                const ogImgEl = document.getElementById('og-image');
+                if (ogImgEl) ogImgEl.setAttribute('content', primaryImage);
+            }
+
+            // Canonical / og:url — point to the live item page on the production domain
+            const canonicalHref = 'https://peachoutdoor.com/item-details.html?id=' + encodeURIComponent(item.InventoryID);
+            const canonEl = document.getElementById('canonical-url');
+            if (canonEl) canonEl.setAttribute('href', canonicalHref);
+            const ogUrlEl = document.getElementById('og-url');
+            if (ogUrlEl) ogUrlEl.setAttribute('content', canonicalHref);
+
+            // JSON-LD structured data — Product schema
+            const schema = {
+                "@context": "https://schema.org/",
+                "@type": "Product",
+                "name": headline,
+                "description": (item.AboutThisItem || (condition + ' ' + headline + ' available at Peach Outdoor')),
+                "image": (item.AllPhotos && item.AllPhotos.length ? item.AllPhotos
+                          : (primaryImage ? [primaryImage] : [])),
+                "sku": String(item.InventoryID || ''),
+                "itemCondition": item.Used
+                    ? "https://schema.org/UsedCondition"
+                    : "https://schema.org/NewCondition",
+                "offers": {
+                    "@type": "Offer",
+                    "url": canonicalHref,
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock",
+                    "seller": {
+                        "@type": "AutoDealer",
+                        "name": "Peach Outdoor",
+                        "telephone": "+1-205-280-8838",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "1940 Big M Blvd",
+                            "addressLocality": "Clanton",
+                            "addressRegion": "AL",
+                            "postalCode": "35046",
+                            "addressCountry": "US"
+                        }
+                    }
+                }
+            };
+
+            if (item.Manufacturer) {
+                schema.brand = { "@type": "Brand", "name": item.Manufacturer };
+            }
+            if (item.Model)        schema.model        = item.Model;
+            if (item.SerialNumber) schema.serialNumber = item.SerialNumber;
+            if (item.Department)   schema.category     = item.Department;
+            if (item.MSRP)         schema.offers.priceSpecification = {
+                "@type": "PriceSpecification",
+                "priceCurrency": "USD",
+                "price": item.MSRP,
+                "valueAddedTaxIncluded": false
+            };
+            // Only include a numeric price if Web_Price is set; omit for "Call for Price"
+            if (item.Web_Price != null) {
+                schema.offers.price = Number(item.Web_Price);
+            } else {
+                // For "Call for Price" items, indicate price on request
+                schema.offers.availability = "https://schema.org/InStock";
+                schema.offers.priceSpecification = schema.offers.priceSpecification || {
+                    "@type": "PriceSpecification",
+                    "priceCurrency": "USD"
+                };
+            }
+
+            const schemaEl = document.getElementById('product-schema');
+            if (schemaEl) schemaEl.textContent = JSON.stringify(schema);
+        }
+
         function displayItem() {
+            updatePageSEO(itemData);
+
             const specLookup = itemData.SpecModel || itemData.Model;
             const specs = specsData.find(s => s.Model === specLookup);
 
