@@ -454,6 +454,20 @@
             return url;
         }
 
+        // Mirrors build.js makeSlug() exactly. Used to link to the
+        // pre-rendered clean URL for each item.
+        function makeItemSlug(item) {
+            const base = item.Description
+                || [item.Manufacturer, item.Model].filter(Boolean).join(' ')
+                || 'item';
+            let slug = base
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            if (slug.length > 60) slug = slug.slice(0, 60).replace(/-+$/, '');
+            return slug + '-' + item.InventoryID;
+        }
+
         // Load inventory
         async function loadInventory() {
             try {
@@ -583,7 +597,7 @@
             }
 
             grid.innerHTML = pageItems.map(item => {
-                const detailUrl = `item-details.html?id=${item.InventoryID}${window.location.search ? '&return=' + encodeURIComponent(window.location.search) : ''}`;
+                const detailUrl = `/inventory/${makeItemSlug(item)}${window.location.search ? '?return=' + encodeURIComponent(window.location.search) : ''}`;
                 const condBadge = item.Used
                     ? '<span class="badge badge-used">Used</span>'
                     : '<span class="badge badge-new">New</span>';

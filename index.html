@@ -1494,6 +1494,20 @@
 
     <!-- Featured Inventory Sidebar Loader -->
     <script>
+        // Mirrors build.js makeSlug() exactly. Used to link to the
+        // pre-rendered clean URL for each item.
+        function makeItemSlug(item) {
+            const base = item.Description
+                || [item.Manufacturer, item.Model].filter(Boolean).join(' ')
+                || 'item';
+            let slug = base
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            if (slug.length > 60) slug = slug.slice(0, 60).replace(/-+$/, '');
+            return slug + '-' + item.InventoryID;
+        }
+
         (async function loadFeaturedInventory() {
             const container = document.getElementById('featuredSidebarScroll');
             if (!container) return;
@@ -1527,7 +1541,7 @@
 
                     const link = document.createElement('a');
                     link.className = 'sidebar-item';
-                    link.href = `item-details.html?id=${item.InventoryID}&from=home`;
+                    link.href = `/inventory/${makeItemSlug(item)}?from=home`;
 
                     link.innerHTML = `
                         <div class="sidebar-item-body">
@@ -1664,7 +1678,7 @@
 
                     const card = document.createElement('a');
                     card.className = 'mobile-strip-card';
-                    card.href = `item-details.html?id=${item.InventoryID}&from=home`;
+                    card.href = `/inventory/${makeItemSlug(item)}?from=home`;
 
                     card.innerHTML = `
                         <div class="mobile-strip-img-wrap">

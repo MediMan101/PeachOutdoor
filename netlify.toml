@@ -1,5 +1,25 @@
 [build]
+  command = "node build.js"
+  publish = "."
   functions = "netlify/functions"
 
 [functions]
   node_bundler = "esbuild"
+
+# Sitemap and robots.txt should not be cached aggressively — they update
+# whenever inventory changes (every build).
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+
+# Pre-rendered item pages should also revalidate often.
+[[headers]]
+  for = "/inventory/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"

@@ -677,19 +677,25 @@
         const urlParams = new URLSearchParams(window.location.search);
         const itemId    = urlParams.get('id');
 
-        if (!itemId) {
-            showError('No item specified');
-        } else {
+        // Pre-rendered pages embed item data as window.__INITIAL_ITEM__ and have
+        // no ?id= query param. Legacy /item-details.html?id=N URLs still work via
+        // the fetch path inside loadItemDetails().
+        if (window.__INITIAL_ITEM__ || itemId) {
             loadItemDetails();
+        } else {
+            showError('No item specified');
         }
 
         async function loadItemDetails() {
             try {
-                const inventoryResponse = await fetch('inventory.json');
-                const inventory = await inventoryResponse.json();
-
-                itemData = inventory.find(item => item.InventoryID == itemId);
-                if (!itemData) { showError('Item not found'); return; }
+                if (window.__INITIAL_ITEM__) {
+                    itemData = window.__INITIAL_ITEM__;
+                } else {
+                    const inventoryResponse = await fetch('inventory.json');
+                    const inventory = await inventoryResponse.json();
+                    itemData = inventory.find(item => item.InventoryID == itemId);
+                    if (!itemData) { showError('Item not found'); return; }
+                }
 
                 // Make item info available to the inquiry modal
                 window._currentInqItem = {
@@ -713,6 +719,19 @@
                 console.error('Error loading item:', error);
                 showError('Unable to load item details');
             }
+        }
+
+        // Slug logic must mirror build.js makeSlug() exactly so canonicals match.
+        function makeItemSlug(item) {
+            const base = item.Description
+                || [item.Manufacturer, item.Model].filter(Boolean).join(' ')
+                || 'item';
+            let slug = base
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-+|-+$/g, '');
+            if (slug.length > 60) slug = slug.slice(0, 60).replace(/-+$/, '');
+            return slug + '-' + item.InventoryID;
         }
 
         function updatePageSEO(item) {
@@ -765,8 +784,9 @@
                 if (ogImgEl) ogImgEl.setAttribute('content', primaryImage);
             }
 
-            // Canonical / og:url — point to the live item page on the production domain
-            const canonicalHref = 'https://peachoutdoor.com/item-details.html?id=' + encodeURIComponent(item.InventoryID);
+            // Canonical / og:url — always point to the pre-rendered clean URL
+            // so legacy /item-details.html?id=N pages canonicalize correctly.
+            const canonicalHref = 'https://peachoutdoor.com/inventory/' + makeItemSlug(item);
             const canonEl = document.getElementById('canonical-url');
             if (canonEl) canonEl.setAttribute('href', canonicalHref);
             const ogUrlEl = document.getElementById('og-url');
