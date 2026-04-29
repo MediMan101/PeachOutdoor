@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Peach Outdoor</title>
+    <meta name="description" content="Get in touch with Peach Outdoor — Text us, request a quote, or chat live. Find our phone numbers, addresses, and current hours.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* ── Nav (matches about.html / lineup.html) ── */
+        nav {
+            background: #1a1a2e;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav .logo img { height: 48px; display: block; }
+        nav .nav-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        nav .nav-links a {
+            color: #ccc; text-decoration: none; font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover, nav .nav-links a.active { color: #fff; }
+
+        .nav-hamburger {
+            display: none;
+            flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+            background: none; border: none; cursor: pointer; padding: 8px;
+        }
+        .nav-hamburger .bar {
+            display: block; width: 24px; height: 3px;
+            background: #ccc; border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        .mobile-nav-menu { display: none; flex-direction: column; background: #1a1a1a; }
+        .mobile-nav-menu.open { display: flex; }
+        .mobile-nav-menu a {
+            display: block; color: #ccc; text-decoration: none;
+            font-size: 1em; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.05em; padding: 14px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .mobile-nav-menu a:hover { background: #333; color: #fff; }
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── Page wrapper ── */
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 40px 0 32px;
+            border-bottom: 1px solid #ddd;
+        }
+        .hero-tagline {
+            font-size: 12px; font-weight: bold;
+            letter-spacing: 0.1em; text-transform: uppercase;
+            color: #888; margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: 32px; font-weight: bold;
+            color: #1a1a2e; margin-bottom: 16px; line-height: 1.2;
+        }
+        .hero p {
+            font-size: 16px; color: #555; line-height: 1.7; max-width: 720px;
+        }
+
+        /* ── Action card row ── */
+        .actions-section { padding: 32px 0 8px; }
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+        .action-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 22px 20px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+            cursor: pointer;
+            transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+        }
+        .action-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+            border-color: #c8c8d0;
+        }
+        .action-icon {
+            font-size: 28px;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .action-card h3 {
+            font-size: 17px; font-weight: bold;
+            color: #1a1a2e;
+        }
+        .action-card p {
+            font-size: 13px; color: #666; line-height: 1.5;
+        }
+
+        /* ── Info section ── */
+        .info-section { padding: 36px 0 0; }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 760px) {
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        .info-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 22px;
+        }
+        .info-card h2 {
+            font-size: 18px; font-weight: bold;
+            color: #1a1a2e; margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .location-block { margin-bottom: 18px; }
+        .location-block:last-child { margin-bottom: 0; }
+        .location-label {
+            font-size: 11px; text-transform: uppercase;
+            letter-spacing: 0.1em; color: #888;
+            font-weight: 600; margin-bottom: 6px;
+        }
+        .location-phone {
+            display: inline-block;
+            font-size: 17px; font-weight: bold;
+            color: #1a1a2e; text-decoration: none;
+            margin-bottom: 4px;
+        }
+        .location-phone:hover { color: #ff6b35; }
+        .location-address {
+            font-size: 13px; color: #555; line-height: 1.5;
+        }
+        .location-address a {
+            color: #1a1a2e;
+            text-decoration: none;
+            border-bottom: 1px dotted #aaa;
+        }
+        .location-address a:hover {
+            color: #ff6b35; border-bottom-color: #ff6b35;
+        }
+
+        /* ── Hours table ── */
+        .status-pill {
+            display: inline-block;
+            font-size: 12px; font-weight: 700;
+            padding: 4px 10px; border-radius: 999px;
+            text-transform: uppercase; letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+        .status-open    { background: #e6f4ea; color: #1e7e34; }
+        .status-closed  { background: #fdecea; color: #b22222; }
+        .status-loading { background: #f0f0f5; color: #666; }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .hours-table tr { border-bottom: 1px solid #f0f0f0; }
+        .hours-table tr:last-child { border-bottom: none; }
+        .hours-table td {
+            padding: 8px 4px;
+        }
+        .hours-table .day-name { color: #555; }
+        .hours-table .day-hours {
+            text-align: right;
+            color: #222;
+            font-weight: 500;
+        }
+        .hours-table tr.today {
+            background: #fff8f0;
+        }
+        .hours-table tr.today .day-name {
+            color: #ff6b35;
+            font-weight: 700;
+        }
+        .hours-table tr.today .day-hours {
+            color: #ff6b35;
+            font-weight: 700;
+        }
+        .football-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #777;
+            font-style: italic;
+            line-height: 1.5;
+            padding-top: 12px;
+            border-top: 1px dashed #e0e0e0;
+        }
+        .football-note strong { color: #b22222; font-style: normal; }
+
+        /* ── Inquiry Modal (generic Get A Quote) ── */
+        .inquiry-overlay {
+            display: none;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 9999;
+            align-items: flex-start;
+            justify-content: center;
+            overflow-y: auto;
+            padding: 30px 12px;
+        }
+        .inquiry-overlay.open { display: flex; }
+        .inquiry-modal {
+            background: #fff;
+            border-radius: 10px;
+            max-width: 540px;
+            width: 100%;
+            padding: 26px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        .inquiry-modal h2 {
+            font-size: 22px; color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+        .inquiry-modal .subtitle {
+            font-size: 14px; color: #666;
+            margin-bottom: 20px;
+        }
+        .close-btn {
+            position: absolute; top: 12px; right: 14px;
+            background: none; border: none; font-size: 22px;
+            color: #888; cursor: pointer; line-height: 1;
+        }
+        .close-btn:hover { color: #1a1a2e; }
+        .inq-row {
+            display: flex; gap: 10px; flex-wrap: wrap;
+        }
+        .inq-row .inq-field { flex: 1; min-width: 140px; }
+        .inq-field { margin-bottom: 12px; }
+        .inq-field label {
+            display: block; font-size: 12px; font-weight: 600;
+            color: #555; margin-bottom: 4px;
+        }
+        .inq-field input,
+        .inq-field select,
+        .inq-field textarea {
+            width: 100%; padding: 9px 11px;
+            border: 1px solid #ccc; border-radius: 6px;
+            font-size: 14px; font-family: inherit;
+            background: #fafafa;
+            color: #222;
+        }
+        .inq-field input:focus,
+        .inq-field select:focus,
+        .inq-field textarea:focus {
+            outline: none; border-color: #1a1a2e;
+            background: #fff;
+        }
+        .inq-field textarea { resize: vertical; min-height: 70px; }
+        .inq-checkbox {
+            display: flex; align-items: center;
+            gap: 8px; font-size: 13px; color: #555;
+            margin: 8px 0 14px;
+            cursor: pointer;
+        }
+        .inq-checkbox input {
+            width: auto;
+        }
+        .btn-inq-submit {
+            width: 100%;
+            background: #ff6b35;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+        .btn-inq-submit:hover:not(:disabled) { background: #ff8552; }
+        .btn-inq-submit:disabled { opacity: 0.6; cursor: wait; }
+        .inq-success {
+            text-align: center; padding: 20px 10px;
+        }
+        .inq-success .check { font-size: 44px; }
+        .inq-success h3 {
+            color: #1a1a2e;
+            margin: 8px 0 6px;
+            font-size: 20px;
+        }
+        .inq-success p { color: #666; font-size: 14px; }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a2e; color: #aaa;
+            text-align: center; padding: 20px;
+            font-size: 13px; margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 24px; }
+            .actions-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="logo" href="index.html"><img src="PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="lineup.html">Lineup</a>
+        <a href="financing.html">Financing</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="about.html">About Us</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+</nav>
+<div class="mobile-nav-menu" id="mobileNavMenu">
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="lineup.html">Lineup</a>
+    <a href="financing.html">Financing</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="about.html">About Us</a>
+</div>
+
+<div class="page-wrapper">
+
+    <div class="hero">
+        <p class="hero-tagline">Contact Us</p>
+        <h1>We're here to help</h1>
+        <p>Text us, request a quote, hop on live chat, or give us a call &mdash; whichever way is easiest for you. Our team is usually available during the hours below and responds quickly. We do require sleep though.</p>
+    </div>
+
+    <!-- ─── Quick action buttons ─── -->
+    <section class="actions-section">
+        <div class="actions-grid">
+            <a class="action-card" id="textUsCard" href="#">
+                <div class="action-icon">&#128241;</div>
+                <h3>Text Us</h3>
+                <p>Open your messages app pre-filled and send us a text. Fastest way to reach sales.</p>
+            </a>
+            <a class="action-card" href="#" onclick="openInquiryModal(); return false;">
+                <div class="action-icon">&#128203;</div>
+                <h3>Get A Quote</h3>
+                <p>Tell us what you're looking for and we'll send pricing and availability your way.</p>
+            </a>
+            <a class="action-card" href="#" onclick="openLiveChat(); return false;">
+                <div class="action-icon">&#128172;</div>
+                <h3>Live Chat</h3>
+                <p>Chat with our team right here on the site &mdash; usually available during business hours.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ─── Info grid: Reach us / Hours ─── -->
+    <section class="info-section">
+        <div class="info-grid">
+
+            <div class="info-card">
+                <h2>Reach us</h2>
+
+                <div class="location-block" id="salesBlock">
+                    <div class="location-label">Sales</div>
+                    <a class="location-phone" id="salesPhone" href="#">Loading...</a>
+                    <div class="location-address" id="salesAddress"></div>
+                </div>
+
+                <div class="location-block" id="serviceBlock">
+                    <div class="location-label">Service</div>
+                    <a class="location-phone" id="servicePhone" href="#">Loading...</a>
+                    <div class="location-address" id="serviceAddress"></div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h2>Hours</h2>
+                <span class="status-pill status-loading" id="statusPill">Checking...</span>
+                <table class="hours-table" id="hoursTable">
+                    <tbody><!-- rendered by script --></tbody>
+                </table>
+                <div class="football-note" id="footballNote" style="display:none"></div>
+            </div>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- ─── Get A Quote modal ─── -->
+<div class="inquiry-overlay" id="inquiryOverlay">
+    <div class="inquiry-modal">
+        <button class="close-btn" onclick="closeInquiryModal()" aria-label="Close">&#10005;</button>
+        <div id="inquiryFormArea">
+            <h2>&#128203; Get A Quote</h2>
+            <div class="subtitle">Tell us what you're looking for and we'll get back with pricing and availability.</div>
+
+            <div class="inq-row">
+                <div class="inq-field">
+                    <label>First Name *</label>
+                    <input type="text" id="inqFirstName" placeholder="First name">
+                </div>
+                <div class="inq-field">
+                    <label>Last Name *</label>
+                    <input type="text" id="inqLastName" placeholder="Last name">
+                </div>
+            </div>
+            <div class="inq-row">
+                <div class="inq-field">
+                    <label>Phone *</label>
+                    <input type="tel" id="inqPhone" placeholder="(555) 555-5555">
+                </div>
+                <div class="inq-field">
+                    <label>Email *</label>
+                    <input type="email" id="inqEmail" placeholder="you@example.com">
+                </div>
+            </div>
+            <div class="inq-field">
+                <label>What are you interested in?</label>
+                <select id="inqInterest">
+                    <option value="">General Inquiry</option>
+                    <option value="Mahindra">Mahindra Tractors</option>
+                    <option value="LS Tractor">LS Tractors &amp; Implements</option>
+                    <option value="Bad Boy">Bad Boy (Tractors / Mowers / UTVs)</option>
+                    <option value="Spartan Mowers">Spartan Mowers</option>
+                    <option value="Intimidator">Intimidator UTVs</option>
+                    <option value="IronCraft">IronCraft Implements</option>
+                    <option value="Bush Hog">Bush Hog Implements</option>
+                    <option value="Parts">Parts</option>
+                    <option value="Service">Service</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="inq-field">
+                <label>Tell us a bit more (optional)</label>
+                <textarea id="inqMessage" placeholder="Specific model, acreage, intended use, or any questions..." rows="3"></textarea>
+            </div>
+            <label class="inq-checkbox">
+                <input type="checkbox" id="inqNewsletter" checked>
+                Sign me up for the Peach Outdoor newsletter
+            </label>
+            <button class="btn-inq-submit" id="inqSubmitBtn" onclick="submitInquiry()">Send My Inquiry</button>
+        </div>
+        <div class="inq-success" id="inquirySuccess" style="display:none">
+            <div class="check">&#9989;</div>
+            <h3>Inquiry Sent!</h3>
+            <p>A member of our team will be in touch with you shortly.</p>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Peach Outdoor &mdash; Clanton, Alabama &mdash; I-65 Exit 205
+</footer>
+
+<script>
+/* ──────────────────────────────────────────────────────────────────
+   Mobile-nav hamburger (matches about.html / lineup.html behaviour)
+   ────────────────────────────────────────────────────────────────── */
+(function(){
+    var btn = document.getElementById('navHamburger');
+    var menu = document.getElementById('mobileNavMenu');
+    if(!btn || !menu) return;
+    btn.addEventListener('click', function(){
+        var o = menu.classList.toggle('open');
+        btn.classList.toggle('open', o);
+    });
+    document.addEventListener('click', function(e){
+        if(!btn.contains(e.target) && !menu.contains(e.target)){
+            menu.classList.remove('open');
+            btn.classList.remove('open');
+        }
+    });
+})();
+
+/* ──────────────────────────────────────────────────────────────────
+   Site-config loader: phones, addresses, hours
+   ────────────────────────────────────────────────────────────────── */
+var SITE_CONFIG = null;
+
+async function loadSiteConfig() {
+    try {
+        var res = await fetch('site-config.json', { cache: 'no-cache' });
+        SITE_CONFIG = await res.json();
+        renderContactInfo();
+        renderHours();
+    } catch (err) {
+        console.error('Failed to load site-config.json', err);
+        document.getElementById('statusPill').textContent = 'Hours unavailable';
+        document.getElementById('salesPhone').textContent = '(205) 280-8838';
+        document.getElementById('servicePhone').textContent = '(205) 280-1885';
+    }
+}
+
+/* ── Render the Sales / Service info card ── */
+function renderContactInfo() {
+    var c = SITE_CONFIG;
+
+    // Sales
+    var salesPhoneEl = document.getElementById('salesPhone');
+    salesPhoneEl.textContent = '\u260E\uFE0F ' + c.phone.sales;
+    salesPhoneEl.href = 'tel:' + c.phoneRaw.sales;
+
+    var salesAddr = c.address.sales;
+    var salesQuery = encodeURIComponent(salesAddr.street + ', ' + salesAddr.city + ', ' + salesAddr.state + ' ' + salesAddr.zip);
+    document.getElementById('salesAddress').innerHTML =
+        '<a href="https://www.google.com/maps/search/?api=1&query=' + salesQuery + '" ' +
+        'target="_blank" rel="noopener noreferrer">' +
+            salesAddr.street + '<br>' +
+            salesAddr.city + ', ' + salesAddr.state + ' ' + salesAddr.zip +
+        '</a>';
+
+    // Service
+    var servicePhoneEl = document.getElementById('servicePhone');
+    servicePhoneEl.textContent = '\u260E\uFE0F ' + c.phone.service;
+    servicePhoneEl.href = 'tel:' + c.phoneRaw.service;
+
+    var serviceAddr = c.address.service;
+    var serviceQuery = encodeURIComponent(serviceAddr.street + ', ' + serviceAddr.city + ', ' + serviceAddr.state + ' ' + serviceAddr.zip);
+    document.getElementById('serviceAddress').innerHTML =
+        '<a href="https://www.google.com/maps/search/?api=1&query=' + serviceQuery + '" ' +
+        'target="_blank" rel="noopener noreferrer">' +
+            serviceAddr.street + '<br>' +
+            serviceAddr.city + ', ' + serviceAddr.state + ' ' + serviceAddr.zip +
+        '</a>';
+
+    // Wire the Text Us card to a sms: link with the sales number
+    var smsBody = encodeURIComponent("Hi Peach Outdoor — I'm interested in ");
+    document.getElementById('textUsCard').href = 'sms:+1' + c.phoneRaw.sales + '?&body=' + smsBody;
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   Hours rendering (with Alabama football season Saturday override)
+   All comparisons happen in America/Chicago to match the dealership.
+   ────────────────────────────────────────────────────────────────── */
+
+var DAY_ORDER = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+var DAY_LABEL = {
+    monday: 'Monday', tuesday: 'Tuesday', wednesday: 'Wednesday',
+    thursday: 'Thursday', friday: 'Friday', saturday: 'Saturday', sunday: 'Sunday'
+};
+
+/* Get a Date that represents "now" expressed in America/Chicago wall-clock terms.
+   Trick: Intl can format a date in any timezone; we then re-parse those parts
+   into a Date so we can do same-zone arithmetic.                            */
+function nowInBusinessZone(tz) {
+    var fmt = new Intl.DateTimeFormat('en-US', {
+        timeZone: tz,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', hour12: false,
+        weekday: 'short'
+    });
+    var parts = {};
+    fmt.formatToParts(new Date()).forEach(function(p){ parts[p.type] = p.value; });
+    var d = new Date(
+        parseInt(parts.year, 10),
+        parseInt(parts.month, 10) - 1,
+        parseInt(parts.day, 10),
+        parseInt(parts.hour, 10),
+        parseInt(parts.minute, 10),
+        0
+    );
+    var map = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    d._jsDay = map[parts.weekday];
+    return d;
+}
+
+/* Convert "8:00 AM" -> { h: 8,  m: 0 }
+            "5:00 PM" -> { h: 17, m: 0 }                                   */
+function parseTimeToken(s) {
+    var m = /^(\d{1,2}):(\d{2})\s*(AM|PM)$/i.exec(s.trim());
+    if (!m) return null;
+    var h = parseInt(m[1], 10);
+    var min = parseInt(m[2], 10);
+    var pm = /pm/i.test(m[3]);
+    if (h === 12) h = 0;
+    if (pm) h += 12;
+    return { h: h, m: min };
+}
+
+/* Determine whether a given Date falls inside the football-season window. */
+function isInFootballSeason(d, fb) {
+    if (!fb || !fb.startDate || !fb.endDate) return false;
+    // Build start/end as local dates (the JSON dates are calendar dates, no time).
+    var s = fb.startDate.split('-').map(function(x){ return parseInt(x,10); });
+    var e = fb.endDate.split('-').map(function(x){ return parseInt(x,10); });
+    var start = new Date(s[0], s[1]-1, s[2], 0, 0, 0);
+    var end   = new Date(e[0], e[1]-1, e[2], 23, 59, 59);
+    return d >= start && d <= end;
+}
+
+/* Returns the effective hours for a given dayKey, accounting for the
+   football-season Saturday override.                                       */
+function getHoursForDay(dayKey, now) {
+    var c = SITE_CONFIG;
+    if (dayKey === 'saturday' && c.footballSeason && isInFootballSeason(now, c.footballSeason)) {
+        return c.footballSeason.saturday;
+    }
+    return c.hours[dayKey];
+}
+
+function renderHours() {
+    var c = SITE_CONFIG;
+    var now = nowInBusinessZone(c.timezone || 'America/Chicago');
+    var todayIdx = (now._jsDay + 6) % 7;   // shift Sun=0..Sat=6 -> Mon=0..Sun=6
+
+    var tbody = document.querySelector('#hoursTable tbody');
+    tbody.innerHTML = '';
+
+    for (var i = 0; i < DAY_ORDER.length; i++) {
+        var dayKey = DAY_ORDER[i];
+        var hrs = getHoursForDay(dayKey, now);
+        var label = DAY_LABEL[dayKey];
+        var hoursStr;
+        if (hrs === 'Closed' || hrs == null) {
+            hoursStr = 'Closed';
+        } else {
+            hoursStr = hrs.open + ' &ndash; ' + hrs.close;
+        }
+        var todayClass = (i === todayIdx) ? ' class="today"' : '';
+        tbody.insertAdjacentHTML('beforeend',
+            '<tr' + todayClass + '>' +
+                '<td class="day-name">' + label + '</td>' +
+                '<td class="day-hours">' + hoursStr + '</td>' +
+            '</tr>'
+        );
+    }
+
+    // Football-season banner only when the override is currently active
+    if (c.footballSeason && isInFootballSeason(now, c.footballSeason)) {
+        var n = document.getElementById('footballNote');
+        n.style.display = '';
+        n.innerHTML = '<strong>\u{1F3C8} Football season:</strong> ' +
+                      (c.footballSeason.label || 'Saturday hours adjusted during Alabama football season') +
+                      '. Standard Saturday hours are ' + c.hours.saturday.open + ' &ndash; ' + c.hours.saturday.close + '.';
+    }
+
+    // Open / Closed status pill
+    renderStatusPill(now, todayIdx);
+}
+
+function renderStatusPill(now, todayIdx) {
+    var c = SITE_CONFIG;
+    var pill = document.getElementById('statusPill');
+    var todayKey = DAY_ORDER[todayIdx];
+    var hrs = getHoursForDay(todayKey, now);
+
+    if (hrs === 'Closed' || hrs == null) {
+        pill.className = 'status-pill status-closed';
+        pill.textContent = 'Closed today';
+        var nextOpen = findNextOpening(now, todayIdx);
+        if (nextOpen) pill.textContent += ' \u2014 opens ' + nextOpen;
+        return;
+    }
+
+    var openT = parseTimeToken(hrs.open);
+    var closeT = parseTimeToken(hrs.close);
+    if (!openT || !closeT) {
+        pill.className = 'status-pill status-loading';
+        pill.textContent = 'Hours unavailable';
+        return;
+    }
+
+    var nowMins = now.getHours() * 60 + now.getMinutes();
+    var openMins = openT.h * 60 + openT.m;
+    var closeMins = closeT.h * 60 + closeT.m;
+
+    if (nowMins >= openMins && nowMins < closeMins) {
+        pill.className = 'status-pill status-open';
+        pill.textContent = 'Open now \u2014 closes at ' + hrs.close;
+    } else if (nowMins < openMins) {
+        pill.className = 'status-pill status-closed';
+        pill.textContent = 'Closed \u2014 opens today at ' + hrs.open;
+    } else {
+        pill.className = 'status-pill status-closed';
+        var nextOpen = findNextOpening(now, todayIdx);
+        pill.textContent = 'Closed' + (nextOpen ? ' \u2014 opens ' + nextOpen : '');
+    }
+}
+
+/* Walk forward day-by-day starting tomorrow until we find an open day,
+   return a string like "Monday at 8:00 AM" or "tomorrow at 8:00 AM".      */
+function findNextOpening(now, todayIdx) {
+    for (var step = 1; step <= 7; step++) {
+        var idx = (todayIdx + step) % 7;
+        var dayKey = DAY_ORDER[idx];
+        // Build a representative date for that day (the football-window check
+        // needs an actual date, not just a day-name). Add `step` days to now.
+        var future = new Date(now.getTime() + step * 86400000);
+        var hrs = getHoursForDay(dayKey, future);
+        if (hrs && hrs !== 'Closed') {
+            var label = (step === 1) ? 'tomorrow' : DAY_LABEL[dayKey];
+            return label + ' at ' + hrs.open;
+        }
+    }
+    return null;
+}
+
+loadSiteConfig();
+
+/* ──────────────────────────────────────────────────────────────────
+   Live Chat — try to nudge the Kenect widget; gentle fallback if not.
+   ────────────────────────────────────────────────────────────────── */
+function openLiveChat() {
+    // Common selectors for chat widgets / Kenect-style buttons
+    var candidates = document.querySelectorAll(
+        'iframe[id*="kenect" i], iframe[title*="chat" i], iframe[name*="chat" i], ' +
+        'button[id*="kenect" i], button[aria-label*="text us" i], button[aria-label*="chat" i], ' +
+        '[class*="kenect" i], [data-kenect]'
+    );
+    for (var i = 0; i < candidates.length; i++) {
+        try {
+            if (candidates[i].click) { candidates[i].click(); return; }
+        } catch (e) { /* ignore cross-origin or other click errors */ }
+    }
+    // Fallback: friendly nudge towards the floating widget
+    alert('Look for the chat icon in the bottom-right corner of the screen to start a live chat.');
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   Get A Quote modal (generic version, not tied to a specific item)
+   Posts to the same /.netlify/functions/send-inquiry endpoint that
+   item-details.html uses. Item-specific fields are sent empty.
+   ────────────────────────────────────────────────────────────────── */
+function openInquiryModal() {
+    ['inqFirstName','inqLastName','inqPhone','inqEmail','inqMessage'].forEach(function(id){
+        document.getElementById(id).value = '';
+    });
+    document.getElementById('inqInterest').value = '';
+    document.getElementById('inqNewsletter').checked = true;
+    document.getElementById('inquiryFormArea').style.display = '';
+    document.getElementById('inquirySuccess').style.display = 'none';
+    var btn = document.getElementById('inqSubmitBtn');
+    btn.disabled = false;
+    btn.textContent = 'Send My Inquiry';
+    document.getElementById('inquiryOverlay').classList.add('open');
+}
+
+function closeInquiryModal() {
+    document.getElementById('inquiryOverlay').classList.remove('open');
+}
+
+document.getElementById('inquiryOverlay').addEventListener('click', function(e){
+    if (e.target === this) closeInquiryModal();
+});
+
+async function submitInquiry() {
+    var firstName = document.getElementById('inqFirstName').value.trim();
+    var lastName  = document.getElementById('inqLastName').value.trim();
+    var phone     = document.getElementById('inqPhone').value.trim();
+    var email     = document.getElementById('inqEmail').value.trim();
+
+    if (!firstName || !lastName || !phone || !email) {
+        alert('Please fill in First Name, Last Name, Phone, and Email.');
+        return;
+    }
+
+    var btn = document.getElementById('inqSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    var interest = document.getElementById('inqInterest').value.trim();
+    var message  = document.getElementById('inqMessage').value.trim();
+
+    var payload = {
+        firstName:       firstName,
+        lastName:        lastName,
+        phone:           phone,
+        email:           email,
+        address:         '',
+        city:            '',
+        state:           '',
+        zip:             '',
+        interestedMake:  interest || 'General Inquiry',
+        interestedModel: '',
+        condition:       '',
+        serialNumber:    '',
+        itemLocation:    '',
+        location:        'Clanton',
+        itemId:          '',
+        itemUrl:         window.location.href,
+        newsletterOptIn: document.getElementById('inqNewsletter').checked,
+        message:         message
+    };
+
+    try {
+        var resp = await fetch('/.netlify/functions/send-inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        var result = await resp.json();
+        if (result.success) {
+            document.getElementById('inquiryFormArea').style.display = 'none';
+            document.getElementById('inquirySuccess').style.display = '';
+        } else {
+            alert('There was a problem sending your inquiry. Please call us directly.');
+            btn.disabled = false;
+            btn.textContent = 'Send My Inquiry';
+        }
+    } catch (err) {
+        alert('There was a problem sending your inquiry. Please call us directly.');
+        btn.disabled = false;
+        btn.textContent = 'Send My Inquiry';
+    }
+}
+</script>
+
+<!-- Live Chat Widget (Kenect) -->
+<script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+</body>
+</html>
