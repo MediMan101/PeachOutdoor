@@ -142,16 +142,35 @@
             background: #fff;
             border: 1px solid #e0e0e0;
             border-radius: 10px;
-            padding: 22px;
+            padding: 26px 22px 22px;
             display: flex;
             flex-direction: column;
+            position: relative;
+            overflow: hidden;
             transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+        }
+        /* Colored top stripe in the manufacturer's brand color */
+        .brand-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 5px;
+            background: var(--brand-color, #c8c8d0);
         }
         .brand-card:hover {
             box-shadow: 0 6px 20px rgba(0,0,0,0.08);
             transform: translateY(-2px);
-            border-color: #c8c8d0;
+            border-color: var(--brand-color, #c8c8d0);
         }
+
+        /* Per-manufacturer brand colors */
+        .brand-card[data-brand="mahindra"]    { --brand-color: rgba(200, 16, 46, 0.8); }  /* Mahindra red, softened */
+        .brand-card[data-brand="ls"]          { --brand-color: #0a4a87; }                 /* LS blue */
+        .brand-card[data-brand="badboy"]      { --brand-color: #ff6b00; }                 /* Bad Boy orange */
+        .brand-card[data-brand="ironcraft"]   { --brand-color: #37474f; }                 /* industrial charcoal */
+        .brand-card[data-brand="bushhog"]     { --brand-color: rgba(200, 16, 46, 0.8); }  /* Bush Hog red, softened */
+        .brand-card[data-brand="spartan"]     { --brand-color: #2c2c2c; }                 /* Spartan charcoal */
+        .brand-card[data-brand="intimidator"] { --brand-color: #2d7a3a; }                 /* Intimidator green */
 
         .brand-card-header {
             margin-bottom: 14px;
@@ -159,7 +178,7 @@
         .brand-card h3 {
             font-size: 22px;
             font-weight: bold;
-            color: #1a1a2e;
+            color: var(--brand-color, #1a1a2e);
             margin-bottom: 6px;
         }
         .brand-tagline {
@@ -213,6 +232,14 @@
         .btn-primary:hover {
             background: #2a2a4a;
             border-color: #2a2a4a;
+        }
+        /* Inside brand cards, the primary button takes the brand color */
+        .brand-card .btn-primary {
+            background: var(--brand-color, #1a1a2e);
+            border-color: var(--brand-color, #1a1a2e);
+        }
+        .brand-card .btn-primary:hover {
+            filter: brightness(1.12);
         }
         .btn-secondary {
             background: #fff;
@@ -349,7 +376,7 @@
         <div class="lineup-grid">
 
             <!-- Mahindra -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="mahindra">
                 <header class="brand-card-header">
                     <h3>Mahindra</h3>
                     <p class="brand-tagline">Tough, dependable tractors built with a cast-iron chassis for serious traction and durability &mdash; and we're one of the top-ranked Mahindra dealers in the nation.</p>
@@ -364,7 +391,7 @@
             </article>
 
             <!-- LS Tractor -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="ls">
                 <header class="brand-card-header">
                     <h3>LS Tractor</h3>
                     <p class="brand-tagline">Premium-quality tractors and matched implements with industry-leading components and warranty &mdash; another brand we're top-ranked in.</p>
@@ -380,7 +407,7 @@
             </article>
 
             <!-- Bad Boy -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="badboy">
                 <header class="brand-card-header">
                     <h3>Bad Boy</h3>
                     <p class="brand-tagline">An American-made full lineup &mdash; tractors, zero-turns, side-by-sides, implements, and a complete line of handheld outdoor power tools.</p>
@@ -399,7 +426,7 @@
             </article>
 
             <!-- IronCraft -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="ironcraft">
                 <header class="brand-card-header">
                     <h3>IronCraft</h3>
                     <p class="brand-tagline">American-made tractor implements &mdash; rotary cutters, box blades, post hole diggers, grapples, and more, all built to handle real work.</p>
@@ -414,7 +441,7 @@
             </article>
 
             <!-- Bush Hog -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="bushhog">
                 <header class="brand-card-header">
                     <h3>Bush Hog</h3>
                     <p class="brand-tagline">The original name in rotary cutters &mdash; plus a deep catalog of tractor-mounted implements trusted by farmers for decades.</p>
@@ -429,7 +456,7 @@
             </article>
 
             <!-- Spartan Mowers -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="spartan">
                 <header class="brand-card-header">
                     <h3>Spartan Mowers</h3>
                     <p class="brand-tagline">Heavy-duty, head-turning zero-turn mowers built for performance, longevity, and the comfort of an all-day ride.</p>
@@ -444,7 +471,7 @@
             </article>
 
             <!-- Intimidator -->
-            <article class="brand-card">
+            <article class="brand-card" data-brand="intimidator">
                 <header class="brand-card-header">
                     <h3>Intimidator</h3>
                     <p class="brand-tagline">American-built side-by-side UTVs with class-leading payload, towing capacity, and shift-on-the-fly 4&times;4 capability.</p>
