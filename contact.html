@@ -224,6 +224,78 @@
         }
         .football-note strong { color: #b22222; font-style: normal; }
 
+        /* ── Come see us card ── */
+        .come-see-section {
+            padding: 36px 0 0;
+        }
+        .come-see-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+        }
+        .come-see-text {
+            padding: 26px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .come-see-text h2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .come-see-text p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+        .come-see-address {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+            margin-bottom: 18px;
+            line-height: 1.5;
+        }
+        .btn-directions {
+            display: inline-block;
+            background: #ff6b35;
+            color: #fff;
+            padding: 11px 18px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.15s;
+            align-self: flex-start;
+        }
+        .btn-directions:hover { background: #ff8552; }
+        .come-see-map {
+            position: relative;
+            min-height: 280px;
+            background: #eee;
+        }
+        .come-see-map iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        @media (max-width: 760px) {
+            .come-see-card { grid-template-columns: 1fr; }
+            .come-see-map { min-height: 240px; }
+        }
+
         /* ── Inquiry Modal (generic Get A Quote) ── */
         .inquiry-overlay {
             display: none;
@@ -417,6 +489,31 @@
         </div>
     </section>
 
+    <!-- ─── Come see us — map + directions ─── -->
+    <section class="come-see-section">
+        <div class="come-see-card">
+            <div class="come-see-text">
+                <h2>Come see us</h2>
+                <p>We're located just off <strong>I-65 at Exit 205</strong> in Clanton, Alabama. Stop in and let our team help you find the right equipment.</p>
+                <div class="come-see-address">
+                    1940 Big M Blvd<br>
+                    Clanton, AL 35046
+                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=1940+Big+M+Blvd%2C+Clanton%2C+AL+35046"
+                   target="_blank" rel="noopener noreferrer"
+                   class="btn-directions">Get Directions &#8599;</a>
+            </div>
+            <div class="come-see-map">
+                <iframe
+                    src="https://maps.google.com/maps?q=1940+Big+M+Blvd+Clanton+AL+35046&z=15&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Peach Outdoor &mdash; 1940 Big M Blvd, Clanton AL"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
 </div>
 
 <!-- ─── Get A Quote modal ─── -->
@@ -506,23 +603,47 @@
 })();
 
 /* ──────────────────────────────────────────────────────────────────
-   Site-config loader: phones, addresses, hours
-   ────────────────────────────────────────────────────────────────── */
-var SITE_CONFIG = null;
+   Site config — inlined mock for now. Mirrors the structure of
+   site-config.json so it can be swapped back to a fetch later (e.g.
+   when SalesMan starts writing to the JSON file).
 
-async function loadSiteConfig() {
-    try {
-        var res = await fetch('site-config.json', { cache: 'no-cache' });
-        SITE_CONFIG = await res.json();
-        renderContactInfo();
-        renderHours();
-    } catch (err) {
-        console.error('Failed to load site-config.json', err);
-        document.getElementById('statusPill').textContent = 'Hours unavailable';
-        document.getElementById('salesPhone').textContent = '(205) 280-8838';
-        document.getElementById('servicePhone').textContent = '(205) 280-1885';
-    }
-}
+   To re-enable the Saturday football-season override, set
+   footballSeason to an object like:
+     { startDate: "2026-08-29", endDate: "2027-01-12",
+       saturday: { open: "8:00 AM", close: "12:00 PM" },
+       label: "Saturday hours during Alabama football season" }
+   ────────────────────────────────────────────────────────────────── */
+var SITE_CONFIG = {
+    phone: {
+        sales:   "(205) 280-8838",
+        service: "(205) 280-1885"
+    },
+    phoneRaw: {
+        sales:   "2052808838",
+        service: "2052801885"
+    },
+    address: {
+        sales: {
+            label: "Sales", street: "1940 Big M Blvd",
+            city: "Clanton", state: "AL", zip: "35046"
+        },
+        service: {
+            label: "Service", street: "2037 Christian St.",
+            city: "Clanton", state: "AL", zip: "35045"
+        }
+    },
+    hours: {
+        monday:    { open: "8:00 AM", close: "5:00 PM" },
+        tuesday:   { open: "8:00 AM", close: "5:00 PM" },
+        wednesday: { open: "8:00 AM", close: "5:00 PM" },
+        thursday:  { open: "8:00 AM", close: "5:00 PM" },
+        friday:    { open: "8:00 AM", close: "5:00 PM" },
+        saturday:  { open: "8:00 AM", close: "2:00 PM" },
+        sunday:    "Closed"
+    },
+    footballSeason: null,
+    timezone: "America/Chicago"
+};
 
 /* ── Render the Sales / Service info card ── */
 function renderContactInfo() {
@@ -728,7 +849,9 @@ function findNextOpening(now, todayIdx) {
     return null;
 }
 
-loadSiteConfig();
+/* Render now that SITE_CONFIG is inlined and immediately available. */
+renderContactInfo();
+renderHours();
 
 /* ──────────────────────────────────────────────────────────────────
    Live Chat — try to nudge the Kenect widget; gentle fallback if not.
