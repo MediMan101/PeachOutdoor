@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Lineup | Peach Outdoor</title>
+    <meta name="description" content="Explore the full lineup from our manufacturers — Mahindra, LS Tractor, Bad Boy, IronCraft, Bush Hog, Spartan Mowers, and Intimidator. If we don't have it on the lot, we can get it.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* ── Nav (matches about.html) ── */
+        nav {
+            background: #1a1a2e;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav .logo img {
+            height: 48px;
+            display: block;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover,
+        nav .nav-links a.active {
+            color: #fff;
+        }
+
+        /* Hamburger */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .nav-hamburger .bar {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: #ccc;
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile dropdown menu */
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            background: #1a1a1a;
+        }
+        .mobile-nav-menu.open { display: flex; }
+        .mobile-nav-menu a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 14px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .mobile-nav-menu a:hover { background: #333; color: #fff; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── Page wrapper ── */
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 40px 0 32px;
+            border-bottom: 1px solid #ddd;
+        }
+        .hero-tagline {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+            max-width: 760px;
+        }
+
+        /* ── Lineup grid ── */
+        .lineup-section {
+            padding: 36px 0 16px;
+        }
+
+        .lineup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 18px;
+        }
+
+        .brand-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.18s, transform 0.18s, border-color 0.18s;
+        }
+        .brand-card:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+            border-color: #c8c8d0;
+        }
+
+        .brand-card-header {
+            margin-bottom: 14px;
+        }
+        .brand-card h3 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+        .brand-tagline {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .brand-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .category-chip {
+            background: #f0f0f5;
+            border: 1px solid #e0e0e8;
+            border-radius: 999px;
+            padding: 4px 11px;
+            font-size: 12px;
+            color: #555;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .brand-actions {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.15s, color 0.15s, border-color 0.15s;
+            border: 1px solid transparent;
+            cursor: pointer;
+            line-height: 1.2;
+        }
+        .btn-primary {
+            background: #1a1a2e;
+            color: #fff;
+            border-color: #1a1a2e;
+        }
+        .btn-primary:hover {
+            background: #2a2a4a;
+            border-color: #2a2a4a;
+        }
+        .btn-secondary {
+            background: #fff;
+            color: #1a1a2e;
+            border-color: #c8c8d0;
+        }
+        .btn-secondary:hover {
+            background: #1a1a2e;
+            color: #fff;
+            border-color: #1a1a2e;
+        }
+        .btn-muted {
+            background: transparent;
+            color: #888;
+            border-color: transparent;
+            font-style: italic;
+            cursor: default;
+            padding-left: 0;
+        }
+
+        /* ── Bottom CTA ── */
+        .cta-section {
+            margin-top: 40px;
+            padding: 32px 24px;
+            background: #1a1a2e;
+            color: #fff;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .cta-section p {
+            font-size: 15px;
+            color: #cfcfd8;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section .btn-primary {
+            background: #ff6b35;
+            border-color: #ff6b35;
+        }
+        .cta-section .btn-primary:hover {
+            background: #ff8552;
+            border-color: #ff8552;
+        }
+        .cta-section .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border-color: #555;
+            margin-left: 6px;
+        }
+        .cta-section .btn-secondary:hover {
+            background: #fff;
+            color: #1a1a2e;
+            border-color: #fff;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 24px; }
+            .lineup-grid { grid-template-columns: 1fr; }
+            .brand-card { padding: 18px; }
+            .cta-section { padding: 26px 18px; }
+            .cta-section .btn-secondary { margin-left: 0; margin-top: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="logo" href="index.html"><img src="PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="lineup.html" class="active">Lineup</a>
+        <a href="financing.html">Financing</a>
+        <a href="about.html">About Us</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</nav>
+<div class="mobile-nav-menu" id="mobileNavMenu">
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="lineup.html" class="active">Lineup</a>
+    <a href="financing.html">Financing</a>
+    <a href="about.html">About Us</a>
+</div>
+
+<div class="page-wrapper">
+
+    <div class="hero">
+        <p class="hero-tagline">Product Lineup</p>
+        <h1>Explore the lineup from our manufacturers</h1>
+        <p>If it's not on the lot today, we can usually get it. Peach Outdoor is an authorized dealer for the brands below &mdash; tractors, mowers, side-by-sides, implements, and outdoor power equipment. Click any manufacturer to visit their full product catalog, or jump straight to what we have in stock right now.</p>
+    </div>
+
+    <!--
+        ───────────────────────────────────────────────────────────────────
+        MANUFACTURER CARDS
+        Each <article class="brand-card"> below is one manufacturer.
+        To swap an external manufacturer link for a future internal page:
+          1. Find the brand-card you want.
+          2. Change the href on the "Visit ... Site" anchor from the
+             external URL (e.g. https://www.mahindrausa.com/) to your
+             internal page (e.g. lineup/mahindra.html).
+          3. Remove the target="_blank" rel="noopener noreferrer" attrs.
+        Inventory links use ?mfg=<exact Manufacturer string from
+        inventory.json> so they pre-filter inventory.html.
+        ───────────────────────────────────────────────────────────────────
+    -->
+
+    <section class="lineup-section">
+        <div class="lineup-grid">
+
+            <!-- Mahindra -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>Mahindra</h3>
+                    <p class="brand-tagline">Tough, dependable tractors built with a cast-iron chassis for serious traction and durability &mdash; and we're one of the top-ranked Mahindra dealers in the nation.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Tractors</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.mahindrausa.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Mahindra Site &#8599;</a>
+                    <a href="inventory.html?mfg=Mahindra+USA" class="btn btn-secondary">See In-Stock</a>
+                </div>
+            </article>
+
+            <!-- LS Tractor -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>LS Tractor</h3>
+                    <p class="brand-tagline">Premium-quality tractors and matched implements with industry-leading components and warranty &mdash; another brand we're top-ranked in.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Tractors</span>
+                    <span class="category-chip">Implements</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.lstractorusa.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit LS Tractor Site &#8599;</a>
+                    <a href="inventory.html?mfg=LS+Tractor" class="btn btn-secondary">See In-Stock</a>
+                </div>
+            </article>
+
+            <!-- Bad Boy -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>Bad Boy</h3>
+                    <p class="brand-tagline">An American-made full lineup &mdash; tractors, zero-turns, side-by-sides, implements, and a complete line of handheld outdoor power tools.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Tractors</span>
+                    <span class="category-chip">Mowers</span>
+                    <span class="category-chip">Implements</span>
+                    <span class="category-chip">Side-by-Sides</span>
+                    <span class="category-chip">Handheld Tools</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.badboycountry.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Bad Boy Site &#8599;</a>
+                    <a href="inventory.html?mfg=Bad+Boy" class="btn btn-secondary">See In-Stock</a>
+                </div>
+            </article>
+
+            <!-- IronCraft -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>IronCraft</h3>
+                    <p class="brand-tagline">American-made tractor implements &mdash; rotary cutters, box blades, post hole diggers, grapples, and more, all built to handle real work.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Tractor Implements</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.ironcraftattachments.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit IronCraft Site &#8599;</a>
+                    <a href="inventory.html?mfg=IronCraft" class="btn btn-secondary">See In-Stock</a>
+                </div>
+            </article>
+
+            <!-- Bush Hog -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>Bush Hog</h3>
+                    <p class="brand-tagline">The original name in rotary cutters &mdash; plus a deep catalog of tractor-mounted implements trusted by farmers for decades.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Tractor Implements</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.bushhog.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Bush Hog Site &#8599;</a>
+                    <a href="inventory.html?mfg=Bush+Hog" class="btn btn-secondary">See In-Stock</a>
+                </div>
+            </article>
+
+            <!-- Spartan Mowers -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>Spartan Mowers</h3>
+                    <p class="brand-tagline">Heavy-duty, head-turning zero-turn mowers built for performance, longevity, and the comfort of an all-day ride.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Zero-Turn Mowers</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.spartanmowers.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Spartan Site &#8599;</a>
+                    <a href="inventory.html?mfg=Spartan+Mowers" class="btn btn-secondary">See In-Stock</a>
+                </div>
+            </article>
+
+            <!-- Intimidator -->
+            <article class="brand-card">
+                <header class="brand-card-header">
+                    <h3>Intimidator</h3>
+                    <p class="brand-tagline">American-built side-by-side UTVs with class-leading payload, towing capacity, and shift-on-the-fly 4&times;4 capability.</p>
+                </header>
+                <div class="brand-categories">
+                    <span class="category-chip">Side-by-Sides</span>
+                </div>
+                <div class="brand-actions">
+                    <a href="https://www.intimidatorutv.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Intimidator Site &#8599;</a>
+                    <span class="btn btn-muted">Available to order</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Don't see what you're looking for?</h2>
+        <p>If we don't have a particular model on the lot, we can usually get it ordered in. Reach out and our sales team will help you spec exactly what you need.</p>
+        <a href="about.html#contact" class="btn btn-primary">Contact Sales</a>
+        <a href="inventory.html" class="btn btn-secondary">Browse Full Inventory</a>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2026 Peach Outdoor &mdash; Clanton, Alabama &mdash; I-65 Exit 205
+</footer>
+
+<script>
+(function(){
+    var btn=document.getElementById('navHamburger'),menu=document.getElementById('mobileNavMenu');
+    if(!btn||!menu)return;
+    btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.classList.toggle('open',o);});
+    document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!menu.contains(e.target)){menu.classList.remove('open');btn.classList.remove('open');}});
+})();
+</script>
+<!-- Live Chat Widget (Kenect) -->
+<script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+</body>
+</html>
