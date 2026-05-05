@@ -442,7 +442,7 @@
             <a class="action-card" id="textUsCard" href="#">
                 <div class="action-icon">&#128241;</div>
                 <h3>Text Us</h3>
-                <p>Open your messages app pre-filled and send us a text. Fastest way to reach sales.</p>
+                <p>On your phone, send us a text pre-filled and ready to go. On desktop, we'll open live chat instead.</p>
             </a>
             <a class="action-card" href="#" onclick="openInquiryModal(); return false;">
                 <div class="action-icon">&#128203;</div>
@@ -677,9 +677,22 @@ function renderContactInfo() {
             serviceAddr.city + ', ' + serviceAddr.state + ' ' + serviceAddr.zip +
         '</a>';
 
-    // Wire the Text Us card to a sms: link with the sales number
+    // Wire the Text Us card: SMS app on mobile, tawk.to chat on desktop
     var smsBody = encodeURIComponent("Hi Peach Outdoor — I'm interested in ");
-    document.getElementById('textUsCard').href = 'sms:+1' + c.phoneRaw.sales + '?&body=' + smsBody;
+    var smsHref = 'sms:+1' + c.phoneRaw.sales + '?&body=' + smsBody;
+    var textUsCard = document.getElementById('textUsCard');
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        textUsCard.href = smsHref;
+    } else {
+        // Desktop: most desktops don't have an SMS app, so open tawk.to instead
+        textUsCard.href = '#';
+        textUsCard.addEventListener('click', function (e) {
+            e.preventDefault();
+            openLiveChat();
+        });
+    }
 }
 
 /* ──────────────────────────────────────────────────────────────────
