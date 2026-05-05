@@ -1002,40 +1002,11 @@
 
         /* Chat */
         function chatAboutItem() {
-            var priceStr = itemData.Web_Price != null
-                ? '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})
-                : 'Call for Price';
-            var itemInfo = 'Interested in: ' + itemData.Manufacturer + ' ' + itemData.Model +
-                ' - Serial #' + (itemData.SerialNumber || 'N/A') +
-                ' (ID: ' + itemData.InventoryID + ') - ' + priceStr;
-
-            var clipboardSuccess = false;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(itemInfo).then(function() { clipboardSuccess = true; }).catch(function(){});
+            if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+                Tawk_API.maximize();
+                return;
             }
-            if (!clipboardSuccess) {
-                try {
-                    var ta = document.createElement('textarea');
-                    ta.value = itemInfo;
-                    ta.style.cssText = 'position:fixed;opacity:0';
-                    document.body.appendChild(ta);
-                    ta.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(ta);
-                    clipboardSuccess = true;
-                } catch(e) {}
-            }
-
-            if (clipboardSuccess) {
-                alert('📋 Item details copied to your clipboard!\n\n' + itemInfo + '\n\n' +
-                      'Next steps:\n' +
-                      '1. Click the "Text us!" button at the bottom-right of the screen\n' +
-                      '2. Select "Peach Outdoor Sales"\n' +
-                      '3. Enter your Name and Phone Number\n' +
-                      '4. Click in the message area and Paste (Ctrl+V on PC, or press and hold then Paste on phone)\n' +
-                      '5. Click SEND\n\n' +
-                      'We\'ll get back to you shortly!');
-            }
+            alert('Look for the chat icon in the bottom-right corner of the screen to start a live chat.');
         }
 
         function showError(message) {
@@ -1228,8 +1199,19 @@
   }
 </script>
 
-<!-- Live Chat Widget (Kenect) -->
-<script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
 <!-- inquiry form added 2026-04-21T18:30:23Z -->

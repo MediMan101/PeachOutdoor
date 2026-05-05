@@ -854,21 +854,14 @@ renderContactInfo();
 renderHours();
 
 /* ──────────────────────────────────────────────────────────────────
-   Live Chat — try to nudge the Kenect widget; gentle fallback if not.
+   Live Chat — open the tawk.to widget.
    ────────────────────────────────────────────────────────────────── */
 function openLiveChat() {
-    // Common selectors for chat widgets / Kenect-style buttons
-    var candidates = document.querySelectorAll(
-        'iframe[id*="kenect" i], iframe[title*="chat" i], iframe[name*="chat" i], ' +
-        'button[id*="kenect" i], button[aria-label*="text us" i], button[aria-label*="chat" i], ' +
-        '[class*="kenect" i], [data-kenect]'
-    );
-    for (var i = 0; i < candidates.length; i++) {
-        try {
-            if (candidates[i].click) { candidates[i].click(); return; }
-        } catch (e) { /* ignore cross-origin or other click errors */ }
+    if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
+        Tawk_API.maximize();
+        return;
     }
-    // Fallback: friendly nudge towards the floating widget
+    // Fallback if the widget hasn't loaded yet
     alert('Look for the chat icon in the bottom-right corner of the screen to start a live chat.');
 }
 
@@ -961,7 +954,18 @@ async function submitInquiry() {
 }
 </script>
 
-<!-- Live Chat Widget (Kenect) -->
-<script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
