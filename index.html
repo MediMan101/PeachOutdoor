@@ -74,9 +74,6 @@
     <!-- jQuery (required for YouTube player) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     
-    <!-- YouTube Background Video Player -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css" rel="stylesheet">
-    
     <style>
         * {
             margin: 0;
@@ -355,6 +352,19 @@
             top: 0; right: 0; bottom: 0; left: 0;
             background: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.35) 100%);
             z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Full-bleed muted-autoplay iframe, scaled 16:9 to cover the 80vw x 100vh box */
+        .video-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: max(80vw, 177.78vh);
+            height: max(45vw, 100vh);
+            border: 0;
+            z-index: 0;
             pointer-events: none;
         }
 
@@ -1316,7 +1326,12 @@
     <!-- Hero Section with Video Background -->
     <section class="hero" id="home">
         <div class="video-background">
-            <div id="bgndVideo" class="player" data-property="{videoURL:'dUBMjhAdb5Q',containment:'.video-background',startAt:0,mute:true,autoPlay:true,loop:true,opacity:1,showControls:false,quality:'default',optimizeDisplay:false,abundance:0.3,coverImage:false}"></div>
+            <iframe
+                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                frameborder="0"
+                allow="autoplay; encrypted-media"
+                title="Peach Outdoor background video">
+            </iframe>
         </div>
         <!-- Mobile-only video: standard 16:9 iframe fills width with no black bars -->
         <div class="mobile-video-wrap">
@@ -1514,12 +1529,8 @@
         });
     </script>
     
-    <!-- YouTube Background Video Player Script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script>
     <script>
         jQuery(document).ready(function($){
-            $("#bgndVideo").YTPlayer();
-
             // Brand carousel fade
             const slides = document.querySelectorAll('#brandCarousel .brand-slide');
             let current = 0;
