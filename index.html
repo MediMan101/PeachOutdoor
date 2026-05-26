@@ -344,6 +344,7 @@
             height: 100%;
             z-index: 0;
             overflow: hidden;
+            background: #1a1a1a;
         }
 
         .video-background::after {
@@ -355,14 +356,14 @@
             pointer-events: none;
         }
 
-        /* Full-bleed muted-autoplay iframe, scaled 16:9 to cover the 80vw x 100vh box */
+        /* Fit the whole 16:9 video to the column width; it scales with its container at any window size */
         .video-background iframe {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: max(80vw, 177.78vh);
-            height: max(45vw, 100vh);
+            width: 100%;
+            aspect-ratio: 16 / 9;
             border: 0;
             z-index: 0;
             pointer-events: none;
