@@ -9242,28 +9242,6 @@
                       }
     },
     {
-        "InventoryID":  25029,
-        "Manufacturer":  "IronCraft",
-        "Department":  "IMP",
-        "Series":  "BUCKET",
-        "Model":  "CTRB60-S",
-        "Description":  "IRON CRAFT 60\" Compact Tractor Rock Bucket",
-        "SerialNumber":  "529679",
-        "Location":  "CLA",
-        "MSRP":  1795,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
         "InventoryID":  20897,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
@@ -9286,13 +9264,13 @@
                       }
     },
     {
-        "InventoryID":  24985,
+        "InventoryID":  24896,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
         "Series":  "GRAPPLE",
         "Model":  "ERG72",
-        "Description":  "IRONCRAFT 72\" Economy Dual Cylinder Root Grapple",
-        "SerialNumber":  "411388",
+        "Description":  "IRON CRAFT 72\" Economy Dual Cylinder Root Grapple",
+        "SerialNumber":  "414258",
         "Location":  "CLA",
         "MSRP":  1998,
         "Web_Price":  null,
@@ -9308,13 +9286,13 @@
                       }
     },
     {
-        "InventoryID":  24896,
+        "InventoryID":  24985,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
         "Series":  "GRAPPLE",
         "Model":  "ERG72",
-        "Description":  "IRON CRAFT 72\" Economy Dual Cylinder Root Grapple",
-        "SerialNumber":  "414258",
+        "Description":  "IRONCRAFT 72\" Economy Dual Cylinder Root Grapple",
+        "SerialNumber":  "411388",
         "Location":  "CLA",
         "MSRP":  1998,
         "Web_Price":  null,
