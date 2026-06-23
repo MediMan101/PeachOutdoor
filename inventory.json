@@ -5146,28 +5146,6 @@
                       }
     },
     {
-        "InventoryID":  23294,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "TRACTOR",
-        "Series":  "40",
-        "Model":  "BB4035CHIL",
-        "Description":  "BAD BOY 40 SERIES CAB, HYDRO, IND TIRE, 35HP TRACTOR WITH BBL400C LOADER",
-        "SerialNumber":  "RFLR00543",
-        "Location":  "CLA",
-        "MSRP":  45832,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  "4035",
-        "AllPhotos":  {
-
-                      }
-    },
-    {
         "InventoryID":  23454,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -12748,6 +12726,28 @@
         "PrimaryPhotoIsDefault":  true,
         "SpecModel":  "MT226HE",
         "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/LS/MT2/MT226HE/MT226HE.jpg"
+    },
+    {
+        "InventoryID":  25070,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226HE",
+        "Description":  "LS TRACTOR MT226HE HST 4WD",
+        "SerialNumber":  "KLJ24361TSJ003087",
+        "Location":  "CLA",
+        "MSRP":  25020.8,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT226HE",
+        "AllPhotos":  {
+
+                      }
     },
     {
         "InventoryID":  24960,
