@@ -3155,28 +3155,6 @@
                       }
     },
     {
-        "InventoryID":  25139,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60SD",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD",
-        "SerialNumber":  "BBRCSC60SDO05250023",
-        "Location":  "CLA",
-        "MSRP":  1938,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
         "InventoryID":  20852,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
@@ -3590,26 +3568,6 @@
         "Model":  "BMZ4219BG",
         "Description":  "Rambler 42\" Briggs 19HP",
         "SerialNumber":  "BMZ4219BG01260243",
-        "Location":  "CLA",
-        "MSRP":  4432,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/RAMBLER/Bad_Boy_MZ_RAMBLER.jpg",
-        "PrimaryPhotoIsDefault":  true,
-        "SpecModel":  "MZ Rambler",
-        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/RAMBLER/Bad_Boy_MZ_RAMBLER.jpg"
-    },
-    {
-        "InventoryID":  23344,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "MOWER",
-        "Series":  "RAMBLER",
-        "Model":  "BMZ4219BG",
-        "Description":  "Rambler 42\" Briggs 19HP",
-        "SerialNumber":  "BMZ4219BG01260227",
         "Location":  "CLA",
         "MSRP":  4432,
         "Web_Price":  null,
@@ -6583,28 +6541,6 @@
         "SerialNumber":  "1L9UBU121TT700604",
         "Location":  "CLA",
         "MSRP":  1699,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
-        "InventoryID":  25079,
-        "Manufacturer":  "G2 TRAILERS",
-        "Department":  "TRAILER",
-        "Series":  "3.5K",
-        "Model":  "6x14SA",
-        "Description":  "G2 TRAILERS 6x14 Single Axle 4\u0027 Ramp",
-        "SerialNumber":  "1L9UBU141TT700644",
-        "Location":  "CLA",
-        "MSRP":  1899,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -10832,6 +10768,28 @@
                       }
     },
     {
+        "InventoryID":  25153,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "LOADER",
+        "Series":  "MT3",
+        "Model":  "MT357PCT",
+        "Description":  "LS TRACTOR MT357PCT GEAR POWER CLUTCH 4WD",
+        "SerialNumber":  "KLJ23541HTJ003220",
+        "Location":  "CLA",
+        "MSRP":  42608,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT357PCT",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  21332,
         "Manufacturer":  "LS Tractor",
         "Department":  "PARTS",
@@ -11336,6 +11294,28 @@
                       }
     },
     {
+        "InventoryID":  25070,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226HE",
+        "Description":  "LS TRACTOR MT226HE HST 4WD",
+        "SerialNumber":  "KLJ24361TSJ003087",
+        "Location":  "CLA",
+        "MSRP":  25020.8,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT226HE",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  25105,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -11440,28 +11420,6 @@
         "PrimaryPhotoIsDefault":  true,
         "SpecModel":  "MT226HE",
         "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/LS/MT2/MT226HE/MT226HE.jpg"
-    },
-    {
-        "InventoryID":  25070,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT226HE",
-        "Description":  "LS TRACTOR MT226HE HST 4WD",
-        "SerialNumber":  "KLJ24361TSJ003087",
-        "Location":  "CLA",
-        "MSRP":  25020.8,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  "MT226HE",
-        "AllPhotos":  {
-
-                      }
     },
     {
         "InventoryID":  23485,
@@ -11603,6 +11561,28 @@
         "Model":  "MT232E",
         "Description":  "LS TRACTOR MT232E GEAR 4WD",
         "SerialNumber":  "KLJ24401JTJ001571",
+        "Location":  "CLA",
+        "MSRP":  27863.6,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT232E",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25157,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT232E",
+        "Description":  "LS TRACTOR MT232E GEAR 4WD",
+        "SerialNumber":  "KLJ24401CTJ001578",
         "Location":  "CLA",
         "MSRP":  27863.6,
         "Web_Price":  null,
@@ -12055,6 +12035,72 @@
                       }
     },
     {
+        "InventoryID":  25159,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT242H",
+        "Description":  "LS TRACTOR MT242H HST 4WD",
+        "SerialNumber":  "KLJ24411KSJ002294",
+        "Location":  "CLA",
+        "MSRP":  34198.8,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25147,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT242H",
+        "Description":  "LS TRACTOR MT242H HST 4WD",
+        "SerialNumber":  "KLJ24411ESJ002256",
+        "Location":  "CLA",
+        "MSRP":  34198.8,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25141,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT242HC",
+        "Description":  "LS TRACTOR MT242HC HST CAB 4WD",
+        "SerialNumber":  "KLJ24412KSJ002160",
+        "Location":  "CLA",
+        "MSRP":  43244.4,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT242HC",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  24651,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -12108,28 +12154,6 @@
         "SerialNumber":  "2441001715",
         "Location":  "CLA",
         "MSRP":  39090,
-        "Web_Price":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  "MT242HC",
-        "AllPhotos":  {
-
-                      }
-    },
-    {
-        "InventoryID":  25141,
-        "Manufacturer":  "LS Tractor",
-        "Department":  "TRACTOR",
-        "Series":  "MT2",
-        "Model":  "MT242HC",
-        "Description":  "LS TRACTOR MT242HC HST CAB 4WD",
-        "SerialNumber":  "KLJ24412KSJ002160",
-        "Location":  "CLA",
-        "MSRP":  43244.4,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -12207,15 +12231,15 @@
         "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/LS/MT3/LS_MT3_Series.jpg"
     },
     {
-        "InventoryID":  25058,
+        "InventoryID":  25164,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "MT3",
-        "Model":  "MT342H",
-        "Description":  "LS TRACTOR MT342H HST 4WD",
-        "SerialNumber":  "KLJ23551LTJ002761",
+        "Model":  "MT342C",
+        "Description":  "LS TRACTOR MT342C GEAR CAB 4WD",
+        "SerialNumber":  "2355002536",
         "Location":  "CLA",
-        "MSRP":  38161.2,
+        "MSRP":  43405.2,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -12229,15 +12253,15 @@
                       }
     },
     {
-        "InventoryID":  25048,
+        "InventoryID":  25161,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
         "Series":  "MT3",
         "Model":  "MT342H",
         "Description":  "LS TRACTOR MT342H HST 4WD",
-        "SerialNumber":  "KLJ23551KTJ002767",
+        "SerialNumber":  "KLJ23551HTJ002762",
         "Location":  "CLA",
-        "MSRP":  38157.1,
+        "MSRP":  38161.2,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -12273,6 +12297,28 @@
                       }
     },
     {
+        "InventoryID":  25151,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT3",
+        "Model":  "MT342H",
+        "Description":  "LS TRACTOR MT342H HST 4WD",
+        "SerialNumber":  "KLJ23551LTJ002758",
+        "Location":  "CLA",
+        "MSRP":  38161.2,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  25131,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -12282,6 +12328,50 @@
         "SerialNumber":  "KLJ23551ETJ002827",
         "Location":  "CLA",
         "MSRP":  38161.2,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25058,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT3",
+        "Model":  "MT342H",
+        "Description":  "LS TRACTOR MT342H HST 4WD",
+        "SerialNumber":  "KLJ23551LTJ002761",
+        "Location":  "CLA",
+        "MSRP":  38161.2,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25048,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT3",
+        "Model":  "MT342H",
+        "Description":  "LS TRACTOR MT342H HST 4WD",
+        "SerialNumber":  "KLJ23551KTJ002767",
+        "Location":  "CLA",
+        "MSRP":  38157.1,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -12953,6 +13043,28 @@
         "SerialNumber":  "KLJ23381LSJ004086",
         "Location":  "CLA",
         "MSRP":  18690,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "XJ2025H",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25155,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "XJ",
+        "Model":  "XJ2025H",
+        "Description":  "LS- XJ2025 Hydro-stat, w/ Ind Tire and Loader",
+        "SerialNumber":  "KLJ23381CSJ004116",
+        "Location":  "CLA",
+        "MSRP":  20871.6,
         "Web_Price":  null,
         "Used":  false,
         "FeaturedItem":  false,
@@ -14024,6 +14136,28 @@
         "PrimaryPhotoURL":  null,
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25167,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "TRACTOR",
+        "Series":  "6000",
+        "Model":  "60654FPIKL",
+        "Description":  "Mahindra 6065 4wd Power Shuttle Ind Tire KLDR",
+        "SerialNumber":  "MP4S2735",
+        "Location":  "CLA",
+        "MSRP":  43189,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "6065",
         "AllPhotos":  {
 
                       }
