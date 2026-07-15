@@ -1329,7 +1329,8 @@
     <section class="hero" id="home">
         <div class="video-background">
             <iframe
-                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                id="heroVideoDesktop"
+                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
                 frameborder="0"
                 allow="autoplay; encrypted-media"
                 title="Peach Outdoor background video">
@@ -1338,13 +1339,58 @@
         <!-- Mobile-only video: standard 16:9 iframe fills width with no black bars -->
         <div class="mobile-video-wrap">
             <iframe
-                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                id="heroVideoMobile"
+                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
                 frameborder="0"
                 allow="autoplay; encrypted-media"
                 allowfullscreen
                 title="Peach Outdoor background video">
             </iframe>
         </div>
+        <script>
+            // YouTube force-enables its auto-generated captions on muted
+            // autoplay embeds (no URL parameter turns them off). Attach the
+            // IFrame API to both hero players and unload the captions module.
+            (function () {
+                var apiScript = document.createElement('script');
+                apiScript.src = 'https://www.youtube.com/iframe_api';
+                document.head.appendChild(apiScript);
+
+                window.__heroPlayers = {};
+
+                function suppressCaptions(iframeId) {
+                    // Setting an empty caption track is what actually hides the
+                    // captions; unloadModule() is a no-op in the current player.
+                    function clearTrack(player) {
+                        try { player.setOption('captions', 'track', {}); } catch (e) {}
+                        try { player.setOption('cc', 'track', {}); } catch (e) {}
+                    }
+                    window.__heroPlayers[iframeId] = new YT.Player(iframeId, {
+                        events: {
+                            onReady: function (e) {
+                                // YouTube applies the auto-caption track shortly
+                                // AFTER ready, so re-clear in a short burst too.
+                                clearTrack(e.target);
+                                var n = 0;
+                                var burst = setInterval(function () {
+                                    clearTrack(e.target);
+                                    if (++n >= 20) clearInterval(burst);
+                                }, 1000);
+                            },
+                            // Fires when the captions module (re)loads
+                            onApiChange:   function (e) { clearTrack(e.target); },
+                            // Loop restarts can re-enable the track
+                            onStateChange: function (e) { clearTrack(e.target); }
+                        }
+                    });
+                }
+
+                window.onYouTubeIframeAPIReady = function () {
+                    suppressCaptions('heroVideoDesktop');
+                    suppressCaptions('heroVideoMobile');
+                };
+            })();
+        </script>
         <div class="hero-content">
         </div>
         <div class="scroll-indicator">
