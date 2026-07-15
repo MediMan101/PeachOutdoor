@@ -271,6 +271,15 @@
             color: #cc0000;
             font-weight: 700;
         }
+        .card-price.monthly-price {
+            font-size: 1.15em;
+        }
+        .card-price-sub {
+            font-size: 0.68em;
+            font-weight: 400;
+            color: #777;
+            margin-top: 2px;
+        }
 
         .card-actions { display: flex; gap: 8px; }
         .btn-details {
@@ -627,10 +636,17 @@
                     photo = `<div class="no-photo-default" style="background:${placeholderColor};">${item.Manufacturer || '🚜'}</div>`;
                 }
 
-                const priceHTML = item.Web_Price != null
-                    ? `$${Number(item.Web_Price).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`
-                    : 'Call for Price';
-                const priceClass = item.Web_Price != null ? 'card-price' : 'card-price call-price';
+                let priceHTML, priceClass;
+                if (item.PriceDisplayMode === 'MonthlyPayment' && item.PriceDisplayText) {
+                    priceHTML = `${item.PriceDisplayText}<div class="card-price-sub">${item.PriceDisplaySubText || 'See dealer for details'}</div>`;
+                    priceClass = 'card-price monthly-price';
+                } else if (item.Web_Price != null) {
+                    priceHTML = `$${Number(item.Web_Price).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}`;
+                    priceClass = 'card-price';
+                } else {
+                    priceHTML = 'Call for Price';
+                    priceClass = 'card-price call-price';
+                }
 
                 const titleParts = [item.Manufacturer, item.Series].filter(Boolean);
                 const subtitle   = item.Model || '';

@@ -63,11 +63,13 @@ function buildSEO(item) {
     const headline  = item.Description || titleBase || 'Item';
     const condition = item.Used ? 'Used' : 'New';
 
-    const priceText = item.Web_Price != null
-        ? '$' + Number(item.Web_Price).toLocaleString('en-US', {
-            minimumFractionDigits: 2, maximumFractionDigits: 2
-        })
-        : 'Call for Price';
+    const priceText = (item.PriceDisplayMode === 'MonthlyPayment' && item.PriceDisplayText)
+        ? item.PriceDisplayText // e.g. "$249 per month (WAC)"
+        : (item.Web_Price != null
+            ? '$' + Number(item.Web_Price).toLocaleString('en-US', {
+                minimumFractionDigits: 2, maximumFractionDigits: 2
+            })
+            : 'Call for Price');
 
     const pageTitle = headline + ' — ' + priceText + ' | Peach Outdoor';
 

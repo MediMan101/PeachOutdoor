@@ -1,4 +1,4 @@
-# =============================================================================
+﻿# =============================================================================
 # Sync-Inventory.ps1
 # Peach Outdoor - Export inventory + specs to GitHub via API
 #
@@ -13,14 +13,20 @@
 # Credentials and secrets are stored in a separate config file that is NOT
 # pushed to GitHub. Create C:\WebSiteScripts\sync-config.ps1 on the server
 # with the values shown below, then this script reads them from there.
+#
+#   $GitHubToken        = "your-github-token"
+#   $BunnyStorageApiKey = "your-bunny-storage-api-key"
+#   $BunnyStorageZone   = "peachoutdoor"
+#   $BunnyStorageHost   = "ny.storage.bunnycdn.com"
 
 $ConfigFile = Join-Path $PSScriptRoot "sync-config.ps1"
 if (-not (Test-Path $ConfigFile)) {
     Write-Host "[ERROR] Config file not found: $ConfigFile" -ForegroundColor Red
     Write-Host "Create that file with the following content:" -ForegroundColor Yellow
-    Write-Host '  $GitHubToken  = "your-github-token"' -ForegroundColor Yellow
-    Write-Host '  $CloudApiKey  = "your-cloudinary-api-key"' -ForegroundColor Yellow
-    Write-Host '  $CloudSecret  = "your-cloudinary-secret"' -ForegroundColor Yellow
+    Write-Host '  $GitHubToken        = "your-github-token"' -ForegroundColor Yellow
+    Write-Host '  $BunnyStorageApiKey = "your-bunny-storage-api-key"' -ForegroundColor Yellow
+    Write-Host '  $BunnyStorageZone   = "peachoutdoor"' -ForegroundColor Yellow
+    Write-Host '  $BunnyStorageHost   = "ny.storage.bunnycdn.com"' -ForegroundColor Yellow
     exit 1
 }
 . $ConfigFile
@@ -35,8 +41,10 @@ $Database     = "Peach"
 
 $LogFile      = Join-Path $PSScriptRoot "Logs\sync-inventory.log"
 
-$CloudName    = "dtidlilrj"
 $PhotosFolder = "C:\inetpub\wwwroot\inventoryapp\photos"
+
+# Bunny CDN delivery base URL — photos are served from here
+$BunnyCDNBase = "https://peachoutdoor.b-cdn.net"
 
 # -- LOGGING -------------------------------------------------------------------
 
@@ -84,12 +92,46 @@ function Invoke-SQLNonQuery {
     return $result
 }
 
+# -- HELPER: Build a Bunny CDN delivery URL from a storage path ---------------
+
+function Get-BunnyUrl {
+    param([string]$StoragePath)
+    return "$BunnyCDNBase/$StoragePath"
+}
+
+# -- HELPER: Upload a file to Bunny Storage via HTTP PUT ----------------------
+
+function Send-BunnyFile {
+    param(
+        [string]$StoragePath,
+        [byte[]]$FileBytes
+    )
+    $uploadUrl = "https://$BunnyStorageHost/$BunnyStorageZone/$StoragePath"
+    $headers   = @{ "AccessKey" = $BunnyStorageApiKey }
+    Invoke-RestMethod -Uri $uploadUrl -Method Put -Headers $headers -Body $FileBytes -ContentType "image/jpeg" | Out-Null
+}
+
+# -- HELPER: Delete a file from Bunny Storage via HTTP DELETE -----------------
+
+function Remove-BunnyFile {
+    param([string]$StoragePath)
+    $deleteUrl = "https://$BunnyStorageHost/$BunnyStorageZone/$StoragePath"
+    $headers   = @{ "AccessKey" = $BunnyStorageApiKey }
+    try {
+        Invoke-RestMethod -Uri $deleteUrl -Method Delete -Headers $headers | Out-Null
+        return $true
+    } catch {
+        if ($_.Exception.Response.StatusCode -eq 404) { return $true }
+        throw
+    }
+}
+
 # -- HELPER: Push multiple files in one commit via Git Tree API ---------------
 # One commit = one Netlify build trigger
 
 function Push-GitHubFiles {
     param(
-        [hashtable]$Files,     # @{ "filename.json" = "content string" }
+        [hashtable]$Files,
         [string]$CommitMsg
     )
 
@@ -100,15 +142,12 @@ function Push-GitHubFiles {
     }
     $baseUrl = "https://api.github.com/repos/$GitHubOwner/$GitHubRepo"
 
-    # 1. Get current branch SHA
     $branchData = Invoke-RestMethod -Uri "$baseUrl/git/ref/heads/$GitHubBranch" -Headers $headers
     $latestSha  = $branchData.object.sha
 
-    # 2. Get current tree SHA
     $commitData = Invoke-RestMethod -Uri "$baseUrl/git/commits/$latestSha" -Headers $headers
     $treeSha    = $commitData.tree.sha
 
-    # 3. Create blobs for each file
     $treeItems = @()
     foreach ($filePath in $Files.Keys) {
         $encoded = [System.Convert]::ToBase64String(
@@ -120,12 +159,10 @@ function Push-GitHubFiles {
         $treeItems += @{ path = $filePath; mode = "100644"; type = "blob"; sha = $blob.sha }
     }
 
-    # 4. Create new tree
     $newTreeBody = @{ base_tree = $treeSha; tree = $treeItems } | ConvertTo-Json -Depth 5
     $newTree = Invoke-RestMethod -Uri "$baseUrl/git/trees" -Headers $headers `
                     -Method Post -Body $newTreeBody -ContentType "application/json"
 
-    # 5. Create commit
     $newCommitBody = @{
         message = $CommitMsg
         tree    = $newTree.sha
@@ -134,7 +171,6 @@ function Push-GitHubFiles {
     $newCommit = Invoke-RestMethod -Uri "$baseUrl/git/commits" -Headers $headers `
                     -Method Post -Body $newCommitBody -ContentType "application/json"
 
-    # 6. Update branch ref
     $updateRefBody = @{ sha = $newCommit.sha; force = $false } | ConvertTo-Json
     Invoke-RestMethod -Uri "$baseUrl/git/refs/heads/$GitHubBranch" -Headers $headers `
         -Method Patch -Body $updateRefBody -ContentType "application/json" | Out-Null
@@ -143,16 +179,17 @@ function Push-GitHubFiles {
 }
 
 # =============================================================================
-# STEP 0 - Promote real photos: if an item has both a real photo AND a default
-#          photo, delete the default from InventoryPhotos (and Cloudinary).
-#          This runs automatically every sync so defaults are cleaned up the
-#          moment a real photo is uploaded via SalesMan.
+# STEP 0 - Remove default photos for items that now have real photos.
+#          Runs after each sync so defaults are cleaned up automatically
+#          the moment a real photo is uploaded via SalesMan.
+#          Only removes defaults for items that have at least one real photo.
+#          Never removes defaults from items that have only defaults.
 # =============================================================================
 Write-Log "===== Sync-Inventory started ====="
-Write-Log "Checking for default photos that can be replaced by real photos..."
+Write-Log "Checking for default photos on items that now have real photos..."
 
 $defaultsToRemoveSQL = @"
-SELECT ip.PhotoID, ip.PublicID
+SELECT ip.PhotoID, ip.PublicID, ip.InventoryID
 FROM dbo.InventoryPhotos ip
 WHERE ip.IsDefault = 1
   AND EXISTS (
@@ -165,35 +202,142 @@ WHERE ip.IsDefault = 1
 try {
     $defaultsToRemove = Invoke-SQL -Query $defaultsToRemoveSQL
     if ($defaultsToRemove.Rows.Count -gt 0) {
-        Write-Log "Found $($defaultsToRemove.Rows.Count) default photo(s) to remove (real photos now exist)."
+        Write-Log "Found $($defaultsToRemove.Rows.Count) default photo(s) to remove (item now has real photos)."
         foreach ($row in $defaultsToRemove) {
-            $photoId  = [int]$row["PhotoID"]
-            $publicId = [string]$row["PublicID"]
-
+            $photoId     = [int]$row["PhotoID"]
+            $inventoryId = [int]$row["InventoryID"]
+            $publicId    = [string]$row["PublicID"]
             try {
                 Invoke-SQLNonQuery -Query "DELETE FROM dbo.InventoryPhotos WHERE PhotoID = @pid" `
                     -Params @{ "@pid" = $photoId } | Out-Null
-                Write-Log "  Removed default photo record ID ${photoId} (PublicID: ${publicId})"
+                Write-Log "  Removed default PhotoID=$photoId InventoryID=$inventoryId"
             } catch {
-                Write-Log "  WARN: Could not remove default photo ID ${photoId}: $($_.Exception.Message)" "WARN"
+                Write-Log "  WARN: Could not remove default PhotoID=${photoId}: $($_.Exception.Message)" "WARN"
             }
         }
     } else {
-        Write-Log "No default photos need replacing."
+        Write-Log "No defaults to remove."
     }
 } catch {
-    Write-Log "WARN: Could not check for default photos to replace: $($_.Exception.Message)" "WARN"
+    Write-Log "WARN: Could not check for defaults to remove: $($_.Exception.Message)" "WARN"
 }
 
 
 # =============================================================================
-# STEP 0.5 - Scan IIS photos folder and upload new photos to Cloudinary
-#            Skips any photo already recorded in InventoryPhotos
+# STEP 0.6 - Remove Bunny photos for sold/inactive inventory items.
+#            An item is considered inactive if any of the following are true:
+#              - (Quantity - QuantitySold) < 1  (sold out)
+#              - Deleted          = 1
+#              - Attachment       = 1
+#              - NonInventoryItem = 1
+#              - IsLinkedItem     = 1
+#            For each photo belonging to an inactive item:
+#              1. Always delete the DB row for the inactive item
+#              2. Only delete the Bunny asset if NO other active item shares
+#                 the same PublicID — prevents wiping shared default photos
+#                 when only one of many items using that default is sold
+# =============================================================================
+Write-Log "Checking for photos belonging to sold/inactive items..."
+
+$inactivePhotosSQL = @"
+SELECT ip.PhotoID, ip.PublicID, ip.InventoryID,
+    -- Count how many OTHER active items share this same PublicID
+    (
+        SELECT COUNT(*)
+        FROM dbo.InventoryPhotos ip2
+        INNER JOIN dbo.Inventory i2 ON i2.InventoryID = ip2.InventoryID
+        WHERE ip2.PublicID = ip.PublicID
+          AND ip2.PhotoID  <> ip.PhotoID
+          AND (i2.Quantity - ISNULL(i2.QuantitySold, 0)) > 0
+          AND ISNULL(i2.Deleted,          0) = 0
+          AND ISNULL(i2.Attachment,       0) = 0
+          AND ISNULL(i2.NonInventoryItem, 0) = 0
+          AND ISNULL(i2.IsLinkedItem,     0) = 0
+    ) AS ActiveShareCount
+FROM dbo.InventoryPhotos ip
+INNER JOIN dbo.Inventory i ON i.InventoryID = ip.InventoryID
+WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) < 1
+   OR ISNULL(i.Deleted,          0) = 1
+   OR ISNULL(i.Attachment,       0) = 1
+   OR ISNULL(i.NonInventoryItem, 0) = 1
+   OR ISNULL(i.IsLinkedItem,     0) = 1
+"@
+
+try {
+    $inactivePhotos = Invoke-SQL -Query $inactivePhotosSQL
+
+    if ($inactivePhotos.Rows.Count -gt 0) {
+        Write-Log "Found $($inactivePhotos.Rows.Count) photo(s) for sold/inactive items — removing..."
+
+        $bunnyDeletedCount  = 0
+        $bunnySkippedCount  = 0
+        $dbDeletedCount     = 0
+        $bunnyErrorCount    = 0
+
+        foreach ($row in $inactivePhotos) {
+            $photoId         = [int]$row["PhotoID"]
+            $publicId        = [string]$row["PublicID"]
+            $inventoryId     = [int]$row["InventoryID"]
+            $activeShareCount = [int]$row["ActiveShareCount"]
+
+            # -- Delete from Bunny Storage only if no active items share this PublicID
+            if ($publicId -and $BunnyStorageApiKey) {
+                if ($activeShareCount -eq 0) {
+                    try {
+                        $storagePath = "$publicId.jpg"
+                        $deleted = Remove-BunnyFile -StoragePath $storagePath
+                        if ($deleted) {
+                            $bunnyDeletedCount++
+                            Write-Log "  Bunny deleted: $publicId (InventoryID: $inventoryId)"
+                        }
+                    } catch {
+                        Write-Log "  WARN: Bunny delete failed for $publicId`: $($_.Exception.Message)" "WARN"
+                        $bunnyErrorCount++
+                    }
+                } else {
+                    # Other active items still use this photo — keep the Bunny asset
+                    $bunnySkippedCount++
+                    Write-Log "  Bunny kept (shared by $activeShareCount active item(s)): $publicId"
+                }
+            }
+
+            # -- Always delete the DB record for the inactive item -------------
+            try {
+                Invoke-SQLNonQuery -Query "DELETE FROM dbo.InventoryPhotos WHERE PhotoID = @pid" `
+                    -Params @{ "@pid" = $photoId } | Out-Null
+                $dbDeletedCount++
+            } catch {
+                Write-Log "  ERROR: Could not delete DB record PhotoID ${photoId}: $($_.Exception.Message)" "ERROR"
+            }
+        }
+
+        Write-Log "Inactive photo cleanup complete. Bunny: $bunnyDeletedCount deleted, $bunnySkippedCount shared/kept, $bunnyErrorCount errors | DB rows removed: $dbDeletedCount"
+    } else {
+        Write-Log "No photos found for sold/inactive items."
+    }
+} catch {
+    Write-Log "WARN: Could not check for inactive item photos: $($_.Exception.Message)" "WARN"
+}
+
+
+# =============================================================================
+# STEP 0.5 - Scan IIS photos folder and upload new photos to Bunny Storage.
+#            Skips any photo already recorded in InventoryPhotos.
+#            Moves inactive item folders to _Removed to prevent re-uploading.
+#            Resizes photos to 2000px wide at quality 85 before uploading.
 # =============================================================================
 
-if ($CloudName -and $CloudApiKey -and $CloudSecret -and (Test-Path $PhotosFolder)) {
+if ($BunnyStorageApiKey -and (Test-Path $PhotosFolder)) {
 
     Write-Log "Scanning IIS photos folder for new photos..."
+
+    # _Removed folder — inactive item folders are moved here instead of deleted.
+    # Folders starting with _ are skipped by the upload loop automatically.
+    $RemovedFolder = Join-Path $PhotosFolder "_Removed"
+    if (-not (Test-Path $RemovedFolder)) {
+        New-Item -ItemType Directory -Path $RemovedFolder -Force | Out-Null
+        Write-Log "Created _Removed folder: $RemovedFolder"
+    }
 
     # Load all already-uploaded photo public IDs to avoid re-uploading
     $existingPublicIds = @{}
@@ -207,11 +351,34 @@ if ($CloudName -and $CloudApiKey -and $CloudSecret -and (Test-Path $PhotosFolder
         Write-Log "WARN: Could not load existing photo records: $($_.Exception.Message)" "WARN"
     }
 
-    # Walk each InventoryID_Serial folder
-    $itemFolders = Get-ChildItem -Path $PhotosFolder -Directory
+    # Build a set of active InventoryIDs so inactive folders can be moved
+    # to _Removed without touching Bunny (Step 0.6 already handled that).
+    $activeInventoryIds = @{}
+    try {
+        $activeRows = Invoke-SQL -Query @"
+SELECT i.InventoryID
+FROM dbo.Inventory i
+WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) > 0
+  AND ISNULL(i.Deleted,          0) = 0
+  AND ISNULL(i.Attachment,       0) = 0
+  AND ISNULL(i.NonInventoryItem, 0) = 0
+  AND ISNULL(i.IsLinkedItem,     0) = 0
+"@
+        foreach ($r in $activeRows) {
+            $activeInventoryIds[[int]$r["InventoryID"]] = $true
+        }
+        Write-Log "Active inventory: $($activeInventoryIds.Count) items."
+    } catch {
+        Write-Log "WARN: Could not load active inventory IDs: $($_.Exception.Message)" "WARN"
+    }
+
+    # Walk each InventoryID_Serial folder — skip any starting with _
+    $itemFolders   = Get-ChildItem -Path $PhotosFolder -Directory |
+                         Where-Object { $_.Name -notlike '_*' }
     $uploadedCount = 0
     $skippedCount  = 0
     $errorCount    = 0
+    $movedCount    = 0
 
     foreach ($folder in $itemFolders) {
         # Parse InventoryID from folder name (format: InventoryID_SerialNumber)
@@ -221,6 +388,20 @@ if ($CloudName -and $CloudApiKey -and $CloudSecret -and (Test-Path $PhotosFolder
             continue
         }
         $inventoryId = [int]$parts[0]
+
+        # If the item is inactive, move the folder to _Removed and skip upload.
+        # Step 0.6 has already removed the Bunny assets and DB records.
+        if ($activeInventoryIds.Count -gt 0 -and -not $activeInventoryIds.ContainsKey($inventoryId)) {
+            $destPath = Join-Path $RemovedFolder $folder.Name
+            try {
+                Move-Item -Path $folder.FullName -Destination $destPath -Force
+                Write-Log "  Moved inactive folder to _Removed: $($folder.Name)"
+                $movedCount++
+            } catch {
+                Write-Log "  WARN: Could not move folder $($folder.Name): $($_.Exception.Message)" "WARN"
+            }
+            continue
+        }
 
         # Get existing photos for this inventory item to determine sort order
         $existingCountRows = Invoke-SQL -Query "SELECT COUNT(*) AS C FROM dbo.InventoryPhotos WHERE InventoryID = $inventoryId AND IsDefault = 0"
@@ -234,7 +415,8 @@ if ($CloudName -and $CloudApiKey -and $CloudSecret -and (Test-Path $PhotosFolder
         $sortOrder = $existingCount + 1
 
         foreach ($photo in $photoFiles) {
-            $publicId = "peachoutdoor/$($folder.Name)/$($photo.BaseName)"
+            $publicId    = "peachoutdoor/$($folder.Name)/$($photo.BaseName)"
+            $storagePath = "$publicId.jpg"
 
             # Skip if already uploaded
             if ($existingPublicIds.ContainsKey($publicId)) {
@@ -242,33 +424,59 @@ if ($CloudName -and $CloudApiKey -and $CloudSecret -and (Test-Path $PhotosFolder
                 continue
             }
 
-            # Build timestamp and signature
-            $epoch     = [DateTime]::new(1970, 1, 1, 0, 0, 0, [DateTimeKind]::Utc)
-            $timestamp = [int][Math]::Floor(([DateTime]::UtcNow - $epoch).TotalSeconds)
-            $stringToSign = "public_id=$publicId&timestamp=$timestamp$CloudSecret"
-            $sha1      = [System.Security.Cryptography.SHA1]::Create()
-            $bytes     = [System.Text.Encoding]::UTF8.GetBytes($stringToSign)
-            $signature = [System.BitConverter]::ToString($sha1.ComputeHash($bytes)).Replace("-","").ToLower()
+            # Resize to 2000px wide at quality 85 before uploading.
+            # Reduces storage and upload transfer time significantly.
+            # System.Drawing is built into Windows — no extra installs needed.
+            $tempPath  = $null
+            $fileBytes = $null
+            try {
+                Add-Type -AssemblyName System.Drawing
 
-            # Read and base64 encode file
-            $fileBytes  = [System.IO.File]::ReadAllBytes($photo.FullName)
-            $base64Data = [System.Convert]::ToBase64String($fileBytes)
-            $mimeType   = if ($photo.Extension -eq ".png") { "image/png" } `
-                          elseif ($photo.Extension -eq ".webp") { "image/webp" } `
-                          else { "image/jpeg" }
-            $dataUri    = "data:$mimeType;base64,$base64Data"
+                $maxUploadWidth = 2000
+                $origImage      = [System.Drawing.Image]::FromFile($photo.FullName)
 
-            $body = @{
-                file      = $dataUri
-                public_id = $publicId
-                timestamp = $timestamp
-                api_key   = $CloudApiKey
-                signature = $signature
+                if ($origImage.Width -gt $maxUploadWidth) {
+                    $ratio     = $maxUploadWidth / $origImage.Width
+                    $newWidth  = $maxUploadWidth
+                    $newHeight = [int]($origImage.Height * $ratio)
+
+                    $resized = New-Object System.Drawing.Bitmap($newWidth, $newHeight)
+                    $graphic = [System.Drawing.Graphics]::FromImage($resized)
+                    $graphic.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+                    $graphic.SmoothingMode     = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+                    $graphic.PixelOffsetMode   = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+                    $graphic.DrawImage($origImage, 0, 0, $newWidth, $newHeight)
+
+                    $jpegEncoder = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
+                                       Where-Object { $_.MimeType -eq 'image/jpeg' }
+                    $encParams   = New-Object System.Drawing.Imaging.EncoderParameters(1)
+                    $encParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter(
+                                             [System.Drawing.Imaging.Encoder]::Quality, 85L)
+
+                    $tempPath = [System.IO.Path]::GetTempFileName() + ".jpg"
+                    $resized.Save($tempPath, $jpegEncoder, $encParams)
+
+                    $graphic.Dispose()
+                    $resized.Dispose()
+                    $origImage.Dispose()
+
+                    $fileBytes = [System.IO.File]::ReadAllBytes($tempPath)
+                    Write-Log "  Resized $($photo.Name): ${newWidth}px wide, quality 85"
+                } else {
+                    $origImage.Dispose()
+                    $fileBytes = [System.IO.File]::ReadAllBytes($photo.FullName)
+                }
+            } catch {
+                Write-Log "  WARN: Resize failed for $($photo.Name), uploading original: $($_.Exception.Message)" "WARN"
+                $fileBytes = [System.IO.File]::ReadAllBytes($photo.FullName)
             }
 
             try {
-                $result   = Invoke-RestMethod -Uri "https://api.cloudinary.com/v1_1/$CloudName/image/upload" -Method Post -Body $body
-                $cloudUrl = $result.secure_url
+                # Upload to Bunny Storage via HTTP PUT
+                Send-BunnyFile -StoragePath $storagePath -FileBytes $fileBytes
+
+                # Build the CDN delivery URL and store in DB
+                $bunnyUrl  = Get-BunnyUrl -StoragePath $storagePath
                 $isPrimary = if ($sortOrder -eq 1) { 1 } else { 0 }
 
                 Invoke-SQLNonQuery -Query @"
@@ -276,14 +484,14 @@ INSERT INTO dbo.InventoryPhotos (InventoryID, PhotoURL, PublicID, SortOrder, IsP
 VALUES (@inv, @url, @pub, @sort, @primary, 0, GETDATE())
 "@ -Params @{
                     "@inv"     = $inventoryId
-                    "@url"     = $cloudUrl
+                    "@url"     = $bunnyUrl
                     "@pub"     = $publicId
                     "@sort"    = $sortOrder
                     "@primary" = $isPrimary
                 } | Out-Null
 
                 $existingPublicIds[$publicId] = $true
-                Write-Log "  Uploaded: $($folder.Name)/$($photo.Name) → $cloudUrl"
+                Write-Log "  Uploaded: $($folder.Name)/$($photo.Name) → $bunnyUrl"
                 $uploadedCount++
                 $sortOrder++
             }
@@ -291,16 +499,22 @@ VALUES (@inv, @url, @pub, @sort, @primary, 0, GETDATE())
                 Write-Log "  ERROR uploading $($photo.Name): $($_.Exception.Message)" "ERROR"
                 $errorCount++
             }
+            finally {
+                # Clean up temp resized file if one was created
+                if ($tempPath -and (Test-Path $tempPath)) {
+                    Remove-Item $tempPath -Force -ErrorAction SilentlyContinue
+                }
+            }
         }
     }
 
-    Write-Log "Photo upload complete. Uploaded: $uploadedCount | Skipped: $skippedCount | Errors: $errorCount"
+    Write-Log "Photo upload complete. Uploaded: $uploadedCount | Skipped: $skippedCount | Moved to _Removed: $movedCount | Errors: $errorCount"
 
 } else {
     if (-not (Test-Path $PhotosFolder)) {
         Write-Log "Photos folder not found ($PhotosFolder) — skipping photo upload." "WARN"
     } else {
-        Write-Log "Cloudinary credentials not set in script — skipping photo upload." "WARN"
+        Write-Log "Bunny credentials not set in config — skipping photo upload." "WARN"
     }
 }
 
@@ -308,6 +522,56 @@ VALUES (@inv, @url, @pub, @sort, @primary, 0, GETDATE())
 # STEP 1 - Build inventory.json
 # =============================================================================
 Write-Log "Querying inventory..."
+
+# -- Pricing source ------------------------------------------------------------
+# SalesMan DB migration 007 adds WebPricing.Monthly_Payment and the
+# dbo.vw_InventoryWebPricing view (latest active pricing row per item with the
+# display decision pre-computed):
+#   PriceDisplayMode    : 'MonthlyPayment' | 'Price' | 'CallForPrice'
+#   PriceDisplayText    : '$249 per month (WAC)' / '$18,999.00' / 'Call for Price'
+#   PriceDisplaySubText : 'See dealer for details' (MonthlyPayment mode only)
+# If the view is not there yet (SalesMan hasn't run since the update), fall
+# back to the legacy WebPricing join so the sync keeps working; items then
+# export with Price / Call-for-Price display only.
+$hasPricingView = $false
+try {
+    $viewCheckRows  = Invoke-SQL -Query "SELECT OBJECT_ID('dbo.vw_InventoryWebPricing', 'V') AS ViewID"
+    $hasPricingView = -not ($viewCheckRows[0]["ViewID"] -is [DBNull])
+} catch {
+    Write-Log "WARN: Could not check for vw_InventoryWebPricing: $($_.Exception.Message)" "WARN"
+}
+
+if ($hasPricingView) {
+    $pricingSelect = @'
+    wp.Web_Price,
+    wp.Monthly_Payment,
+    wp.PriceDisplayMode,
+    wp.PriceDisplayText,
+    wp.PriceDisplaySubText,
+'@
+    $pricingJoin = @'
+LEFT JOIN dbo.vw_InventoryWebPricing wp
+    ON wp.InventoryID = i.InventoryID
+'@
+} else {
+    Write-Log "vw_InventoryWebPricing not found - run SalesMan once to apply DB migration 007. Exporting without Payment-per-Month fields." "WARN"
+    $pricingSelect = @'
+    wp.Web_Price,
+    CAST(NULL AS DECIMAL(19,4)) AS Monthly_Payment,
+    CASE WHEN wp.Web_Price IS NOT NULL THEN 'Price' ELSE 'CallForPrice' END AS PriceDisplayMode,
+    CASE WHEN wp.Web_Price IS NOT NULL THEN FORMAT(wp.Web_Price, 'C2', 'en-US') ELSE 'Call for Price' END AS PriceDisplayText,
+    CAST(NULL AS VARCHAR(30)) AS PriceDisplaySubText,
+'@
+    $pricingJoin = @'
+LEFT JOIN dbo.WebPricing wp
+    ON wp.InventoryID = i.InventoryID
+   AND wp.IsActive = 1
+   AND wp.EffectiveDate = (
+       SELECT MAX(EffectiveDate) FROM dbo.WebPricing
+       WHERE InventoryID = i.InventoryID AND IsActive = 1
+   )
+'@
+}
 
 $inventorySQL = @"
 SELECT
@@ -320,7 +584,7 @@ SELECT
     ISNULL(i.Serial_Number, '')    AS SerialNumber,
     ISNULL(i.Location, '')         AS Location,
     i.MSRP,
-    wp.Web_Price,
+$pricingSelect
     CAST(ISNULL(i.Used, 0) AS INT) AS Used,
     ISNULL(wd.Notes, '')           AS Notes,
     ISNULL(wd.AboutThisItem, '')   AS AboutThisItem,
@@ -332,7 +596,6 @@ SELECT
           AND IsPrimary = 1
     ) AS PrimaryPhotoURL,
     (
-        -- Flag: does the primary photo come from a default scrape?
         SELECT TOP 1 CAST(IsDefault AS INT)
         FROM dbo.InventoryPhotos
         WHERE InventoryID = i.InventoryID
@@ -352,13 +615,7 @@ FROM dbo.Inventory i
 INNER JOIN dbo.WebDisplay wd
     ON wd.InventoryID = i.InventoryID
    AND wd.ShowOnWeb = 1
-LEFT JOIN dbo.WebPricing wp
-    ON wp.InventoryID = i.InventoryID
-   AND wp.IsActive = 1
-   AND wp.EffectiveDate = (
-       SELECT MAX(EffectiveDate) FROM dbo.WebPricing
-       WHERE InventoryID = i.InventoryID AND IsActive = 1
-   )
+$pricingJoin
 LEFT JOIN dbo.Vendor v ON v.VendorID = i.MFG
 WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) > 0
   AND ISNULL(i.Deleted, 0)          = 0
@@ -383,30 +640,22 @@ try {
 }
 
 # Build photo lookup: InventoryID -> [url, url, ...]
-# Only include real (non-default) photos in AllPhotos array for the gallery.
-# The PrimaryPhotoURL (which may be a default) is tracked separately.
-$photoLookup        = @{}   # all photos including defaults
-$realPhotoLookup    = @{}   # real photos only
+# AllPhotos includes ALL photos — real and default — so the gallery on
+# item-details.html shows every available photo for the item.
+# The PrimaryPhotoURL (IsPrimary = 1) is tracked separately for the card view.
+$photoLookup = @{}
 
 foreach ($row in $photoRows) {
-    $id        = if ($row["InventoryID"] -is [DBNull]) { 0 } else { [int]$row["InventoryID"] }
-    $isDefault = -not ($row["IsDefault"] -is [DBNull]) -and ([int]$row["IsDefault"] -eq 1)
-
+    $id = if ($row["InventoryID"] -is [DBNull]) { 0 } else { [int]$row["InventoryID"] }
     if ($id -eq 0) { continue }
-
     if (-not $photoLookup.ContainsKey($id)) { $photoLookup[$id] = @() }
     $photoLookup[$id] += [string]$row["PhotoURL"]
-
-    if (-not $isDefault) {
-        if (-not $realPhotoLookup.ContainsKey($id)) { $realPhotoLookup[$id] = @() }
-        $realPhotoLookup[$id] += [string]$row["PhotoURL"]
-    }
 }
 
 # Build inventory list
 $inventoryList = @()
 foreach ($row in $inventoryRows) {
-    $id             = [int]$row.InventoryID
+    $id               = [int]$row.InventoryID
     $primaryIsDefault = -not ($row.PrimaryPhotoIsDefault -is [DBNull]) -and ([int]$row.PrimaryPhotoIsDefault -eq 1)
 
     $inventoryList += [PSCustomObject]@{
@@ -420,6 +669,10 @@ foreach ($row in $inventoryRows) {
         Location              = [string]$row.Location
         MSRP                  = if ($row.MSRP      -is [DBNull]) { $null } else { [double]$row.MSRP }
         Web_Price             = if ($row.Web_Price -is [DBNull]) { $null } else { [double]$row.Web_Price }
+        Monthly_Payment       = if ($row.Monthly_Payment -is [DBNull]) { $null } else { [double]$row.Monthly_Payment }
+        PriceDisplayMode      = if ($row.PriceDisplayMode -is [DBNull]) { "CallForPrice" } else { [string]$row.PriceDisplayMode }
+        PriceDisplayText      = if ($row.PriceDisplayText -is [DBNull]) { "Call for Price" } else { [string]$row.PriceDisplayText }
+        PriceDisplaySubText   = if ($row.PriceDisplaySubText -is [DBNull]) { $null } else { [string]$row.PriceDisplaySubText }
         Used                  = ([int]$row.Used -eq 1)
         FeaturedItem          = ([int]$row.FeaturedItem -eq 1)
         Notes                 = [string]$row.Notes
@@ -427,7 +680,7 @@ foreach ($row in $inventoryRows) {
         PrimaryPhotoURL       = if ($row.PrimaryPhotoURL -is [DBNull]) { $null } else { [string]$row.PrimaryPhotoURL }
         PrimaryPhotoIsDefault = $primaryIsDefault
         SpecModel             = if ($row.SpecModel -is [DBNull]) { $null } else { [string]$row.SpecModel }
-        AllPhotos             = if ($realPhotoLookup.ContainsKey($id)) { $realPhotoLookup[$id] } else { @() }
+        AllPhotos             = if ($photoLookup.ContainsKey($id)) { $photoLookup[$id] } else { @() }
     }
 }
 

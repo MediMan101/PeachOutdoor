@@ -273,6 +273,18 @@
             color: var(--gold);
         }
 
+        .price-monthly {
+            font-size: 1.6em;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .price-monthly-details {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin: -12px 0 16px;
+        }
+
         .msrp-price {
             font-size: 0.95em;
             color: var(--text-muted);
@@ -741,7 +753,9 @@
 
             // Price string for title and meta
             let priceText;
-            if (item.Web_Price != null) {
+            if (item.PriceDisplayMode === 'MonthlyPayment' && item.PriceDisplayText) {
+                priceText = item.PriceDisplayText; // e.g. "$249 per month (WAC)"
+            } else if (item.Web_Price != null) {
                 priceText = '$' + Number(item.Web_Price).toLocaleString('en-US', {
                     minimumFractionDigits: 2, maximumFractionDigits: 2
                 });
@@ -870,7 +884,12 @@
 
             // Price
             let priceHtml = '';
-            if (itemData.Web_Price != null) {
+            let priceSubHtml = '';
+            if (itemData.PriceDisplayMode === 'MonthlyPayment' && itemData.PriceDisplayText) {
+                priceHtml = '<span class="price-monthly">' + itemData.PriceDisplayText + '</span>';
+                priceSubHtml = '<div class="price-monthly-details">' +
+                    (itemData.PriceDisplaySubText || 'See dealer for details') + '</div>';
+            } else if (itemData.Web_Price != null) {
                 const fmt = '$' + itemData.Web_Price.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
                 priceHtml = '<span class="price-main">' + fmt + '</span>';
                 if (itemData.MSRP && itemData.MSRP > itemData.Web_Price) {
@@ -900,7 +919,7 @@
                             '<span class="badge ' + (itemData.Used ? 'badge-used' : 'badge-new') + '">' +
                                 (itemData.Used ? 'USED' : 'NEW') +
                             '</span>' +
-                        '</div>' +
+                        '</div>' + priceSubHtml +
                         (pillsHtml ? '<div class="info-pills">' + pillsHtml + '</div>' : '') +
                         (itemData.Notes ? '<div class="notes-box">&#128205; ' + itemData.Notes + '</div>' : '') +
                         (itemData.AboutThisItem ? '<div class="about-this-item"><div class="about-this-item-title">About This Item</div><div class="about-this-item-body">' + itemData.AboutThisItem + '</div></div>' : '') +

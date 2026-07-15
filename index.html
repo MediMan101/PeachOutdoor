@@ -1591,6 +1591,9 @@
                     const price = item.Web_Price || item.MSRP;
                     const isUsed = item.Used;
                     const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
+                    const ourPrice = (item.PriceDisplayMode === 'MonthlyPayment' && item.Monthly_Payment != null)
+                        ? '$' + Math.round(item.Monthly_Payment).toLocaleString('en-US') + '/mo (WAC)'
+                        : (item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call');
 
                     const link = document.createElement('a');
                     link.className = 'sidebar-item';
@@ -1605,7 +1608,7 @@
                                 </div>
                                 <div class="sidebar-price-block">
                                     <span class="sidebar-price-label our-price-label">Our Price</span>
-                                    <span class="sidebar-price-value our-price-value">${item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call'}</span>
+                                    <span class="sidebar-price-value our-price-value">${ourPrice}</span>
                                 </div>
                                 <div class="sidebar-badge-wrap">
                                     <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
@@ -1725,7 +1728,9 @@
 
                 featured.forEach(item => {
                     const msrp   = item.MSRP     ? '$' + item.MSRP.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'N/A';
-                    const price  = item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'Call';
+                    const price  = (item.PriceDisplayMode === 'MonthlyPayment' && item.Monthly_Payment != null)
+                        ? '$' + Math.round(item.Monthly_Payment).toLocaleString('en-US') + '/mo (WAC)'
+                        : (item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'Call');
                     const isUsed = item.Used;
                     const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
 
