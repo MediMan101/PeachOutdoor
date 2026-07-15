@@ -13795,12 +13795,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  25304,
@@ -13817,12 +13815,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  25046,
@@ -13839,12 +13835,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  25064,
@@ -13861,12 +13855,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  25147,
@@ -13883,12 +13875,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  24956,
@@ -13905,12 +13895,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  24966,
@@ -13927,12 +13915,10 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ls/mt2/mt242h/photo_1_20260714224536.jpg"
     },
     {
         "InventoryID":  24651,
@@ -15578,6 +15564,28 @@
                       ]
     },
     {
+        "InventoryID":  25413,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "TRACTOR",
+        "Series":  "1600",
+        "Model":  "16354FSRFIL",
+        "Description":  "Mahindra 1635 4wd Shuttle Ref w/Ind Tires w/L",
+        "SerialNumber":  "35G260240398",
+        "Location":  "CLA",
+        "MSRP":  25659,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "1635 HST",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  22174,
         "Manufacturer":  "Mahindra USA",
         "Department":  "TRACTOR",
@@ -15979,6 +15987,72 @@
         "PrimaryPhotoIsDefault":  true,
         "SpecModel":  "4540",
         "AllPhotos":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/MAH/4500/MAH_4500.jpg"
+    },
+    {
+        "InventoryID":  25409,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "TRACTOR",
+        "Series":  "4500",
+        "Model":  "45404FGIL",
+        "Description":  "Mahindra 4540 4wd Gear Industrial Tire w/Loader",
+        "SerialNumber":  "MRCNY14904",
+        "Location":  "CLA",
+        "MSRP":  28447,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "4540",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25411,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "TRACTOR",
+        "Series":  "4500",
+        "Model":  "45504FGIL",
+        "Description":  "MAHINDRA 4550 4wd Gear Industrial Tire w/loader kit",
+        "SerialNumber":  "PNFY9276",
+        "Location":  "CLA",
+        "MSRP":  31472,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "4550",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25415,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "TRACTOR",
+        "Series":  "4500",
+        "Model":  "45504FGIL",
+        "Description":  "MAHINDRA 4550 4wd Gear Industrial Tire w/loader kit",
+        "SerialNumber":  "PNFY9274",
+        "Location":  "CLA",
+        "MSRP":  31472,
+        "Web_Price":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "4550",
+        "AllPhotos":  {
+
+                      }
     },
     {
         "InventoryID":  22670,
