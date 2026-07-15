@@ -587,6 +587,21 @@
             color: #ffd700;
         }
 
+        /* Payment-per-Month in the narrow pricing columns: "$419/mo (WAC)"
+           doesn't fit on one nowrap line, so break it into two lines with
+           a smaller (WAC) underneath. */
+        .sidebar-price-value.payment-value {
+            white-space: normal;
+            font-size: 0.9em;
+            line-height: 1.15;
+        }
+        .payment-wac {
+            display: block;
+            font-size: 0.72em;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
         .sidebar-item-info {
             display: none;
         }
@@ -1184,6 +1199,13 @@
             .mobile-strip-our-label { color: #ffd700; }
             .mobile-strip-our-value { color: #ffd700; }
 
+            .mobile-strip-price-value.payment-value {
+                white-space: normal;
+                font-size: 0.78em;
+                line-height: 1.15;
+                text-align: center;
+            }
+
             .mobile-strip-badge {
                 font-size: 0.58em;
                 font-weight: 700;
@@ -1390,6 +1412,28 @@
                     suppressCaptions('heroVideoMobile');
                 };
             })();
+        </script>
+        <script>
+            // Space check for Payment-per-Month values in the narrow featured
+            // pricing columns: shrink the font until "$419/mo" fits its block.
+            // Hidden elements measure 0 and are left untouched.
+            function fitPaymentValues(scope) {
+                (scope || document).querySelectorAll('.payment-value').forEach(function (el) {
+                    el.style.fontSize = '';
+                    var box   = el.parentElement;
+                    var size  = parseFloat(getComputedStyle(el).fontSize);
+                    var guard = 0;
+                    while (el.scrollWidth > box.clientWidth && size > 8 && guard++ < 16) {
+                        size -= 0.5;
+                        el.style.fontSize = size + 'px';
+                    }
+                });
+            }
+            var __fitTimer;
+            window.addEventListener('resize', function () {
+                clearTimeout(__fitTimer);
+                __fitTimer = setTimeout(function () { fitPaymentValues(document); }, 200);
+            });
         </script>
         <div class="hero-content">
         </div>
@@ -1637,8 +1681,9 @@
                     const price = item.Web_Price || item.MSRP;
                     const isUsed = item.Used;
                     const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
-                    const ourPrice = (item.PriceDisplayMode === 'MonthlyPayment' && item.Monthly_Payment != null)
-                        ? '$' + Math.round(item.Monthly_Payment).toLocaleString('en-US') + '/mo (WAC)'
+                    const isPayment = (item.PriceDisplayMode === 'MonthlyPayment' && item.Monthly_Payment != null);
+                    const ourPrice = isPayment
+                        ? '$' + Math.round(item.Monthly_Payment).toLocaleString('en-US') + '/mo<span class="payment-wac">(WAC)</span>'
                         : (item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:0}) : 'Call');
 
                     const link = document.createElement('a');
@@ -1654,7 +1699,7 @@
                                 </div>
                                 <div class="sidebar-price-block">
                                     <span class="sidebar-price-label our-price-label">Our Price</span>
-                                    <span class="sidebar-price-value our-price-value">${ourPrice}</span>
+                                    <span class="sidebar-price-value our-price-value${isPayment ? ' payment-value' : ''}">${ourPrice}</span>
                                 </div>
                                 <div class="sidebar-badge-wrap">
                                     <span class="sidebar-item-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
@@ -1674,6 +1719,10 @@
 
                     container.appendChild(link);
                 });
+
+                // Shrink any Payment-per-Month values that overflow their
+                // pricing column before cloning, so clones inherit the size.
+                fitPaymentValues(container);
 
                 // Clone all items and append to create seamless infinite loop
                 const originals = Array.from(container.children);
@@ -1774,8 +1823,9 @@
 
                 featured.forEach(item => {
                     const msrp   = item.MSRP     ? '$' + item.MSRP.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'N/A';
-                    const price  = (item.PriceDisplayMode === 'MonthlyPayment' && item.Monthly_Payment != null)
-                        ? '$' + Math.round(item.Monthly_Payment).toLocaleString('en-US') + '/mo (WAC)'
+                    const isPayment = (item.PriceDisplayMode === 'MonthlyPayment' && item.Monthly_Payment != null);
+                    const price  = isPayment
+                        ? '$' + Math.round(item.Monthly_Payment).toLocaleString('en-US') + '/mo<span class="payment-wac">(WAC)</span>'
                         : (item.Web_Price ? '$' + item.Web_Price.toLocaleString('en-US',{minimumFractionDigits:0,maximumFractionDigits:0}) : 'Call');
                     const isUsed = item.Used;
                     const bgColor = brandColors[item.Manufacturer] || 'linear-gradient(135deg,#333,#555)';
@@ -1802,13 +1852,16 @@
                             </div>
                             <div class="mobile-strip-price-block">
                                 <span class="mobile-strip-price-label mobile-strip-our-label">Our Price</span>
-                                <span class="mobile-strip-price-value mobile-strip-our-value">${price}</span>
+                                <span class="mobile-strip-price-value mobile-strip-our-value${isPayment ? ' payment-value' : ''}">${price}</span>
                             </div>
                             <span class="mobile-strip-badge ${isUsed ? 'badge-used' : 'badge-new'}">${isUsed ? 'Used' : 'New'}</span>
                         </div>`;
 
                     strip.appendChild(card);
                 });
+
+                // Shrink any Payment-per-Month values that overflow before cloning
+                fitPaymentValues(strip);
 
                 // Clone all cards for seamless infinite loop
                 Array.from(strip.children).forEach(el => strip.appendChild(el.cloneNode(true)));
