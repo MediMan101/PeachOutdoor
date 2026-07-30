@@ -12712,32 +12712,6 @@
                       }
     },
     {
-        "InventoryID":  25561,
-        "Manufacturer":  "IronCraft",
-        "Department":  "IMP",
-        "Series":  "GRAPPLE",
-        "Model":  "ERG72",
-        "Description":  "IRONCRAFT 72\" Economy Dual Cylinder Root Grapple",
-        "SerialNumber":  "418236",
-        "Location":  "CLA",
-        "MSRP":  1998,
-        "Web_Price":  null,
-        "Monthly_Payment":  null,
-        "PriceDisplayMode":  "CallForPrice",
-        "PriceDisplayText":  "Call for Price",
-        "PriceDisplaySubText":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
         "InventoryID":  22888,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
