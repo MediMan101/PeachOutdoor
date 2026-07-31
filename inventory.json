@@ -10684,6 +10684,84 @@
                       }
     },
     {
+        "InventoryID":  25613,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "7K",
+        "Model":  "82x22 3500CH",
+        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
+        "SerialNumber":  "1L9UBC111TT700830",
+        "Location":  "CLA",
+        "MSRP":  4995,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25614,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "7K",
+        "Model":  "82x22 3500CH",
+        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
+        "SerialNumber":  "1L9UBC111TT700831",
+        "Location":  "CLA",
+        "MSRP":  4995,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  25615,
+        "Manufacturer":  "G2 TRAILERS",
+        "Department":  "TRAILER",
+        "Series":  "7K",
+        "Model":  "82x22 3500CH",
+        "Description":  "G2 TRAILERS 7x22 7K Trailer w/Ramps w/Brakes w/LED",
+        "SerialNumber":  "1L9UBC111TT700832",
+        "Location":  "CLA",
+        "MSRP":  4995,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  25554,
         "Manufacturer":  "G2 TRAILERS",
         "Department":  "TRAILER",
@@ -12585,9 +12663,9 @@
         "InventoryID":  22888,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
-        "Series":  "FRF",
+        "Series":  "FLAIL",
         "Model":  "FRF-165",
-        "Description":  "IRON CRAFT FRF-165 Offset Flail Mower",
+        "Description":  "IRONCRAFT FRF-165 Offset Flail Mower",
         "SerialNumber":  "03125007",
         "Location":  "CLA",
         "MSRP":  7038.36,
@@ -12600,20 +12678,24 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_1_20260731170345.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_1_20260731170345.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_2_20260731170356.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_3_20260731170404.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_4_20260731170411.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_5_20260731170418.jpg"
+                      ]
     },
     {
         "InventoryID":  22889,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
-        "Series":  "FRF",
+        "Series":  "FLAIL",
         "Model":  "FRF-165",
-        "Description":  "IRON CRAFT FRF-165 Offset Flail Mower",
+        "Description":  "IRONCRAFT FRF-165 Offset Flail Mower",
         "SerialNumber":  "06325007",
         "Location":  "CLA",
         "MSRP":  7038.36,
@@ -12626,20 +12708,24 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_1_20260731170345.jpg",
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_1_20260731170345.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_2_20260731170356.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_3_20260731170404.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_4_20260731170411.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/ic/flail/_series/photo_5_20260731170418.jpg"
+                      ]
     },
     {
         "InventoryID":  22918,
         "Manufacturer":  "IronCraft",
         "Department":  "IMP",
-        "Series":  "MOWER",
+        "Series":  "FLAIL",
         "Model":  "FRF-165",
-        "Description":  "IRON CRAFT - FRF-165 Offset Flail Mower",
+        "Description":  "IRONCRAFT FRF-165 Offset Flail Mower",
         "SerialNumber":  "05425007",
         "Location":  "CLA",
         "MSRP":  7038.36,
