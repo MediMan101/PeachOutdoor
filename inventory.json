@@ -5012,32 +5012,6 @@
                       }
     },
     {
-        "InventoryID":  25215,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "IMP",
-        "Series":  "BBRC",
-        "Model":  "BBRCSC60SD",
-        "Description":  "BAD BOY Brush Cutter 5ft Slip Clutch - SD",
-        "SerialNumber":  "BBRCSC60SDBK07260015",
-        "Location":  "CLA",
-        "MSRP":  1938,
-        "Web_Price":  null,
-        "Monthly_Payment":  null,
-        "PriceDisplayMode":  "CallForPrice",
-        "PriceDisplayText":  "Call for Price",
-        "PriceDisplaySubText":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
         "InventoryID":  25216,
         "Manufacturer":  "Bad Boy",
         "Department":  "IMP",
