@@ -139,6 +139,36 @@
                       ]
     },
     {
+        "InventoryID":  25631,
+        "Manufacturer":  "Mahindra USA",
+        "Department":  "UTV",
+        "Series":  "ROXOR",
+        "Model":  "ALLWEATHERHD",
+        "Description":  "Mahindra Roxor HD All Weather Tan",
+        "SerialNumber":  "A5ZGCAAA5TB014388",
+        "Location":  "CLA",
+        "MSRP":  30902,
+        "Web_Price":  27902,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "Price",
+        "PriceDisplayText":  "$27,902.00",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  true,
+        "Notes":  "JUST ARRIVED!! NEW 2026 MAHINDRA ALL WEATHER ROXOR HD",
+        "AboutThisItem":  "ROXOR HD\r\nEngine\r\n2.7L Turbo Diesel\r\n\r\nTOWING CAPACITY\r\n3500 LB\r\n\r\nTORQUE\r\n144 LB-FT\r\n\r\nSteel Body\r\nBOXED STEEL FRAME\r\nHEAVY-DUTY TRANSMISSION, NO BELTS\r\nALTERNATOR: 90A\r\nFUEL CAPACITY: 16 GAL/ 60.5 L\r\nWARRANTY: 2-YEAR LIMITED\r\nHORSEPOWER: 55\r\nDISPLACEMENT: 2730CC (2.7 L / 165 IN3)\r\nGROUND CLEARANCE: 9”/ 22.86 CM",
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122018.jpg",
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122018.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122027.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122039.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122054.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122118.jpg"
+                      ]
+    },
+    {
         "InventoryID":  20138,
         "Manufacturer":  "Spartan Mowers",
         "Department":  "MOWER",
@@ -21069,36 +21099,6 @@
         "AllPhotos":  {
 
                       }
-    },
-    {
-        "InventoryID":  25631,
-        "Manufacturer":  "Mahindra USA",
-        "Department":  "UTV",
-        "Series":  "ROXOR",
-        "Model":  "ALLWEATHERHD",
-        "Description":  "Mahindra Roxor HD All Weather Tan",
-        "SerialNumber":  "A5ZGCAAA5TB014388",
-        "Location":  "CLA",
-        "MSRP":  30902,
-        "Web_Price":  null,
-        "Monthly_Payment":  null,
-        "PriceDisplayMode":  "CallForPrice",
-        "PriceDisplayText":  "Call for Price",
-        "PriceDisplaySubText":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122018.jpg",
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  [
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122018.jpg",
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122027.jpg",
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122039.jpg",
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122054.jpg",
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/25631_A5ZGCAAA5TB014388/photo_122118.jpg"
-                      ]
     },
     {
         "InventoryID":  23244,
