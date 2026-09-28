@@ -19504,6 +19504,32 @@
                       }
     },
     {
+        "InventoryID":  27104,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT226E",
+        "Description":  "LS TRACTOR MT226E GEAR 4WD",
+        "SerialNumber":  "KLJ24361LTJ003506",
+        "Location":  "CLA",
+        "MSRP":  23600.4,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT226E",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
         "InventoryID":  25042,
         "Manufacturer":  "LS Tractor",
         "Department":  "TRACTOR",
@@ -19949,6 +19975,58 @@
                           "https://peachoutdoor.b-cdn.net/peachoutdoor/24646_KLJ24401CSJ001515/photo_125206.jpg",
                           "https://peachoutdoor.b-cdn.net/peachoutdoor/24646_KLJ24401CSJ001515/photo_125215.jpg"
                       ]
+    },
+    {
+        "InventoryID":  27094,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT232E",
+        "Description":  "LS TRACTOR MT232E GEAR 4WD",
+        "SerialNumber":  "KLJ24401KTJ001648",
+        "Location":  "CLA",
+        "MSRP":  27863.6,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT232E",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  27096,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT232E",
+        "Description":  "LS TRACTOR MT232E GEAR 4WD",
+        "SerialNumber":  "KLJ24401VTJ001654",
+        "Location":  "CLA",
+        "MSRP":  27863.6,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  "MT232E",
+        "AllPhotos":  {
+
+                      }
     },
     {
         "InventoryID":  25597,
@@ -20401,6 +20479,58 @@
                           "https://peachoutdoor.b-cdn.net/peachoutdoor/22240_2340002922/photo_125414.jpg",
                           "https://peachoutdoor.b-cdn.net/peachoutdoor/22240_2340002922/photo_125422.jpg"
                       ]
+    },
+    {
+        "InventoryID":  27098,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT242E",
+        "Description":  "LS TRACTOR MT242E GEAR 4WD",
+        "SerialNumber":  "KLJ24381JTJ001665",
+        "Location":  "CLA",
+        "MSRP":  30288.8,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  27100,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT242E",
+        "Description":  "LS TRACTOR MT242E GEAR 4WD",
+        "SerialNumber":  "KLJ24381ATJ001766",
+        "Location":  "CLA",
+        "MSRP":  30288.8,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
+        "AllPhotos":  {
+
+                      }
     },
     {
         "InventoryID":  25046,
@@ -23402,32 +23532,6 @@
         "SerialNumber":  "2231010043",
         "Location":  "CLA",
         "MSRP":  17499,
-        "Web_Price":  null,
-        "Monthly_Payment":  null,
-        "PriceDisplayMode":  "CallForPrice",
-        "PriceDisplayText":  "Call for Price",
-        "PriceDisplaySubText":  null,
-        "Used":  false,
-        "FeaturedItem":  false,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
-        "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
-    },
-    {
-        "InventoryID":  23540,
-        "Manufacturer":  "Spartan Mowers",
-        "Department":  "MOWER",
-        "Series":  "RZ-HD",
-        "Model":  "RSZL1154FR730",
-        "Description":  "Spartan RZ-HD 24HP Kawasaki FR730V w/54\" Deck RT-Pro Seat",
-        "SerialNumber":  "420605776",
-        "Location":  "CLA",
-        "MSRP":  8399,
         "Web_Price":  null,
         "Monthly_Payment":  null,
         "PriceDisplayMode":  "CallForPrice",
