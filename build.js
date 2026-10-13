@@ -474,56 +474,90 @@ function generatePageHtml(template, item, seo, specs, related) {
     return out;
 }
 
-// ─── Browse index: /inventory/browse ─────────────────────────────────────
-// A plain, crawlable directory of every item, grouped by manufacturer. This is
-// the page that gives all ~1,000 item URLs an internal link; before it existed
-// the sitemap was their only discovery path and no link equity reached them.
+// ─── Category + browse list pages ───────────────────────────────────────
+// The browse index gives every item URL an internal link. The category pages
+// give Google a page whose whole content matches a real query — "tractors for
+// sale", "zero-turn mowers" — instead of a home page that mentions it once.
+//
+// The zero-turn page matters more than its item count suggests: only 2 items
+// have "zero turn" anywhere in their description text, so without this page
+// the phrase barely exists on the site despite ~30 of them being in stock.
 
-function buildBrowsePage(entries) {
-    const byMfg = new Map();
-    for (const e of entries) {
-        const key = e.item.Manufacturer || 'Other Equipment';
-        if (!byMfg.has(key)) byMfg.set(key, []);
-        byMfg.get(key).push(e);
+// Departments with fewer items than this get no page of their own — a
+// near-empty landing page is worse than none.
+const MIN_CATEGORY_ITEMS = 10;
+
+const CATEGORIES = [
+    {
+        dept: 'TRACTOR', slug: 'tractors-for-sale-clanton-al', nav: 'Tractors',
+        title: 'Tractors for Sale in Clanton, AL | LS, Mahindra, Bad Boy',
+        h1:    'Tractors for Sale in Clanton, Alabama',
+        desc:  'Compact and utility tractors for sale at Peach Outdoor in Clanton, Alabama. Authorized LS, Mahindra and Bad Boy dealer with on-site service and online financing.',
+        blurb: 'New and used compact and utility tractors, in stock and ready to work. We are an authorized LS, Mahindra and Bad Boy dealer, we service what we sell from our own shop on Christian Street, and you can apply for financing online before you come out.'
+    },
+    {
+        dept: 'MOWER', slug: 'zero-turn-mowers-for-sale-clanton-al', nav: 'Zero-Turn Mowers',
+        title: 'Zero-Turn Mowers for Sale in Clanton, AL | Bad Boy, Spartan',
+        h1:    'Zero-Turn Mowers for Sale in Clanton, Alabama',
+        desc:  'Zero-turn lawn mowers for sale at Peach Outdoor in Clanton, Alabama. Bad Boy and Spartan dealer with parts, service and online financing.',
+        blurb: 'Zero-turn riding lawn mowers from Bad Boy and Spartan, from homeowner decks up to commercial machines. Parts and service are handled in our own shop, so the mower you buy here is the mower we look after.'
+    },
+    {
+        dept: 'IMP', slug: 'tractor-attachments-implements-clanton-al', nav: 'Attachments',
+        title: 'Tractor Attachments & Implements | Clanton, AL',
+        h1:    'Tractor Attachments and Implements in Central Alabama',
+        desc:  'Box blades, cutters, grapples, augers, hay forks and more. Tractor attachments and implements in stock at Peach Outdoor in Clanton, Alabama.',
+        blurb: 'Rotary cutters, box blades, grapples, post hole diggers, auger bits, hay forks and pallet forks, from IronCraft, Bad Boy, Taylor Pittsburgh and Bush Hog. Matching an implement to a tractor you already own? Call us with the horsepower and hitch category and we will tell you what fits.'
+    },
+    {
+        dept: 'CANOPY', slug: 'tractor-canopies-clanton-al', nav: 'Canopies',
+        title: 'Tractor Canopies & Sunshades | Clanton, AL',
+        h1:    'Tractor Canopies for Sale in Clanton, Alabama',
+        desc:  'Tractor canopies and sunshades in stock at Peach Outdoor in Clanton, Alabama, including Burdeshaw Tractor Canopies. Call 205-280-8838.',
+        blurb: 'Canopies and sunshades to get you out of the Alabama sun, including Burdeshaw Tractor Canopies built here in the state. Tell us your make and model and we will confirm the fit.'
+    },
+    {
+        dept: 'HANDHELD', slug: 'chainsaws-trimmers-handheld-equipment-clanton-al', nav: 'Handheld',
+        title: 'Chainsaws, Trimmers & Handheld Equipment | Clanton, AL',
+        h1:    'Handheld Outdoor Power Equipment in Clanton, Alabama',
+        desc:  'Chainsaws, hedge trimmers, blowers and handheld outdoor power equipment at Peach Outdoor in Clanton, Alabama. Echo and Bad Boy dealer.',
+        blurb: 'Chainsaws, hedge trimmers, blowers and string trimmers from Echo and Bad Boy. Smaller tickets than a tractor, with the same service counter behind them.'
+    },
+    {
+        dept: 'TRAILER', slug: 'utility-equipment-trailers-clanton-al', nav: 'Trailers',
+        title: 'Utility & Equipment Trailers for Sale | Clanton, AL',
+        h1:    'Utility and Equipment Trailers for Sale in Clanton, Alabama',
+        desc:  'Utility and equipment trailers in stock at Peach Outdoor in Clanton, Alabama. Call 205-280-8838 for availability and delivery.',
+        blurb: 'Utility and equipment trailers from G2, Caliber and Load Trail, sized from light utility up to equipment haulers. Hauling a tractor you bought here? We will make sure the trailer is rated for it.'
+    },
+    {
+        dept: 'ACCESSORY', slug: 'tractor-mower-accessories-clanton-al', nav: 'Accessories',
+        title: 'Tractor & Mower Accessories | Clanton, AL',
+        h1:    'Tractor and Mower Accessories in Clanton, Alabama',
+        desc:  'Tractor and mower accessories in stock at Peach Outdoor in Clanton, Alabama. Call 205-280-8838.',
+        blurb: 'Accessories and add-ons for the equipment we sell. If you do not see what you are after, call us — a lot of this is available to order.'
     }
+];
 
-    const mfgNames = [...byMfg.keys()].sort((a, b) => a.localeCompare(b));
+function categoryPath(cat) { return '/inventory/' + cat.slug; }
 
-    const title = 'All Inventory — Tractors, Mowers, UTVs & Attachments | Peach Outdoor';
-    const desc  = 'Browse all ' + entries.length + ' items in stock at Peach Outdoor in Clanton, Alabama — ' +
-                  mfgNames.slice(0, 6).join(', ') + ' and more. Call 205-280-8838.';
-
-    const jumpLinks = mfgNames.map(m =>
-        '<a class="jump" href="#' + escapeHtml(makeGroupSlug(m)) + '">' + escapeHtml(m) +
-        ' <span>(' + byMfg.get(m).length + ')</span></a>'
-    ).join('');
-
-    const sections = mfgNames.map(m => {
-        const group = byMfg.get(m).sort((a, b) => a.seo.headline.localeCompare(b.seo.headline));
-        const rows  = group.map(e =>
-            '<li><a href="/inventory/' + escapeHtml(e.seo.slug) + '">' +
-                '<span class="bi-name">' + escapeHtml(e.seo.headline) + '</span>' +
-                '<span class="bi-meta">' +
-                    (e.item.Used ? 'Used' : 'New') +
-                    (e.item.Department ? ' &middot; ' + escapeHtml(e.item.Department) : '') +
-                '</span>' +
-                '<span class="bi-price">' + escapeHtml(e.seo.priceText) + '</span>' +
-            '</a></li>'
-        ).join('');
-
-        return '<section class="brand-block" id="' + escapeHtml(makeGroupSlug(m)) + '">' +
-                    '<h2>' + escapeHtml(m) + ' <span class="count">' + group.length + ' in stock</span></h2>' +
-                    '<ul class="browse-list">' + rows + '</ul>' +
-               '</section>';
-    }).join('\n');
-
-    const itemListSchema = {
+// Shared CSS and document shell for the browse index and every category page.
+function renderListShell(opts) {
+    const schema = {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Peach Outdoor Inventory",
-        "description": desc,
-        "url": SITE_URL + BROWSE_PATH,
+        "name": opts.h1,
+        "description": opts.desc,
+        "url": SITE_URL + opts.canonicalPath,
         "isPartOf": { "@type": "WebSite", "name": "Peach Outdoor", "url": SITE_URL + '/' }
+    };
+
+    const crumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": opts.crumbs.map((c, i) => ({
+            "@type": "ListItem", "position": i + 1, "name": c.name, "item": SITE_URL + c.path
+        }))
     };
 
     return `<!DOCTYPE html>
@@ -531,14 +565,16 @@ function buildBrowsePage(entries) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml(title)}</title>
-    <meta name="description" content="${escapeHtml(desc)}">
-    <link rel="canonical" href="${SITE_URL}${BROWSE_PATH}">
+    <title>${escapeHtml(opts.title)}</title>
+    <meta name="description" content="${escapeHtml(opts.desc)}">
+    <link rel="canonical" href="${SITE_URL}${opts.canonicalPath}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="${escapeHtml(title)}">
-    <meta property="og:description" content="${escapeHtml(desc)}">
-    <meta property="og:url" content="${SITE_URL}${BROWSE_PATH}">
-    <script type="application/ld+json">${safeJSONForScript(itemListSchema)}</script>
+    <meta property="og:title" content="${escapeHtml(opts.title)}">
+    <meta property="og:description" content="${escapeHtml(opts.desc)}">
+    <meta property="og:url" content="${SITE_URL}${opts.canonicalPath}">
+    <meta property="og:image" content="${FALLBACK_OG_IMAGE}">
+    <script type="application/ld+json">${safeJSONForScript(schema)}</script>
+    <script type="application/ld+json">${safeJSONForScript(crumbs)}</script>
     <style>
         :root {
             --charcoal-dark:  #1f1f21;
@@ -564,11 +600,28 @@ function buildBrowsePage(entries) {
             position: sticky; top: 0; z-index: 100;
         }
         .top-bar a { color: var(--accent); text-decoration: none; font-weight: 600; }
-        .top-bar img { height: 42px; width: auto; }
-        .wrap { max-width: 1200px; margin: 0 auto; padding: 28px 20px 60px; }
-        h1 { font-size: 1.7em; margin-bottom: 6px; }
-        .lede { color: var(--text-secondary); margin-bottom: 22px; font-size: 0.95em; }
-        .jumps { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+        .wrap { max-width: 1200px; margin: 0 auto; padding: 22px 20px 60px; }
+        .crumbs { font-size: 0.8em; color: var(--text-muted); margin-bottom: 16px; }
+        .crumbs a { color: var(--text-secondary); text-decoration: none; }
+        .crumbs a:hover { color: var(--accent); text-decoration: underline; }
+        .crumb-sep { margin: 0 7px; }
+        h1 { font-size: 1.7em; margin-bottom: 8px; line-height: 1.25; }
+        .lede {
+            color: var(--text-secondary); margin-bottom: 20px;
+            font-size: 0.95em; line-height: 1.65; max-width: 880px;
+        }
+        .lede a { color: var(--accent); text-decoration: none; }
+        .lede strong { color: var(--text-primary); }
+        .cat-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+        .cat-nav a {
+            background: var(--charcoal-mid); border: 1px solid var(--charcoal-border);
+            border-radius: 999px; padding: 7px 15px; font-size: 0.85em;
+            color: var(--text-primary); text-decoration: none;
+        }
+        .cat-nav a:hover { border-color: var(--accent); color: var(--accent); }
+        .cat-nav a.here { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+        .cat-nav a span { color: var(--text-muted); }
+        .jumps { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
         .jump {
             background: var(--charcoal-mid); border: 1px solid var(--charcoal-border);
             border-radius: 999px; padding: 6px 14px; font-size: 0.85em;
@@ -576,9 +629,9 @@ function buildBrowsePage(entries) {
         }
         .jump span { color: var(--text-muted); }
         .jump:hover { border-color: var(--accent); color: var(--accent); }
-        .brand-block { margin-bottom: 36px; scroll-margin-top: 80px; }
+        .brand-block { margin-bottom: 34px; scroll-margin-top: 80px; }
         .brand-block h2 {
-            font-size: 1.15em; padding-bottom: 8px; margin-bottom: 10px;
+            font-size: 1.1em; padding-bottom: 8px; margin-bottom: 10px;
             border-bottom: 1px solid var(--charcoal-border);
         }
         .brand-block h2 .count { color: var(--text-muted); font-size: 0.72em; font-weight: 400; }
@@ -592,9 +645,16 @@ function buildBrowsePage(entries) {
         .bi-name { flex: 1 1 320px; }
         .bi-meta { color: var(--text-muted); font-size: 0.82em; }
         .bi-price { color: var(--accent); font-weight: 600; font-size: 0.9em; }
+        .tail {
+            margin-top: 34px; padding-top: 20px;
+            border-top: 1px solid var(--charcoal-border);
+            color: var(--text-secondary); font-size: 0.9em; line-height: 1.7;
+        }
+        .tail a { color: var(--accent); text-decoration: none; }
         @media (max-width: 600px) {
             .top-bar { padding: 12px 16px; }
-            .wrap { padding: 20px 16px 48px; }
+            .wrap { padding: 18px 16px 48px; }
+            h1 { font-size: 1.3em; }
         }
     </style>
 </head>
@@ -604,23 +664,115 @@ function buildBrowsePage(entries) {
         <a href="/inventory.html">Search &amp; filter inventory</a>
     </div>
     <div class="wrap">
-        <h1>All Inventory at Peach Outdoor</h1>
-        <p class="lede">
-            ${entries.length} items in stock in Clanton, Alabama. Sales 205-280-8838 &middot;
-            1940 Big M Blvd, Clanton, AL 35046. Prefer to filter by type, price or condition?
-            Use the <a href="/inventory.html" style="color:var(--accent)">inventory search</a>.
-        </p>
-        <div class="jumps">${jumpLinks}</div>
-${sections}
+        <nav class="crumbs" aria-label="Breadcrumb">${opts.crumbHtml}</nav>
+        <h1>${escapeHtml(opts.h1)}</h1>
+        <p class="lede">${opts.lede}</p>
+        <nav class="cat-nav">${opts.catNav}</nav>
+        ${opts.jumps || ''}
+${opts.sections}
+        <div class="tail">
+            Not seeing it? Call sales on <a href="tel:2052808838">(205) 280-8838</a>,
+            or <a href="/inventory.html">search the full inventory</a>.
+            Peach Outdoor, 1940 Big M Blvd, Clanton, AL 35046.
+        </div>
     </div>
 </body>
 </html>
 `;
 }
 
+// Group entries by manufacturer and render the linked sections.
+function renderBrandSections(entries, showDept) {
+    const byMfg = new Map();
+    for (const e of entries) {
+        const key = e.item.Manufacturer || 'Other Equipment';
+        if (!byMfg.has(key)) byMfg.set(key, []);
+        byMfg.get(key).push(e);
+    }
+    const names = [...byMfg.keys()].sort((a, b) => a.localeCompare(b));
+
+    const jumps = names.length > 1
+        ? '<div class="jumps">' + names.map(m =>
+            '<a class="jump" href="#' + escapeHtml(makeGroupSlug(m)) + '">' + escapeHtml(m) +
+            ' <span>(' + byMfg.get(m).length + ')</span></a>').join('') + '</div>'
+        : '';
+
+    const sections = names.map(m => {
+        const group = byMfg.get(m).sort((a, b) => a.seo.headline.localeCompare(b.seo.headline));
+        const rows = group.map(e =>
+            '<li><a href="/inventory/' + escapeHtml(e.seo.slug) + '">' +
+                '<span class="bi-name">' + escapeHtml(e.seo.headline) + '</span>' +
+                '<span class="bi-meta">' + (e.item.Used ? 'Used' : 'New') +
+                    (showDept && e.item.Department ? ' &middot; ' + escapeHtml(e.item.Department) : '') +
+                '</span>' +
+                '<span class="bi-price">' + escapeHtml(e.seo.priceText) + '</span>' +
+            '</a></li>').join('');
+
+        return '<section class="brand-block" id="' + escapeHtml(makeGroupSlug(m)) + '">' +
+                    '<h2>' + escapeHtml(m) + ' <span class="count">' + group.length + ' in stock</span></h2>' +
+                    '<ul class="browse-list">' + rows + '</ul>' +
+               '</section>';
+    }).join('\n');
+
+    return { jumps, sections, names };
+}
+
+// Category pills shared by every list page, so each links to all the others.
+function renderCatNav(live, currentSlug) {
+    const all = '<a class="' + (currentSlug ? '' : 'here') + '" href="' + BROWSE_PATH + '">Everything</a>';
+    const pills = live.map(c =>
+        '<a class="' + (c.cat.slug === currentSlug ? 'here' : '') + '" href="' + categoryPath(c.cat) + '">' +
+        escapeHtml(c.cat.nav) + ' <span>(' + c.entries.length + ')</span></a>').join('');
+    return all + pills;
+}
+
+function buildBrowsePage(entries, live) {
+    const { jumps, sections, names } = renderBrandSections(entries, true);
+
+    const title = 'All Inventory in Stock — Clanton, AL | Peach Outdoor';
+    const desc  = 'Browse all ' + entries.length + ' items in stock at Peach Outdoor in Clanton, Alabama — ' +
+                  names.slice(0, 6).join(', ') + ' and more. Call 205-280-8838.';
+
+    const lede = entries.length + ' items in stock in Clanton, Alabama. Sales 205-280-8838 &middot; ' +
+                 '1940 Big M Blvd, Clanton, AL 35046. Prefer to filter by type, price or condition? ' +
+                 'Use the <a href="/inventory.html">inventory search</a>.';
+
+    return renderListShell({
+        title, desc, h1: 'All Inventory at Peach Outdoor',
+        canonicalPath: BROWSE_PATH,
+        crumbs: [{ name: 'Home', path: '/' }, { name: 'Inventory', path: BROWSE_PATH }],
+        crumbHtml: '<a href="/">Home</a><span class="crumb-sep">&#8250;</span>' +
+                   '<span aria-current="page">Inventory</span>',
+        lede, catNav: renderCatNav(live, null), jumps, sections
+    });
+}
+
+function buildCategoryPage(cat, entries, live) {
+    const { jumps, sections } = renderBrandSections(entries, false);
+    const path = categoryPath(cat);
+
+    const lede = escapeHtml(cat.blurb) + ' <strong>' + entries.length + ' in stock.</strong> ' +
+                 'Sales <a href="tel:2052808838">(205) 280-8838</a> &middot; ' +
+                 '<a href="' + BROWSE_PATH + '">see everything in stock</a>.';
+
+    return renderListShell({
+        title: cat.title, desc: cat.desc, h1: cat.h1,
+        canonicalPath: path,
+        crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Inventory', path: BROWSE_PATH },
+            { name: cat.nav, path: path }
+        ],
+        crumbHtml: '<a href="/">Home</a><span class="crumb-sep">&#8250;</span>' +
+                   '<a href="' + BROWSE_PATH + '">Inventory</a><span class="crumb-sep">&#8250;</span>' +
+                   '<span aria-current="page">' + escapeHtml(cat.nav) + '</span>',
+        lede, catNav: renderCatNav(live, cat.slug), jumps, sections
+    });
+}
+
 // ─── Sitemap + robots ────────────────────────────────────────────────────
 
-function buildSitemap(entries) {
+function buildSitemap(entries, live) {
     const today = new Date().toISOString().slice(0, 10);
     const staticPages = [
         { loc: SITE_URL + '/',                   priority: '1.0', changefreq: 'weekly' },
@@ -630,6 +782,12 @@ function buildSitemap(entries) {
         { loc: SITE_URL + '/about.html',         priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/configurator.html',  priority: '0.5', changefreq: 'monthly' }
     ];
+
+    // Category landing pages rank for the query, so they sit above item pages
+    // in priority and below the two hub pages.
+    for (const c of live) {
+        staticPages.push({ loc: SITE_URL + categoryPath(c.cat), priority: '0.8', changefreq: 'daily' });
+    }
 
     const lines = [];
     lines.push('<?xml version="1.0" encoding="UTF-8"?>');
@@ -780,10 +938,37 @@ function main() {
     console.log('[build] Wrote ' + written + ' item pages to ' + OUTPUT_DIR +
                 ' (' + withSpecs + ' with spec tables, ' + skipped + ' skipped).');
 
-    fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries), 'utf8');
+    // ── Category landing pages. Only departments with real depth get one;
+    // a page with three items on it is a thin page, which is worse than none.
+    const live = [];
+    for (const cat of CATEGORIES) {
+        const catEntries = entries.filter(e => (e.item.Department || '').trim().toUpperCase() === cat.dept);
+        if (catEntries.length >= MIN_CATEGORY_ITEMS) {
+            live.push({ cat, entries: catEntries });
+        } else {
+            console.log('[build] Skipping category ' + cat.nav + ' — only ' +
+                        catEntries.length + ' item(s), under the ' + MIN_CATEGORY_ITEMS + ' minimum.');
+        }
+    }
+
+    // A category slug colliding with an item slug would silently overwrite a
+    // page. Item slugs end in -<InventoryID>, so this should never fire.
+    for (const c of live) {
+        if (slugsSeen.has(c.cat.slug)) {
+            throw new Error('Category slug ' + c.cat.slug + ' collides with an item page');
+        }
+    }
+
+    for (const c of live) {
+        fs.writeFileSync(path.join(OUTPUT_DIR, c.cat.slug + '.html'),
+                         buildCategoryPage(c.cat, c.entries, live), 'utf8');
+        console.log('[build] Wrote ' + categoryPath(c.cat) + ' (' + c.entries.length + ' items)');
+    }
+
+    fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries, live), 'utf8');
     console.log('[build] Wrote inventory/' + BROWSE_FILE + ' (browse index, ' + entries.length + ' links) -> ' + BROWSE_PATH);
 
-    fs.writeFileSync(SITEMAP_PATH, buildSitemap(entries), 'utf8');
+    fs.writeFileSync(SITEMAP_PATH, buildSitemap(entries, live), 'utf8');
     console.log('[build] Wrote sitemap.xml');
 
     fs.writeFileSync(ROBOTS_PATH, buildRobots(), 'utf8');
