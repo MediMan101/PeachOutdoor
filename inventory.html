@@ -362,6 +362,15 @@
             font-size: 1.1em;
         }
 
+        .browse-all-link {
+            margin-top: 28px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .browse-all-link a { color: #e07b2a; text-decoration: none; font-weight: 600; }
+        .browse-all-link a:hover { text-decoration: underline; }
+
         /* ── Mobile ── */
         @media (max-width: 768px) {
             .page-layout { flex-direction: column; padding: 16px; }
@@ -447,6 +456,14 @@
             </div>
 
             <div class="pagination" id="pagination"></div>
+
+            <!-- Static link to the pre-rendered browse index. The card grid
+                 above is built by JavaScript, so this is the only crawlable
+                 path from here into the ~1,000 individual item pages. -->
+            <p class="browse-all-link">
+                Looking for something specific?
+                <a href="/inventory/">Browse every item in stock, grouped by brand</a>.
+            </p>
         </main>
 
     </div>

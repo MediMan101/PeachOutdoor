@@ -669,6 +669,58 @@
         .inq-success .inq-check { font-size: 3em; }
         .inq-success h3 { margin: 12px 0 6px; color: #4caf50; }
         .inq-success p { color: var(--text-secondary, #aaa); font-size: 0.9em; }
+
+        /* ── Breadcrumb + related items ──
+           Rendered by build.js outside #content so they survive the runtime
+           innerHTML swap in displayItem(). On the un-prerendered template
+           (legacy /item-details.html?id=N) they simply aren't present. */
+        .crumbs {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 20px 0;
+            font-size: 0.82em;
+            color: var(--text-muted);
+        }
+        .crumbs a { color: var(--text-secondary); text-decoration: none; }
+        .crumbs a:hover { color: var(--accent); text-decoration: underline; }
+        .crumb-sep { margin: 0 8px; color: var(--text-muted); }
+        .crumbs [aria-current="page"] { color: var(--text-muted); }
+
+        .related-block {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px 60px;
+        }
+        .related-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid var(--charcoal-border);
+        }
+        .related-list { list-style: none; }
+        .related-list li { border-bottom: 1px solid #333; }
+        .related-list a {
+            display: flex;
+            gap: 14px;
+            align-items: baseline;
+            flex-wrap: wrap;
+            padding: 9px 4px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.92em;
+        }
+        .related-list a:hover { background: var(--charcoal-mid); color: var(--accent); }
+        .related-price { margin-left: auto; color: var(--accent); font-weight: 600; font-size: 0.9em; }
+        .related-all {
+            display: inline-block;
+            margin-top: 14px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        .related-all:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -945,7 +997,8 @@
 
             var mainHtml =
                 '<div class="main-photo-wrap" id="mainPhotoWrap">' +
-                    '<img id="mainPhotoImg" src="' + cloudinaryUrl(photos[0]) + '" alt="' + modelName + '">' +
+                    '<img id="mainPhotoImg" src="' + cloudinaryUrl(photos[0]) + '" alt="' + modelName + '"' +
+                        ' loading="eager" fetchpriority="high" decoding="async">' +
                     (photos.length > 1 ?
                         '<button class="photo-nav prev" onclick="changePhoto(-1)">&#8249;</button>' +
                         '<button class="photo-nav next" onclick="changePhoto(1)">&#8250;</button>' +
@@ -958,7 +1011,8 @@
             var thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
             for (var i = 0; i < photos.length; i++) {
                 thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
-                    '<img src="' + cloudinaryUrl(photos[i]) + '" alt="Photo ' + (i+1) + '">' +
+                    '<img src="' + cloudinaryUrl(photos[i]) + '" alt="' + modelName + ' photo ' + (i+1) + '"' +
+                        ' loading="lazy" decoding="async">' +
                     '</div>';
             }
             thumbsHtml += '</div>';
