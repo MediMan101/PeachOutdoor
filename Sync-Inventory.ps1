@@ -683,10 +683,13 @@ WHERE ip.PublicID IS NOT NULL
   AND ip.PhotoURL LIKE '%b-cdn.net%'
 "@
 
+        # Note: do NOT name this $pid. $PID is a read-only automatic variable
+        # (the process id) and PowerShell variable names are case-insensitive,
+        # so assigning to it throws "Cannot overwrite variable PID".
         $candidates = @()
         foreach ($r in $photoRowsForVariants) {
-            $pid = [string]$r["PublicID"]
-            if (-not $variantCache.ContainsKey($pid)) { $candidates += $pid }
+            $pubId = [string]$r["PublicID"]
+            if (-not $variantCache.ContainsKey($pubId)) { $candidates += $pubId }
         }
 
         if ($candidates.Count -eq 0) {
@@ -697,35 +700,35 @@ WHERE ip.PublicID IS NOT NULL
 
             $bfDone = 0; $bfAlready = 0; $bfFailed = 0
 
-            foreach ($pid in $todo) {
+            foreach ($pubId in $todo) {
                 try {
                     # Already on the CDN from an earlier run that died before
                     # the cache was written? Record it and move on.
-                    if (Test-BunnyAsset -StoragePath "${pid}_$($PhotoVariants[0]).jpg") {
-                        Add-VariantCacheEntry $pid
+                    if (Test-BunnyAsset -StoragePath "${pubId}_$($PhotoVariants[0]).jpg") {
+                        Add-VariantCacheEntry $pubId
                         $bfAlready++
                         continue
                     }
 
-                    $originalUrl = Get-BunnyUrl -StoragePath "$pid.jpg"
+                    $originalUrl = Get-BunnyUrl -StoragePath "$pubId.jpg"
                     $resp = Invoke-WebRequest -Uri $originalUrl -UseBasicParsing -TimeoutSec 60
                     $srcBytes = $resp.Content
 
                     if (-not $srcBytes -or $srcBytes.Length -eq 0) {
-                        Write-Log "  WARN: empty download for ${pid}, skipping." "WARN"
+                        Write-Log "  WARN: empty download for ${pubId}, skipping." "WARN"
                         $bfFailed++
                         continue
                     }
 
-                    Write-Log "  Backfilling $pid ($([int]($srcBytes.Length / 1KB))KB original)"
-                    if (Send-BunnyVariants -PublicId $pid -SourceBytes $srcBytes) {
-                        Add-VariantCacheEntry $pid
+                    Write-Log "  Backfilling $pubId ($([int]($srcBytes.Length / 1KB))KB original)"
+                    if (Send-BunnyVariants -PublicId $pubId -SourceBytes $srcBytes) {
+                        Add-VariantCacheEntry $pubId
                         $bfDone++
                     } else {
                         $bfFailed++
                     }
                 } catch {
-                    Write-Log "  WARN: backfill failed for ${pid}: $($_.Exception.Message)" "WARN"
+                    Write-Log "  WARN: backfill failed for ${pubId}: $($_.Exception.Message)" "WARN"
                     $bfFailed++
                 }
             }
