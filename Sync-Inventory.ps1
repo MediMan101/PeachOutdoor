@@ -907,7 +907,14 @@ foreach ($row in $inventoryRows) {
         PrimaryPhotoURL       = if ($row.PrimaryPhotoURL -is [DBNull]) { $null } else { [string]$row.PrimaryPhotoURL }
         PrimaryPhotoIsDefault = $primaryIsDefault
         SpecModel             = if ($row.SpecModel -is [DBNull]) { $null } else { [string]$row.SpecModel }
-        AllPhotos             = if ($photoLookup.ContainsKey($id)) { $photoLookup[$id] } else { @() }
+        # The @() around the if-expression is load-bearing. PowerShell pipes
+        # the expression's result, and the pipeline UNROLLS arrays: an empty
+        # array became $null (serialising as {}) and a one-element array became
+        # a bare string, so AllPhotos arrived as three different JSON shapes.
+        # That is what made og:image the single character "h" on single-photo
+        # pages — build.js read AllPhotos[0] off a string. @() re-collects it
+        # so this is always a JSON array, even with zero or one photo.
+        AllPhotos             = @(if ($photoLookup.ContainsKey($id)) { $photoLookup[$id] } else { @() })
     }
 }
 

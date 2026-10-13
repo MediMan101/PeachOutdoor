@@ -41,6 +41,11 @@ const SITEMAP_PATH   = path.join(ROOT, 'sitemap.xml');
 const ROBOTS_PATH    = path.join(ROOT, 'robots.txt');
 const SITE_URL       = 'https://peachoutdoor.com';
 
+// og:image for the 850-odd items that have no photo yet. An empty content=""
+// gives a broken share card; the logo at least shows who the link is from.
+// Matches what index.html uses for the homepage.
+const FALLBACK_OG_IMAGE = SITE_URL + '/PeachOutdoorLogo.png';
+
 // How many "more from this brand" links to place on each item page.
 const RELATED_LIMIT = 8;
 
@@ -112,9 +117,10 @@ function buildSEO(item) {
                       priceText + '. Call 205-280-8838.';
     }
 
-    let primaryImage = '';
-    if (item.AllPhotos && item.AllPhotos.length) primaryImage = item.AllPhotos[0];
-    else if (item.PrimaryPhotoURL)               primaryImage = item.PrimaryPhotoURL;
+    // photosFor() normalises AllPhotos' three possible JSON shapes — see its
+    // definition. Never index into item.AllPhotos directly.
+    const photos       = photosFor(item);
+    const primaryImage = photos.length ? photos[0] : FALLBACK_OG_IMAGE;
 
     const slug      = makeSlug(item);
     const canonical = SITE_URL + '/inventory/' + slug;
@@ -124,9 +130,8 @@ function buildSEO(item) {
         "@type": "Product",
         "name": headline,
         "description": item.AboutThisItem || (condition + ' ' + headline + ' available at Peach Outdoor'),
-        "image": (item.AllPhotos && item.AllPhotos.length
-            ? item.AllPhotos
-            : (primaryImage ? [primaryImage] : [])),
+        // Omitted entirely when the item has no photo — an empty array is a
+        // validation warning on Product, a missing key is just incomplete.
         "sku": String(item.InventoryID || ''),
         "itemCondition": item.Used
             ? "https://schema.org/UsedCondition"
@@ -151,6 +156,7 @@ function buildSEO(item) {
             }
         }
     };
+    if (photos.length)     schema.image        = photos;
     if (item.Manufacturer) schema.brand        = { "@type": "Brand", "name": item.Manufacturer };
     if (item.Model)        schema.model        = item.Model;
     if (item.SerialNumber) schema.serialNumber = item.SerialNumber;
@@ -289,11 +295,25 @@ function photoVariant(url, width) {
     return url.replace(/\.jpg$/i, '_' + width + '.jpg');
 }
 
+// AllPhotos has historically arrived in three different JSON shapes, because
+// PowerShell's pipeline unrolled the array before ConvertTo-Json saw it:
+//   two or more photos -> ["url", "url"]   (an array, as intended)
+//   exactly one photo  -> "url"            (a bare string)
+//   no photos          -> {}               (an empty object)
+// Reading AllPhotos[0] off the string form yields "h", which is how og:image
+// ended up as a single character on every single-photo page. Sync-Inventory.ps1
+// now always emits an array, but a deployed inventory.json can still predate
+// that, so normalise every shape here rather than trusting the input.
 function photosFor(item) {
-    if (item.AllPhotos && Array.isArray(item.AllPhotos) && item.AllPhotos.length) return item.AllPhotos;
-    if (item.PrimaryPhotoURL) return [item.PrimaryPhotoURL];
-    if (item.ImageURL)        return [item.ImageURL];
-    return [];
+    const raw = item.AllPhotos;
+    let photos = [];
+
+    if (Array.isArray(raw))           photos = raw.filter(u => typeof u === 'string' && u);
+    else if (typeof raw === 'string' && raw) photos = [raw];
+
+    if (!photos.length && item.PrimaryPhotoURL) photos = [item.PrimaryPhotoURL];
+    if (!photos.length && item.ImageURL)        photos = [item.ImageURL];
+    return photos;
 }
 
 function renderItemBody(item, specs) {

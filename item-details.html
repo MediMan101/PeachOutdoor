@@ -839,16 +839,14 @@
             if (ogDescEl) ogDescEl.setAttribute('content', description);
 
             // Pick the first photo for social previews
-            let primaryImage = '';
-            if (item.AllPhotos && Array.isArray(item.AllPhotos) && item.AllPhotos.length > 0) {
-                primaryImage = item.AllPhotos[0];
-            } else if (item.PrimaryPhotoURL) {
-                primaryImage = item.PrimaryPhotoURL;
-            }
-            if (primaryImage) {
-                const ogImgEl = document.getElementById('og-image');
-                if (ogImgEl) ogImgEl.setAttribute('content', primaryImage);
-            }
+            // No photo yet? Fall back to the logo rather than leaving
+            // content="" — matches FALLBACK_OG_IMAGE in build.js.
+            var itemPhotos   = normalizePhotos(item);
+            var primaryImage = itemPhotos.length
+                ? itemPhotos[0]
+                : 'https://peachoutdoor.com/PeachOutdoorLogo.png';
+            var ogImgEl = document.getElementById('og-image');
+            if (ogImgEl) ogImgEl.setAttribute('content', primaryImage);
 
             // Canonical / og:url — always point to the pre-rendered clean URL
             // so legacy /item-details.html?id=N pages canonicalize correctly.
@@ -864,8 +862,7 @@
                 "@type": "Product",
                 "name": headline,
                 "description": (item.AboutThisItem || (condition + ' ' + headline + ' available at Peach Outdoor')),
-                "image": (item.AllPhotos && item.AllPhotos.length ? item.AllPhotos
-                          : (primaryImage ? [primaryImage] : [])),
+                // Set below only when the item actually has photos.
                 "sku": String(item.InventoryID || ''),
                 "itemCondition": item.Used
                     ? "https://schema.org/UsedCondition"
@@ -891,6 +888,7 @@
                 }
             };
 
+            if (itemPhotos.length) schema.image = itemPhotos;
             if (item.Manufacturer) {
                 schema.brand = { "@type": "Brand", "name": item.Manufacturer };
             }
@@ -925,14 +923,7 @@
             const specLookup = itemData.SpecModel || itemData.Model;
             const specs = specsData.find(s => s.Model === specLookup);
 
-            let photos = [];
-            if (itemData.AllPhotos && Array.isArray(itemData.AllPhotos) && itemData.AllPhotos.length > 0) {
-                photos = itemData.AllPhotos;
-            } else if (itemData.PrimaryPhotoURL) {
-                photos = [itemData.PrimaryPhotoURL];
-            } else if (itemData.ImageURL) {
-                photos = [itemData.ImageURL];
-            }
+            let photos = normalizePhotos(itemData);
 
             // Price
             let priceHtml = '';
@@ -1051,6 +1042,31 @@
         // The main gallery photo deliberately uses this full-size original.
         function cloudinaryUrl(url) {
             return url;
+        }
+
+        // AllPhotos has historically arrived in three different JSON shapes,
+        // because PowerShell's pipeline unrolled the array before
+        // ConvertTo-Json saw it:
+        //   two or more photos -> ["url", "url"]   (an array, as intended)
+        //   exactly one photo  -> "url"            (a bare string)
+        //   no photos          -> {}               (an empty object)
+        // Reading AllPhotos[0] off the string form yields "h". Sync-Inventory.ps1
+        // now always emits an array, but a deployed inventory.json can still
+        // predate that, so normalise every shape rather than trusting the input.
+        // Mirrors photosFor() in build.js — keep the two in sync.
+        function normalizePhotos(item) {
+            var raw = item.AllPhotos;
+            var photos = [];
+
+            if (Array.isArray(raw)) {
+                photos = raw.filter(function (u) { return typeof u === 'string' && u; });
+            } else if (typeof raw === 'string' && raw) {
+                photos = [raw];
+            }
+
+            if (!photos.length && item.PrimaryPhotoURL) photos = [item.PrimaryPhotoURL];
+            if (!photos.length && item.ImageURL)        photos = [item.ImageURL];
+            return photos;
         }
 
         // Sync-Inventory.ps1 uploads <name>_400.jpg and <name>_800.jpg next to
