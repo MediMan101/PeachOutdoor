@@ -676,20 +676,45 @@ VALUES (@inv, @url, @pub, @sort, @primary, 0, GETDATE())
         # Only Bunny-hosted photos — legacy Cloudinary URLs are served through
         # Cloudinary and the site leaves those untouched.
         $photoRowsForVariants = Invoke-SQL -Query @"
-SELECT DISTINCT ip.PublicID
+SELECT DISTINCT ip.PhotoURL
 FROM dbo.InventoryPhotos ip
-WHERE ip.PublicID IS NOT NULL
-  AND ip.PublicID <> ''
+WHERE ip.PhotoURL IS NOT NULL
+  AND ip.PhotoURL <> ''
   AND ip.PhotoURL LIKE '%b-cdn.net%'
 "@
 
-        # Note: do NOT name this $pid. $PID is a read-only automatic variable
-        # (the process id) and PowerShell variable names are case-insensitive,
-        # so assigning to it throws "Cannot overwrite variable PID".
+        # Work from PhotoURL, not PublicID. PublicID normally has no extension
+        # and the URL is "<cdn>/<PublicID>.jpg", but 16 legacy default-photo
+        # rows baked ".jpg" into PublicID itself — appending another one asked
+        # Bunny for "...photo_1.jpg.jpg" and 404'd. PhotoURL is the URL that
+        # actually works, and stripping its extension gives the same base the
+        # website uses when it rewrites "<name>.jpg" to "<name>_400.jpg", so
+        # the two agree for both shapes.
+        #
+        # Note: do NOT name the loop variable $pid. $PID is a read-only
+        # automatic variable (the process id) and PowerShell variable names are
+        # case-insensitive, so assigning to it throws "Cannot overwrite PID".
+        $cdnPrefix  = "$BunnyCDNBase/"
         $candidates = @()
+        $seen       = @{}
+
         foreach ($r in $photoRowsForVariants) {
-            $pubId = [string]$r["PublicID"]
-            if (-not $variantCache.ContainsKey($pubId)) { $candidates += $pubId }
+            $photoUrl = [string]$r["PhotoURL"]
+            if (-not $photoUrl.StartsWith($cdnPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+                Write-Log "  Skipping photo not on the CDN base: $photoUrl" "WARN"
+                continue
+            }
+
+            $storagePath = $photoUrl.Substring($cdnPrefix.Length)
+            $variantBase = $storagePath -replace '\.(jpg|jpeg|png|webp)$', ''
+
+            # For ordinary rows $variantBase equals PublicID, so cache entries
+            # written by earlier runs stay valid.
+            if ($variantCache.ContainsKey($variantBase)) { continue }
+            if ($seen.ContainsKey($variantBase))         { continue }
+            $seen[$variantBase] = $true
+
+            $candidates += [pscustomobject]@{ Base = $variantBase; Url = $photoUrl }
         }
 
         if ($candidates.Count -eq 0) {
@@ -700,35 +725,35 @@ WHERE ip.PublicID IS NOT NULL
 
             $bfDone = 0; $bfAlready = 0; $bfFailed = 0
 
-            foreach ($pubId in $todo) {
+            foreach ($candidate in $todo) {
+                $variantBase = $candidate.Base
                 try {
                     # Already on the CDN from an earlier run that died before
                     # the cache was written? Record it and move on.
-                    if (Test-BunnyAsset -StoragePath "${pubId}_$($PhotoVariants[0]).jpg") {
-                        Add-VariantCacheEntry $pubId
+                    if (Test-BunnyAsset -StoragePath "${variantBase}_$($PhotoVariants[0]).jpg") {
+                        Add-VariantCacheEntry $variantBase
                         $bfAlready++
                         continue
                     }
 
-                    $originalUrl = Get-BunnyUrl -StoragePath "$pubId.jpg"
-                    $resp = Invoke-WebRequest -Uri $originalUrl -UseBasicParsing -TimeoutSec 60
+                    $resp = Invoke-WebRequest -Uri $candidate.Url -UseBasicParsing -TimeoutSec 60
                     $srcBytes = $resp.Content
 
                     if (-not $srcBytes -or $srcBytes.Length -eq 0) {
-                        Write-Log "  WARN: empty download for ${pubId}, skipping." "WARN"
+                        Write-Log "  WARN: empty download for ${variantBase}, skipping." "WARN"
                         $bfFailed++
                         continue
                     }
 
-                    Write-Log "  Backfilling $pubId ($([int]($srcBytes.Length / 1KB))KB original)"
-                    if (Send-BunnyVariants -PublicId $pubId -SourceBytes $srcBytes) {
-                        Add-VariantCacheEntry $pubId
+                    Write-Log "  Backfilling $variantBase ($([int]($srcBytes.Length / 1KB))KB original)"
+                    if (Send-BunnyVariants -PublicId $variantBase -SourceBytes $srcBytes) {
+                        Add-VariantCacheEntry $variantBase
                         $bfDone++
                     } else {
                         $bfFailed++
                     }
                 } catch {
-                    Write-Log "  WARN: backfill failed for ${pubId}: $($_.Exception.Message)" "WARN"
+                    Write-Log "  WARN: backfill failed for ${variantBase}: $($_.Exception.Message)" "WARN"
                     $bfFailed++
                 }
             }
