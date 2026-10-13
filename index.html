@@ -1605,6 +1605,18 @@
     </footer>
 
     <script>
+        // Sync-Inventory.ps1 uploads <name>_400.jpg and <name>_800.jpg next to
+        // every Bunny-hosted photo. The featured sidebar and mobile strip paint
+        // into small boxes, so the 2000px original means ~1.7MB per tile. Only
+        // Bunny .jpg URLs have derivatives — everything else passes through.
+        // Pair with data-full + the restore step in onerror so a photo whose
+        // variants haven't been generated yet still shows.
+        function photoVariant(url, width) {
+            if (typeof url !== 'string' || !width) return url;
+            if (url.indexOf('peachoutdoor.b-cdn.net/') === -1) return url;
+            return url.replace(/\.jpg$/i, '_' + width + '.jpg');
+        }
+
         // Smooth scrolling for anchor links
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1712,7 +1724,7 @@
                                     <div class="sidebar-item-name">${item.Description}</div>
                                 </div>
                                 ${item.PrimaryPhotoURL
-                                    ? `<img class="sidebar-item-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.style.display='none'">`
+                                    ? `<img class="sidebar-item-img" src="${photoVariant(item.PrimaryPhotoURL, 800)}" data-full="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" decoding="async" onerror="if(this.dataset.full){this.src=this.dataset.full;this.removeAttribute('data-full');return;}this.style.display='none'">`
                                     : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
                                 }
                             </div>
@@ -1842,7 +1854,7 @@
                                 <div class="mobile-strip-name">${item.Description}</div>
                             </div>
                             ${item.PrimaryPhotoURL
-                                ? `<img class="mobile-strip-img" src="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" onerror="this.parentElement.style.background='${bgColor}'">`
+                                ? `<img class="mobile-strip-img" src="${photoVariant(item.PrimaryPhotoURL, 800)}" data-full="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" decoding="async" onerror="if(this.dataset.full){this.src=this.dataset.full;this.removeAttribute('data-full');return;}this.parentElement.style.background='${bgColor}'">`
                                 : `<div class="mobile-strip-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
                             }
                         </div>

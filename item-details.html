@@ -1010,9 +1010,13 @@
 
             var thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
             for (var i = 0; i < photos.length; i++) {
+                var full  = cloudinaryUrl(photos[i]);
+                var thumb = photoVariant(full, 400);
                 thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
-                    '<img src="' + cloudinaryUrl(photos[i]) + '" alt="' + modelName + ' photo ' + (i+1) + '"' +
-                        ' loading="lazy" decoding="async">' +
+                    '<img src="' + thumb + '" data-full="' + full + '"' +
+                        ' alt="' + modelName + ' photo ' + (i+1) + '"' +
+                        ' loading="lazy" decoding="async"' +
+                        ' onerror="this.onerror=null;this.src=this.dataset.full">' +
                     '</div>';
             }
             thumbsHtml += '</div>';
@@ -1044,8 +1048,21 @@
 
         // URLs are pre-optimized in the database with f_auto,q_auto,w_1200 —
         // no client-side transform injection needed. Return URL unchanged.
+        // The main gallery photo deliberately uses this full-size original.
         function cloudinaryUrl(url) {
             return url;
+        }
+
+        // Sync-Inventory.ps1 uploads <name>_400.jpg and <name>_800.jpg next to
+        // every Bunny-hosted photo. Thumbnails paint into a 78x64 box, so the
+        // 2000px original means ~1.7MB downloaded to draw a postage stamp.
+        // Only Bunny .jpg URLs have derivatives — everything else passes
+        // through. Pair with data-full + onerror so a photo whose variants
+        // haven't been generated yet still shows.
+        function photoVariant(url, width) {
+            if (typeof url !== 'string' || !width) return url;
+            if (url.indexOf('peachoutdoor.b-cdn.net/') === -1) return url;
+            return url.replace(/\.jpg$/i, '_' + width + '.jpg');
         }
 
         /* Specs */

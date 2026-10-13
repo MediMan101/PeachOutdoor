@@ -480,6 +480,19 @@
             return url;
         }
 
+        // Sync-Inventory.ps1 uploads <name>_400.jpg and <name>_800.jpg next to
+        // every Bunny-hosted photo. A card paints into roughly a 350px box, so
+        // handing it the 2000px original downloads ~1.7MB to draw a thumbnail.
+        // Only Bunny .jpg URLs have derivatives — legacy Cloudinary URLs and
+        // anything else pass straight through. Always pair this with
+        // data-full + the restore step in onerror so a photo whose variants
+        // haven't been generated yet still shows.
+        function photoVariant(url, width) {
+            if (typeof url !== 'string' || !width) return url;
+            if (url.indexOf('peachoutdoor.b-cdn.net/') === -1) return url;
+            return url.replace(/\.jpg$/i, '_' + width + '.jpg');
+        }
+
         // Mirrors build.js makeSlug() exactly. Used to link to the
         // pre-rendered clean URL for each item.
         function makeItemSlug(item) {
@@ -643,10 +656,21 @@
                 const fallbackImg = isLS ? 'LSMT226_Default.jpg' : null;
                 let photo;
                 if (item.PrimaryPhotoURL) {
+                    // First error: a derivative that doesn't exist yet — drop
+                    // back to the full-size original before giving up on the
+                    // photo entirely. Second error runs the real fallback.
+                    const restoreFull = `if(this.dataset.full){this.removeAttribute('srcset');this.src=this.dataset.full;this.removeAttribute('data-full');return;}`;
                     const fallbackAttr = fallbackImg
-                        ? `onerror="this.src='${fallbackImg}';this.onerror=null;"`
-                        : `onerror="this.parentElement.innerHTML='<div class=\\'no-photo-default\\' style=\\'background:${placeholderColor};\\'>'+('${(item.Manufacturer||'').replace(/'/g,"\\'")}')+'</div>'"`;
-                    photo = `<img src="${cloudinaryUrl(item.PrimaryPhotoURL)}" alt="${item.Model || ''}" loading="lazy" ${fallbackAttr}>`;
+                        ? `onerror="${restoreFull}this.src='${fallbackImg}';this.onerror=null;"`
+                        : `onerror="${restoreFull}this.parentElement.innerHTML='<div class=\\'no-photo-default\\' style=\\'background:${placeholderColor};\\'>'+('${(item.Manufacturer||'').replace(/'/g,"\\'")}')+'</div>'"`;
+                    const full  = cloudinaryUrl(item.PrimaryPhotoURL);
+                    const small = photoVariant(full, 400);
+                    const med   = photoVariant(full, 800);
+                    // 1x screens take the 400 (~64KB), 2x the 800 (~261KB).
+                    const srcsetAttr = (small !== full)
+                        ? `srcset="${small} 400w, ${med} 800w" sizes="(max-width: 768px) 45vw, 350px" data-full="${full}"`
+                        : '';
+                    photo = `<img src="${small}" ${srcsetAttr} alt="${item.Model || ''}" loading="lazy" decoding="async" ${fallbackAttr}>`;
                 } else if (fallbackImg) {
                     photo = `<img src="${fallbackImg}" alt="${item.Model || ''}" loading="lazy">`;
                 } else {

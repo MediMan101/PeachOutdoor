@@ -46,6 +46,32 @@ $PhotosFolder = "C:\inetpub\wwwroot\inventoryapp\photos"
 # Bunny CDN delivery base URL — photos are served from here
 $BunnyCDNBase = "https://peachoutdoor.b-cdn.net"
 
+# -- DERIVATIVE IMAGE SIZES ----------------------------------------------------
+# The site only ever shows a photo at full size in the main gallery viewer.
+# Everywhere else it is painted into a small box — gallery thumbnails render at
+# roughly 78px wide and inventory cards at roughly 348px — so handing those
+# slots the 2000px original downloads about 1 MB to draw a postage stamp. The
+# browser throws the extra pixels away; the customer never sees them.
+#
+# For each uploaded photo we also store <publicId>_400.jpg and _800.jpg.
+# 400 covers thumbnails and 800 covers cards, both with room to spare on a 2x
+# display, so nothing on screen looks any different. The main gallery photo
+# deliberately keeps pointing at the untouched full-size original.
+$PhotoVariants = @(400, 800)
+
+# Quality for derivatives. They are only ever downscaled into small boxes, so
+# 82 is indistinguishable from the 85 used for the full-size upload.
+$VariantQuality = 82
+
+# PublicIDs known to already have derivatives on Bunny, one per line, so the
+# backfill below doesn't re-check the whole library on every nightly run.
+$VariantCacheFile = Join-Path $PSScriptRoot "variant-cache.txt"
+
+# Cap on how many existing photos the backfill converts per run. Keeps a
+# nightly run bounded; the backlog clears over a few runs and then costs
+# nothing, because new photos get their derivatives at upload time.
+$BackfillPerRun = 250
+
 # -- LOGGING -------------------------------------------------------------------
 
 $LogDir = Split-Path $LogFile
@@ -123,6 +149,119 @@ function Remove-BunnyFile {
     } catch {
         if ($_.Exception.Response.StatusCode -eq 404) { return $true }
         throw
+    }
+}
+
+# -- HELPER: Does an asset already exist on the CDN? --------------------------
+
+function Test-BunnyAsset {
+    param([string]$StoragePath)
+    try {
+        Invoke-WebRequest -Uri (Get-BunnyUrl -StoragePath $StoragePath) `
+            -Method Head -UseBasicParsing -TimeoutSec 20 | Out-Null
+        return $true
+    } catch {
+        return $false
+    }
+}
+
+# -- HELPER: Downscale JPEG bytes in memory -----------------------------------
+# Returns the source bytes unchanged when the image is already at or under
+# MaxWidth — we never upscale, so a small photo stays exactly as it is.
+
+function Get-ResizedJpegBytes {
+    param(
+        [byte[]]$SourceBytes,
+        [int]$MaxWidth,
+        [int]$Quality = 82
+    )
+
+    Add-Type -AssemblyName System.Drawing
+
+    $inStream = New-Object System.IO.MemoryStream(,$SourceBytes)
+    $src = $null; $resized = $null; $graphic = $null; $outStream = $null
+    try {
+        $src = [System.Drawing.Image]::FromStream($inStream)
+        if ($src.Width -le $MaxWidth) { return $SourceBytes }
+
+        $ratio     = $MaxWidth / $src.Width
+        $newWidth  = $MaxWidth
+        $newHeight = [int]($src.Height * $ratio)
+
+        $resized = New-Object System.Drawing.Bitmap($newWidth, $newHeight)
+        $graphic = [System.Drawing.Graphics]::FromImage($resized)
+        $graphic.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+        $graphic.SmoothingMode     = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
+        $graphic.PixelOffsetMode   = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+        $graphic.DrawImage($src, 0, 0, $newWidth, $newHeight)
+
+        $jpegEncoder = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
+                           Where-Object { $_.MimeType -eq 'image/jpeg' }
+        $encParams   = New-Object System.Drawing.Imaging.EncoderParameters(1)
+        $encParams.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter(
+                                 [System.Drawing.Imaging.Encoder]::Quality, [long]$Quality)
+
+        $outStream = New-Object System.IO.MemoryStream
+        $resized.Save($outStream, $jpegEncoder, $encParams)
+        return $outStream.ToArray()
+    }
+    finally {
+        if ($graphic)   { $graphic.Dispose() }
+        if ($resized)   { $resized.Dispose() }
+        if ($src)       { $src.Dispose() }
+        if ($outStream) { $outStream.Dispose() }
+        $inStream.Dispose()
+    }
+}
+
+# -- HELPER: Upload the _400 / _800 derivatives for one photo -----------------
+# SourceBytes is the full-size image already destined for (or living on) the
+# CDN. Returns $true only if every size uploaded, so a partial failure is
+# retried on the next run rather than being cached as done.
+
+function Send-BunnyVariants {
+    param(
+        [string]$PublicId,
+        [byte[]]$SourceBytes
+    )
+
+    $allOk   = $true
+    $summary = @()
+
+    foreach ($width in $PhotoVariants) {
+        try {
+            $bytes = Get-ResizedJpegBytes -SourceBytes $SourceBytes -MaxWidth $width -Quality $VariantQuality
+            Send-BunnyFile -StoragePath "${PublicId}_$width.jpg" -FileBytes $bytes
+            $summary += "${width}px=$([int]($bytes.Length / 1KB))KB"
+        } catch {
+            Write-Log "  WARN: ${width}px variant failed for ${PublicId}: $($_.Exception.Message)" "WARN"
+            $allOk = $false
+        }
+    }
+
+    if ($summary.Count) { Write-Log "    variants: $($summary -join ', ')" }
+    return $allOk
+}
+
+# -- HELPER: Variant cache ----------------------------------------------------
+
+function Get-VariantCache {
+    $cache = @{}
+    if (Test-Path $VariantCacheFile) {
+        foreach ($line in (Get-Content $VariantCacheFile)) {
+            $id = $line.Trim()
+            if ($id) { $cache[$id] = $true }
+        }
+    }
+    return $cache
+}
+
+function Add-VariantCacheEntry {
+    param([string]$PublicId)
+    try {
+        Add-Content -Path $VariantCacheFile -Value $PublicId
+    } catch {
+        Write-Log "  WARN: could not update variant cache for ${PublicId}: $($_.Exception.Message)" "WARN"
     }
 }
 
@@ -475,6 +614,14 @@ WHERE (i.Quantity - ISNULL(i.QuantitySold, 0)) > 0
                 # Upload to Bunny Storage via HTTP PUT
                 Send-BunnyFile -StoragePath $storagePath -FileBytes $fileBytes
 
+                # Thumbnail/card derivatives from the same bytes. Only the URL
+                # of the full-size original goes in the DB — the site derives
+                # the variant URLs by filename and falls back to the original
+                # if one is missing.
+                if (Send-BunnyVariants -PublicId $publicId -SourceBytes $fileBytes) {
+                    Add-VariantCacheEntry $publicId
+                }
+
                 # Build the CDN delivery URL and store in DB
                 $bunnyUrl  = Get-BunnyUrl -StoragePath $storagePath
                 $isPrimary = if ($sortOrder -eq 1) { 1 } else { 0 }
@@ -509,6 +656,86 @@ VALUES (@inv, @url, @pub, @sort, @primary, 0, GETDATE())
     }
 
     Write-Log "Photo upload complete. Uploaded: $uploadedCount | Skipped: $skippedCount | Moved to _Removed: $movedCount | Errors: $errorCount"
+
+    # =========================================================================
+    # STEP 0.7 - Backfill derivatives for photos uploaded before variants
+    #            existed. Reads the full-size image back off the CDN (the
+    #            original file in the IIS folder may have been moved to
+    #            _Removed long ago), downscales it and uploads _400/_800.
+    #
+    #            Bounded by $BackfillPerRun so a nightly run stays predictable.
+    #            Once a photo is in variant-cache.txt it is never checked
+    #            again, so this costs nothing in steady state.
+    # =========================================================================
+    Write-Log "Checking for photos missing thumbnail/card derivatives..."
+
+    $variantCache = Get-VariantCache
+    Write-Log "Variant cache: $($variantCache.Count) photo(s) already converted."
+
+    try {
+        # Only Bunny-hosted photos — legacy Cloudinary URLs are served through
+        # Cloudinary and the site leaves those untouched.
+        $photoRowsForVariants = Invoke-SQL -Query @"
+SELECT DISTINCT ip.PublicID
+FROM dbo.InventoryPhotos ip
+WHERE ip.PublicID IS NOT NULL
+  AND ip.PublicID <> ''
+  AND ip.PhotoURL LIKE '%b-cdn.net%'
+"@
+
+        $candidates = @()
+        foreach ($r in $photoRowsForVariants) {
+            $pid = [string]$r["PublicID"]
+            if (-not $variantCache.ContainsKey($pid)) { $candidates += $pid }
+        }
+
+        if ($candidates.Count -eq 0) {
+            Write-Log "All Bunny photos already have derivatives."
+        } else {
+            $todo = $candidates | Select-Object -First $BackfillPerRun
+            Write-Log "Backfilling derivatives for $($todo.Count) of $($candidates.Count) remaining photo(s)..."
+
+            $bfDone = 0; $bfAlready = 0; $bfFailed = 0
+
+            foreach ($pid in $todo) {
+                try {
+                    # Already on the CDN from an earlier run that died before
+                    # the cache was written? Record it and move on.
+                    if (Test-BunnyAsset -StoragePath "${pid}_$($PhotoVariants[0]).jpg") {
+                        Add-VariantCacheEntry $pid
+                        $bfAlready++
+                        continue
+                    }
+
+                    $originalUrl = Get-BunnyUrl -StoragePath "$pid.jpg"
+                    $resp = Invoke-WebRequest -Uri $originalUrl -UseBasicParsing -TimeoutSec 60
+                    $srcBytes = $resp.Content
+
+                    if (-not $srcBytes -or $srcBytes.Length -eq 0) {
+                        Write-Log "  WARN: empty download for ${pid}, skipping." "WARN"
+                        $bfFailed++
+                        continue
+                    }
+
+                    Write-Log "  Backfilling $pid ($([int]($srcBytes.Length / 1KB))KB original)"
+                    if (Send-BunnyVariants -PublicId $pid -SourceBytes $srcBytes) {
+                        Add-VariantCacheEntry $pid
+                        $bfDone++
+                    } else {
+                        $bfFailed++
+                    }
+                } catch {
+                    Write-Log "  WARN: backfill failed for ${pid}: $($_.Exception.Message)" "WARN"
+                    $bfFailed++
+                }
+            }
+
+            $remaining = $candidates.Count - $todo.Count
+            Write-Log "Backfill complete. Converted: $bfDone | Already present: $bfAlready | Failed: $bfFailed | Remaining for next run: $remaining"
+        }
+    } catch {
+        Write-Log "WARN: Could not run derivative backfill: $($_.Exception.Message)" "WARN"
+    }
 
 } else {
     if (-not (Test-Path $PhotosFolder)) {

@@ -248,9 +248,12 @@ function renderGallery(photos, modelName) {
 
     let thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
     for (let i = 0; i < photos.length; i++) {
+        const full = escapeHtml(photos[i]);
         thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
-            '<img src="' + escapeHtml(photos[i]) + '" alt="' + alt + ' photo ' + (i + 1) + '"' +
-                ' loading="lazy" decoding="async">' +
+            '<img src="' + escapeHtml(photoVariant(photos[i], 400)) + '" data-full="' + full + '"' +
+                ' alt="' + alt + ' photo ' + (i + 1) + '"' +
+                ' loading="lazy" decoding="async"' +
+                ' onerror="this.onerror=null;this.src=this.dataset.full">' +
             '</div>';
     }
     thumbsHtml += '</div>';
@@ -274,6 +277,16 @@ function renderSpecs(specs) {
 function renderNoSpecs() {
     return '<div class="no-specs"><h3>Specifications Coming Soon</h3>' +
            '<p>Detailed specs for this model are being updated. Contact us for more information.</p></div>';
+}
+
+// Sync-Inventory.ps1 uploads <name>_400.jpg / <name>_800.jpg next to every
+// Bunny-hosted photo. Mirrors photoVariant() in item-details.html — keep them
+// in sync. Only Bunny .jpg URLs have derivatives; legacy Cloudinary URLs and
+// anything else pass through unchanged.
+function photoVariant(url, width) {
+    if (typeof url !== 'string' || !width) return url;
+    if (url.indexOf('peachoutdoor.b-cdn.net/') === -1) return url;
+    return url.replace(/\.jpg$/i, '_' + width + '.jpg');
 }
 
 function photosFor(item) {
