@@ -20,17 +20,17 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "AutoDealer",
+      "@type": "Store",
       "@id": "https://peachoutdoor.com/#dealer",
       "name": "Peach Outdoor",
       "url": "https://peachoutdoor.com/",
       "logo": "https://peachoutdoor.com/PeachOutdoorLogo.png",
       "image": "https://peachoutdoor.com/PeachOutdoorLogo.png",
-      "description": "Central Alabama dealer for tractors, mowers, UTVs and outdoor power equipment.",
+      "description": "Central Alabama dealer for tractors, implements, zero-turns, mowers and trailers. Sales and service in Clanton, AL.",
       "priceRange": "$$",
       "department": [
         {
-          "@type": "AutoDealer",
+          "@type": "Store",
           "name": "Peach Outdoor — Sales",
           "telephone": "+1-205-280-8838",
           "address": {
@@ -43,7 +43,7 @@
           }
         },
         {
-          "@type": "AutoRepair",
+          "@type": "LocalBusiness",
           "name": "Peach Outdoor — Service",
           "telephone": "+1-205-280-1885",
           "address": {
@@ -65,10 +65,14 @@
         "addressCountry": "US"
       },
       "telephone": "+1-205-280-8838",
-      "areaServed": {
-        "@type": "State",
-        "name": "Alabama"
-      }
+      "areaServed": [
+        { "@type": "State", "name": "Alabama" },
+        { "@type": "AdministrativeArea", "name": "Chilton County, Alabama" },
+        { "@type": "City", "name": "Clanton, Alabama" },
+        { "@type": "City", "name": "Birmingham, Alabama" },
+        { "@type": "City", "name": "Montgomery, Alabama" },
+        { "@type": "City", "name": "Prattville, Alabama" }
+      ]
     }
     </script>
     
@@ -370,6 +374,48 @@
             pointer-events: none;
         }
 
+        /* Page intro — carries the H1. Deliberately its own band rather
+           than the .hero-content overlay, which is display:none on mobile
+           and would therefore hide the H1 from mobile-first indexing. */
+        .page-intro {
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+            /* Right inset matches .shop-by-type / .features so the text does
+               not run under the fixed featured sidebar. */
+            padding: 34px calc(40px + 20%) 30px 40px;
+            text-align: center;
+        }
+        .page-intro h1 {
+            font-size: 1.75em;
+            line-height: 1.25;
+            color: #222222;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .page-intro p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: #555555;
+            line-height: 1.6;
+            font-size: 0.98em;
+        }
+        @media (max-width: 768px) {
+            .page-intro { padding: 24px 18px 22px; }
+            .page-intro h1 { font-size: 1.3em; }
+            .page-intro p { font-size: 0.92em; }
+        }
+
+        /* Service area line in the footer */
+        .footer-service-area {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 18px 20px 0;
+            text-align: center;
+            color: #9a9a9a;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+
         .hero-content {
             position: absolute;
             z-index: 2;
@@ -410,7 +456,7 @@
             flex-shrink: 0;
         }
 
-        .sidebar-header h3 {
+        .sidebar-header h2 {
             color: #ffffff;
             font-size: 0.85em;
             font-weight: 800;
@@ -849,7 +895,7 @@
             line-height: 1;
         }
 
-        .feature-item h4 {
+        .feature-item h3 {
             font-size: 1.15em;
             margin-bottom: 8px;
             color: #1a1a1a;
@@ -1441,18 +1487,6 @@
             ↓ Scroll to explore
         </div>
 
-        <!-- Featured Inventory Sidebar -->
-        <aside class="featured-sidebar">
-            <div class="sidebar-header">
-                <h3>⭐ Featured Inventory</h3>
-            </div>
-            <div class="sidebar-scroll" id="featuredSidebarScroll">
-                <!-- Items injected by JS -->
-            </div>
-            <div class="sidebar-footer">
-                <a href="inventory.html" class="sidebar-view-all">View All Inventory →</a>
-            </div>
-        </aside>
     </section>
 
     <!-- Mobile-only horizontal featured strip -->
@@ -1467,6 +1501,32 @@
     </div>
 
     <!-- Shop By Type Section -->
+    <section class="page-intro">
+        <h1>Tractors, Implements, Zero-Turns, Mowers &amp; Trailers in Central Alabama</h1>
+        <p>
+            Peach Outdoor is a family-run dealership in Clanton, Alabama, selling new and used
+            equipment with sales and service departments under one roof and financing you can
+            apply for online. <a href="/inventory/browse">Browse everything in stock</a> or
+            call <a href="tel:2052808838">(205)&nbsp;280-8838</a>.
+        </p>
+    </section>
+
+    <!-- Featured Inventory Sidebar. position:fixed, so its place in the
+         document is purely about source order: it lives after the H1 band
+         rather than inside the hero so the page's first heading is the H1. -->
+        <!-- Featured Inventory Sidebar -->
+        <aside class="featured-sidebar">
+            <div class="sidebar-header">
+                <h2>⭐ Featured Inventory</h2>
+            </div>
+            <div class="sidebar-scroll" id="featuredSidebarScroll">
+                <!-- Items injected by JS -->
+            </div>
+            <div class="sidebar-footer">
+                <a href="inventory.html" class="sidebar-view-all">View All Inventory →</a>
+            </div>
+        </aside>
+
     <section class="shop-by-type" id="configure">
         <div class="shop-by-type-watermark">SHOP BY TYPE</div>
         <div class="shop-grid">
@@ -1540,32 +1600,32 @@
         <div class="features-grid">
             <div class="feature-item">
                 <div class="feature-icon">📅</div>
-                <h4>Established &amp; Proven</h4>
+                <h3>Established &amp; Proven</h3>
                 <p>Over a decade in business with thousands of customers and 2,000+ tractors in the field.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">🔧</div>
-                <h4>Real Equipment Experience</h4>
+                <h3>Real Equipment Experience</h3>
                 <p>You're talking to people who actually run and service this equipment&mdash;not just sell it.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">📦</div>
-                <h4>In Stock &amp; Ready</h4>
+                <h3>In Stock &amp; Ready</h3>
                 <p>With 250+ units onsite, many customers can choose and take equipment home the same day.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">🚚</div>
-                <h4>Fast, Flexible Delivery</h4>
+                <h3>Fast, Flexible Delivery</h3>
                 <p>Local deliveries often go out the same day. Southeast delivery scheduled around you.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">💬</div>
-                <h4>Easy to Reach</h4>
+                <h3>Easy to Reach</h3>
                 <p>Text us anytime&mdash;our team is usually available and responds quickly. We do require sleep though.</p>
             </div>
             <div class="feature-item">
                 <div class="feature-icon">💳</div>
-                <h4>Online Financing Made Easy</h4>
+                <h3>Online Financing Made Easy</h3>
                 <p>You can apply, get approved, and complete your purchase entirely online&mdash;we'll handle the rest.</p>
             </div>
         </div>
@@ -1576,7 +1636,7 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Peach Outdoor</h4>
-                <p>Your trusted partner for tractors, mowers, and outdoor equipment in Central Alabama.</p>
+                <p>Your trusted partner for tractors, implements, zero-turns, mowers and trailers in Central Alabama.</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
@@ -1599,6 +1659,10 @@
                 <p>Phone: (205) 280-1885</p>
             </div>
         </div>
+        <p class="footer-service-area">
+            Serving Clanton and Chilton County, and delivering across Central Alabama including
+            Jemison, Thorsby, Maplesville, Alabaster, Prattville, Montgomery and Birmingham.
+        </p>
         <div class="footer-bottom">
             <p>&copy; 2026 Peach Outdoor. All rights reserved.</p>
         </div>

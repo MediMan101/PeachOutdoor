@@ -151,7 +151,7 @@ function buildSEO(item) {
             "priceCurrency": "USD",
             "availability": "https://schema.org/InStock",
             "seller": {
-                "@type": "AutoDealer",
+                "@type": "Store",
                 "name": "Peach Outdoor",
                 "telephone": "+1-205-280-8838",
                 "address": {
@@ -304,6 +304,14 @@ function photoVariant(url, width) {
     return url.replace(/\.jpg$/i, '_' + width + '.jpg');
 }
 
+// Alt text for an item's photos. "16404CHRFIL photo 3" describes nothing to
+// a reader or a search engine; the description is what people actually type.
+function photoAltFor(item) {
+    return item.Description
+        || [item.Manufacturer, item.Model].filter(Boolean).join(' ')
+        || 'Peach Outdoor equipment';
+}
+
 // AllPhotos has historically arrived in three different JSON shapes, because
 // PowerShell's pipeline unrolled the array before ConvertTo-Json saw it:
 //   two or more photos -> ["url", "url"]   (an array, as intended)
@@ -331,7 +339,7 @@ function renderItemBody(item, specs) {
     const photos    = photosFor(item);
 
     return '<div class="product-layout">' +
-            '<div class="gallery-col">' + renderGallery(photos, item.Model) + '</div>' +
+            '<div class="gallery-col">' + renderGallery(photos, photoAltFor(item)) + '</div>' +
             '<div class="info-col"><div class="info-panel">' +
                 '<div class="item-manufacturer">' + escapeHtml(item.Manufacturer || '') + '</div>' +
                 (item.Description
