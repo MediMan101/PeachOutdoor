@@ -21,5 +21,14 @@
 /financing*                                            /financing.html   301
 /apply*                                                /financing.html   301
 
-# Catch-all for any other old CMS paths not matched above -> home
-/*                                                     /index.html       200
+# Anything else is genuinely missing, so say so with a real 404.
+#
+# This used to be "/* /index.html 200", which served the home page with an
+# HTTP 200 for every unknown URL. Search engines call that a soft 404: the
+# status says "here is the page you asked for" while the body is something
+# else entirely. It wastes crawl budget on URLs that don't exist, and it can
+# get junk paths indexed as duplicates of the home page.
+#
+# Netlify applies redirect rules only when no real file matches, so this rule
+# never shadows a page, a pre-rendered item under /inventory/, or an asset.
+/*                                                     /404.html         404

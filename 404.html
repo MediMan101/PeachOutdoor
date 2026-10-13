@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Peach Outdoor</title>
+    <meta name="description" content="That page isn't here. Browse tractors, mowers, UTVs and attachments in stock at Peach Outdoor in Clanton, Alabama, or call 205-280-8838.">
+
+    <!-- A missing page should never be indexed, and should never be offered
+         as a search result in place of the page someone actually wanted. -->
+    <meta name="robots" content="noindex, follow">
+
+    <style>
+        :root {
+            --charcoal-dark:  #1f1f21;
+            --charcoal-mid:   #2c2c2e;
+            --charcoal-border:#4a4a4c;
+            --accent:         #e07b2a;
+            --accent-hover:   #c96a1a;
+            --text-primary:   #f0f0f0;
+            --text-secondary: #a0a0a4;
+            --text-muted:     #707074;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--charcoal-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-bar {
+            background: var(--charcoal-mid);
+            border-bottom: 1px solid var(--charcoal-border);
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .top-bar img { height: 42px; width: auto; display: block; }
+        .top-bar a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+        main {
+            flex: 1;
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 64px 20px 72px;
+        }
+        .code {
+            font-size: 0.8em;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        h1 { font-size: 1.9em; line-height: 1.2; margin-bottom: 14px; }
+        .lede {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-bottom: 36px;
+        }
+        .links a {
+            display: block;
+            background: var(--charcoal-mid);
+            border: 1px solid var(--charcoal-border);
+            border-radius: 12px;
+            padding: 16px 18px;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .links a:hover { border-color: var(--accent); background: #333335; }
+        .links strong { display: block; font-size: 1em; margin-bottom: 3px; }
+        .links span { color: var(--text-muted); font-size: 0.85em; }
+
+        .call {
+            border-top: 1px solid var(--charcoal-border);
+            padding-top: 26px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95em;
+        }
+        .call a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .call a:hover { text-decoration: underline; }
+        .call .label {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.82em;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .top-bar { padding: 12px 16px; }
+            main { padding: 40px 16px 56px; }
+            h1 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="/"><img src="/PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
+        <a href="tel:2052808838">&#128222; (205) 280-8838</a>
+    </div>
+
+    <main>
+        <div class="code">Error 404</div>
+        <h1>We couldn't find that page</h1>
+        <p class="lede">
+            The link may be out of date, or the piece of equipment it pointed to
+            has been sold. Everything we currently have is below &mdash; and if
+            you were after something specific, just give us a call and we'll
+            tell you straight away whether we can get it.
+        </p>
+
+        <div class="links">
+            <a href="/inventory.html">
+                <strong>Search our inventory</strong>
+                <span>Filter by brand, type, price or condition</span>
+            </a>
+            <a href="/inventory/">
+                <strong>Browse everything in stock</strong>
+                <span>All current equipment, grouped by brand</span>
+            </a>
+            <a href="/financing.html">
+                <strong>Financing</strong>
+                <span>Apply online in a few minutes</span>
+            </a>
+            <a href="/">
+                <strong>Back to the home page</strong>
+                <span>Start again from the beginning</span>
+            </a>
+        </div>
+
+        <div class="call">
+            <span class="label">Sales</span>
+            <a href="tel:2052808838">(205) 280-8838</a> &middot;
+            1940 Big M Blvd, Clanton, AL 35046
+
+            <span class="label">Parts &amp; Service</span>
+            <a href="tel:2052801885">(205) 280-1885</a> &middot;
+            2037 Christian St., Clanton, AL 35045
+        </div>
+    </main>
+
+</body>
+</html>
