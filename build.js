@@ -5,7 +5,7 @@
  * Runs at deploy time on Netlify. Reads inventory.json + specs.json +
  * item-details.html and generates one fully pre-rendered HTML file per
  * inventory item under /inventory/, plus a crawlable browse index at
- * /inventory/index.html, sitemap.xml and robots.txt at the site root.
+ * /inventory/browse, sitemap.xml and robots.txt at the site root.
  *
  * Pre-rendered pages have both the SEO head (title, meta description, Open
  * Graph, canonical, JSON-LD Product + BreadcrumbList schema) AND the visible
@@ -45,6 +45,15 @@ const SITE_URL       = 'https://peachoutdoor.com';
 // gives a broken share card; the logo at least shows who the link is from.
 // Matches what index.html uses for the homepage.
 const FALLBACK_OG_IMAGE = SITE_URL + '/PeachOutdoorLogo.png';
+
+// The crawlable browse index cannot live at /inventory/. Netlify resolves
+// /inventory to the inventory.html FILE in preference to the inventory/
+// directory's index, and strips the trailing slash first, so /inventory/
+// 301s to /inventory and lands on the search page. /inventory/browse has no
+// such collision — it resolves to inventory/browse.html exactly the way the
+// ~1,000 generated /inventory/<slug> pages already do.
+const BROWSE_FILE = 'browse.html';
+const BROWSE_PATH = '/inventory/' + BROWSE_FILE.replace(/\.html$/, '');
 
 // How many "more from this brand" links to place on each item page.
 const RELATED_LIMIT = 8;
@@ -170,12 +179,12 @@ function buildSEO(item) {
 function buildBreadcrumbSchema(item, seo) {
     const trail = [
         { name: 'Home',      url: SITE_URL + '/' },
-        { name: 'Inventory', url: SITE_URL + '/inventory/' }
+        { name: 'Inventory', url: SITE_URL + BROWSE_PATH }
     ];
     if (item.Manufacturer) {
         trail.push({
             name: item.Manufacturer,
-            url:  SITE_URL + '/inventory/#' + makeGroupSlug(item.Manufacturer)
+            url:  SITE_URL + BROWSE_PATH + '#' + makeGroupSlug(item.Manufacturer)
         });
     }
     trail.push({ name: seo.headline, url: seo.canonical });
@@ -361,10 +370,10 @@ function renderItemBody(item, specs) {
 function renderBreadcrumb(item, seo) {
     const parts = [
         '<a href="/">Home</a>',
-        '<a href="/inventory/">Inventory</a>'
+        '<a href="' + BROWSE_PATH + '">Inventory</a>'
     ];
     if (item.Manufacturer) {
-        parts.push('<a href="/inventory/#' + escapeHtml(makeGroupSlug(item.Manufacturer)) + '">' +
+        parts.push('<a href="' + BROWSE_PATH + '#' + escapeHtml(makeGroupSlug(item.Manufacturer)) + '">' +
                    escapeHtml(item.Manufacturer) + '</a>');
     }
     parts.push('<span aria-current="page">' + escapeHtml(seo.headline) + '</span>');
@@ -391,7 +400,7 @@ function renderRelated(item, related) {
     return '<section class="related-block">' +
                 '<h2 class="related-title">' + heading + '</h2>' +
                 '<ul class="related-list">' + links + '</ul>' +
-                '<a class="related-all" href="/inventory/">Browse all Peach Outdoor inventory &#8594;</a>' +
+                '<a class="related-all" href="' + BROWSE_PATH + '">Browse all Peach Outdoor inventory &#8594;</a>' +
            '</section>';
 }
 
@@ -457,7 +466,7 @@ function generatePageHtml(template, item, seo, specs, related) {
     return out;
 }
 
-// ─── Browse index: /inventory/ ───────────────────────────────────────────
+// ─── Browse index: /inventory/browse ─────────────────────────────────────
 // A plain, crawlable directory of every item, grouped by manufacturer. This is
 // the page that gives all ~1,000 item URLs an internal link; before it existed
 // the sitemap was their only discovery path and no link equity reached them.
@@ -505,7 +514,7 @@ function buildBrowsePage(entries) {
         "@type": "CollectionPage",
         "name": "Peach Outdoor Inventory",
         "description": desc,
-        "url": SITE_URL + '/inventory/',
+        "url": SITE_URL + BROWSE_PATH,
         "isPartOf": { "@type": "WebSite", "name": "Peach Outdoor", "url": SITE_URL + '/' }
     };
 
@@ -516,11 +525,11 @@ function buildBrowsePage(entries) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(desc)}">
-    <link rel="canonical" href="${SITE_URL}/inventory/">
+    <link rel="canonical" href="${SITE_URL}${BROWSE_PATH}">
     <meta property="og:type" content="website">
     <meta property="og:title" content="${escapeHtml(title)}">
     <meta property="og:description" content="${escapeHtml(desc)}">
-    <meta property="og:url" content="${SITE_URL}/inventory/">
+    <meta property="og:url" content="${SITE_URL}${BROWSE_PATH}">
     <script type="application/ld+json">${safeJSONForScript(itemListSchema)}</script>
     <style>
         :root {
@@ -608,7 +617,7 @@ function buildSitemap(entries) {
     const staticPages = [
         { loc: SITE_URL + '/',                   priority: '1.0', changefreq: 'weekly' },
         { loc: SITE_URL + '/inventory.html',     priority: '0.9', changefreq: 'daily' },
-        { loc: SITE_URL + '/inventory/',         priority: '0.9', changefreq: 'daily' },
+        { loc: SITE_URL + BROWSE_PATH,           priority: '0.9', changefreq: 'daily' },
         { loc: SITE_URL + '/financing.html',     priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/about.html',         priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/configurator.html',  priority: '0.5', changefreq: 'monthly' }
@@ -763,8 +772,8 @@ function main() {
     console.log('[build] Wrote ' + written + ' item pages to ' + OUTPUT_DIR +
                 ' (' + withSpecs + ' with spec tables, ' + skipped + ' skipped).');
 
-    fs.writeFileSync(path.join(OUTPUT_DIR, 'index.html'), buildBrowsePage(entries), 'utf8');
-    console.log('[build] Wrote inventory/index.html (browse index, ' + entries.length + ' links)');
+    fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries), 'utf8');
+    console.log('[build] Wrote inventory/' + BROWSE_FILE + ' (browse index, ' + entries.length + ' links) -> ' + BROWSE_PATH);
 
     fs.writeFileSync(SITEMAP_PATH, buildSitemap(entries), 'utf8');
     console.log('[build] Wrote sitemap.xml');
