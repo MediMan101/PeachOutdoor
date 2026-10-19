@@ -367,8 +367,9 @@
              external URL (e.g. https://www.mahindrausa.com/) to your
              internal page (e.g. lineup/mahindra.html).
           3. Remove the target="_blank" rel="noopener noreferrer" attrs.
-        Inventory links use ?mfg=<exact Manufacturer string from
-        inventory.json> so they pre-filter inventory.html.
+        "See In-Stock" links go to the static brand pages build.js
+        generates under /inventory/ (see BRANDS in build.js). Brands without
+        one (e.g. Intimidator) can use inventory.html?mfg=<Manufacturer>.
         ───────────────────────────────────────────────────────────────────
     -->
 
@@ -386,7 +387,7 @@
                 </div>
                 <div class="brand-actions">
                     <a href="https://www.mahindrausa.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Mahindra Site &#8599;</a>
-                    <a href="inventory.html?mfg=Mahindra+USA" class="btn btn-secondary">See In-Stock</a>
+                    <a href="/inventory/mahindra-tractors-clanton-al" class="btn btn-secondary">See In-Stock</a>
                 </div>
             </article>
 
@@ -402,7 +403,7 @@
                 </div>
                 <div class="brand-actions">
                     <a href="https://www.lstractorusa.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit LS Tractor Site &#8599;</a>
-                    <a href="inventory.html?mfg=LS+Tractor" class="btn btn-secondary">See In-Stock</a>
+                    <a href="/inventory/ls-tractors-clanton-al" class="btn btn-secondary">See In-Stock</a>
                 </div>
             </article>
 
@@ -421,7 +422,7 @@
                 </div>
                 <div class="brand-actions">
                     <a href="https://www.badboycountry.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Bad Boy Site &#8599;</a>
-                    <a href="inventory.html?mfg=Bad+Boy" class="btn btn-secondary">See In-Stock</a>
+                    <a href="/inventory/bad-boy-mowers-tractors-clanton-al" class="btn btn-secondary">See In-Stock</a>
                 </div>
             </article>
 
@@ -436,7 +437,7 @@
                 </div>
                 <div class="brand-actions">
                     <a href="https://www.ironcraftattachments.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit IronCraft Site &#8599;</a>
-                    <a href="inventory.html?mfg=IronCraft" class="btn btn-secondary">See In-Stock</a>
+                    <a href="/inventory/ironcraft-implements-clanton-al" class="btn btn-secondary">See In-Stock</a>
                 </div>
             </article>
 
@@ -451,7 +452,7 @@
                 </div>
                 <div class="brand-actions">
                     <a href="https://www.bushhog.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Bush Hog Site &#8599;</a>
-                    <a href="inventory.html?mfg=Bush+Hog" class="btn btn-secondary">See In-Stock</a>
+                    <a href="/inventory/bush-hog-cutters-clanton-al" class="btn btn-secondary">See In-Stock</a>
                 </div>
             </article>
 
@@ -466,7 +467,7 @@
                 </div>
                 <div class="brand-actions">
                     <a href="https://www.spartanmowers.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit Spartan Site &#8599;</a>
-                    <a href="inventory.html?mfg=Spartan+Mowers" class="btn btn-secondary">See In-Stock</a>
+                    <a href="/inventory/spartan-mowers-clanton-al" class="btn btn-secondary">See In-Stock</a>
                 </div>
             </article>
 

@@ -184,7 +184,8 @@ function buildBreadcrumbSchema(item, seo) {
     if (item.Manufacturer) {
         trail.push({
             name: item.Manufacturer,
-            url:  SITE_URL + BROWSE_PATH + '#' + makeGroupSlug(item.Manufacturer)
+            url:  SITE_URL + (liveBrandPath.get(item.Manufacturer) ||
+                              BROWSE_PATH + '#' + makeGroupSlug(item.Manufacturer))
         });
     }
     trail.push({ name: seo.headline, url: seo.canonical });
@@ -381,7 +382,8 @@ function renderBreadcrumb(item, seo) {
         '<a href="' + BROWSE_PATH + '">Inventory</a>'
     ];
     if (item.Manufacturer) {
-        parts.push('<a href="' + BROWSE_PATH + '#' + escapeHtml(makeGroupSlug(item.Manufacturer)) + '">' +
+        parts.push('<a href="' + escapeHtml(liveBrandPath.get(item.Manufacturer) ||
+                       BROWSE_PATH + '#' + makeGroupSlug(item.Manufacturer)) + '">' +
                    escapeHtml(item.Manufacturer) + '</a>');
     }
     parts.push('<span aria-current="page">' + escapeHtml(seo.headline) + '</span>');
@@ -408,6 +410,10 @@ function renderRelated(item, related) {
     return '<section class="related-block">' +
                 '<h2 class="related-title">' + heading + '</h2>' +
                 '<ul class="related-list">' + links + '</ul>' +
+                (liveBrandPath.has(item.Manufacturer)
+                    ? '<a class="related-all" href="' + liveBrandPath.get(item.Manufacturer) + '">All ' +
+                      escapeHtml(item.Manufacturer) + ' in stock at Peach Outdoor &#8594;</a> '
+                    : '') +
                 '<a class="related-all" href="' + BROWSE_PATH + '">Browse all Peach Outdoor inventory &#8594;</a>' +
            '</section>';
 }
@@ -539,6 +545,79 @@ const CATEGORIES = [
     }
 ];
 
+
+// ─── Brand landing pages ────────────────────────────────────────────────
+// The homepage brand tiles used to point at inventory.html?mfg=..., which
+// canonicalises to /inventory.html — so to Google there was no page about
+// "Mahindra tractors in Clanton" at all, only one search page with filters.
+// Each brand below gets a static page whose title, H1 and body are about
+// that brand, with every in-stock unit linked straight from the HTML.
+//
+// mfg must match inventory.json's Manufacturer string exactly.
+// Brands under MIN_BRAND_ITEMS are skipped for the same thin-page reason as
+// categories.
+
+const MIN_BRAND_ITEMS = 8;
+
+const BRANDS = [
+    {
+        mfg: 'Mahindra USA', name: 'Mahindra', slug: 'mahindra-tractors-clanton-al',
+        title: 'Mahindra Tractor Dealer in Clanton, AL | Peach Outdoor',
+        h1:    'Mahindra Tractors for Sale in Clanton, Alabama',
+        desc:  'Authorized Mahindra tractor dealer in Clanton, Alabama. New and used Mahindra compact and utility tractors in stock, with on-site service and online financing.',
+        blurb: 'Peach Outdoor is an authorized Mahindra dealer in Clanton, Alabama. We sell new and used Mahindra compact and utility tractors off our lot on Big M Blvd, and we service them in our own shop on Christian Street after the sale. You can apply for financing online before you come out.'
+    },
+    {
+        mfg: 'LS Tractor', name: 'LS Tractor', short: 'LS', slug: 'ls-tractors-clanton-al',
+        title: 'LS Tractor Dealer in Clanton, AL | Peach Outdoor',
+        h1:    'LS Tractors for Sale in Clanton, Alabama',
+        desc:  'Authorized LS Tractor dealer in Clanton, Alabama. LS compact and utility tractors, loaders and implements in stock, with on-site service and online financing.',
+        blurb: 'Peach Outdoor is an authorized LS Tractor dealer in Clanton, Alabama, and LS is one of the deepest lines on our lot. We stock LS compact and utility tractors along with matching LS implements, and we service what we sell in our own shop. Financing applications can be done online.'
+    },
+    {
+        mfg: 'Bad Boy', name: 'Bad Boy', slug: 'bad-boy-mowers-tractors-clanton-al',
+        title: 'Bad Boy Mowers & Tractors Dealer in Clanton, AL | Peach Outdoor',
+        h1:    'Bad Boy Mowers, Tractors and Implements in Clanton, Alabama',
+        desc:  'Authorized Bad Boy dealer in Clanton, Alabama. Bad Boy zero-turn mowers, compact tractors, implements and handheld equipment in stock, with parts and service.',
+        blurb: 'Peach Outdoor is an authorized Bad Boy dealer in Clanton, Alabama, carrying the whole line: Bad Boy compact tractors, zero-turn mowers, tractor implements and handheld equipment. Parts and service are handled in our own shop, so the Bad Boy you buy here is the one we look after.'
+    },
+    {
+        mfg: 'IronCraft', name: 'IronCraft', slug: 'ironcraft-implements-clanton-al',
+        title: 'IronCraft Implements & Attachments | Clanton, AL | Peach Outdoor',
+        h1:    'IronCraft Tractor Implements in Clanton, Alabama',
+        desc:  'IronCraft grapples, box blades, rotary cutters, disc harrows, tillers and post hole diggers in stock at Peach Outdoor in Clanton, Alabama.',
+        blurb: 'IronCraft grapples, box blades, rotary cutters, disc harrows, tillers, post hole diggers and more, in stock in Clanton. Not sure what fits your tractor? Call us with the horsepower and hitch category and we will match it, whether the tractor came from us or not.'
+    },
+    {
+        mfg: 'Spartan Mowers', name: 'Spartan', slug: 'spartan-mowers-clanton-al',
+        title: 'Spartan Mowers Dealer in Clanton, AL | Peach Outdoor',
+        h1:    'Spartan Zero-Turn Mowers in Clanton, Alabama',
+        desc:  'Authorized Spartan Mowers dealer in Clanton, Alabama. Spartan zero-turn mowers in stock, with parts, service and online financing.',
+        blurb: 'Peach Outdoor is an authorized Spartan Mowers dealer in Clanton, Alabama. We stock Spartan zero-turn mowers and handle parts and service in our own shop.'
+    },
+    {
+        mfg: 'Bush Hog', name: 'Bush Hog', slug: 'bush-hog-cutters-clanton-al',
+        title: 'Bush Hog Cutters & Implements | Clanton, AL | Peach Outdoor',
+        h1:    'Bush Hog Rotary Cutters and Implements in Clanton, Alabama',
+        desc:  'Bush Hog rotary cutters and implements in stock at Peach Outdoor in Clanton, Alabama. Call 205-280-8838.',
+        blurb: 'Bush Hog rotary cutters and implements, in stock in Clanton. Tell us what tractor you are running and we will make sure the cutter is the right size for it.'
+    }
+];
+
+// Section headings on brand pages, in display order.
+const DEPT_LABELS = {
+    TRACTOR: 'Tractors', MOWER: 'Zero-Turn Mowers', UTV: 'UTVs', LOADER: 'Loaders',
+    IMP: 'Implements & Attachments', HANDHELD: 'Handheld Equipment', CANOPY: 'Canopies',
+    TRAILER: 'Trailers', ACCESSORY: 'Accessories', PARTS: 'Parts', OTHER: 'Other Equipment'
+};
+const DEPT_ORDER = Object.keys(DEPT_LABELS);
+
+function brandPath(brand) { return '/inventory/' + brand.slug; }
+
+// Manufacturer string -> brand page path, for brands that actually got a page.
+// Filled in by main() before any page is rendered.
+const liveBrandPath = new Map();
+
 function categoryPath(cat) { return '/inventory/' + cat.slug; }
 
 // Shared CSS and document shell for the browse index and every category page.
@@ -551,6 +630,7 @@ function renderListShell(opts) {
         "url": SITE_URL + opts.canonicalPath,
         "isPartOf": { "@type": "WebSite", "name": "Peach Outdoor", "url": SITE_URL + '/' }
     };
+    if (opts.about) schema.about = { "@type": "Brand", "name": opts.about };
 
     const crumbs = {
         "@context": "https://schema.org",
@@ -621,6 +701,13 @@ function renderListShell(opts) {
         .cat-nav a:hover { border-color: var(--accent); color: var(--accent); }
         .cat-nav a.here { border-color: var(--accent); color: var(--accent); font-weight: 600; }
         .cat-nav a span { color: var(--text-muted); }
+        .brand-nav { align-items: center; margin-top: -14px; }
+        .nav-label { color: var(--text-muted); font-size: 0.8em; margin-right: 2px; }
+        .brand-block h2 a { color: var(--text-primary); text-decoration: none; }
+        .brand-block h2 a:hover { color: var(--accent); text-decoration: underline; }
+        .lineup { color: var(--text-secondary); font-size: 0.9em; line-height: 1.6;
+                  margin: -8px 0 20px; max-width: 880px; }
+        .lineup strong { color: var(--text-primary); }
         .jumps { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 30px; }
         .jump {
             background: var(--charcoal-mid); border: 1px solid var(--charcoal-border);
@@ -667,7 +754,9 @@ function renderListShell(opts) {
         <nav class="crumbs" aria-label="Breadcrumb">${opts.crumbHtml}</nav>
         <h1>${escapeHtml(opts.h1)}</h1>
         <p class="lede">${opts.lede}</p>
+        ${opts.lineup || ''}
         <nav class="cat-nav">${opts.catNav}</nav>
+        ${opts.brandNav ? '<nav class="cat-nav brand-nav"><span class="nav-label">Shop by brand:</span>' + opts.brandNav + '</nav>' : ''}
         ${opts.jumps || ''}
 ${opts.sections}
         <div class="tail">
@@ -682,14 +771,19 @@ ${opts.sections}
 }
 
 // Group entries by manufacturer and render the linked sections.
-function renderBrandSections(entries, showDept) {
+function renderBrandSections(entries, showDept, groupByDept) {
     const byMfg = new Map();
     for (const e of entries) {
-        const key = e.item.Manufacturer || 'Other Equipment';
+        const key = groupByDept
+            ? (DEPT_LABELS[(e.item.Department || '').trim().toUpperCase()] || 'Other Equipment')
+            : (e.item.Manufacturer || 'Other Equipment');
         if (!byMfg.has(key)) byMfg.set(key, []);
         byMfg.get(key).push(e);
     }
-    const names = [...byMfg.keys()].sort((a, b) => a.localeCompare(b));
+    const order = n => { const i = Object.values(DEPT_LABELS).indexOf(n); return i < 0 ? 99 : i; };
+    const names = [...byMfg.keys()].sort(groupByDept
+        ? (a, b) => order(a) - order(b)
+        : (a, b) => a.localeCompare(b));
 
     const jumps = names.length > 1
         ? '<div class="jumps">' + names.map(m =>
@@ -709,7 +803,10 @@ function renderBrandSections(entries, showDept) {
             '</a></li>').join('');
 
         return '<section class="brand-block" id="' + escapeHtml(makeGroupSlug(m)) + '">' +
-                    '<h2>' + escapeHtml(m) + ' <span class="count">' + group.length + ' in stock</span></h2>' +
+                    '<h2>' + (!groupByDept && liveBrandPath.has(m)
+                        ? '<a href="' + liveBrandPath.get(m) + '">' + escapeHtml(m) + '</a>'
+                        : escapeHtml(m)) +
+                        ' <span class="count">' + group.length + ' in stock</span></h2>' +
                     '<ul class="browse-list">' + rows + '</ul>' +
                '</section>';
     }).join('\n');
@@ -726,7 +823,7 @@ function renderCatNav(live, currentSlug) {
     return all + pills;
 }
 
-function buildBrowsePage(entries, live) {
+function buildBrowsePage(entries, live, liveBrands) {
     const { jumps, sections, names } = renderBrandSections(entries, true);
 
     const title = 'All Inventory in Stock — Clanton, AL | Peach Outdoor';
@@ -743,11 +840,11 @@ function buildBrowsePage(entries, live) {
         crumbs: [{ name: 'Home', path: '/' }, { name: 'Inventory', path: BROWSE_PATH }],
         crumbHtml: '<a href="/">Home</a><span class="crumb-sep">&#8250;</span>' +
                    '<span aria-current="page">Inventory</span>',
-        lede, catNav: renderCatNav(live, null), jumps, sections
+        lede, catNav: renderCatNav(live, null), brandNav: renderBrandNav(liveBrands, null), jumps, sections
     });
 }
 
-function buildCategoryPage(cat, entries, live) {
+function buildCategoryPage(cat, entries, live, liveBrands) {
     const { jumps, sections } = renderBrandSections(entries, false);
     const path = categoryPath(cat);
 
@@ -766,13 +863,74 @@ function buildCategoryPage(cat, entries, live) {
         crumbHtml: '<a href="/">Home</a><span class="crumb-sep">&#8250;</span>' +
                    '<a href="' + BROWSE_PATH + '">Inventory</a><span class="crumb-sep">&#8250;</span>' +
                    '<span aria-current="page">' + escapeHtml(cat.nav) + '</span>',
-        lede, catNav: renderCatNav(live, cat.slug), jumps, sections
+        lede, catNav: renderCatNav(live, cat.slug), brandNav: renderBrandNav(liveBrands, null), jumps, sections
+    });
+}
+
+function renderBrandNav(liveBrands, currentSlug) {
+    return liveBrands.map(b =>
+        '<a class="' + (b.brand.slug === currentSlug ? 'here' : '') + '" href="' + brandPath(b.brand) + '">' +
+        escapeHtml(b.brand.name) + ' <span>(' + b.entries.length + ')</span></a>').join('');
+}
+
+// "Tractors: 1600, 4500 Series · Zero-turns: Rambler, Maverick" — built from
+// the Series field, so it always matches what is actually on the lot.
+function renderLineup(brand, entries) {
+    const parts = [];
+    for (const [dept, label] of [['TRACTOR', 'Tractor series in stock'], ['MOWER', 'Mower models in stock']]) {
+        const counts = new Map();
+        for (const e of entries) {
+            if ((e.item.Department || '').trim().toUpperCase() !== dept) continue;
+            const ser = String(e.item.Series || '').trim();
+            if (!ser || ser === '-') continue;
+            counts.set(ser, (counts.get(ser) || 0) + 1);
+        }
+        if (!counts.size) continue;
+        const list = [...counts.keys()]
+            .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }))
+            .map(ser => escapeHtml(dept === 'TRACTOR'
+                ? (brand.short || brand.name) + ' ' + ser + ' Series'
+                // "RAMBLER" -> "Rambler"; codes like "SRT-XDE" stay as they are.
+                : (/^[A-Z]{4,}$/.test(ser) ? ser.charAt(0) + ser.slice(1).toLowerCase() : ser)))
+            .join(', ');
+        parts.push('<strong>' + label + ':</strong> ' + list);
+    }
+    return parts.length ? '<p class="lineup">' + parts.join(' &middot; ') + '</p>' : '';
+}
+
+function buildBrandPage(brand, entries, live, liveBrands) {
+    const { jumps, sections } = renderBrandSections(entries, false, true);
+    const path   = brandPath(brand);
+    const search = '/inventory.html?mfg=' + encodeURIComponent(brand.mfg);
+    const newCount  = entries.filter(e => !e.item.Used).length;
+    const usedCount = entries.length - newCount;
+
+    const lede = escapeHtml(brand.blurb) + ' <strong>' + entries.length + ' ' + escapeHtml(brand.name) +
+                 ' units in stock' + (usedCount ? ' (' + newCount + ' new, ' + usedCount + ' used)' : '') +
+                 '.</strong> Sales <a href="tel:2052808838">(205) 280-8838</a> &middot; ' +
+                 '<a href="' + escapeHtml(search) + '">filter ' + escapeHtml(brand.name) + ' by price or type</a>.';
+
+    return renderListShell({
+        title: brand.title, desc: brand.desc, h1: brand.h1, about: brand.name,
+        canonicalPath: path,
+        crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Inventory', path: BROWSE_PATH },
+            { name: brand.name, path: path }
+        ],
+        crumbHtml: '<a href="/">Home</a><span class="crumb-sep">&#8250;</span>' +
+                   '<a href="' + BROWSE_PATH + '">Inventory</a><span class="crumb-sep">&#8250;</span>' +
+                   '<span aria-current="page">' + escapeHtml(brand.name) + '</span>',
+        lede, lineup: renderLineup(brand, entries),
+        catNav: renderCatNav(live, null).replace('class="here"', 'class=""'),
+        brandNav: renderBrandNav(liveBrands, brand.slug),
+        jumps, sections
     });
 }
 
 // ─── Sitemap + robots ────────────────────────────────────────────────────
 
-function buildSitemap(entries, live) {
+function buildSitemap(entries, live, liveBrands) {
     const today = new Date().toISOString().slice(0, 10);
     const staticPages = [
         { loc: SITE_URL + '/',                   priority: '1.0', changefreq: 'weekly' },
@@ -787,6 +945,9 @@ function buildSitemap(entries, live) {
     // in priority and below the two hub pages.
     for (const c of live) {
         staticPages.push({ loc: SITE_URL + categoryPath(c.cat), priority: '0.8', changefreq: 'daily' });
+    }
+    for (const b of liveBrands) {
+        staticPages.push({ loc: SITE_URL + brandPath(b.brand), priority: '0.8', changefreq: 'daily' });
     }
 
     const lines = [];
@@ -916,6 +1077,19 @@ function main() {
         byManufacturer.get(key).push(e);
     }
 
+    // ── Brand pages that will exist. Resolved before pass 2 so item-page
+    // breadcrumbs and related blocks can link to them.
+    const liveBrands = [];
+    for (const brand of BRANDS) {
+        const bEntries = entries.filter(e => (e.item.Manufacturer || '') === brand.mfg);
+        if (bEntries.length >= MIN_BRAND_ITEMS) {
+            liveBrands.push({ brand, entries: bEntries });
+            liveBrandPath.set(brand.mfg, brandPath(brand));
+        } else {
+            console.log('[build] Skipping brand page ' + brand.name + ' — only ' + bEntries.length + ' item(s).');
+        }
+    }
+
     // ── Pass 2: render and write each page.
     let written   = 0;
     let withSpecs = 0;
@@ -958,17 +1132,28 @@ function main() {
             throw new Error('Category slug ' + c.cat.slug + ' collides with an item page');
         }
     }
+    for (const b of liveBrands) {
+        if (slugsSeen.has(b.brand.slug) || CATEGORIES.some(c => c.slug === b.brand.slug)) {
+            throw new Error('Brand slug ' + b.brand.slug + ' collides with another page');
+        }
+    }
 
     for (const c of live) {
         fs.writeFileSync(path.join(OUTPUT_DIR, c.cat.slug + '.html'),
-                         buildCategoryPage(c.cat, c.entries, live), 'utf8');
+                         buildCategoryPage(c.cat, c.entries, live, liveBrands), 'utf8');
         console.log('[build] Wrote ' + categoryPath(c.cat) + ' (' + c.entries.length + ' items)');
     }
 
-    fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries, live), 'utf8');
+    for (const b of liveBrands) {
+        fs.writeFileSync(path.join(OUTPUT_DIR, b.brand.slug + '.html'),
+                         buildBrandPage(b.brand, b.entries, live, liveBrands), 'utf8');
+        console.log('[build] Wrote ' + brandPath(b.brand) + ' (' + b.entries.length + ' items)');
+    }
+
+    fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries, live, liveBrands), 'utf8');
     console.log('[build] Wrote inventory/' + BROWSE_FILE + ' (browse index, ' + entries.length + ' links) -> ' + BROWSE_PATH);
 
-    fs.writeFileSync(SITEMAP_PATH, buildSitemap(entries, live), 'utf8');
+    fs.writeFileSync(SITEMAP_PATH, buildSitemap(entries, live, liveBrands), 'utf8');
     console.log('[build] Wrote sitemap.xml');
 
     fs.writeFileSync(ROBOTS_PATH, buildRobots(), 'utf8');
