@@ -613,6 +613,85 @@ const BRANDS = [
     }
 ];
 
+// ─── Out-of-state delivery pages ─────────────────────────────────────────
+//
+// Roughly 30% of tractor sales ship out of state (Sales by State report,
+// Oct 2026: AL 261, GA 26, TN 21, MS 20, LA 11, KY 7). Each page below targets
+// "new tractors <state>" searches. The boilerplate is generated; the optional
+// fields are what make a page genuinely different from its siblings, so fill
+// them in when there is something real to say:
+//   towns:   ['Rome', 'Dalton']  -> "recently delivered to ..." sentence
+//   note:    'Free-form paragraph about this state' (turnaround, popular models)
+//   reviews: [{ quote: '...', who: 'J. Smith, Cartersville' }]  (with permission)
+// Add Florida / South Carolina here the same way when their volume justifies it.
+
+const STATES = [
+    { name: 'Georgia',     slug: 'tractors-delivered-to-georgia',     towns: [], note: '', reviews: [] },
+    { name: 'Tennessee',   slug: 'tractors-delivered-to-tennessee',   towns: [], note: '', reviews: [] },
+    { name: 'Mississippi', slug: 'tractors-delivered-to-mississippi', towns: [], note: '', reviews: [] },
+    { name: 'Louisiana',   slug: 'tractors-delivered-to-louisiana',   towns: [], note: '', reviews: [] },
+    { name: 'Kentucky',    slug: 'tractors-delivered-to-kentucky',    towns: [], note: '', reviews: [] }
+];
+
+function statePath(st) { return '/inventory/' + st.slug; }
+
+function buildStatePage(st, tractors, live, liveBrands) {
+    const path = statePath(st);
+    const newCount = tractors.filter(e => !e.item.Used).length;
+
+    // A handful of units per brand: enough to be useful, short of cloning the
+    // main tractor page.
+    const byMfg = new Map();
+    for (const e of tractors) {
+        const m = e.item.Manufacturer || 'Other';
+        if (!byMfg.has(m)) byMfg.set(m, []);
+        byMfg.get(m).push(e);
+    }
+    const noPrice = e => (e.seo.priceText && !/call/i.test(e.seo.priceText)) ? 0 : 1;
+    const sections = [...byMfg.keys()].sort().map(m => {
+        const all  = byMfg.get(m).sort((a, b) => noPrice(a) - noPrice(b) || a.seo.headline.localeCompare(b.seo.headline));
+        const rows = all.slice(0, 6).map(e =>
+            '<li><a href="/inventory/' + escapeHtml(e.seo.slug) + '">' +
+                '<span class="bi-name">' + escapeHtml(e.seo.headline) + '</span>' +
+                '<span class="bi-meta">' + (e.item.Used ? 'Used' : 'New') + '</span>' +
+                '<span class="bi-price">' + escapeHtml(e.seo.priceText) + '</span></a></li>').join('');
+        const more = liveBrandPath.has(m)
+            ? '<p><a href="' + liveBrandPath.get(m) + '">See all ' + escapeHtml(m) + ' in stock (' + byMfg.get(m).length + ')</a></p>' : '';
+        return '<section class="brand-block"><h2>' + escapeHtml(m) + ' tractors <span class="count">' +
+               byMfg.get(m).length + ' in stock</span></h2><ul class="browse-list">' + rows + '</ul>' + more + '</section>';
+    }).join('\n');
+
+    let lede = 'Peach Outdoor ships new LS, Mahindra and Bad Boy tractors from Clanton, Alabama to buyers in ' +
+               escapeHtml(st.name) + '. Delivery is by freight carrier, and <a href="/delivery.html">freight is free on select units</a>; ' +
+               'call for a quote to your address. <strong>' + tractors.length + ' tractors in stock' +
+               (newCount < tractors.length ? ' (' + newCount + ' new)' : '') + '.</strong> ' +
+               'Sales <a href="tel:2052808838">(205) 280-8838</a>.';
+    if (st.towns.length) lede += ' We have recently delivered to customers in ' + escapeHtml(st.towns.join(', ')) + '.';
+    if (st.note) lede += ' ' + escapeHtml(st.note);
+    if (st.reviews.length) lede += '<br><br>' + st.reviews.map(r =>
+        '&ldquo;' + escapeHtml(r.quote) + '&rdquo; &mdash; ' + escapeHtml(r.who)).join('<br>');
+
+    const stateNav = STATES.map(o =>
+        '<a class="' + (o.slug === st.slug ? 'here' : '') + '" href="' + statePath(o) + '">' + escapeHtml(o.name) + '</a>').join('');
+
+    return renderListShell({
+        title: 'New Tractors Delivered to ' + st.name + ' | LS, Mahindra, Bad Boy | Peach Outdoor',
+        desc:  'Buy a new LS, Mahindra or Bad Boy tractor from Peach Outdoor in Clanton, Alabama and have it delivered to ' + st.name + '. Freight is free on select units. Call 205-280-8838.',
+        h1:    'New Tractors Delivered to ' + st.name,
+        entries: tractors,
+        canonicalPath: path,
+        crumbs: [
+            { name: 'Home', path: '/' },
+            { name: 'Delivery', path: '/delivery.html' },
+            { name: st.name, path: path }
+        ],
+        crumbHtml: '<a href="/">Home</a><span class="crumb-sep">&#8250;</span>' +
+                   '<a href="/delivery.html">Delivery</a><span class="crumb-sep">&#8250;</span>' +
+                   '<span aria-current="page">' + escapeHtml(st.name) + '</span>',
+        lede, catNav: stateNav, brandNav: renderBrandNav(liveBrands, null), jumps: '', sections
+    });
+}
+
 // Section headings on brand pages, in display order.
 const DEPT_LABELS = {
     TRACTOR: 'Tractors', MOWER: 'Zero-Turn Mowers', UTV: 'UTVs', LOADER: 'Loaders',
@@ -972,6 +1051,9 @@ function buildSitemap(entries, live, liveBrands) {
     for (const c of live) {
         staticPages.push({ loc: SITE_URL + categoryPath(c.cat), priority: '0.8', changefreq: 'daily' });
     }
+    for (const st of STATES) {
+        staticPages.push({ loc: SITE_URL + statePath(st), priority: '0.6', changefreq: 'weekly' });
+    }
     for (const b of liveBrands) {
         staticPages.push({ loc: SITE_URL + brandPath(b.brand), priority: '0.8', changefreq: 'daily' });
     }
@@ -1175,6 +1257,13 @@ function main() {
         fs.writeFileSync(path.join(OUTPUT_DIR, b.brand.slug + '.html'),
                          buildBrandPage(b.brand, b.entries, live, liveBrands), 'utf8');
         console.log('[build] Wrote ' + brandPath(b.brand) + ' (' + b.entries.length + ' items)');
+    }
+
+    const tractorEntries = entries.filter(e => (e.item.Department || '').trim().toUpperCase() === 'TRACTOR');
+    for (const st of STATES) {
+        fs.writeFileSync(path.join(OUTPUT_DIR, st.slug + '.html'),
+                         buildStatePage(st, tractorEntries.slice(), live, liveBrands), 'utf8');
+        console.log('[build] Wrote ' + statePath(st) + ' (' + tractorEntries.length + ' tractors)');
     }
 
     fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries, live, liveBrands), 'utf8');
