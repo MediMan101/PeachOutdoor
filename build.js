@@ -568,6 +568,15 @@ const BRANDS = [
         blurb: 'Peach Outdoor is an authorized Mahindra dealer in Clanton, Alabama. We sell new and used Mahindra compact and utility tractors off our lot on Big M Blvd, and we service them in our own shop on Christian Street after the sale. You can apply for financing online before you come out.'
     },
     {
+        // Model-line page: only the ROXOR series of Mahindra USA. Has no effect on
+        // Mahindra item links (those keep pointing at the Mahindra brand page).
+        mfg: 'Mahindra USA', series: 'ROXOR', minItems: 1, name: 'Mahindra Roxor', slug: 'mahindra-roxor-clanton-al',
+        title: 'Mahindra Roxor for Sale in Clanton, AL | Peach Outdoor',
+        h1:    'Mahindra Roxor for Sale in Clanton, Alabama',
+        desc:  'New Mahindra Roxor off-road UTVs for sale at Peach Outdoor in Clanton, Alabama. 2.7L turbo diesel, boxed steel frame, 3,500 lb towing. Call 205-280-8838.',
+        blurb: 'The Mahindra Roxor is a heavy-duty, body-on-frame off-road utility vehicle with a 2.7L turbo diesel, a boxed steel frame and 3,500 lb towing capacity. Peach Outdoor is an authorized Mahindra dealer in Clanton, Alabama, and we service what we sell in our own shop. Call for current Roxor availability and pricing.'
+    },
+    {
         mfg: 'LS Tractor', name: 'LS Tractor', short: 'LS', slug: 'ls-tractors-clanton-al',
         title: 'LS Tractor Dealer in Clanton, AL | Peach Outdoor',
         h1:    'LS Tractors for Sale in Clanton, Alabama',
@@ -901,7 +910,8 @@ function renderLineup(brand, entries) {
 function buildBrandPage(brand, entries, live, liveBrands) {
     const { jumps, sections } = renderBrandSections(entries, false, true);
     const path   = brandPath(brand);
-    const search = '/inventory.html?mfg=' + encodeURIComponent(brand.mfg);
+    const search = '/inventory.html?mfg=' + encodeURIComponent(brand.mfg) +
+                   (brand.series ? '&series=' + encodeURIComponent(brand.series) : '');
     const newCount  = entries.filter(e => !e.item.Used).length;
     const usedCount = entries.length - newCount;
 
@@ -1081,10 +1091,11 @@ function main() {
     // breadcrumbs and related blocks can link to them.
     const liveBrands = [];
     for (const brand of BRANDS) {
-        const bEntries = entries.filter(e => (e.item.Manufacturer || '') === brand.mfg);
-        if (bEntries.length >= MIN_BRAND_ITEMS) {
+        const bEntries = entries.filter(e => (e.item.Manufacturer || '') === brand.mfg &&
+            (!brand.series || String(e.item.Series || '').trim().toUpperCase() === brand.series));
+        if (bEntries.length >= (brand.minItems || MIN_BRAND_ITEMS)) {
             liveBrands.push({ brand, entries: bEntries });
-            liveBrandPath.set(brand.mfg, brandPath(brand));
+            if (!brand.series) liveBrandPath.set(brand.mfg, brandPath(brand));
         } else {
             console.log('[build] Skipping brand page ' + brand.name + ' — only ' + bEntries.length + ' item(s).');
         }
