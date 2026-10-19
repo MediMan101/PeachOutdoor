@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tractor Delivery Across the Southeast | Peach Outdoor, Clanton, AL</title>
+    <meta name="description" content="Peach Outdoor delivers tractors and equipment across the Southeast by freight carrier, within about 500 miles of Clanton, Alabama. Freight is free on some units. Call 205-280-8838.">
+    <link rel="canonical" href="https://peachoutdoor.com/delivery.html">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tractor and Equipment Delivery from Clanton, Alabama","description":"Peach Outdoor delivers tractors and equipment across the Southeast by freight carrier, within about 500 miles of Clanton, Alabama. Freight is free on some units. Call 205-280-8838.","url":"https://peachoutdoor.com/delivery.html","isPartOf":{"@type":"WebSite","name":"Peach Outdoor","url":"https://peachoutdoor.com/"},"about":{"@type":"Service","serviceType":"Tractor and equipment freight delivery","provider":{"@id":"https://peachoutdoor.com/#dealer"},"areaServed":[{"@type":"State","name":"Alabama"},{"@type":"State","name":"Georgia"},{"@type":"State","name":"Mississippi"},{"@type":"State","name":"Tennessee"},{"@type":"State","name":"Florida"},{"@type":"State","name":"Kentucky"},{"@type":"State","name":"Louisiana"},{"@type":"State","name":"South Carolina"}]}}</script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* ── Nav ── */
+        nav {
+            background: #1a1a2e;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav .logo img {
+            height: 48px;
+            display: block;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover,
+        nav .nav-links a.active {
+            color: #fff;
+        }
+
+        /* Hamburger */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .nav-hamburger .bar {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: #ccc;
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile dropdown menu */
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            background: #1a1a1a;
+        }
+        .mobile-nav-menu.open { display: flex; }
+        .mobile-nav-menu a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 14px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .mobile-nav-menu a:hover { background: #333; color: #fff; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── Page wrapper ── */
+        .page-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 16px 60px;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 40px 0 32px;
+            border-bottom: 1px solid #ddd;
+        }
+        .hero-tagline {
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .hero h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+            max-width: 720px;
+        }
+
+        /* ── Sections ── */
+        .section {
+            padding: 36px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+        .section p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Stats ── */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+            margin-top: 24px;
+        }
+        .stat-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .stat-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: #777;
+        }
+
+        /* ── Team ── */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .team-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #1a1a2e;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .team-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 6px;
+        }
+        .team-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ── Brands ── */
+        .brand-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 16px;
+        }
+        .brand-pill {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 999px;
+            padding: 7px 18px;
+            font-size: 13px;
+            color: #444;
+            text-decoration: none;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+            display: inline-block;
+        }
+        .brand-pill:hover {
+            background: #1a1a2e;
+            border-color: #1a1a2e;
+            color: #fff;
+        }
+
+        /* ── Location ── */
+        .location-section {
+            padding: 36px 0 0;
+        }
+        .location-section h2 {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 16px;
+        }
+        .location-section p {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a2e;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 24px; }
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="logo" href="index.html"><img src="PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="lineup.html">Lineup</a>
+        <a href="financing.html">Financing</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</nav>
+<div class="mobile-nav-menu" id="mobileNavMenu">
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="lineup.html">Lineup</a>
+    <a href="financing.html">Financing</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About Us</a>
+</div>
+
+<div class="page-wrapper">
+
+    <div class="hero">
+        <p class="hero-tagline">Delivery</p>
+        <h1>Tractor and Equipment Delivery from Clanton, Alabama</h1>
+        <p>Peach Outdoor sells tractors, mowers and equipment to customers well beyond Clanton. We arrange delivery through freight carriers, typically within about 500 miles of our Clanton, Alabama lot, and we have delivered to customers as far away as upstate New York.</p>
+    </div>
+
+    <div class="section">
+        <h2>Free freight on select units</h2>
+        <p>On some units, freight is free to the customer. Which ones changes with the equipment and current offers, so ask us when you call and we will tell you whether freight is included on the unit you want. When it is not included, we quote the freight up front so there are no surprises.</p>
+    </div>
+
+    <div class="section">
+        <h2>Where we deliver</h2>
+        <p>Most of our deliveries go to <strong>Alabama, Georgia, Mississippi, Tennessee and Florida</strong>. We also have many customers in <strong>Kentucky, Louisiana and South Carolina</strong>. If you are farther out, call us. We have done it before.</p>
+    </div>
+
+    <div class="section">
+        <h2>How it works</h2>
+        <p>Pick your tractor, mower or implement, then call or message us. We will confirm the unit and quote freight to your address, and we hand it off to a freight carrier. Financing can be started online before you decide.</p>
+        <p>Ready to start? Call sales at <a href="tel:2052808838">(205) 280-8838</a>, or browse what is in stock:</p>
+        <div class="brand-pills">
+            <a class="brand-pill" href="/inventory/tractors-for-sale-clanton-al">New Tractors</a>
+            <a class="brand-pill" href="/inventory/mahindra-tractors-clanton-al">Mahindra</a>
+            <a class="brand-pill" href="/inventory/ls-tractors-clanton-al">LS Tractor</a>
+            <a class="brand-pill" href="/inventory/bad-boy-mowers-tractors-clanton-al">Bad Boy</a>
+            <a class="brand-pill" href="/inventory/ironcraft-implements-clanton-al">IronCraft</a>
+            <a class="brand-pill" href="financing.html">Financing</a>
+        </div>
+    </div>
+
+    <div class="location-section">
+        <h2>Visit the lot</h2>
+        <p>Peach Outdoor is just off <strong>Interstate 65, Exit 205</strong> in Clanton, Alabama, if you would rather see it in person.</p>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 Peach Outdoor &mdash; Clanton, Alabama &mdash; I-65 Exit 205
+</footer>
+
+<script>
+(function(){
+    var btn=document.getElementById('navHamburger'),menu=document.getElementById('mobileNavMenu');
+    if(!btn||!menu)return;
+    btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.classList.toggle('open',o);});
+    document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!menu.contains(e.target)){menu.classList.remove('open');btn.classList.remove('open');}});
+})();
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

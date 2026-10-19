@@ -496,10 +496,10 @@ const MIN_CATEGORY_ITEMS = 10;
 const CATEGORIES = [
     {
         dept: 'TRACTOR', slug: 'tractors-for-sale-clanton-al', nav: 'Tractors',
-        title: 'Tractors for Sale in Clanton, AL | LS, Mahindra, Bad Boy',
-        h1:    'Tractors for Sale in Clanton, Alabama',
-        desc:  'Compact and utility tractors for sale at Peach Outdoor in Clanton, Alabama. Authorized LS, Mahindra and Bad Boy dealer with on-site service and online financing.',
-        blurb: 'New and used compact and utility tractors, in stock and ready to work. We are an authorized LS, Mahindra and Bad Boy dealer, we service what we sell from our own shop on Christian Street, and you can apply for financing online before you come out.'
+        title: 'New Tractors for Sale in Clanton, AL | LS, Mahindra, Bad Boy',
+        h1:    'New Tractors for Sale in Clanton, Alabama',
+        desc:  'Shop new compact and utility tractors at Peach Outdoor in Clanton, Alabama. Authorized LS, Mahindra and Bad Boy dealer. Financing and service on-site. Call 205-280-8838.',
+        blurb: 'Peach Outdoor sells new compact and utility tractors from LS, Mahindra and Bad Boy, with used tractors added as they come in. Whether you need a sub-compact for the yard or a 60+ hp utility tractor with a loader, we can match one to your acreage and your implements. We are an authorized dealer, we service what we sell from our own shop on Christian Street, and you can apply for financing online before you come out. We serve Clanton, Chilton County and the surrounding area.'
     },
     {
         dept: 'MOWER', slug: 'zero-turn-mowers-for-sale-clanton-al', nav: 'Zero-Turn Mowers',
@@ -640,6 +640,19 @@ function renderListShell(opts) {
         "isPartOf": { "@type": "WebSite", "name": "Peach Outdoor", "url": SITE_URL + '/' }
     };
     if (opts.about) schema.about = { "@type": "Brand", "name": opts.about };
+    // Tie the page to the dealership defined on the homepage and list the units
+    // so Google reads the page as a hub for the item pages.
+    schema.publisher = { "@id": SITE_URL + '/#dealer' };
+    if (opts.entries && opts.entries.length) {
+        schema.mainEntity = {
+            "@type": "ItemList",
+            "numberOfItems": opts.entries.length,
+            "itemListElement": opts.entries.slice(0, 100).map((e, i) => ({
+                "@type": "ListItem", "position": i + 1,
+                "url": SITE_URL + '/inventory/' + e.seo.slug
+            }))
+        };
+    }
 
     const crumbs = {
         "@context": "https://schema.org",
@@ -859,10 +872,11 @@ function buildCategoryPage(cat, entries, live, liveBrands) {
 
     const lede = escapeHtml(cat.blurb) + ' <strong>' + entries.length + ' in stock.</strong> ' +
                  'Sales <a href="tel:2052808838">(205) 280-8838</a> &middot; ' +
-                 '<a href="' + BROWSE_PATH + '">see everything in stock</a>.';
+                 '<a href="' + BROWSE_PATH + '">see everything in stock</a>. ' +
+                 'We deliver across the Southeast &mdash; <a href="/delivery.html">freight is free on select units</a>.';
 
     return renderListShell({
-        title: cat.title, desc: cat.desc, h1: cat.h1,
+        title: cat.title, desc: cat.desc, h1: cat.h1, entries,
         canonicalPath: path,
         crumbs: [
             { name: 'Home', path: '/' },
@@ -918,10 +932,11 @@ function buildBrandPage(brand, entries, live, liveBrands) {
     const lede = escapeHtml(brand.blurb) + ' <strong>' + entries.length + ' ' + escapeHtml(brand.name) +
                  ' units in stock' + (usedCount ? ' (' + newCount + ' new, ' + usedCount + ' used)' : '') +
                  '.</strong> Sales <a href="tel:2052808838">(205) 280-8838</a> &middot; ' +
-                 '<a href="' + escapeHtml(search) + '">filter ' + escapeHtml(brand.name) + ' by price or type</a>.';
+                 '<a href="' + escapeHtml(search) + '">filter ' + escapeHtml(brand.name) + ' by price or type</a>. ' +
+                 'We deliver across the Southeast &mdash; <a href="/delivery.html">freight is free on select units</a>.';
 
     return renderListShell({
-        title: brand.title, desc: brand.desc, h1: brand.h1, about: brand.name,
+        title: brand.title, desc: brand.desc, h1: brand.h1, about: brand.name, entries,
         canonicalPath: path,
         crumbs: [
             { name: 'Home', path: '/' },
@@ -948,6 +963,7 @@ function buildSitemap(entries, live, liveBrands) {
         { loc: SITE_URL + BROWSE_PATH,           priority: '0.9', changefreq: 'daily' },
         { loc: SITE_URL + '/financing.html',     priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/about.html',         priority: '0.5', changefreq: 'monthly' },
+        { loc: SITE_URL + '/delivery.html',      priority: '0.6', changefreq: 'monthly' },
         { loc: SITE_URL + '/configurator.html',  priority: '0.5', changefreq: 'monthly' }
     ];
 
