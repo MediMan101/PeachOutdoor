@@ -16,22 +16,30 @@
     <meta property="og:image" content="https://peachoutdoor.com/PeachOutdoorLogo.png">
     <meta name="twitter:card" content="summary_large_image">
 
-    <!-- LocalBusiness structured data -->
+    <!-- Organization + Sales/Service LocalBusiness structured data. Hours mirror SITE_CONFIG in contact.html; keep both in sync. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Store",
-      "@id": "https://peachoutdoor.com/#dealer",
-      "name": "Peach Outdoor",
-      "url": "https://peachoutdoor.com/",
-      "logo": "https://peachoutdoor.com/PeachOutdoorLogo.png",
-      "image": "https://peachoutdoor.com/PeachOutdoorLogo.png",
-      "description": "Central Alabama dealer for tractors, implements, zero-turns, mowers and trailers. Sales and service in Clanton, AL.",
-      "priceRange": "$$",
-      "department": [
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://peachoutdoor.com/#org",
+          "name": "Peach Outdoor",
+          "url": "https://peachoutdoor.com/",
+          "logo": "https://peachoutdoor.com/PeachOutdoorLogo.png",
+          "foundingDate": "2014"
+        },
         {
           "@type": "Store",
+          "@id": "https://peachoutdoor.com/#dealer",
           "name": "Peach Outdoor — Sales",
+          "parentOrganization": {
+            "@id": "https://peachoutdoor.com/#org"
+          },
+          "url": "https://peachoutdoor.com/",
+          "logo": "https://peachoutdoor.com/PeachOutdoorLogo.png",
+          "image": "https://peachoutdoor.com/PeachOutdoorLogo.png",
+          "description": "Authorized LS, Mahindra, Bad Boy and Spartan dealer in Clanton, AL: new and used tractors, zero-turn mowers, implements and trailers.",
           "telephone": "+1-205-280-8838",
           "address": {
             "@type": "PostalAddress",
@@ -40,11 +48,81 @@
             "addressRegion": "AL",
             "postalCode": "35046",
             "addressCountry": "US"
-          }
+          },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=1940+Big+M+Blvd%2C+Clanton%2C+AL+35046",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "08:00",
+              "closes": "17:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "08:00",
+              "closes": "14:00"
+            }
+          ],
+          "paymentAccepted": "Cash, Check, Credit Card, Financing",
+          "areaServed": [
+            {
+              "@type": "State",
+              "name": "Alabama"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Chilton County, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Clanton, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Jemison, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Thorsby, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Maplesville, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Alabaster, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Prattville, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Montgomery, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Birmingham, Alabama"
+            }
+          ]
         },
         {
           "@type": "LocalBusiness",
-          "name": "Peach Outdoor — Service",
+          "@id": "https://peachoutdoor.com/#service",
+          "name": "Peach Outdoor — Service & Parts",
+          "parentOrganization": {
+            "@id": "https://peachoutdoor.com/#org"
+          },
+          "url": "https://peachoutdoor.com/contact.html",
+          "image": "https://peachoutdoor.com/PartsServiceIcon.png",
           "telephone": "+1-205-280-1885",
           "address": {
             "@type": "PostalAddress",
@@ -53,25 +131,71 @@
             "addressRegion": "AL",
             "postalCode": "35045",
             "addressCountry": "US"
-          }
+          },
+          "hasMap": "https://www.google.com/maps/search/?api=1&query=2037+Christian+St%2C+Clanton%2C+AL+35045",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday"
+              ],
+              "opens": "08:00",
+              "closes": "17:00"
+            },
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": "Saturday",
+              "opens": "08:00",
+              "closes": "14:00"
+            }
+          ],
+          "areaServed": [
+            {
+              "@type": "State",
+              "name": "Alabama"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "Chilton County, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Clanton, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Jemison, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Thorsby, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Maplesville, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Alabaster, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Prattville, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Montgomery, Alabama"
+            },
+            {
+              "@type": "City",
+              "name": "Birmingham, Alabama"
+            }
+          ]
         }
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1940 Big M Blvd",
-        "addressLocality": "Clanton",
-        "addressRegion": "AL",
-        "postalCode": "35046",
-        "addressCountry": "US"
-      },
-      "telephone": "+1-205-280-8838",
-      "areaServed": [
-        { "@type": "State", "name": "Alabama" },
-        { "@type": "AdministrativeArea", "name": "Chilton County, Alabama" },
-        { "@type": "City", "name": "Clanton, Alabama" },
-        { "@type": "City", "name": "Birmingham, Alabama" },
-        { "@type": "City", "name": "Montgomery, Alabama" },
-        { "@type": "City", "name": "Prattville, Alabama" }
       ]
     }
     </script>
