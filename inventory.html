@@ -384,7 +384,7 @@
 
     <!-- Top bar -->
     <div class="top-bar">
-        <a href="index.html" class="home-link">&#8592; Back to Home</a>
+        <a href="index.html" class="home-link" id="backLink">&#8592; Back to Home</a>
         <a href="index.html" class="logo-link"><img src="PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
         <a href="tel:2052808838" class="call-link">&#128222; (205) 280-8838</a>
     </div>
@@ -784,7 +784,37 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script>
+
+        // If the visitor arrived from another page on this site (Lineup chips,
+        // brand pages, the Mahindra guide...), make the top-left link return
+        // there. Filters use replaceState, so history.back() lands on that page.
+        (function () {
+            const link = document.getElementById('backLink');
+            if (!link || !document.referrer) return;
+            let ref;
+            try { ref = new URL(document.referrer); } catch (e) { return; }
+            if (ref.origin !== window.location.origin) return;
+            const path = ref.pathname.replace(/\/$/, '');
+            if (path === window.location.pathname.replace(/\/$/, '') || path === '/inventory.html') return;
+            const names = [
+                [/^\/lineup/, 'Lineup'],
+                [/^\/mahindra-tractors-guide/, 'Mahindra Guide'],
+                [/^\/(index\.html)?$/, 'Home'],
+                [/^\/inventory\/browse/, 'All Inventory'],
+                [/^\/inventory\/[^/]+-clanton-al$/, 'Previous Page'],
+                [/^\/about/, 'About'],
+                [/^\/financing/, 'Financing'],
+                [/^\/contact/, 'Contact']
+            ];
+            const hit = names.find(n => n[0].test(path || '/'));
+            const label = hit ? hit[1] : 'Previous Page';
+            link.textContent = '← Back to ' + label;
+            link.href = ref.href;
+            link.addEventListener('click', function (e) {
+                if (window.history.length > 1) { e.preventDefault(); window.history.back(); }
+            });
+        })();
+    </script>
 <!--End of Tawk.to Script-->
 </body>
 </html>
