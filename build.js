@@ -565,7 +565,7 @@ const BRANDS = [
         title: 'Mahindra Tractor Dealer in Clanton, AL | Peach Outdoor',
         h1:    'Mahindra Tractors for Sale in Clanton, Alabama',
         desc:  'Authorized Mahindra tractor dealer in Clanton, Alabama. New and used Mahindra compact and utility tractors in stock, with on-site service and online financing.',
-        blurb: 'Peach Outdoor is an authorized Mahindra dealer in Clanton, Alabama. We sell new and used Mahindra compact and utility tractors off our lot on Big M Blvd, and we service them in our own shop on Christian Street after the sale. You can apply for financing online before you come out.'
+        blurb: 'Peach Outdoor is an authorized Mahindra dealer in Clanton, Alabama. We are a top-five Mahindra dealer in the nation. We sell new and used Mahindra compact and utility tractors off our lot on Big M Blvd, and we service them in our own shop on Christian Street after the sale. You can apply for financing online before you come out.'
     },
     {
         // Model-line page: only the ROXOR series of Mahindra USA. Has no effect on
@@ -581,14 +581,14 @@ const BRANDS = [
         title: 'LS Tractor Dealer in Clanton, AL | Peach Outdoor',
         h1:    'LS Tractors for Sale in Clanton, Alabama',
         desc:  'Authorized LS Tractor dealer in Clanton, Alabama. LS compact and utility tractors, loaders and implements in stock, with on-site service and online financing.',
-        blurb: 'Peach Outdoor is an authorized LS Tractor dealer in Clanton, Alabama, and LS is one of the deepest lines on our lot. We stock LS compact and utility tractors along with matching LS implements, and we service what we sell in our own shop. Financing applications can be done online.'
+        blurb: 'Peach Outdoor is an authorized LS Tractor dealer in Clanton, Alabama, and LS is one of the deepest lines on our lot. We are a top-three LS dealer in the nation and the 2026 East Division Top Dealer. We stock LS compact and utility tractors along with matching LS implements, and we service what we sell in our own shop. Financing applications can be done online.'
     },
     {
         mfg: 'Bad Boy', name: 'Bad Boy', slug: 'bad-boy-mowers-tractors-clanton-al',
         title: 'Bad Boy Mowers & Tractors Dealer in Clanton, AL | Peach Outdoor',
         h1:    'Bad Boy Mowers, Tractors and Implements in Clanton, Alabama',
         desc:  'Authorized Bad Boy dealer in Clanton, Alabama. Bad Boy zero-turn mowers, compact tractors, implements and handheld equipment in stock, with parts and service.',
-        blurb: 'Peach Outdoor is an authorized Bad Boy dealer in Clanton, Alabama, carrying the whole line: Bad Boy compact tractors, zero-turn mowers, tractor implements and handheld equipment. Parts and service are handled in our own shop, so the Bad Boy you buy here is the one we look after.'
+        blurb: 'Peach Outdoor is an authorized Bad Boy dealer in Clanton, Alabama, a top-five Bad Boy dealer in the nation, carrying the whole line: Bad Boy compact tractors, zero-turn mowers, tractor implements and handheld equipment. Parts and service are handled in our own shop, so the Bad Boy you buy here is the one we look after.'
     },
     {
         mfg: 'IronCraft', name: 'IronCraft', slug: 'ironcraft-implements-clanton-al',
