@@ -562,6 +562,7 @@ const MIN_BRAND_ITEMS = 8;
 const BRANDS = [
     {
         mfg: 'Mahindra USA', name: 'Mahindra', slug: 'mahindra-tractors-clanton-al',
+        guide: '/mahindra-tractors-guide.html',
         title: 'Mahindra Tractor Dealer in Clanton, AL | Peach Outdoor',
         h1:    'Mahindra Tractors for Sale in Clanton, Alabama',
         desc:  'Authorized Mahindra tractor dealer in Clanton, Alabama. New and used Mahindra compact and utility tractors in stock, with on-site service and online financing.',
@@ -1012,7 +1013,8 @@ function buildBrandPage(brand, entries, live, liveBrands) {
                  ' units in stock' + (usedCount ? ' (' + newCount + ' new, ' + usedCount + ' used)' : '') +
                  '.</strong> Sales <a href="tel:2052808838">(205) 280-8838</a> &middot; ' +
                  '<a href="' + escapeHtml(search) + '">filter ' + escapeHtml(brand.name) + ' by price or type</a>. ' +
-                 'We deliver across the Southeast &mdash; <a href="/delivery.html">freight is free on select units</a>.';
+                 'We deliver across the Southeast &mdash; <a href="/delivery.html">freight is free on select units</a>.' +
+                 (brand.guide ? ' New to Mahindra? Read our <a href="' + escapeHtml(brand.guide) + '">Mahindra tractor buyer&rsquo;s guide</a>.' : '');
 
     return renderListShell({
         title: brand.title, desc: brand.desc, h1: brand.h1, about: brand.name, entries,
@@ -1043,7 +1045,8 @@ function buildSitemap(entries, live, liveBrands) {
         { loc: SITE_URL + '/financing.html',     priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/about.html',         priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/delivery.html',      priority: '0.6', changefreq: 'monthly' },
-        { loc: SITE_URL + '/configurator.html',  priority: '0.5', changefreq: 'monthly' }
+        { loc: SITE_URL + '/configurator.html',  priority: '0.5', changefreq: 'monthly' },
+        { loc: SITE_URL + '/mahindra-tractors-guide.html', priority: '0.6', changefreq: 'monthly' }
     ];
 
     // Category landing pages rank for the query, so they sit above item pages
