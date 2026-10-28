@@ -958,7 +958,7 @@
                     priceHtml = "<span class=\"price-main\">MSRP $" + itemData.MSRP.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "</span>";
                     const smsBody = "Hi, I'm interested in the " +
                         (itemData.Description || [itemData.Manufacturer, itemData.Model].filter(Boolean).join(' ')) +
-                        " (ID " + itemData.InventoryID + ") " + window.location.origin + window.location.pathname +
+                        " (ID " + itemData.InventoryID + (itemData.SerialNumber ? ", SN " + itemData.SerialNumber : "") + ") " + window.location.origin + window.location.pathname +
                         window.location.search + " - what is this month's discounted price?";
                     priceSubHtml = "<div class=\"price-call-note\"><a href=\"tel:+12052808838\">Call</a> or " +
                         "<a href=\"sms:+12052808838?&amp;body=" + encodeURIComponent(smsBody) + "\">Text</a>" +

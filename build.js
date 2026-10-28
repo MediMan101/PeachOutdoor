@@ -227,7 +227,7 @@ function renderPrice(item) {
             // Pre-filled text so the salesperson sees which unit the visitor tapped from.
             const smsBody = "Hi, I'm interested in the " +
                 (item.Description || [item.Manufacturer, item.Model].filter(Boolean).join(' ')) +
-                ' (ID ' + item.InventoryID + ') ' + SITE_URL + '/inventory/' + makeSlug(item) +
+                ' (ID ' + item.InventoryID + (item.SerialNumber ? ', SN ' + item.SerialNumber : '') + ') ' + SITE_URL + '/inventory/' + makeSlug(item) +
                 " - what is this month's discounted price?";
             priceSubHtml = '<div class="price-call-note"><a href="tel:+12052808838">Call</a> or ' +
                 '<a href="sms:+12052808838?&amp;body=' + escapeHtml(encodeURIComponent(smsBody)) + '">Text</a>' +
