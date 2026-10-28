@@ -171,7 +171,7 @@ function buildSEO(item) {
     if (item.SerialNumber) schema.serialNumber = item.SerialNumber;
     if (item.Department)   schema.category     = item.Department;
     if (item.Web_Price != null) schema.offers.price = Number(item.Web_Price);
-    else if (item.MSRP > 0) schema.offers.price = Number(item.MSRP); // shown on the page as "MSRP $X, call for today's price"
+    else if (item.MSRP > 0) schema.offers.price = Number(item.MSRP); // shown on the page as "MSRP $X, call for this month's discounted price"
 
     return { slug, canonical, pageTitle, description, primaryImage, headline, priceText, schema };
 }
@@ -224,7 +224,7 @@ function renderPrice(item) {
     } else {
         if (item.MSRP > 0) {
             priceHtml    = '<span class="price-main">MSRP ' + escapeHtml(formatMoney(item.MSRP)) + '</span>';
-            priceSubHtml = '<div class="price-monthly-details">Call for today\'s price</div>';
+            priceSubHtml = '<div class="price-call-note">Call for this Month\'s Discounted Price.</div>';
         } else {
             priceHtml = '<span class="price-call">Call for Price</span>';
         }

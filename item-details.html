@@ -285,6 +285,13 @@
             margin: -12px 0 16px;
         }
 
+        .price-call-note {
+            font-size: 1.25em;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin: -6px 0 16px;
+        }
+
         .msrp-price {
             font-size: 0.95em;
             color: var(--text-muted);
@@ -944,7 +951,7 @@
             } else {
                 if (itemData.MSRP > 0) {
                     priceHtml = "<span class=\"price-main\">MSRP $" + itemData.MSRP.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "</span>";
-                    priceSubHtml = "<div class=\"price-monthly-details\">Call for today's price</div>";
+                    priceSubHtml = "<div class=\"price-call-note\">Call for this Month's Discounted Price.</div>";
                 } else {
                     priceHtml = '<span class="price-call">Call for Price</span>';
                 }
