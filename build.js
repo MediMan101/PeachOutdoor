@@ -224,7 +224,7 @@ function renderPrice(item) {
     } else {
         if (item.MSRP > 0) {
             priceHtml    = '<span class="price-main">MSRP ' + escapeHtml(formatMoney(item.MSRP)) + '</span>';
-            priceSubHtml = '<div class="price-call-note">Call or Text for this Month\'s Discounted Price.</div>';
+            priceSubHtml = '<div class="price-call-note"><a href="tel:+12052808838">Call</a> or <a href="sms:+12052808838">Text</a> for this Month\'s Discounted Price.</div>';
         } else {
             priceHtml = '<span class="price-call">Call for Price</span>';
         }
