@@ -812,7 +812,7 @@
                     minimumFractionDigits: 2, maximumFractionDigits: 2
                 });
             } else {
-                priceText = 'Call for Price';
+                priceText = item.MSRP > 0 ? "MSRP $" + Number(item.MSRP).toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) : "Call for Price";
             }
 
             const condition = item.Used ? 'Used' : 'New';
@@ -904,6 +904,8 @@
             // Only include a numeric price if Web_Price is set; omit for "Call for Price"
             if (item.Web_Price != null) {
                 schema.offers.price = Number(item.Web_Price);
+            } else if (item.MSRP > 0) {
+                schema.offers.price = Number(item.MSRP);
             } else {
                 // For "Call for Price" items, indicate price on request
                 schema.offers.availability = "https://schema.org/InStock";
@@ -940,7 +942,12 @@
                     priceHtml += '<span class="msrp-price">MSRP ' + msrpFmt + '</span>';
                 }
             } else {
-                priceHtml = '<span class="price-call">Call for Price</span>';
+                if (itemData.MSRP > 0) {
+                    priceHtml = "<span class=\"price-main\">MSRP $" + itemData.MSRP.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}) + "</span>";
+                    priceSubHtml = "<div class=\"price-monthly-details\">Call for today's price</div>";
+                } else {
+                    priceHtml = '<span class="price-call">Call for Price</span>';
+                }
             }
 
             // Info pills

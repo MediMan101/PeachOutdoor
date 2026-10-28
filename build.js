@@ -113,7 +113,7 @@ function buildSEO(item) {
         ? item.PriceDisplayText // e.g. "$249 per month (WAC)"
         : (item.Web_Price != null
             ? formatMoney(item.Web_Price)
-            : 'Call for Price');
+            : (item.MSRP > 0 ? 'MSRP ' + formatMoney(item.MSRP) : 'Call for Price'));
 
     const pageTitle = headline + ' — ' + priceText + ' | Peach Outdoor';
 
@@ -171,6 +171,7 @@ function buildSEO(item) {
     if (item.SerialNumber) schema.serialNumber = item.SerialNumber;
     if (item.Department)   schema.category     = item.Department;
     if (item.Web_Price != null) schema.offers.price = Number(item.Web_Price);
+    else if (item.MSRP > 0) schema.offers.price = Number(item.MSRP); // shown on the page as "MSRP $X, call for today's price"
 
     return { slug, canonical, pageTitle, description, primaryImage, headline, priceText, schema };
 }
@@ -221,7 +222,12 @@ function renderPrice(item) {
             priceHtml += '<span class="msrp-price">MSRP ' + escapeHtml(formatMoney(item.MSRP)) + '</span>';
         }
     } else {
-        priceHtml = '<span class="price-call">Call for Price</span>';
+        if (item.MSRP > 0) {
+            priceHtml    = '<span class="price-main">MSRP ' + escapeHtml(formatMoney(item.MSRP)) + '</span>';
+            priceSubHtml = '<div class="price-monthly-details">Call for today\'s price</div>';
+        } else {
+            priceHtml = '<span class="price-call">Call for Price</span>';
+        }
     }
 
     return { priceHtml, priceSubHtml };
@@ -1009,7 +1015,13 @@ function buildBrandPage(brand, entries, live, liveBrands) {
     const newCount  = entries.filter(e => !e.item.Used).length;
     const usedCount = entries.length - newCount;
 
-    const lede = escapeHtml(brand.blurb) + ' <strong>' + entries.length + ' ' + escapeHtml(brand.name) +
+    const tPrices = entries.filter(e => /tractor/i.test(e.item.Department || ''))
+        .map(e => Number(e.item.Web_Price != null ? e.item.Web_Price : e.item.MSRP)).filter(n => n > 0);
+    const priceNote = tPrices.length >= 3
+        ? ' In-stock tractors are listed from ' + escapeHtml(formatMoney(Math.round(Math.min(...tPrices))).replace('.00', '')) +
+          ' to ' + escapeHtml(formatMoney(Math.round(Math.max(...tPrices))).replace('.00', '')) + ' (MSRP or sale price).'
+        : '';
+    const lede = escapeHtml(brand.blurb) + priceNote + ' <strong>' + entries.length + ' ' + escapeHtml(brand.name) +
                  ' units in stock' + (usedCount ? ' (' + newCount + ' new, ' + usedCount + ' used)' : '') +
                  '.</strong> Sales <a href="tel:2052808838">(205) 280-8838</a> &middot; ' +
                  '<a href="' + escapeHtml(search) + '">filter ' + escapeHtml(brand.name) + ' by price or type</a>. ' +
