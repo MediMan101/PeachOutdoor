@@ -224,7 +224,14 @@ function renderPrice(item) {
     } else {
         if (item.MSRP > 0) {
             priceHtml    = '<span class="price-main">MSRP ' + escapeHtml(formatMoney(item.MSRP)) + '</span>';
-            priceSubHtml = '<div class="price-call-note"><a href="tel:+12052808838">Call</a> or <a href="sms:+12052808838">Text</a> for this Month\'s Discounted Price.</div>';
+            // Pre-filled text so the salesperson sees which unit the visitor tapped from.
+            const smsBody = "Hi, I'm interested in the " +
+                (item.Description || [item.Manufacturer, item.Model].filter(Boolean).join(' ')) +
+                ' (ID ' + item.InventoryID + ') ' + SITE_URL + '/inventory/' + makeSlug(item) +
+                " - what is this month's discounted price?";
+            priceSubHtml = '<div class="price-call-note"><a href="tel:+12052808838">Call</a> or ' +
+                '<a href="sms:+12052808838?&amp;body=' + escapeHtml(encodeURIComponent(smsBody)) + '">Text</a>' +
+                " for this Month's Discounted Price.</div>";
         } else {
             priceHtml = '<span class="price-call">Call for Price</span>';
         }
