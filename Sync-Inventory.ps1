@@ -423,7 +423,9 @@ try {
             if ($publicId -and $BunnyStorageApiKey) {
                 if ($activeShareCount -eq 0) {
                     try {
-                        $storagePath = "$publicId.jpg"
+                        # Rows written by SalesMan (defaults, mp4 videos) already carry
+                        # the extension in PublicID; the IIS-folder rows do not.
+                        $storagePath = if ($publicId -match '\.(jpg|jpeg|png|webp|gif|mp4)$') { $publicId } else { "$publicId.jpg" }
                         $deleted = Remove-BunnyFile -StoragePath $storagePath
                         if ($deleted) {
                             $bunnyDeletedCount++
@@ -705,6 +707,9 @@ WHERE ip.PhotoURL IS NOT NULL
                 continue
             }
 
+            # Videos (default-model mp4s) have no thumbnail/card derivatives.
+            if ($photoUrl -match '\.mp4(\?.*)?$') { continue }
+
             $storagePath = $photoUrl.Substring($cdnPrefix.Length)
             $variantBase = $storagePath -replace '\.(jpg|jpeg|png|webp)$', ''
 
@@ -720,7 +725,7 @@ WHERE ip.PhotoURL IS NOT NULL
         if ($candidates.Count -eq 0) {
             Write-Log "All Bunny photos already have derivatives."
         } else {
-            $todo = $candidates | Select-Object -First $BackfillPerRun
+            $todo = @($candidates | Select-Object -First $BackfillPerRun)
             Write-Log "Backfilling derivatives for $($todo.Count) of $($candidates.Count) remaining photo(s)..."
 
             $bfDone = 0; $bfAlready = 0; $bfFailed = 0
@@ -844,17 +849,21 @@ $pricingSelect
     ISNULL(wd.Notes, '')           AS Notes,
     ISNULL(wd.AboutThisItem, '')   AS AboutThisItem,
     ISNULL(wd.FeaturedItem, 0)     AS FeaturedItem,
+    -- Cards paint PrimaryPhotoURL into an <img>, so it must be a still. If the
+    -- primary slot holds a default-model mp4, fall back to the next still.
     (
         SELECT TOP 1 PhotoURL
         FROM dbo.InventoryPhotos
         WHERE InventoryID = i.InventoryID
-          AND IsPrimary = 1
+          AND PhotoURL NOT LIKE '%.mp4'
+        ORDER BY IsPrimary DESC, SortOrder
     ) AS PrimaryPhotoURL,
     (
         SELECT TOP 1 CAST(IsDefault AS INT)
         FROM dbo.InventoryPhotos
         WHERE InventoryID = i.InventoryID
-          AND IsPrimary = 1
+          AND PhotoURL NOT LIKE '%.mp4'
+        ORDER BY IsPrimary DESC, SortOrder
     ) AS PrimaryPhotoIsDefault,
     (
         SELECT TOP 1 sm.SpecModel

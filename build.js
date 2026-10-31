@@ -128,7 +128,8 @@ function buildSEO(item) {
 
     // photosFor() normalises AllPhotos' three possible JSON shapes — see its
     // definition. Never index into item.AllPhotos directly.
-    const photos       = photosFor(item);
+    // Videos can't be og:image or schema image, so those use stills only.
+    const photos       = photosFor(item).filter(u => !isVideoUrl(u));
     const primaryImage = photos.length ? photos[0] : FALLBACK_OG_IMAGE;
 
     const slug      = makeSlug(item);
@@ -262,10 +263,16 @@ function renderGallery(photos, modelName) {
 
     // The first photo is the LCP element on this page: load it eagerly and let
     // the browser prioritise it. Thumbnails are below the fold — lazy.
+    // photosFor() sorts videos last, so photos[0] is only a video when the
+    // item has no still photos. Mirrors renderGallery() in item-details.html.
+    const firstIsVideo = isVideoUrl(photos[0]);
     let mainHtml =
         '<div class="main-photo-wrap" id="mainPhotoWrap">' +
-            '<img id="mainPhotoImg" src="' + escapeHtml(photos[0]) + '" alt="' + alt + '"' +
+            '<img id="mainPhotoImg" alt="' + alt + '"' +
+                (firstIsVideo ? ' style="display:none"' : ' src="' + escapeHtml(photos[0]) + '"') +
                 ' loading="eager" fetchpriority="high" decoding="async">' +
+            '<video id="mainPhotoVideo" controls playsinline preload="metadata"' +
+                (firstIsVideo ? ' style="display:block" src="' + escapeHtml(photos[0]) + '"' : '') + '></video>' +
             (photos.length > 1
                 ? '<button class="photo-nav prev" onclick="changePhoto(-1)">&#8249;</button>' +
                   '<button class="photo-nav next" onclick="changePhoto(1)">&#8250;</button>' +
@@ -278,7 +285,13 @@ function renderGallery(photos, modelName) {
     let thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
     for (let i = 0; i < photos.length; i++) {
         const full = escapeHtml(photos[i]);
-        thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
+        if (isVideoUrl(photos[i])) {
+            thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
+                '<video src="' + full + '#t=0.1" muted playsinline preload="metadata"></video>' +
+                '<div class="play-badge">&#9654;</div></div>';
+            continue;
+        }
+        thumbsHtml +='<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
             '<img src="' + escapeHtml(photoVariant(photos[i], 400)) + '" data-full="' + full + '"' +
                 ' alt="' + alt + ' photo ' + (i + 1) + '"' +
                 ' loading="lazy" decoding="async"' +
@@ -344,7 +357,15 @@ function photosFor(item) {
 
     if (!photos.length && item.PrimaryPhotoURL) photos = [item.PrimaryPhotoURL];
     if (!photos.length && item.ImageURL)        photos = [item.ImageURL];
-    return photos;
+
+    // Default-model videos (.mp4) go after the stills. Mirrors normalizePhotos()
+    // in item-details.html.
+    return photos.filter(u => !isVideoUrl(u)).concat(photos.filter(isVideoUrl));
+}
+
+// True for an mp4 URL (query string ignored). Mirrors item-details.html.
+function isVideoUrl(url) {
+    return typeof url === 'string' && /\.mp4(\?.*)?$/i.test(url);
 }
 
 function renderItemBody(item, specs) {

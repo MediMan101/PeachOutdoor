@@ -122,6 +122,15 @@
             transition: opacity 0.25s ease;
         }
 
+        /* Default-model mp4: shown in place of the main <img> when selected */
+        .main-photo-wrap video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+            display: none;
+        }
+
         .placeholder-icon {
             display: flex;
             align-items: center;
@@ -192,6 +201,15 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .thumb { position: relative; }
+        .thumb video { width: 100%; height: 100%; object-fit: cover; display: block; pointer-events: none; }
+        .thumb .play-badge {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.5em; text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.25); pointer-events: none;
         }
 
         .thumb:hover { border-color: var(--text-secondary); transform: scale(1.04); }
@@ -853,7 +871,8 @@
             // Pick the first photo for social previews
             // No photo yet? Fall back to the logo rather than leaving
             // content="" — matches FALLBACK_OG_IMAGE in build.js.
-            var itemPhotos   = normalizePhotos(item);
+            // Videos can't be og:image / schema image, so use stills only.
+            var itemPhotos   = normalizePhotos(item).filter(function (u) { return !isVideoUrl(u); });
             var primaryImage = itemPhotos.length
                 ? itemPhotos[0]
                 : 'https://peachoutdoor.com/PeachOutdoorLogo.png';
@@ -1011,10 +1030,16 @@
                 return '<div class="main-photo-wrap"><div class="placeholder-icon">&#128668;</div></div>';
             }
 
+            // normalizePhotos() sorts videos last, so photos[0] is only a
+            // video when the item has no still photos at all.
+            var firstIsVideo = isVideoUrl(photos[0]);
             var mainHtml =
                 '<div class="main-photo-wrap" id="mainPhotoWrap">' +
-                    '<img id="mainPhotoImg" src="' + cloudinaryUrl(photos[0]) + '" alt="' + modelName + '"' +
+                    '<img id="mainPhotoImg" alt="' + modelName + '"' +
+                        (firstIsVideo ? ' style="display:none"' : ' src="' + cloudinaryUrl(photos[0]) + '"') +
                         ' loading="eager" fetchpriority="high" decoding="async">' +
+                    '<video id="mainPhotoVideo" controls playsinline preload="metadata"' +
+                        (firstIsVideo ? ' style="display:block" src="' + photos[0] + '"' : '') + '></video>' +
                     (photos.length > 1 ?
                         '<button class="photo-nav prev" onclick="changePhoto(-1)">&#8249;</button>' +
                         '<button class="photo-nav next" onclick="changePhoto(1)">&#8250;</button>' +
@@ -1027,6 +1052,13 @@
             var thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
             for (var i = 0; i < photos.length; i++) {
                 var full  = cloudinaryUrl(photos[i]);
+                if (isVideoUrl(full)) {
+                    // First frame of the video as the thumbnail, with a play badge
+                    thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
+                        '<video src="' + full + '#t=0.1" muted playsinline preload="metadata"></video>' +
+                        '<div class="play-badge">&#9654;</div></div>';
+                    continue;
+                }
                 var thumb = photoVariant(full, 400);
                 thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
                     '<img src="' + thumb + '" data-full="' + full + '"' +
@@ -1054,7 +1086,23 @@
 
         function selectPhoto(index) {
             currentPhotoIndex = index;
-            document.getElementById('mainPhotoImg').src = cloudinaryUrl(allPhotos[index]);
+            var url = cloudinaryUrl(allPhotos[index]);
+            var img = document.getElementById('mainPhotoImg');
+            var vid = document.getElementById('mainPhotoVideo');
+            if (isVideoUrl(url)) {
+                img.style.display = 'none';
+                vid.src = url;
+                vid.style.display = 'block';
+            } else {
+                if (vid) {
+                    vid.pause();
+                    vid.removeAttribute('src');
+                    vid.load();
+                    vid.style.display = 'none';
+                }
+                img.style.display = '';
+                img.src = url;
+            }
             document.querySelectorAll('.thumb').forEach(function(t, i) {
                 t.classList.toggle('active', i === index);
             });
@@ -1100,7 +1148,16 @@
 
             if (!photos.length && item.PrimaryPhotoURL) photos = [item.PrimaryPhotoURL];
             if (!photos.length && item.ImageURL)        photos = [item.ImageURL];
-            return photos;
+
+            // Default-model videos (.mp4) go after the stills so the first
+            // slide, og:image and the cards are always a photo.
+            return photos.filter(function (u) { return !isVideoUrl(u); })
+                .concat(photos.filter(isVideoUrl));
+        }
+
+        // True for an mp4 URL (query string ignored). Mirrors build.js.
+        function isVideoUrl(url) {
+            return typeof url === 'string' && /\.mp4(\?.*)?$/i.test(url);
         }
 
         // Sync-Inventory.ps1 uploads <name>_400.jpg and <name>_800.jpg next to
