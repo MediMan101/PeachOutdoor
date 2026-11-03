@@ -780,6 +780,15 @@ function renderListShell(opts) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T87PCFP6GH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T87PCFP6GH');
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${escapeHtml(opts.title)}</title>
     <meta name="description" content="${escapeHtml(opts.desc)}">
