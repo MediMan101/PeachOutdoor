@@ -1094,6 +1094,7 @@ function buildSitemap(entries, live, liveBrands) {
         { loc: SITE_URL + '/financing.html',     priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/about.html',         priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/delivery.html',      priority: '0.6', changefreq: 'monthly' },
+        { loc: SITE_URL + '/privacy.html',       priority: '0.3', changefreq: 'yearly' },
         { loc: SITE_URL + '/configurator.html',  priority: '0.5', changefreq: 'monthly' },
         { loc: SITE_URL + '/mahindra-tractors-guide.html', priority: '0.6', changefreq: 'monthly' }
     ];
