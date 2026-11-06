@@ -26,32 +26,6 @@
                       ]
     },
     {
-        "InventoryID":  22091,
-        "Manufacturer":  "Caliber Trailer Mfg",
-        "Department":  "TRAILER",
-        "Series":  "7x22",
-        "Model":  "7K22D",
-        "Description":  "CALIBER 7\u0027 x 22\u0027 Trailer W/ Spare Tire Mount, Dovetail, Break Away, One Brake Axle",
-        "SerialNumber":  "57BBE2220S1086537",
-        "Location":  "CLA",
-        "MSRP":  5543.72,
-        "Web_Price":  null,
-        "Monthly_Payment":  null,
-        "PriceDisplayMode":  "CallForPrice",
-        "PriceDisplayText":  "Call for Price",
-        "PriceDisplaySubText":  null,
-        "Used":  false,
-        "FeaturedItem":  true,
-        "Notes":  "",
-        "AboutThisItem":  "",
-        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/CALIBER/7X22/Caliber_TRAILER_7x22_10K.jpg",
-        "PrimaryPhotoIsDefault":  true,
-        "SpecModel":  null,
-        "AllPhotos":  [
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/CALIBER/7X22/Caliber_TRAILER_7x22_10K.jpg"
-                      ]
-    },
-    {
         "InventoryID":  21728,
         "Manufacturer":  "Mahindra USA",
         "Department":  "TRACTOR",
@@ -214,8 +188,8 @@
         "PriceDisplaySubText":  null,
         "Used":  false,
         "FeaturedItem":  true,
-        "Notes":  "",
-        "AboutThisItem":  "",
+        "Notes":  "NOS Spartan SRT-XDE 54\" New, Old Stock, ** FULL WARRANTY **",
+        "AboutThisItem":  "Enjoy the comfort of Spartan’s Smart Ride Technology with six layers of comfort, including rear suspension with springs and radial tires.\r\nFeatures HILLSIDE / TRACTION: Spartan Mowers has engineered superior technology that combines perfect balance with superb incline control for a smoother, safer ride. Take it on an incline and feel the difference. *Industry standard does not recommend mowing on inclines over 15 degrees.\r\nHIGH QUALITY PARTS: Commercial-grade DNA is a key characteristic of Spartan Mowers, so our models feature the same heavy-duty components across the lineup",
         "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/SPARTAN/SRT-XDE/SRT-SDe.jpg",
         "PrimaryPhotoIsDefault":  true,
         "SpecModel":  null,
@@ -15676,6 +15650,32 @@
         "SpecModel":  null,
         "AllPhotos":  [
 
+                      ]
+    },
+    {
+        "InventoryID":  22091,
+        "Manufacturer":  "Caliber Trailer Mfg",
+        "Department":  "TRAILER",
+        "Series":  "7x22",
+        "Model":  "7K22D",
+        "Description":  "CALIBER 7\u0027 x 22\u0027 Trailer W/ Spare Tire Mount, Dovetail, Break Away, One Brake Axle",
+        "SerialNumber":  "57BBE2220S1086537",
+        "Location":  "CLA",
+        "MSRP":  5543.72,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/CALIBER/7X22/Caliber_TRAILER_7x22_10K.jpg",
+        "PrimaryPhotoIsDefault":  true,
+        "SpecModel":  null,
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/CALIBER/7X22/Caliber_TRAILER_7x22_10K.jpg"
                       ]
     },
     {
