@@ -1,32 +1,5 @@
 [
     {
-        "InventoryID":  19565,
-        "Manufacturer":  "Bad Boy",
-        "Department":  "HANDHELD",
-        "Series":  "TRIMMER",
-        "Model":  "7673",
-        "Description":  "Bad Boy 225-24 Hedge Trimmer",
-        "SerialNumber":  "A410903",
-        "Location":  "CLA",
-        "MSRP":  684,
-        "Web_Price":  459.95,
-        "Monthly_Payment":  null,
-        "PriceDisplayMode":  "Price",
-        "PriceDisplayText":  "$459.95",
-        "PriceDisplaySubText":  null,
-        "Used":  false,
-        "FeaturedItem":  true,
-        "Notes":  "Web Special",
-        "AboutThisItem":  "Get more done with the double-sided build of our hedge trimmer. The advance forward-facing exhaust eliminates hot downward exhaust onto shrubs to keep your cuts looking fresh.Rugged chrome steel blades are precision-ground and sharpened on all 3-cutting edges. They’re strong, polished, and double reciprocating to cut cleanly every time. The Bad Boy gas-powered hedge trimmer boasts a durable gearbox with ball and roller bearings for smooth, commercial-grade performance that’s sure to last.",
-        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/TRIMMER/Bad_Boy_HB450_Hedge_Trimmer_Gas.jpg",
-        "PrimaryPhotoIsDefault":  true,
-        "SpecModel":  null,
-        "AllPhotos":  [
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/TRIMMER/Bad_Boy_HB450_Hedge_Trimmer_Gas.jpg",
-                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/TRIMMER/Bad_Boy_HB450_hedge_trimmer_callout_1.jpg"
-                      ]
-    },
-    {
         "InventoryID":  22777,
         "Manufacturer":  "Bad Boy",
         "Department":  "TRACTOR",
@@ -976,6 +949,33 @@
         "SpecModel":  null,
         "AllPhotos":  [
 
+                      ]
+    },
+    {
+        "InventoryID":  19565,
+        "Manufacturer":  "Bad Boy",
+        "Department":  "HANDHELD",
+        "Series":  "TRIMMER",
+        "Model":  "7673",
+        "Description":  "Bad Boy 225-24 Hedge Trimmer",
+        "SerialNumber":  "A410903",
+        "Location":  "CLA",
+        "MSRP":  684,
+        "Web_Price":  459.95,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "Price",
+        "PriceDisplayText":  "$459.95",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "Web Special",
+        "AboutThisItem":  "Get more done with the double-sided build of our hedge trimmer. The advance forward-facing exhaust eliminates hot downward exhaust onto shrubs to keep your cuts looking fresh.Rugged chrome steel blades are precision-ground and sharpened on all 3-cutting edges. They’re strong, polished, and double reciprocating to cut cleanly every time. The Bad Boy gas-powered hedge trimmer boasts a durable gearbox with ball and roller bearings for smooth, commercial-grade performance that’s sure to last.",
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/TRIMMER/Bad_Boy_HB450_Hedge_Trimmer_Gas.jpg",
+        "PrimaryPhotoIsDefault":  true,
+        "SpecModel":  null,
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/TRIMMER/Bad_Boy_HB450_Hedge_Trimmer_Gas.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/BAD/TRIMMER/Bad_Boy_HB450_hedge_trimmer_callout_1.jpg"
                       ]
     },
     {
