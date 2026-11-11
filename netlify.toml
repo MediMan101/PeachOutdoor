@@ -23,3 +23,12 @@
   for = "/inventory/*"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
+
+# The netlify.app address serves the same site; send it to the real domain so
+# only peachoutdoor.com is crawled and indexed. Deploy previews and branch
+# deploys use other hostnames and are unaffected.
+[[redirects]]
+  from = "https://peachoutdoor.netlify.app/*"
+  to = "https://peachoutdoor.com/:splat"
+  status = 301
+  force = true
