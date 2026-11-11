@@ -1906,6 +1906,14 @@
         // Bunny .jpg URLs have derivatives — everything else passes through.
         // Pair with data-full + the restore step in onerror so a photo whose
         // variants haven't been generated yet still shows.
+        // mp4 to show as the card image. Prefer the synced PrimaryVideoURL; when it is
+        // absent (older inventory.json) fall back to an item whose only media is an mp4.
+        function videoOf(item) {
+            if (item.PrimaryVideoURL) return item.PrimaryVideoURL;
+            if (item.PrimaryPhotoURL || !Array.isArray(item.AllPhotos)) return null;
+            return item.AllPhotos.find(function (u) { return typeof u === 'string' && /\.mp4(\?.*)?$/i.test(u); }) || null;
+        }
+
         function photoVariant(url, width) {
             if (typeof url !== 'string' || !width) return url;
             if (url.indexOf('peachoutdoor.b-cdn.net/') === -1) return url;
@@ -2018,8 +2026,8 @@
                                     <div class="sidebar-item-brand">${item.Manufacturer}</div>
                                     <div class="sidebar-item-name">${item.Description}</div>
                                 </div>
-                                ${item.PrimaryVideoURL
-                                    ? `<video class="sidebar-item-img" src="${item.PrimaryVideoURL}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="pointer-events:none"></video>`
+                                ${videoOf(item)
+                                    ? `<video class="sidebar-item-img" src="${videoOf(item)}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="pointer-events:none"></video>`
                                     : item.PrimaryPhotoURL
                                     ? `<img class="sidebar-item-img" src="${photoVariant(item.PrimaryPhotoURL, 800)}" data-full="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" decoding="async" onerror="if(this.dataset.full){this.src=this.dataset.full;this.removeAttribute('data-full');return;}this.style.display='none'">`
                                     : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
@@ -2150,8 +2158,8 @@
                                 <div class="mobile-strip-brand">${item.Manufacturer}</div>
                                 <div class="mobile-strip-name">${item.Description}</div>
                             </div>
-                            ${item.PrimaryVideoURL
-                                ? `<video class="mobile-strip-img" src="${item.PrimaryVideoURL}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="pointer-events:none"></video>`
+                            ${videoOf(item)
+                                ? `<video class="mobile-strip-img" src="${videoOf(item)}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="pointer-events:none"></video>`
                                 : item.PrimaryPhotoURL
                                 ? `<img class="mobile-strip-img" src="${photoVariant(item.PrimaryPhotoURL, 800)}" data-full="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" decoding="async" onerror="if(this.dataset.full){this.src=this.dataset.full;this.removeAttribute('data-full');return;}this.parentElement.style.background='${bgColor}'">`
                                 : `<div class="mobile-strip-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
