@@ -1085,6 +1085,96 @@ function buildBrandPage(brand, entries, live, liveBrands) {
 
 // ─── Sitemap + robots ────────────────────────────────────────────────────
 
+// ─── Reviews page ─────────────────────────────────────────────────────────────
+// reviews.json is the data; reviews.html is a hand-written shell with marker
+// comments (<!--LIST:START-->...<!--LIST:END-->). This fills the markers so the
+// reviews are plain HTML (crawlable) plus Review/AggregateRating schema. While
+// there are no published reviews the page is noindex and left out of the
+// sitemap, so an empty page never reaches Google; the first review flips both.
+
+const REVIEWS_JSON = path.join(ROOT, 'reviews.json');
+const REVIEWS_HTML = path.join(ROOT, 'reviews.html');
+let REVIEWS_LIVE = false;
+
+function fillMarker(html, name, content) {
+    const re = new RegExp('<!--' + name + ':START-->[\\s\\S]*?<!--' + name + ':END-->');
+    if (!re.test(html)) throw new Error('reviews.html is missing the ' + name + ' marker');
+    return html.replace(re, () => '<!--' + name + ':START-->' + content + '<!--' + name + ':END-->');
+}
+
+function buildReviewsPage() {
+    if (!fs.existsSync(REVIEWS_JSON) || !fs.existsSync(REVIEWS_HTML)) return 0;
+    const data    = JSON.parse(fs.readFileSync(REVIEWS_JSON, 'utf8'));
+    const reviews = (data.reviews || []).filter(r =>
+        r && r.publish !== false && r.author && r.text &&
+        Number.isInteger(Number(r.rating)) && r.rating >= 1 && r.rating <= 5 &&
+        !isNaN(Date.parse(r.date)))
+        .sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+    REVIEWS_LIVE = reviews.length > 0;
+
+    const stars = n => '<span class="stars" role="img" aria-label="' + n + ' out of 5 stars">' +
+                       '&#9733;'.repeat(n) + '&#9734;'.repeat(5 - n) + '</span>';
+    const month = d => new Date(d).toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+
+    const list = reviews.length ? '<div class="review-list">' + reviews.map(r => {
+        const src = r.source
+            ? (r.sourceUrl ? '<a href="' + escapeHtml(r.sourceUrl) + '" rel="noopener" target="_blank">' + escapeHtml(r.source) + '</a>'
+                           : escapeHtml(r.source))
+            : '';
+        return '<article class="review-card">' +
+            '<div class="review-head"><span class="review-author">' + escapeHtml(r.author) + '</span>' +
+            '<span class="review-meta">' + stars(Number(r.rating)) + ' &middot; ' + month(r.date) +
+            (src ? ' &middot; ' + src : '') + '</span></div>' +
+            '<p class="review-text">' + escapeHtml(r.text) + '</p>' +
+            (r.product ? '<div class="review-product">Purchased: ' + escapeHtml(r.product) + '</div>' : '') +
+            (r.reply ? '<div class="review-reply"><strong>Peach Outdoor:</strong> ' + escapeHtml(r.reply) + '</div>' : '') +
+            '</article>';
+    }).join('') + '</div>'
+        : '<p>We are collecting customer reviews and will publish them here. In the meantime, see what customers are saying on our social profiles below, or call us at <a href="tel:2052808838">(205)&nbsp;280-8838</a>.</p>';
+
+    let summary = '', schema = '';
+    if (reviews.length) {
+        const avg = reviews.reduce((t, r) => t + Number(r.rating), 0) / reviews.length;
+        summary = '<div class="rating-summary"><span class="rating-big">' + avg.toFixed(1) + '</span>' +
+                  stars(Math.round(avg)) + '<span class="rating-count">' + reviews.length +
+                  ' review' + (reviews.length === 1 ? '' : 's') + '</span></div>';
+        schema = '<script type="application/ld+json">' + safeJSONForScript({
+            "@context": "https://schema.org",
+            "@type": "Store",
+            "@id": SITE_URL + '/#dealer',
+            "name": "Peach Outdoor",
+            "url": SITE_URL + '/',
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": Number(avg.toFixed(1)),
+                "reviewCount": reviews.length,
+                "bestRating": 5
+            },
+            "review": reviews.map(r => ({
+                "@type": "Review",
+                "author": { "@type": "Person", "name": r.author },
+                "datePublished": r.date,
+                "reviewRating": { "@type": "Rating", "ratingValue": Number(r.rating), "bestRating": 5 },
+                "reviewBody": r.text
+            }))
+        }) + '</script>';
+    }
+
+    const links = data.reviewLinks || {};
+    const buttons = [['google', 'Review us on Google'], ['facebook', 'Review us on Facebook']]
+        .filter(([k]) => /^https:\/\//.test(links[k] || ''))
+        .map(([k, label]) => '<a href="' + escapeHtml(links[k]) + '" rel="noopener" target="_blank">' + label + '</a>').join('');
+
+    let html = fs.readFileSync(REVIEWS_HTML, 'utf8');
+    html = fillMarker(html, 'ROBOTS',  REVIEWS_LIVE ? '' : '<meta name="robots" content="noindex">');
+    html = fillMarker(html, 'SCHEMA',  schema);
+    html = fillMarker(html, 'SUMMARY', summary);
+    html = fillMarker(html, 'LIST',    list);
+    html = fillMarker(html, 'LINKS',   buttons ? '<div class="review-links">' + buttons + '</div>' : '');
+    fs.writeFileSync(REVIEWS_HTML, html, 'utf8');
+    return reviews.length;
+}
+
 function buildSitemap(entries, live, liveBrands) {
     const today = new Date().toISOString().slice(0, 10);
     const staticPages = [
@@ -1103,6 +1193,9 @@ function buildSitemap(entries, live, liveBrands) {
     // in priority and below the two hub pages.
     for (const c of live) {
         staticPages.push({ loc: SITE_URL + categoryPath(c.cat), priority: '0.8', changefreq: 'daily' });
+    }
+    if (REVIEWS_LIVE) {
+        staticPages.push({ loc: SITE_URL + '/reviews.html', priority: '0.6', changefreq: 'weekly' });
     }
     for (const st of STATES) {
         staticPages.push({ loc: SITE_URL + statePath(st), priority: '0.6', changefreq: 'weekly' });
@@ -1321,6 +1414,8 @@ function main() {
 
     fs.writeFileSync(path.join(OUTPUT_DIR, BROWSE_FILE), buildBrowsePage(entries, live, liveBrands), 'utf8');
     console.log('[build] Wrote inventory/' + BROWSE_FILE + ' (browse index, ' + entries.length + ' links) -> ' + BROWSE_PATH);
+
+    console.log('[build] Reviews page: ' + buildReviewsPage() + ' published review(s).');
 
     fs.writeFileSync(SITEMAP_PATH, buildSitemap(entries, live, liveBrands), 'utf8');
     console.log('[build] Wrote sitemap.xml');

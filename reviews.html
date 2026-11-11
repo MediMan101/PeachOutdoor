@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T87PCFP6GH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-T87PCFP6GH');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | Peach Outdoor, Clanton, AL</title>
+    <meta name="description" content="What customers say about buying tractors and equipment from Peach Outdoor in Clanton, Alabama.">
+    <link rel="canonical" href="https://peachoutdoor.com/reviews.html">
+    <!--ROBOTS:START--><meta name="robots" content="noindex"><!--ROBOTS:END-->
+    <!--SCHEMA:START--><!--SCHEMA:END-->
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        /* ── Nav ── */
+        nav {
+            background: #1a1a2e;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        nav .logo img {
+            height: 48px;
+            display: block;
+        }
+        nav .nav-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        nav .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav .nav-links a:hover,
+        nav .nav-links a.active {
+            color: #fff;
+        }
+
+        /* Hamburger */
+        .nav-hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+        .nav-hamburger .bar {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: #ccc;
+            border-radius: 2px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+        .nav-hamburger.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-hamburger.open .bar:nth-child(2) { opacity: 0; }
+        .nav-hamburger.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Mobile dropdown menu */
+        .mobile-nav-menu {
+            display: none;
+            flex-direction: column;
+            background: #1a1a1a;
+        }
+        .mobile-nav-menu.open { display: flex; }
+        .mobile-nav-menu a {
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 14px 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .mobile-nav-menu a:hover { background: #333; color: #fff; }
+
+        @media (max-width: 600px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ── Page wrapper ── */
+        .page-wrapper { max-width: 900px; margin: 0 auto; padding: 0 16px 60px; }
+        .hero { padding: 40px 0 32px; border-bottom: 1px solid #ddd; }
+        .hero-tagline { font-size: 12px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+        .hero h1 { font-size: 32px; font-weight: bold; color: #1a1a2e; margin-bottom: 16px; line-height: 1.2; }
+        .hero p { font-size: 16px; color: #555; line-height: 1.7; max-width: 720px; }
+        .section { padding: 36px 0; border-bottom: 1px solid #ddd; }
+        .section h2 { font-size: 22px; font-weight: bold; color: #1a1a2e; margin-bottom: 16px; }
+        .section p { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 12px; }
+        .rating-summary { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
+        .rating-big { font-size: 40px; font-weight: bold; color: #1a1a2e; }
+        .stars { color: #e0a100; letter-spacing: 2px; font-size: 20px; }
+        .rating-count { font-size: 14px; color: #777; }
+        .review-list { display: grid; gap: 16px; margin-top: 16px; }
+        .review-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; }
+        .review-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+        .review-author { font-weight: bold; color: #1a1a2e; }
+        .review-meta { font-size: 13px; color: #777; }
+        .review-text { font-size: 15px; color: #444; line-height: 1.7; }
+        .review-product { font-size: 13px; color: #777; margin-top: 8px; }
+        .review-reply { margin-top: 12px; padding: 10px 14px; background: #f5f5f5; border-left: 3px solid #1a1a2e; font-size: 14px; color: #555; line-height: 1.6; }
+        .review-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        .review-links a { background: #1a1a2e; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 999px; font-size: 14px; }
+        .review-links a:hover { background: #333; }
+        footer { background: #1a1a2e; color: #aaa; text-align: center; padding: 20px; font-size: 13px; margin-top: 60px; }
+        @media (max-width: 600px) { .hero h1 { font-size: 24px; } }
+    </style>
+</head>
+<body>
+<nav>
+    <a class="logo" href="index.html"><img src="PeachOutdoorLogo.png" alt="Peach Outdoor"></a>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="inventory.html">Inventory</a>
+        <a href="lineup.html">Lineup</a>
+        <a href="financing.html">Financing</a>
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About Us</a>
+        <a href="delivery.html">Delivery</a>
+        <a href="reviews.html" class="active">Reviews</a>
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</nav>
+<div class="mobile-nav-menu" id="mobileNavMenu">
+    <a href="index.html">Home</a>
+    <a href="inventory.html">Inventory</a>
+    <a href="lineup.html">Lineup</a>
+    <a href="financing.html">Financing</a>
+    <a href="contact.html">Contact</a>
+    <a href="about.html">About Us</a>
+    <a href="delivery.html">Delivery</a>
+    <a href="reviews.html" class="active">Reviews</a>
+</div>
+
+<div class="page-wrapper">
+
+    <div class="hero">
+        <p class="hero-tagline">Customer Reviews</p>
+        <h1>What Our Customers Say About Peach Outdoor</h1>
+        <p>Peach Outdoor is a new tractor dealer in Clanton, Alabama. These are reviews from customers and shoppers who visited us for tractors, mowers and equipment, shown as they wrote them.</p>
+        <!--SUMMARY:START--><!--SUMMARY:END-->
+    </div>
+
+    <div class="section">
+        <h2>Recent reviews</h2>
+        <!--LIST:START--><!--LIST:END-->
+    </div>
+
+    <div class="section" style="border-bottom:0;">
+        <h2>Leave a review</h2>
+        <p>Bought from us? We would appreciate a few words about your experience. You can also call us at <a href="tel:2052808838">(205)&nbsp;280-8838</a>.</p>
+        <!--LINKS:START--><!--LINKS:END-->
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2026 Peach Outdoor &mdash; Clanton, Alabama &mdash; I-65 Exit 205 &middot; <a href="privacy.html" style="color:#ddd;">Privacy Policy</a>
+    <br>Follow us: <a href="https://www.facebook.com/peachoutdoorclanton/" rel="me noopener" target="_blank" style="color:#ddd;">Facebook</a> &middot; <a href="https://www.instagram.com/peachoutdoor01/" rel="me noopener" target="_blank" style="color:#ddd;">Instagram</a> &middot; <a href="https://www.youtube.com/channel/UC9AzAW95zFLq_Rz_3pXI-LQ/" rel="me noopener" target="_blank" style="color:#ddd;">YouTube</a> &middot; <a href="https://www.tiktok.com/@peachsouth01" rel="me noopener" target="_blank" style="color:#ddd;">TikTok</a> &middot; <a href="https://twitter.com/automotivepeach" rel="me noopener" target="_blank" style="color:#ddd;">X (Twitter)</a>
+</footer>
+
+<script>
+(function(){
+    var btn=document.getElementById('navHamburger'),menu=document.getElementById('mobileNavMenu');
+    if(!btn||!menu)return;
+    btn.addEventListener('click',function(){var o=menu.classList.toggle('open');btn.classList.toggle('open',o);});
+    document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!menu.contains(e.target)){menu.classList.remove('open');btn.classList.remove('open');}});
+})();
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>

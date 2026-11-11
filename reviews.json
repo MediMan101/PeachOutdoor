@@ -1,0 +1,123 @@
+{
+  "_readme": [
+    "Customer reviews for reviews.html. Edit this file, commit, push; node build.js renders it into the page.",
+    "Only add reviews the customer actually wrote, with their permission to publish. Never write or edit one for them.",
+    "Each review: author (required), rating 1-5 (required), text (required), date as YYYY-MM-DD (required),",
+    "  source (optional: Google, Facebook, Direct...), sourceUrl (optional link to the original),",
+    "  product (optional, e.g. 'Mahindra 1626 HST'), reply (optional dealership response), publish (set false to hide).",
+    "reviews.html stays noindex and out of the sitemap until at least one review is published here."
+  ],
+  "reviewLinks": {
+    "google": "",
+    "facebook": "https://www.facebook.com/peachoutdoorclanton/"
+  },
+  "reviews": [
+    {
+      "author": "Amy Dubois",
+      "rating": 5,
+      "date": "2025-10-15",
+      "source": "Google",
+      "text": "Friendly and knowledgeable staff. They didn't waste my time. Gave me the quote and information I asked for."
+    },
+    {
+      "author": "Brian Holes",
+      "rating": 5,
+      "date": "2026-04-29",
+      "source": "Google",
+      "product": "Bad Boy tractor package",
+      "text": "Purchased a Bad Boy tractor package last month and their customs support team was OUTSTANDING! The service and equipment were well worth the drive from TN to make this purchase."
+    },
+    {
+      "author": "Keith Grisco",
+      "rating": 5,
+      "date": "2026-07-15",
+      "source": "Google",
+      "text": "Great place with good people. I was shopping for a tractor and they were very helpful. I did not buy one from them because I found a very nice one that was just a few years old from an individual, but I would definitely buy one from these guys and use them for service."
+    },
+    {
+      "author": "George Bradley II",
+      "rating": 5,
+      "date": "2026-08-19",
+      "source": "Google",
+      "text": "Got a pretty good deal on this investment... Swift process.. Good people!!"
+    },
+    {
+      "author": "Dan Hoss",
+      "rating": 5,
+      "date": "2026-10-21",
+      "source": "Google",
+      "text": "Awesome tractors and great deals. No pressure sales. I picked up the exact tractor I need."
+    },
+    {
+      "author": "David Neese",
+      "rating": 5,
+      "date": "2025-09-26",
+      "source": "Google",
+      "product": "Mahindra package",
+      "text": "Keith and crew were great. Bought my Mahindra package over the phone. Will definitely be my go to for any tractor related items."
+    },
+    {
+      "author": "Brian Bailey",
+      "rating": 5,
+      "date": "2025-06-09",
+      "source": "Google",
+      "text": "Good group of guys. Had me in and out in no time with a new mower!! Look forward to doing more business with them"
+    },
+    {
+      "author": "Ronnie Burnett",
+      "rating": 5,
+      "date": "2025-06-07",
+      "source": "Google",
+      "text": "This is the 3rd purchase for this guys two tractors and a zero turn good bunch of guys."
+    },
+    {
+      "author": "Lewis Pearson",
+      "rating": 5,
+      "date": "2025-06-01",
+      "source": "Google",
+      "text": "Easy to talk to with no pressure."
+    },
+    {
+      "author": "Barry Piper",
+      "rating": 5,
+      "date": "2025-03-29",
+      "source": "Google",
+      "text": "Great people to deal with"
+    },
+    {
+      "author": "Gordon Loftin",
+      "rating": 5,
+      "date": "2024-11-15",
+      "source": "Google",
+      "text": "Very friendly, professional and willing to help anyway they can. Great equipment, decent price."
+    },
+    {
+      "author": "Rob Bridges",
+      "rating": 5,
+      "date": "2024-09-01",
+      "source": "Google",
+      "text": "Great folks and great products. Highly recomend."
+    },
+    {
+      "author": "Jacob McPherson",
+      "rating": 5,
+      "date": "2024-08-27",
+      "source": "Google",
+      "text": "Fantastic group of guys here! They definitely went above and beyond to get us financed AND to make sure we had all the equipment we needed! 10/10 would definitely recommend!"
+    },
+    {
+      "author": "Brandon Beck",
+      "rating": 5,
+      "date": "2024-08-19",
+      "source": "Google",
+      "text": "Always a pleasure dealing with these guys! On my second tractor bought through them and more than satisfied with every part of the process!"
+    },
+    {
+      "author": "Gordon Burdell",
+      "rating": 2,
+      "date": "2026-06-10",
+      "source": "Google",
+      "text": "Stay away from Mahindra"
+    }
+  ]
+}
