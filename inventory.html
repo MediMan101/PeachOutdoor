@@ -664,7 +664,10 @@
                 const isLS = mfgKey.includes('ls');
                 const fallbackImg = isLS ? 'LSMT226_Default.jpg' : null;
                 let photo;
-                if (item.PrimaryPhotoURL) {
+                if (item.PrimaryVideoURL) {
+                    // mp4 primary: show its first frame, not a blank <img>.
+                    photo = `<video src="${item.PrimaryVideoURL}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="width:100%;height:100%;object-fit:cover;pointer-events:none"></video>`;
+                } else if (item.PrimaryPhotoURL) {
                     // First error: a derivative that doesn't exist yet — drop
                     // back to the full-size original before giving up on the
                     // photo entirely. Second error runs the real fallback.

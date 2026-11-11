@@ -77,7 +77,14 @@
           "name": "Peach Outdoor",
           "url": "https://peachoutdoor.com/",
           "logo": "https://peachoutdoor.com/PeachOutdoorLogo.png",
-          "foundingDate": "2014"
+          "foundingDate": "2014",
+          "sameAs": [
+          "https://www.facebook.com/peachoutdoorclanton/",
+          "https://www.instagram.com/peachoutdoor01/",
+          "https://www.youtube.com/channel/UC9AzAW95zFLq_Rz_3pXI-LQ/",
+          "https://www.tiktok.com/@peachsouth01",
+          "https://twitter.com/automotivepeach"
+          ]
         },
         {
           "@type": "Store",
@@ -1107,6 +1114,8 @@
             margin-bottom: 40px;
         }
 
+        .footer-social { text-align: center; margin: 12px 0; font-size: 0.95rem; }
+        .footer-social a { color: inherit; text-decoration: underline; }
         .footer-section h4 {
             font-size: 1.3em;
             margin-bottom: 20px;
@@ -1878,6 +1887,7 @@
             Serving Clanton and Chilton County, and delivering across Central Alabama including
             Jemison, Thorsby, Maplesville, Alabaster, Prattville, Montgomery and Birmingham.
         </p>
+        <p class="footer-social">Follow Peach Outdoor: <a href="https://www.facebook.com/peachoutdoorclanton/" rel="me noopener" target="_blank">Facebook</a> &middot; <a href="https://www.instagram.com/peachoutdoor01/" rel="me noopener" target="_blank">Instagram</a> &middot; <a href="https://www.youtube.com/channel/UC9AzAW95zFLq_Rz_3pXI-LQ/" rel="me noopener" target="_blank">YouTube</a> &middot; <a href="https://www.tiktok.com/@peachsouth01" rel="me noopener" target="_blank">TikTok</a> &middot; <a href="https://twitter.com/automotivepeach" rel="me noopener" target="_blank">X (Twitter)</a></p>
         <div class="footer-bottom">
             <p>&copy; 2026 Peach Outdoor. All rights reserved. &middot; <a href="privacy.html" style="color:inherit;">Privacy Policy</a></p>
         </div>
@@ -2002,7 +2012,9 @@
                                     <div class="sidebar-item-brand">${item.Manufacturer}</div>
                                     <div class="sidebar-item-name">${item.Description}</div>
                                 </div>
-                                ${item.PrimaryPhotoURL
+                                ${item.PrimaryVideoURL
+                                    ? `<video class="sidebar-item-img" src="${item.PrimaryVideoURL}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="pointer-events:none"></video>`
+                                    : item.PrimaryPhotoURL
                                     ? `<img class="sidebar-item-img" src="${photoVariant(item.PrimaryPhotoURL, 800)}" data-full="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" decoding="async" onerror="if(this.dataset.full){this.src=this.dataset.full;this.removeAttribute('data-full');return;}this.style.display='none'">`
                                     : `<div class="sidebar-item-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
                                 }
@@ -2132,7 +2144,9 @@
                                 <div class="mobile-strip-brand">${item.Manufacturer}</div>
                                 <div class="mobile-strip-name">${item.Description}</div>
                             </div>
-                            ${item.PrimaryPhotoURL
+                            ${item.PrimaryVideoURL
+                                ? `<video class="mobile-strip-img" src="${item.PrimaryVideoURL}#t=0.1" muted playsinline preload="metadata" disablepictureinpicture style="pointer-events:none"></video>`
+                                : item.PrimaryPhotoURL
                                 ? `<img class="mobile-strip-img" src="${photoVariant(item.PrimaryPhotoURL, 800)}" data-full="${item.PrimaryPhotoURL}" alt="${item.Description}" loading="lazy" decoding="async" onerror="if(this.dataset.full){this.src=this.dataset.full;this.removeAttribute('data-full');return;}this.parentElement.style.background='${bgColor}'">`
                                 : `<div class="mobile-strip-img-placeholder" style="background:${bgColor}">${item.Manufacturer}</div>`
                             }

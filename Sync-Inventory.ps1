@@ -843,7 +843,13 @@ SELECT
     ISNULL(i.Description, '')      AS Description,
     ISNULL(i.Serial_Number, '')    AS SerialNumber,
     ISNULL(i.Location, '')         AS Location,
-    i.MSRP,
+    -- Published MSRP = unit MSRP + MSRP of every linked item (loader, backhoe...)
+    -- built onto it. Linked children carry LinkedItemID = parent InventoryID.
+    CASE WHEN i.MSRP IS NULL THEN NULL ELSE i.MSRP + ISNULL((
+        SELECT SUM(ISNULL(c.MSRP, 0)) FROM dbo.Inventory c
+        WHERE c.LinkedItemID = i.InventoryID
+          AND ISNULL(c.IsLinkedItem, 0) = 1
+          AND ISNULL(c.Deleted, 0) = 0), 0) END AS MSRP,
 $pricingSelect
     CAST(ISNULL(i.Used, 0) AS INT) AS Used,
     ISNULL(wd.Notes, '')           AS Notes,
@@ -865,6 +871,23 @@ $pricingSelect
           AND PhotoURL NOT LIKE '%.mp4'
         ORDER BY IsPrimary DESC, SortOrder
     ) AS PrimaryPhotoIsDefault,
+    -- A card cannot paint an mp4 into an <img>, but it can show the first frame
+    -- of a <video preload="metadata">. Offer the mp4 when it is the item's own
+    -- (non-default) primary photo, or when the item has no still at all.
+    (
+        SELECT TOP 1 v2.PhotoURL
+        FROM dbo.InventoryPhotos v2
+        WHERE v2.InventoryID = i.InventoryID
+          AND v2.PhotoURL LIKE '%.mp4'
+          AND (
+                (v2.IsPrimary = 1 AND ISNULL(v2.IsDefault, 0) = 0)
+                OR NOT EXISTS (
+                    SELECT 1 FROM dbo.InventoryPhotos s
+                    WHERE s.InventoryID = i.InventoryID
+                      AND s.PhotoURL NOT LIKE '%.mp4')
+              )
+        ORDER BY v2.IsPrimary DESC, v2.SortOrder
+    ) AS PrimaryVideoURL,
     (
         SELECT TOP 1 sm.SpecModel
         FROM dbo.ModelSpecsMap sm
@@ -943,6 +966,7 @@ foreach ($row in $inventoryRows) {
         AboutThisItem         = [string]$row.AboutThisItem
         PrimaryPhotoURL       = if ($row.PrimaryPhotoURL -is [DBNull]) { $null } else { [string]$row.PrimaryPhotoURL }
         PrimaryPhotoIsDefault = $primaryIsDefault
+        PrimaryVideoURL       = if ($row.PrimaryVideoURL -is [DBNull]) { $null } else { [string]$row.PrimaryVideoURL }
         SpecModel             = if ($row.SpecModel -is [DBNull]) { $null } else { [string]$row.SpecModel }
         # The @() around the if-expression is load-bearing. PowerShell pipes
         # the expression's result, and the pipeline UNROLLS arrays: an empty
