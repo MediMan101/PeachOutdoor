@@ -1,3 +1,6 @@
+# Send the netlify.app address to the real domain (only peachoutdoor.com should be indexed)
+https://peachoutdoor.netlify.app/*   https://peachoutdoor.com/:splat   301!
+
 # Redirects from old dealer CMS platform to new Netlify site
 # Old inventory listing pages -> new inventory page
 /mowers-tractors-utvs-for-sale--xAllInventory         /inventory.html   301
