@@ -1,0 +1,4 @@
+Contact: https://peachoutdoor.com/contact.html
+Expires: 2027-10-31T23:59:59.000Z
+Preferred-Languages: en
+Canonical: https://peachoutdoor.com/.well-known/security.txt

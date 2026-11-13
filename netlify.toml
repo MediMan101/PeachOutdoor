@@ -23,3 +23,15 @@
   for = "/inventory/*"
   [headers.values]
     Cache-Control = "public, max-age=300, must-revalidate"
+
+# Baseline security headers for every page. None of these change how the site
+# looks or works. No Content-Security-Policy on purpose: the pages use inline
+# scripts plus Tag Manager, Tawk chat, YouTube, Cognito and the Bunny CDN, so a
+# CSP needs a build-time hashing step and testing first.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
