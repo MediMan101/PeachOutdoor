@@ -64,7 +64,7 @@
         "PriceDisplaySubText":  null,
         "Used":  false,
         "FeaturedItem":  true,
-        "Notes":  "!! LIMITED TIME OFFER !!  Payment as low as $429.00 per month WAC (See dealer for details). THIS ENDS AUGUST 31, 2026.",
+        "Notes":  "!! LIMITED TIME OFFER !!  Payment as low as $429.00 per month WAC (See dealer for details). THIS DISCOUNTED PRICE ENDS SOON.",
         "AboutThisItem":  "DON\u0027T MISS THIS \u003e\u003e 40HP CAB TRACTOR \u003c\u003c ONLY $429.00 per MONTH wac.  YES, THIS INCLUDES THE LOADER...",
         "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/22174_40HX250360125/photo_123230.jpg",
         "PrimaryPhotoIsDefault":  false,
@@ -21806,6 +21806,32 @@
         "PrimaryPhotoURL":  null,
         "PrimaryPhotoIsDefault":  false,
         "SpecModel":  "MT125",
+        "AllPhotos":  {
+
+                      }
+    },
+    {
+        "InventoryID":  27509,
+        "Manufacturer":  "LS Tractor",
+        "Department":  "TRACTOR",
+        "Series":  "MT2",
+        "Model":  "MT225S",
+        "Description":  "LS TRACTOR MT225S HST 4WD",
+        "SerialNumber":  "KLJ23511VSJ004690",
+        "Location":  "CLA",
+        "MSRP":  23283.84,
+        "Web_Price":  null,
+        "Monthly_Payment":  null,
+        "PriceDisplayMode":  "CallForPrice",
+        "PriceDisplayText":  "Call for Price",
+        "PriceDisplaySubText":  null,
+        "Used":  false,
+        "FeaturedItem":  false,
+        "Notes":  "",
+        "AboutThisItem":  "",
+        "PrimaryPhotoURL":  null,
+        "PrimaryPhotoIsDefault":  false,
+        "SpecModel":  null,
         "AllPhotos":  {
 
                       }
