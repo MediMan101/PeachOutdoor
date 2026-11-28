@@ -1045,7 +1045,7 @@
             var mainHtml =
                 '<div class="main-photo-wrap" id="mainPhotoWrap">' +
                     '<img id="mainPhotoImg" alt="' + modelName + '"' +
-                        (firstIsVideo ? ' style="display:none"' : ' src="' + cloudinaryUrl(photos[0]) + '"') +
+                        (firstIsVideo ? ' style="display:none"' : ' src="' + displayUrl(photos[0]) + '"') +
                         ' loading="eager" fetchpriority="high" decoding="async">' +
                     '<video id="mainPhotoVideo" controls playsinline preload="metadata"' +
                         (firstIsVideo ? ' style="display:block" src="' + photos[0] + '"' : '') + '></video>' +
@@ -1060,7 +1060,7 @@
 
             var thumbsHtml = '<div class="thumbnails-row" id="thumbsRow">';
             for (var i = 0; i < photos.length; i++) {
-                var full  = cloudinaryUrl(photos[i]);
+                var full  = displayUrl(photos[i]);
                 if (isVideoUrl(full)) {
                     // First frame of the video as the thumbnail, with a play badge
                     thumbsHtml += '<div class="thumb' + (i === 0 ? ' active' : '') + '" onclick="selectPhoto(' + i + ')">' +
@@ -1095,7 +1095,7 @@
 
         function selectPhoto(index) {
             currentPhotoIndex = index;
-            var url = cloudinaryUrl(allPhotos[index]);
+            var url = displayUrl(allPhotos[index]);
             var img = document.getElementById('mainPhotoImg');
             var vid = document.getElementById('mainPhotoVideo');
             if (isVideoUrl(url)) {
@@ -1119,10 +1119,9 @@
             if (counter) counter.textContent = (index + 1) + ' / ' + allPhotos.length;
         }
 
-        // URLs are pre-optimized in the database with f_auto,q_auto,w_1200 —
-        // no client-side transform injection needed. Return URL unchanged.
+        // Photo URLs are served as stored (Bunny.net). No transform is applied.
         // The main gallery photo deliberately uses this full-size original.
-        function cloudinaryUrl(url) {
+        function displayUrl(url) {
             return url;
         }
 

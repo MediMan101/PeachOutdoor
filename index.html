@@ -367,6 +367,11 @@
             background: #dddddd;
         }
 
+        /* Mobile-only finance quick link (hidden on desktop) */
+        .mobile-finance-link {
+            display: none;
+        }
+
         /* Brand logo carousel */
         .brand-slide {
             position: absolute;
@@ -1189,22 +1194,67 @@
                 display: none;
             }
 
-            /* header-contact: only the carousel remains, full width */
+            /* header-contact: carousel on the left, finance link on the right */
             .header-contact {
                 width: 100%;
-                gap: 0;
+                gap: 10px;
+                align-items: center;
+                border-top: 1px solid #eeeeee;
+                margin-top: 8px;
             }
 
-            /* Brand carousel: remove absolute, go full-width below logo */
+            /* Brand carousel: remove absolute, takes the left side of the row */
             .brand-carousel {
                 position: relative;  /* must be relative so absolute slides have a containing block */
                 right: auto;
-                width: 100%;
+                flex: 1 1 auto;
+                min-width: 0;
+                width: auto;
                 height: 52px;        /* explicit height so slides (position:absolute; height:100%) render */
                 border-left: none;
-                border-top: 1px solid #eeeeee;
-                margin-top: 8px;
                 overflow: hidden;    /* clip slides that are fading out */
+            }
+
+            /* Brand text left-aligned so it sits on the left side */
+            .brand-slide {
+                align-items: flex-start;
+            }
+
+            .brand-slide .brand-name,
+            .brand-slide .brand-tagline {
+                text-align: left;
+            }
+
+            /* Finance quick link on the right side */
+            .mobile-finance-link {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 0 0 auto;
+                padding: 6px 14px;
+                background: #cc0000;
+                color: #ffffff;
+                border-radius: 6px;
+                text-decoration: none;
+                line-height: 1.1;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            }
+
+            .mobile-finance-link:active {
+                background: #a30000;
+            }
+
+            .mobile-finance-link .mfl-top {
+                font-size: 0.62em;
+                font-weight: 600;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+            }
+
+            .mobile-finance-link .mfl-main {
+                font-size: 0.95em;
+                font-weight: 800;
             }
 
             .brand-slide .brand-name {
@@ -1556,6 +1606,11 @@
                     <span class="brand-tagline" style="color:#555;">The Original Rotary Cutter</span>
                 </div>
             </div>
+            <!-- Mobile-only quick link to the credit application -->
+            <a href="financing.html" class="mobile-finance-link" aria-label="Apply for financing">
+                <span class="mfl-top">Apply for</span>
+                <span class="mfl-main">Financing</span>
+            </a>
         </div>
     </header>
 

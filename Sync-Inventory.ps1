@@ -675,8 +675,7 @@ VALUES (@inv, @url, @pub, @sort, @primary, 0, GETDATE())
     Write-Log "Variant cache: $($variantCache.Count) photo(s) already converted."
 
     try {
-        # Only Bunny-hosted photos — legacy Cloudinary URLs are served through
-        # Cloudinary and the site leaves those untouched.
+        # Only Bunny-hosted photos.
         $photoRowsForVariants = Invoke-SQL -Query @"
 SELECT DISTINCT ip.PhotoURL
 FROM dbo.InventoryPhotos ip

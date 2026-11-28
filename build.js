@@ -323,8 +323,7 @@ function renderNoSpecs() {
 
 // Sync-Inventory.ps1 uploads <name>_400.jpg / <name>_800.jpg next to every
 // Bunny-hosted photo. Mirrors photoVariant() in item-details.html — keep them
-// in sync. Only Bunny .jpg URLs have derivatives; legacy Cloudinary URLs and
-// anything else pass through unchanged.
+// in sync. Only Bunny .jpg URLs have derivatives; anything else passes through unchanged.
 function photoVariant(url, width) {
     if (typeof url !== 'string' || !width) return url;
     if (url.indexOf('peachoutdoor.b-cdn.net/') === -1) return url;

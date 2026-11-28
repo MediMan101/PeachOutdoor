@@ -36,7 +36,7 @@ ELSE
     PRINT 'Already exists: FeaturedItem'
 GO
 
--- PrimaryPhotoURL: Cloudinary URL of the main display photo
+-- PrimaryPhotoURL: Bunny.net URL of the main display photo
 IF NOT EXISTS (
     SELECT 1 FROM sys.columns
     WHERE object_id = OBJECT_ID('dbo.Inventory') AND name = 'PrimaryPhotoURL'
@@ -50,7 +50,7 @@ ELSE
     PRINT 'Already exists: PrimaryPhotoURL'
 GO
 
--- AllPhotos: comma-separated list of all Cloudinary photo URLs for the item
+-- AllPhotos: comma-separated list of all Bunny.net photo URLs for the item
 IF NOT EXISTS (
     SELECT 1 FROM sys.columns
     WHERE object_id = OBJECT_ID('dbo.Inventory') AND name = 'AllPhotos'
