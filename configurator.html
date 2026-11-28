@@ -614,18 +614,38 @@
         }
     </script>
     
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+    <!-- Kenect "Text Us" widget (messages land in the Kenect inbox) -->
+    <script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+    <script>
+    /* openKenect(): opens the Kenect widget from our own buttons.
+       Kenect only offers a toggle, so check the panel is closed first.
+       Also reports widget opens / sent messages to Google Analytics
+       (no names or phone numbers are sent to GA). */
+    (function () {
+        var TOKEN = 'YMG00J4LwubAnqrXw9851g';
+        function isOpen() {
+            var w = document.getElementById('iframe-wrapper-' + TOKEN);
+            return !!w && !w.classList.contains('display-none-' + TOKEN);
+        }
+        window.openKenect = function () {
+            if (isOpen()) return true;
+            if (typeof window.toggleKenectWidget === 'function') {
+                window.toggleKenectWidget();
+                return true;
+            }
+            return false;
+        };
+        window.addEventListener('message', function (event) {
+            var type = event && event.data && event.data.type;
+            if (typeof gtag !== 'function') return;
+            if (type === 'EVENT_WIDGET_OPENED') {
+                gtag('event', 'kenect_widget_opened', { event_category: 'KenectWidget' });
+            } else if (type === 'EVENT_SEND_MESSAGE') {
+                gtag('event', 'kenect_message_sent', { event_category: 'KenectWidget' });
+            }
+        });
     })();
     </script>
-    <!--End of Tawk.to Script-->
+    <!-- End Kenect widget -->
 </body>
 </html>

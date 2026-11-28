@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Peach Outdoor</title>
     <link rel="canonical" href="https://peachoutdoor.com/contact.html">
-    <meta name="description" content="Get in touch with Peach Outdoor — Text us, request a quote, or chat live. Find our phone numbers, addresses, and current hours.">
+    <meta name="description" content="Get in touch with Peach Outdoor — Text us, request a quote, or message us from the site. Find our phone numbers, addresses, and current hours.">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -445,7 +445,7 @@
     <div class="hero">
         <p class="hero-tagline">Contact Us</p>
         <h1>We're here to help</h1>
-        <p>Text us, request a quote, hop on live chat, or give us a call &mdash; whichever way is easiest for you. Our team is usually available during the hours below and responds quickly. We do require sleep though.</p>
+        <p>Text us, request a quote, message us from the site, or give us a call &mdash; whichever way is easiest for you. Our team is usually available during the hours below and responds quickly. We do require sleep though.</p>
     </div>
 
     <!-- ─── Quick action buttons ─── -->
@@ -454,7 +454,7 @@
             <a class="action-card" id="textUsCard" href="#">
                 <div class="action-icon">&#128241;</div>
                 <h3>Text Us</h3>
-                <p>On your phone, send us a text pre-filled and ready to go. On desktop, we'll open live chat instead.</p>
+                <p>On your phone, send us a text pre-filled and ready to go. On a computer, message us here and we'll text you back.</p>
             </a>
             <a class="action-card" href="#" onclick="openInquiryModal(); return false;">
                 <div class="action-icon">&#128203;</div>
@@ -463,8 +463,8 @@
             </a>
             <a class="action-card" href="#" onclick="openLiveChat(); return false;">
                 <div class="action-icon">&#128172;</div>
-                <h3>Live Chat</h3>
-                <p>Chat with our team right here on the site &mdash; usually available during business hours.</p>
+                <h3>Message Us</h3>
+                <p>Send us a message right here on the site &mdash; we'll reply by text to the number you give us.</p>
             </a>
         </div>
     </section>
@@ -690,7 +690,7 @@ function renderContactInfo() {
             serviceAddr.city + ', ' + serviceAddr.state + ' ' + serviceAddr.zip +
         '</a>';
 
-    // Wire the Text Us card: SMS app on mobile, tawk.to chat on desktop
+    // Wire the Text Us card: SMS app on mobile, Kenect widget on desktop
     var smsBody = encodeURIComponent("Hi Peach Outdoor — I'm interested in ");
     var smsHref = 'sms:+1' + c.phoneRaw.sales + '?&body=' + smsBody;
     var textUsCard = document.getElementById('textUsCard');
@@ -699,7 +699,7 @@ function renderContactInfo() {
     if (isMobile) {
         textUsCard.href = smsHref;
     } else {
-        // Desktop: most desktops don't have an SMS app, so open tawk.to instead
+        // Desktop: most desktops don't have an SMS app, so open the Kenect widget instead
         textUsCard.href = '#';
         textUsCard.addEventListener('click', function (e) {
             e.preventDefault();
@@ -880,15 +880,12 @@ renderContactInfo();
 renderHours();
 
 /* ──────────────────────────────────────────────────────────────────
-   Live Chat — open the tawk.to widget.
+   Message Us — open the Kenect "Text Us" widget.
    ────────────────────────────────────────────────────────────────── */
 function openLiveChat() {
-    if (typeof Tawk_API !== 'undefined' && Tawk_API.maximize) {
-        Tawk_API.maximize();
-        return;
-    }
+    if (typeof openKenect === 'function' && openKenect()) return;
     // Fallback if the widget hasn't loaded yet
-    alert('Look for the chat icon in the bottom-right corner of the screen to start a live chat.');
+    alert('Tap the "Text us!" button in the bottom-right corner of the screen to send us a message.');
 }
 
 /* ──────────────────────────────────────────────────────────────────
@@ -980,18 +977,38 @@ async function submitInquiry() {
 }
 </script>
 
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/69df40439191331c2d1876af/1jm8161vp';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
+<!-- Kenect "Text Us" widget (messages land in the Kenect inbox) -->
+<script async src='https://bit.ly/3Zyjlxs' type='text/javascript'></script>
+<script>
+/* openKenect(): opens the Kenect widget from our own buttons.
+   Kenect only offers a toggle, so check the panel is closed first.
+   Also reports widget opens / sent messages to Google Analytics
+   (no names or phone numbers are sent to GA). */
+(function () {
+    var TOKEN = 'YMG00J4LwubAnqrXw9851g';
+    function isOpen() {
+        var w = document.getElementById('iframe-wrapper-' + TOKEN);
+        return !!w && !w.classList.contains('display-none-' + TOKEN);
+    }
+    window.openKenect = function () {
+        if (isOpen()) return true;
+        if (typeof window.toggleKenectWidget === 'function') {
+            window.toggleKenectWidget();
+            return true;
+        }
+        return false;
+    };
+    window.addEventListener('message', function (event) {
+        var type = event && event.data && event.data.type;
+        if (typeof gtag !== 'function') return;
+        if (type === 'EVENT_WIDGET_OPENED') {
+            gtag('event', 'kenect_widget_opened', { event_category: 'KenectWidget' });
+        } else if (type === 'EVENT_SEND_MESSAGE') {
+            gtag('event', 'kenect_message_sent', { event_category: 'KenectWidget' });
+        }
+    });
 })();
 </script>
-<!--End of Tawk.to Script-->
+<!-- End Kenect widget -->
 </body>
 </html>
