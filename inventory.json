@@ -192,12 +192,14 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+        "PrimaryPhotoIsDefault":  true,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124524_45a2e0.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124609_ee150d.jpg"
+                      ]
     },
     {
         "InventoryID":  25222,
@@ -218,12 +220,14 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+        "PrimaryPhotoIsDefault":  true,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124524_45a2e0.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124609_ee150d.jpg"
+                      ]
     },
     {
         "InventoryID":  25223,
@@ -244,12 +248,14 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+        "PrimaryPhotoIsDefault":  true,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124524_45a2e0.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124609_ee150d.jpg"
+                      ]
     },
     {
         "InventoryID":  25224,
@@ -270,12 +276,14 @@
         "FeaturedItem":  false,
         "Notes":  "",
         "AboutThisItem":  "",
-        "PrimaryPhotoURL":  null,
-        "PrimaryPhotoIsDefault":  false,
+        "PrimaryPhotoURL":  "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+        "PrimaryPhotoIsDefault":  true,
         "SpecModel":  null,
-        "AllPhotos":  {
-
-                      }
+        "AllPhotos":  [
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124454_b77c5e.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124524_45a2e0.jpg",
+                          "https://peachoutdoor.b-cdn.net/peachoutdoor/defaults/bad/mower/088-1007-00/photo_20261128124609_ee150d.jpg"
+                      ]
     },
     {
         "InventoryID":  24709,
