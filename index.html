@@ -1290,13 +1290,14 @@
                 background: #1a1a1a;
                 overflow: hidden;
                 display: block;
-                padding-top: 124px;
+                padding-top: 157px;  /* clears fixed header + menu bar now that the video is gone */
                 margin-top: 0;
+                background: transparent;
             }
 
-            /* Mobile video wrapper: use aspect-ratio to size correctly */
+            /* Mobile video removed — wrapper stays hidden on phones */
             .mobile-video-wrap {
-                display: block;
+                display: none;
                 width: 100%;
                 aspect-ratio: 16 / 9;
                 overflow: hidden;
@@ -1659,17 +1660,6 @@
                 title="Peach Outdoor background video">
             </iframe>
         </div>
-        <!-- Mobile-only video: standard 16:9 iframe fills width with no black bars -->
-        <div class="mobile-video-wrap">
-            <iframe
-                id="heroVideoMobile"
-                src="https://www.youtube.com/embed/dUBMjhAdb5Q?autoplay=1&mute=1&loop=1&playlist=dUBMjhAdb5Q&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
-                frameborder="0"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Peach Outdoor background video">
-            </iframe>
-        </div>
         <script>
             // YouTube force-enables its auto-generated captions on muted
             // autoplay embeds (no URL parameter turns them off). Attach the
@@ -1710,7 +1700,6 @@
 
                 window.onYouTubeIframeAPIReady = function () {
                     suppressCaptions('heroVideoDesktop');
-                    suppressCaptions('heroVideoMobile');
                 };
             })();
         </script>
